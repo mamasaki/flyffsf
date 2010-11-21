@@ -1,0 +1,107 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+	<head>
+		<title>o3d converter v3</title>
+		<style type="text/css">
+			* {
+			       	margin: 0;
+				padding: 0;
+			}
+			body {
+				background-color: #0a1770;
+			}
+			#head {
+				background-image: url(head.png);
+				width: 1024px;
+				height: 400px;
+				margin: auto auto;
+			}
+			#content {
+				width: 964px;
+				border: 10px solid #073b73;
+				margin: auto auto;
+				background-color: white;
+				font-family: Verdana;
+				padding: 20px;
+			}
+			p {
+				margin-top: 10px;
+			}
+			ul, ol {
+				margin-left: 50px;
+			}
+			h1 {
+				margin-top: 20px;
+			}
+			.red {
+				color: red;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="head">
+		</div>
+		<div id="content">
+			<h1>Python Requirements</h1>
+			<p>If you want to use the Python sources you will need:
+			<ul>
+				<li>Install <a href="http://python.org/download/">Python 2.6</a></li>
+				<li>Install <a href="http://pyopengl.sourceforge.net/">PyOpenGL</a></li>
+				<li>Install <a href="http://www.pyglet.org/">Pyglet</a></li>
+				<li>Install <a href="http://www.wxpython.org/">wxPython</a></li>
+			</ul>
+			</p>
+			<h1>News</h1>
+			<p>
+			Here is a list of features:
+			<ul>
+				<li>3D view</li>
+				<li>Autoloading of texture, if possible</li>
+				<li>Just renaming a O3D file</li>
+				<li>Edit bone info</li>
+			</ul>
+			</p>
+			<h1>Editing Bones</h1>
+			<p>
+			Load the desired OBJ file. Click <strong>Misc > Animated</strong> than <strong>Misc > Load Reference</strong>. Choose a O3D File that is similar to your object. The different colors represent different bones. You can now set all the bones that are used in the reference file. Caution: Some colors have a very slight difference.
+			</p>
+			<p>
+			You can use <strong>TAB</strong> to switch between your mesh and ref mesh to change the view with 1,2,3 keys.
+			</p>
+			<p>
+			Once the ref mesh is loaded you can use <strong>arrow keys left and right</strong> to cycle trough the points and <strong>up and down</strong> to change the bone for that point.
+			</p>
+			<p>
+			Example:<br />
+			<ol>
+			<li>You finish your mesh in eg. Cinema4D and export it to OBJ format.</li>
+			<li>You load the OBJ into the converter.</li>
+			<li>You click <b>Misc. -> Animated</b></li>
+			<li>You click <b>Misc. -> Load reference</b></li>
+			<li>You chose a existing mesh that looks close to the one you made yourself. So eg you made long boots than you need a refenece with long boots, too.</li>
+			<li>Now you press <b>left or right arrow key</b> and also <b>up or down arrow key</b>. The points should now all turn into one color.</li>
+			<li>Now you can chose points with left/right and change their color with up/down. You have the reference to the right so you see which region has which color. I again tell you check also the bonevalue in the upperright corner, because some colors look very similar. I will change that sometime ;)</li>
+			</ol>
+			</p>
+			<h1>Elemental glow</h1>
+			<p>To enable elemental glow for you weapon, you have to add a new object group called "element" and give it 3 or 5 points. the 1st is the vertex (0,0,0) the following define start and end point of the first "element row" and the same for 2nd elemental row. The <span class="red">red lines are btw those "element rows"</span>. <strong>Export a O3D file to OBJ to see how it works..</strong></p>
+			<h1>Bugs</h1>
+			<p>
+			Some O3D files won't load at all.<br />
+			Some O3D files consist of multiple meshes. You will only see the 1st one, so don't wonder if the mesh seems incomplete.<br />
+			If your OBJ file is not in the correct format, loading it will fail.<br />
+			Other stuff..
+			</p>
+			<h1>The End</h1>
+			<p>
+			I suggest you restart the tool before you do serious editing (if you loaded other meshes before) because the code is a mess ;)<br />
+
+			Thanks to fatduck who reversed big parts of the O3D format.<br />
+			<br />
+			
+			</p>
+		</div>
+		
+	</body>
+</html>
+
