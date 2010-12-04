@@ -151,7 +151,7 @@ void InitGlobalVars( HINSTANCE hInstance )
 		g_Neuz.m_bStartFullscreen = FALSE;	
 
 #if defined(__INTERNALSERVER ) || defined(__TESTSERVER)
-	strcpy( g_szProtocolVersion, "20040706" );
+	strcpy( g_szProtocolVersion, "20070712" );
 #endif
 
 	if( ::GetLanguage() == LANG_KOR )
