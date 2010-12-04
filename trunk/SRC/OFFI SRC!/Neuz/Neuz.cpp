@@ -1298,59 +1298,60 @@ void CNeuzApp::HashMD5( char* szResult, LPCTSTR szPWD )
 {
 	char szBuffer[256];
 	char* szKey = "";
+//
+//#ifdef __INTERNALSERVER
+//	switch( LANG_KOR )
+//#else // __INTERNALSERVER
+//	switch( ::GetLanguage() )
+//#endif // __INTERNALSERVER
+//	{
+//	case LANG_JAP:	
+//		szKey = "chanho_park";
+//		break;
+//	case LANG_TWN:	
+//		szKey = "omg";
+//		break;
+//	case LANG_HK:
+//		szKey	= "tpgk";
+//		break;
+//	case LANG_ENG:
+//		{
+//			if( ::GetSubLanguage() == LANG_SUB_IND )
+//			{
+//				szKey = "dldhsdlseh";
+//			}
+//			else
+//			{
+//				szKey = "";//"patom";
+//			}
+//		}
+//		break;
+//	case LANG_KOR:	
+//		szKey = "@FLYFF";
+//		break;
+//	case LANG_GER:
+//		szKey	= "gjgusdbfjq";
+//		break;
+//	case LANG_SPA:
+//		szKey	= "rlawnsgud";
+//		break;
+//	case LANG_POR:
+//		//szKey	= "rlawnsgud";
+//		szKey	= "kikugalanet";	//chipi_090520 05/22부터 암호화키 변경
+//		break;
+//	case LANG_FRE:
+//		szKey	= "gjgusdbfjq";
+//		break;
+//	case LANG_VTN:
+//		szKey	= "dlrjsdn";
+//		break;
+//	case LANG_RUS:
+//		szKey	= "rlaansrms";
+//		break;
+//	}
 
-#ifdef __INTERNALSERVER
-	switch( LANG_KOR )
-#else // __INTERNALSERVER
-	switch( ::GetLanguage() )
-#endif // __INTERNALSERVER
-	{
-	case LANG_JAP:	
-		szKey = "chanho_park";
-		break;
-	case LANG_TWN:	
-		szKey = "omg";
-		break;
-	case LANG_HK:
-		szKey	= "tpgk";
-		break;
-	case LANG_ENG:
-		{
-			if( ::GetSubLanguage() == LANG_SUB_IND )
-			{
-				szKey = "dldhsdlseh";
-			}
-			else
-			{
-				szKey = "patom";
-			}
-		}
-		break;
-	case LANG_KOR:	
-		szKey = "@FLYFF";
-		break;
-	case LANG_GER:
-		szKey	= "gjgusdbfjq";
-		break;
-	case LANG_SPA:
-		szKey	= "rlawnsgud";
-		break;
-	case LANG_POR:
-		//szKey	= "rlawnsgud";
-		szKey	= "kikugalanet";	//chipi_090520 05/22부터 암호화키 변경
-		break;
-	case LANG_FRE:
-		szKey	= "gjgusdbfjq";
-		break;
-	case LANG_VTN:
-		szKey	= "dlrjsdn";
-		break;
-	case LANG_RUS:
-		szKey	= "rlaansrms";
-		break;
-	}
-
-	sprintf( szBuffer, "%s%s", szKey, szPWD );
+//	sprintf( szBuffer, "%s%s", szKey, szPWD );
+	sprintf( szBuffer, "%s", szPWD );
 	md5( szResult, szBuffer );
 }
 
