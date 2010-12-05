@@ -184,7 +184,7 @@ BOOL LoadDialogText( LPCTSTR szFile )
 						if(*pCur == '\r')
 						{
 							szBuffer[nIndex] = 0;
-							g_strings.push_back( szBuffer );
+							g_strings.push_back( szBuffer );						
 							nIndex = 0;
 							pCur += 2;
 						}
