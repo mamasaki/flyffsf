@@ -776,7 +776,7 @@ void CWorldMng::CheckMapKey( CUser* pUser, const char* szFileName, const char* s
 			return;
 	}
 
-	
+	return;
 	// 맵 인증 실패 접속을 끊어버려야 한다.
 #if __VER >= 15
 	int x = int( pUser->GetPos().x ) / ( MAP_SIZE * pUser->GetWorld()->m_iMPU );
