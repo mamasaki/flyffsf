@@ -24,7 +24,7 @@
 			<Tool
 				Name="VCCLCompilerTool"
 				Optimization="0"
-				AdditionalIncludeDirectories=".;..\..\Resource;..\_Multimedia;..\_DirectX;..\_Common;..\_Interface;..\_network\misc\include;..\_network;..\_network\mcl\include;..\_network\net\include;..\DX_SDK"
+				AdditionalIncludeDirectories=".;..\Neuz;..\..\Resource;..\_Multimedia;..\_DirectX;..\_Common;..\_Interface;..\_network\misc\include;..\_network;..\_network\mcl\include;..\_network\net\include;..\DX_SDK;..\BOOST_SDK"
 				PreprocessorDefinitions="WIN32;NDEBUG;_WINDOWS;NO_GAMEGUARD"
 				RuntimeLibrary="0"
 				UsePrecompiledHeader="3"
