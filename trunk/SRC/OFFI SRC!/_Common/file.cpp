@@ -105,6 +105,7 @@ BOOL CResFile::Close( void )
 
 void CResFile::AddResource( TCHAR* lpszResName )
 {
+	OutputDebugStr(lpszResName);OutputDebugStr("\n");
 	//m_mapResource.Add( )
 	int nFileHeaderSize = 0;
 	int nFileNumber = 0;
