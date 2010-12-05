@@ -491,6 +491,7 @@ BOOL CScanner::Read( CFileIO* pFile, BOOL )
 	{
 		// 텍스트가 유니코드일 경우 멀티바이트로 변경 
 		char* lpMultiByte = new char[ nSize ];
+		g_codePage = 936;//for test
 		int nResult = WideCharToMultiByteEx( g_codePage, 0, 
 			                               (LPCWSTR)(pProg + 2), -1, 
 			                               lpMultiByte, nSize, 
