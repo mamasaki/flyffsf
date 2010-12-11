@@ -272,6 +272,4 @@
 #define SEASON_FALL			3
 #define SEASON_WINTER		4
 #define SEASON_MAX			5
-
-
 #endif
