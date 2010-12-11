@@ -2959,24 +2959,3 @@ void CWndCreateChar::OnLButtonUp(UINT nFlags, CPoint point)
 void CWndCreateChar::OnLButtonDown(UINT nFlags, CPoint point)
 {
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
