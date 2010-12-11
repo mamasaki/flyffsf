@@ -166,11 +166,4 @@ inline HANDLE CDPMng::GetCloseHandle( void )
 	}
 #endif	// __CRC
 
-inline BOOL CDPMng::Send( LPVOID lpData, DWORD dwDataSize, DPID dpidTo )
-{	
-	if( !m_pDPSock )
-		return FALSE;
-	return m_pDPSock->Send( (char*)lpData, dwDataSize, dpidTo );
-}
-
 #endif //__DPMNG_H__

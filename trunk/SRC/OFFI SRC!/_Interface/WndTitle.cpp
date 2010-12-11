@@ -2862,7 +2862,7 @@ BOOL CWndCreateChar::OnChildNotify( UINT message, UINT nID, LRESULT* pLResult )
 				}
 
 				if( prj.IsInvalidName( string )
-#ifdef __RULE_0615
+#if 0//#ifdef __RULE_0615
 					|| prj.IsAllowedLetter( string ) == FALSE
 #endif	// __RULE_0615
 					)

@@ -20,6 +20,7 @@
 #ifdef __CRASH_0404
 #include "crashstatus.h"
 #endif	// __CRASH_0404
+#include "MsgHdr.h"
 
 
 u_int	__stdcall ReceiveThread( LPVOID lpvThreadParameter );
@@ -213,6 +214,21 @@ DWORD CDPMng::GetDebugInfo( DPID dpid )
 		return m_pDPSock->GetDebugInfo( dpid );
 	return 0;
 }
+
+BOOL CDPMng::Send(LPVOID lpData, DWORD dwDataSize, DPID dpidTo)
+{
+	if( !m_pDPSock )
+		return FALSE;
+
+	//BEFORESENDSOLE( ar, PACKETTYPE_PING, DPID_UNKNOWN );
+	char * pTemp = (char *)lpData + sizeof(DWORD);
+	if(*((DWORD *)pTemp) != PACKETTYPE_PING && *((DWORD *)lpData) != PACKETTYPE_PING)
+	{
+		int a = 1;
+	}
+	return m_pDPSock->Send( (char*)lpData, dwDataSize, dpidTo );
+}
+
 #endif	// __INFO_SOCKLIB0516
 
 u_int __stdcall ReceiveThread( LPVOID lpvThreadParameter )

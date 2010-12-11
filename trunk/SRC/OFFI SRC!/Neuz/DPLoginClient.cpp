@@ -92,6 +92,12 @@ void CDPLoginClient::UserMessageHandler( LPDPMSG_GENERIC lpMsg, DWORD dwMsgSize,
 {
 	CAr ar( (LPBYTE)lpMsg, dwMsgSize );
 	GETTYPE( ar );
+
+	if(dw != 20)
+	{
+		int a = 1;
+	}
+
 	void ( theClass::*pfn )( theParameters )	=	GetHandler( dw );
 	
 	if( pfn ) 
