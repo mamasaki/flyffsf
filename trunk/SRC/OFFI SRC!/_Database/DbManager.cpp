@@ -152,7 +152,7 @@ void CDbManager::CreatePlayer( CQuery *qry, LPDB_OVERLAPPED_PLUS lpDbOverlappedP
 
 #ifdef __RULE_0615
 	// 해킹이므로 무시
-	if( prj.IsInvalidName( lpDbOverlappedPlus->AccountInfo.szPlayer ) || prj.IsAllowedLetter( lpDbOverlappedPlus->AccountInfo.szPlayer ) == FALSE )
+	if( prj.IsInvalidName( lpDbOverlappedPlus->AccountInfo.szPlayer ) /*|| prj.IsAllowedLetter( lpDbOverlappedPlus->AccountInfo.szPlayer ) == FALSE*/ )
 	{
 		FreeRequest( lpDbOverlappedPlus );
 		return;
