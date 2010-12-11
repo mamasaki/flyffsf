@@ -952,11 +952,6 @@
 #define	XI_EFFECT01							1927
 #define	XI_GEN_RUSTIAGATE01						1928
 
-#define	XI_RARFLOWER01						1929
-#define	XI_RARGROUND01						1930
-#define	XI_RARTREE01						1931
-#define	XI_RARTREE02						1932
-
 // Mover(Npc, Pc)
 #define MI_DEFAULT                           10
 #define MI_MALE                              11
@@ -1541,6 +1536,8 @@
 
 //일반 퀘스트 몬스터 및 NPC
 #define MI_RBANG1	800	//붉은 뱅 도적단원
+//침랬밖뀁듐
+#define MI_MAGICVIEWPOINT   810
 //시나리오 퀘스트 몬스터(2차)
 #define MI_VIOLMAGICION	811	//자색의 마법단원
 #define MI_VIOLMAGICION2 812	//자색의 마법 극단장
@@ -1974,16 +1971,6 @@
 #define	MI_PET_CHESHIRECAT		1154
 #define	MI_PET_WHITERABBIT		1155
 #define	MI_PET_WHITETIGER02		1156
-
-//16차 유료지역 라르테시아 몬스터
-
-#define	MI_RABBITGUARDER01		1157
-#define	MI_TUTTLESWORDER01		1158
-#define	MI_TUTTLEFIGHTER01		1159
-#define	MI_TUTTLEASSASSIN01		1160
-#define	MI_TUTTLESPEAR01		1161
-#define	MI_TUTTLEAXE01			1162
-#define	MI_TUTTLEKING01			1163
 
 #define	MI_MaFl_Babario			1164
 #define	MI_PET_SKEL01			1165

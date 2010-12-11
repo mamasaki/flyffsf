@@ -77,6 +77,7 @@
 #define IK3_YOYO                  11 //요요
 #define IK3_BOW                   12 //활
 #define IK3_YOBO				  13 //요요와 활을 동시에 사용
+#define IK3_CROSSBOW              14 //크로스보우
 
 // 방어구에 관련된 것 (IK_ARMOR 소속)
 #define IK3_SHIELD                16 // 방패<-
@@ -121,9 +122,13 @@
 #define IK3_EVENTSUB              46 // <-이벤트용 아이템  지급자동, 일반아이템과 동일
 #define IK3_TOWNBLINKWING         47 // <-마을로만 돌아가게 되는 블링크윙
 
+//유럽 신규 자동차
+#define IK3_CAR					86		// 자동차
+
+
 //비행체 아이템2
-#define IK3_ACCEL		          48 // 가속 연료 아이템<-
-#define IK3_DELETE		          49 // <-dwItemkind3가 이것으로 설정되면 캐릭터가 로딩될 때 자동으로 지운다.
+#define IK3_ACCEL		         48 // 가속 연료 아이템<-
+#define IK3_DELETE		         49 // <-dwItemkind3가 이것으로 설정되면 캐릭터가 로딩될 때 자동으로 지운다.
 
 //상용화 아이템
 #define IK3_SCROLL		        50 //<-
@@ -135,27 +140,30 @@
 #define IK3_RCHARM		        56 
 #define IK3_ARROW		        60
 
+
 //소켓 카드 와 피어싱 주사위
 #define IK3_PIERDICE			61
 #define IK3_SOCKETCARD			62
 #define IK3_SOCKETCARD2			63
 
 //문서 구분
-#define IK3_TEXT_BOOK           	70 // 문서
-#define IK3_TEXT_SCROLL	        	71 // 문서
-#define IK3_TEXT_LETTER         	72 // 문서
+#define IK3_TEXT_BOOK          	70 // 문서
+#define IK3_TEXT_SCROLL	       	71 // 문서
+#define IK3_TEXT_LETTER        	72 // 문서
 
 //운영자 명령 아이템화
 #define	IK3_TEXT_UNDYING		80
 #define	IK3_TEXT_DISGUISE		81
 #define IK3_TEXT_INVISIBLE		82
-#define IK3_TEXT_GM			83
+#define IK3_TEXT_GM				83
 
 // BINDS
-#define	IK3_BINDS			84
+#define	IK3_BINDS				84
 
 // 몬스터 소환
 #define IK3_CREATE_MONSTER		85
+
+
 
 #define IK3_POTION_BUFF_STR		90		// 버프 물약
 #define IK3_POTION_BUFF_DEX		91		// 버프 물약
@@ -163,57 +171,78 @@
 #define IK3_POTION_BUFF_STA		93		// 버프 물약
 #define IK3_POTION_BUFF_DEFENSE	94		// 버프 물약
 
-#define IK3_ANGEL_BUFF			95		// 엔젤 버프
+#define IK3_ANGEL_BUFF					95		// 엔젤 버프
 
 // PET
-#define IK3_PET				100		// 펫소환 아이템
+#define IK3_PET							100		// 펫소환 아이템
 #define IK3_RANDOM_SCROLL		101		// 랜덤 스클롤
 
 #define IK3_ULTIMATE			102		// 얼터멋 웨폰 보석
 
-#define	IK3_LINK	104
+#define	IK3_LINK				104
 // General
 #define IK3_GENERAL			118		// 아무 구분이 없는 일반.
 
 #define IK3_ENCHANT			119
 
-#define IK3_EGG		120		// 성장 펫
-#define	IK3_FEED	121
+#define IK3_EGG					120		// 성장 펫
+#define	IK3_FEED				121
 
-#define	IK3_TICKET	122		// 입장권
-#define	IK3_POCKET	123		// 주머니
+#define	IK3_TICKET					122		// 입장권
+#define	IK3_POCKET					123		// 주머니
 
-#define IK3_BED			124		// 하우징 - 가구 - 침대
-#define IK3_SOFA		125		// 하우징 - 가구 - 소파
-#define IK3_WARDROBE	126		// 하우징 - 가구 - 옷장
-#define IK3_CLOSET		127		// 하우징 - 가구 - 화장대
-#define IK3_TABLE		128		// 하우징 - 가구 - 탁자
-#define IK3_CABINET		129		// 하우징 - 가구 - 장식장
-#define IK3_PROPS		130		// 하우징 - 가구 - 소품
-#define IK3_WALLPAPER	131		// 하우징 - 도배 - 벽지
-#define IK3_CARPET		132		// 하우징 - 도배 - 장판
-#define	IK3_COUPLE_BUFF	133		// 커플 효과
-#define	IK3_FUNNYCOIN	134		// 퍼니 코인
-#define	IK3_FLOWER	135		// 겹침 방지를 위한 아이템. 같은 종류 사용 안됨
-#define IK3_BALLOON	136		// 풍선
-#define IK3_WING	137		// 날개
+#define IK3_BED							124		// 하우징 - 가구 - 침대
+#define IK3_SOFA							125		// 하우징 - 가구 - 소파
+#define IK3_WARDROBE				126		// 하우징 - 가구 - 옷장
+#define IK3_CLOSET						127		// 하우징 - 가구 - 화장대
+#define IK3_TABLE						128		// 하우징 - 가구 - 탁자
+#define IK3_CABINET					129		// 하우징 - 가구 - 장식장
+#define IK3_PROPS						130		// 하우징 - 가구 - 소품
+#define IK3_WALLPAPER				131		// 하우징 - 도배 - 벽지
+#define IK3_CARPET						132		// 하우징 - 도배 - 장판
+#define	IK3_COUPLE_BUFF			133		// 커플 효과
+#define	IK3_FUNNYCOIN				134		// 퍼니 코인
+#define	IK3_FLOWER					135		// 겹침 방지를 위한 아이템. 같은 종류 사용 안됨
+#define IK3_BALLOON					136		// 풍선
+#define IK3_WING							137		// 날개
 
-#define IK3_VIS		138		// 비스
-#define	IK3_TS_BUFF	139
+#define IK3_VIS							138		// 비스
+#define	IK3_TS_BUFF					139
 
-#define IK3_TELEPORTER		140 //길드하우스 텔레포터
-#define IK3_REST			141	//휴식의 기운
-#define	IK3_DESK			142	// 하우징 - 가구 - 책상
-#define	IK3_CHAIR			143	// 하우징 - 가구 - 의자
-#define	IK3_CASE			144	// 하우징 - 가구 - 책장
-#define	IK3_BATH			145	// 하우징 - 가구 - 욕조
-#define	IK3_DRAWER			146	// 하우징 - 가구 - 협탁
+#define IK3_TELEPORTER				140 //길드하우스 텔레포터
+#define IK3_REST							141	//휴식의 기운
+#define	IK3_DESK						142	// 하우징 - 가구 - 책상
+#define	IK3_CHAIR						143	// 하우징 - 가구 - 의자
+#define	IK3_CASE						144	// 하우징 - 가구 - 책장
+#define	IK3_BATH						145	// 하우징 - 가구 - 욕조
+#define	IK3_DRAWER					146	// 하우징 - 가구 - 협탁
 
-#define	IK3_CRYSTAL			147
+#define	IK3_CRYSTAL					147
+#define IK3_KEY							148
+#define IK3_CROSSARROW 			149
 
-#define IK3_KEY				148
+#define IK3_MAGICBARUNA 			150
+#define IK3_ZEMBARUNA 				151
+#define IK3_SHILDBARUNA 			152
 
-#define MAX_ITEM_KIND3      149	// ItemKind3 총 개수 
+//#define IK3_ENCHANTPET		153				//
+#define IK3_SUMMON_NPC							153			//NPC 소환 아이템
+
+//3차 바루나 제련 관련 아이템
+#define IK3_OPERCID					154 // 오퍼시드
+#define IK3_OPER							155 // 오퍼
+#define IK3_CID							156 // 시드
+#define IK3_OPERCRYSTAL			157 // 오퍼 결정체
+#define IK3_CIDCRYSTAL				158 // 시드 결정체
+#define IK3_OPERMIX					159 // 오퍼 융합제
+#define IK3_CIDMIX						160 // 시드 융합제
+#define IK3_MEAL							161 // 바륨의 가루
+#define IK3_EXTRACT					162 // 추출 도구
+//상용화 분류
+#define IK3_BARUNA		        163 //바루나 8월 19일 추가 유 치훈
+#define IK3_TREASURE		164
+#define MAX_ITEM_KIND3			 165	// ItemKind3 총 개수 
+
 #define MAX_UNIQUE_SIZE	    400
 
 // 컨트롤 오브젝트 Kind
@@ -229,11 +258,22 @@
 #define CK3_FULL				1    // 풀에니메이션
 #define CK3_HALF				2    // 1/2 에니메이션
 
+
+//--------------------------- 등급 start----------------------------------//
+#define PET_VIS					1	// VisPet\
+
 #define WEAPON_GENERAL			0	// 일반 무기
 #define WEAPON_UNIQUE			1	// 유니크 무기
 #define WEAPON_ULTIMATE			2	// 얼터멋 무기
 
 #define ARMOR_SET				3	// 세트 방어구
 
-#define PET_VIS					1	// VisPet
+#define BARUNA_D			4	// 바루나 무기 D등급
+#define BARUNA_C			5	// 바루나 무기 C등급
+#define BARUNA_B			6	// 바루나 무기 B등급
+#define BARUNA_A			7	// 바루나 무기 A등급
+#define BARUNA_S			8	// 바루나 무기 S등급
+
+
+//--------------------------- 등급 end----------------------------------//
 #endif
