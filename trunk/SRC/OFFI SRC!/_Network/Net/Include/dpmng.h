@@ -6,6 +6,7 @@
 #include "dpsock.h"
 #include "ar.h"
 #include "mymap.h"
+#include "MsgHdr.h"
 
 extern void UninitializeNetLib();
 extern BOOL InitializeNetLib();
