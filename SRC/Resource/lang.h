@@ -22,7 +22,6 @@
 #define LANG_SUB_USA          1	// 미국
 #define LANG_SUB_PHP          2	// 필리핀
 #define LANG_SUB_IND          3	// 인도
-#define LANG_SUB_MAX	      4
 
 
 extern CHAR g_szLanguage[ LANG_MAX ][16];
