@@ -244,7 +244,10 @@
 #define SI_GEN_EVE_HASTE				318
 #define SI_GEN_EVE_HEAPUP				319
 #define SI_GEN_EVE_ACCURACY				320
-
+#define SI_GEN_ADDEXP_LV01				321
+#define SI_GEN_ADDEXP_LV02			    322
+#define SI_GEN_ADDDROP_LV01				323
+#define SI_GEN_ADDDROP_LV02			    324
 
 #define SA_FLASH_L01               4005
 #define SA_FLASH_L02               4006
