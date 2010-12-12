@@ -11127,7 +11127,18 @@ void	CDPSrvr::OnNPCBuff( CAr & ar, DPID dpidCache, DPID dpidUser, LPBYTE lpBuf, 
 		{
 			if( !CNpcChecker::GetInstance()->IsCloseNpc(MMI_NPC_BUFF, pUser->GetWorld(), pUser->GetPos() ) )
 				return;
-
+			if(!_tcscmp(m_szKey,"MaFl_Helper_ver12"))
+			{
+				 if(pUser->GetGold() < 100000)
+					 return;
+				 pUser->AddGold( -100000 );
+			}
+			if(!_tcscmp(m_szKey,"MaFl_Helper_ver12.1"))
+			{
+				 if(pUser->GetGold() < 350000)
+					 return;
+				 pUser->AddGold( -350000 );
+			}
 			vector<NPC_BUFF_SKILL> vecNPCBuff = lpChar->m_vecNPCBuffSkill;
 			for( int i=0; i<(int)( vecNPCBuff.size() ); i++ )
 			{
@@ -11142,7 +11153,7 @@ void	CDPSrvr::OnNPCBuff( CAr & ar, DPID dpidCache, DPID dpidUser, LPBYTE lpBuf, 
 						if(	( pSkillProp->dwID == SI_GEN_EVE_QUICKSTEP && pUser->HasBuff(BUFF_SKILL, SI_ASS_CHEER_QUICKSTEP) )
 							|| ( pSkillProp->dwID == SI_GEN_EVE_HASTE && pUser->HasBuff(BUFF_SKILL, SI_ASS_CHEER_HASTE) )
 							|| ( pSkillProp->dwID == SI_GEN_EVE_HEAPUP && pUser->HasBuff(BUFF_SKILL, SI_ASS_CHEER_HEAPUP) )
-	  						|| ( pSkillProp->dwID == SI_GEN_EVE_ACCURACY && pUser->HasBuff(BUFF_SKILL, SI_ASS_CHEER_ACCURACY) ) )
+	  						/*|| ( pSkillProp->dwID == SI_GEN_EVE_ACCURACY && pUser->HasBuff(BUFF_SKILL, SI_ASS_CHEER_ACCURACY) )*/ )
 						{
 							pUser->AddDefinedText( TID_GAME_NPCBUFF_FAILED, "\"%s\"", pSkillProp->szName );
 							continue;

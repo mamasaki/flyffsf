@@ -1,6 +1,7 @@
 #include "stdafx.h"
 #include "defineSound.h"
 #include "defineText.h"
+#include "defineSkill.h"
 #include "defineQuest.h"
 #include "resdata.h"
 #include "defineObj.h"
@@ -4087,9 +4088,13 @@ float CMover::GetItemDropRateFactor( CMover* pAttacker )
 	fFactor		*= CEventGeneric::GetInstance()->GetItemDropRateFactor();
 #endif // __ITEMDROPRATE
 #if __VER >= 9 // __EVENTLUA
-	fFactor		*= prj.m_EventLua.GetItemDropRate();
+	//fFactor		*= prj.m_EventLua.GetItemDropRate();
 #endif // __EVENTLUA
 #endif	// __WORLDSERVER
+	if( pAttacker->HasBuff( BUFF_SKILL, SI_GEN_ADDDROP_LV01 ) )
+		fFactor		*= 1.50F;
+	if( pAttacker->HasBuff( BUFF_SKILL, SI_GEN_ADDDROP_LV01 ) )
+		fFactor		*= 3.00F;
 	return fFactor;
 }
 
@@ -4215,11 +4220,20 @@ float CMover::GetExpFactor( void )
 			fFactor	*= 1.05f;
 	}
 
+	if( HasBuff( BUFF_SKILL, SI_GEN_ADDEXP_LV01 ) )
+	{
+		fFactor	*= 1.50f;
+	}
+	if( HasBuff( BUFF_SKILL, SI_GEN_ADDEXP_LV02 ) )
+	{
+		fFactor	*= 3.00f;
+	}
+
 #ifdef __WORLDSERVER
 
 	fFactor	*= CEventGeneric::GetInstance()->GetExpFactor();
 #if __VER >= 9 // __EVENTLUA
-	fFactor	*= prj.m_EventLua.GetExpFactor();
+	//fFactor	*= prj.m_EventLua.GetExpFactor();
 #endif // __EVENTLUA
 	fFactor		*= prj.m_fMonsterExpRate;
 #if __VER >= 9 // __ULTIMATE

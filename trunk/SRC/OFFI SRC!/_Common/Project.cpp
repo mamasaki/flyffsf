@@ -839,6 +839,11 @@ void CProject::ReadConstant( CScript& script )
 			script.GetToken();// bypass '='
 			m_dwProSP = script.GetNumber();
 		}
+		else if( script.Token == "shopCostRate" )
+		{
+			script.GetToken();// bypass '='
+			m_fShopCost = script.GetFloat();
+		}
 	} 
 	while( script.tok != FINISHED && *script.token != '}' );
 }
@@ -2902,6 +2907,11 @@ BOOL CProject::LoadCharacter( LPCTSTR szFileName )
 		// 원본 자체가 손상되는 결과구 그 리스트를 뽑아낼 때도 모두 lowercase가 되므로 원본을 m_szKey에
 		// 보관해두는 것이다.
 		_tcscpy( lpCharacter->m_szKey, strName );
+		int a ;
+		if(!_tcscmp(strName,"MaFl_Helper_ver12"))
+		{
+			 a = 0;
+		}
 		strName.MakeLower();
 
 #if __VER >= 11 // __CSC_VER11_3
@@ -3146,6 +3156,11 @@ BOOL CProject::LoadCharacter( LPCTSTR szFileName )
 				NPC_BUFF_SKILL NPCBuffSkill;
 				script.GetToken(); // (
 				NPCBuffSkill.dwSkillID = script.GetNumber(); script.GetToken(); //,
+				if(NPCBuffSkill.dwSkillID == 321)
+				{
+					int a =0;
+					a++;
+				}
 				NPCBuffSkill.dwSkillLV = script.GetNumber(); script.GetToken(); //,
 				NPCBuffSkill.nMinPlayerLV = script.GetNumber(); script.GetToken(); //,
 				NPCBuffSkill.nMaxPlayerLV = script.GetNumber(); script.GetToken(); //,
