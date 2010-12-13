@@ -29,14 +29,14 @@ BOOL CCoupleTestCase::Test()
 	{
 		VCI& vItems	= ptr->GetItems( nLevel );
 		TRACE( "Level: %d: Item\n", nLevel );
-		for( int i = 0; i < vItems.size(); i++ )
+		int i; for( i = 0; i < vItems.size(); i++ )
 			TRACE( "\tnItem: %d, nFlags: %d, nLife: %d, nNum: %d\n", vItems[i].nItem, vItems[i].nFlags, vItems[i].nLife, vItems[i].nNum );
 	}
 	for( nLevel = 1; nLevel <= CCouple::eMaxLevel; nLevel++ )
 	{
 		VS& vSkills	= ptr->GetSkill( nLevel );
 		TRACE( "Level: %d: Skill\n", nLevel );
-		for( int i = 0; i < vSkills.size(); i++ )
+		int i; for( i = 0; i < vSkills.size(); i++ )
 			TRACE( "\tSkill: %d\n", vSkills[i] );
 	}
 	u_long idFirst	= 1;
@@ -322,7 +322,7 @@ void CCoupleProperty::LoadSkillLevel( CScript & s )
 	int nLevel	= s.GetNumber();
 	while( *s.token != '}' )
 	{
-		for( int i = 0; i < (int)( m_vSkillKinds.size() ); i++ )
+		int i; for( i = 0; i < (int)( m_vSkillKinds.size() ); i++ )
 		{
 			int nSkillLevel	= s.GetNumber();
 			int nSkill	= 0;
@@ -332,7 +332,7 @@ void CCoupleProperty::LoadSkillLevel( CScript & s )
 		}
 		nLevel	= s.GetNumber();
 	}
-	for( int i = 1; i <(int)( m_vSkills.size() ); i++ )
+	int i; for( i = 1; i <(int)( m_vSkills.size() ); i++ )
 	{
 		if( m_vSkills[i].empty() )
 			m_vSkills[i].assign( m_vSkills[i-1].begin(), m_vSkills[i-1].end() );
@@ -341,7 +341,7 @@ void CCoupleProperty::LoadSkillLevel( CScript & s )
 
 int CCoupleProperty::GetLevel( int nExperience )
 {
-	for( int i = 0; i <(int)( m_vExp.size() ); i++ )
+	int i; for( i = 0; i <(int)( m_vExp.size() ); i++ )
 	{
 		if( nExperience < m_vExp[i] )
 			return i;

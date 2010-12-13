@@ -89,7 +89,8 @@ void CDbManager::LogItem(CQuery *qry, LPDB_OVERLAPPED_PLUS lpDbOverlappedPlus)
 			call_uspLoggingTrade( qry, 1, nTradeID, 0, idPlayer2, iSeed2, lpAddr2, nLevel2, nJob2 );
 			u_long uSize1, uSize2;
 			arRead >> uSize1 >> uSize2;
-			for( DWORD i = 0; i < uSize1; i++ )
+			DWORD j;
+			for(  j = 0; j < uSize1; j++ )
 			{
 				memset( lpszItemText, 0, sizeof( lpszItemText ) );
 				SERIALNUMBER iSerialNumber;
@@ -189,7 +190,7 @@ void CDbManager::LogItem(CQuery *qry, LPDB_OVERLAPPED_PLUS lpDbOverlappedPlus)
 				call_uspLoggingTrade( qry, 2, nTradeID, 0, idPlayer2, 0, "", 0, 0, dwItemId, iSerialNumber, nItemNum, nAbilityOption, nItemResist, nResistAbilityOption, aLogItem.m_nRandomOptItemId );
 #endif	// __SYS_IDENTIFY
 			}
-			for( i = 0; i < uSize2; i++ )
+			for( j = 0; j < uSize2; j++ )
 			{
 				memset( lpszItemText, 0, sizeof( lpszItemText ) );
 				SERIALNUMBER iSerialNumber;
@@ -237,7 +238,8 @@ void CDbManager::LogItem(CQuery *qry, LPDB_OVERLAPPED_PLUS lpDbOverlappedPlus)
 				arRead >> aLogItem.m_dwKeepTime;
 #if __VER >= 12 // __EXT_PIERCING
 				arRead >> aLogItem.nPiercedSize;
-				for( int i=0; i<aLogItem.nPiercedSize; i++ )
+				int i;
+				for(  i=0; i<aLogItem.nPiercedSize; i++ )
 					arRead >> aLogItem.adwItemId[i];
 				arRead >> aLogItem.nUMPiercedSize;
 				for( i=0; i<aLogItem.nUMPiercedSize; i++ )
@@ -390,7 +392,8 @@ void CDbManager::LogItem(CQuery *qry, LPDB_OVERLAPPED_PLUS lpDbOverlappedPlus)
 			arRead >> aLogItem.m_dwKeepTime;
 #if __VER >= 12 // __EXT_PIERCING
 			arRead >> aLogItem.nPiercedSize;
-			for( int i=0; i<aLogItem.nPiercedSize; i++ )
+			int i;
+			for(  i=0; i<aLogItem.nPiercedSize; i++ )
 				arRead >> aLogItem.adwItemId[i];
 			arRead >> aLogItem.nUMPiercedSize;
 			for( i=0; i<aLogItem.nUMPiercedSize; i++ )

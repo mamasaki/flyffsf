@@ -229,7 +229,7 @@ public:
 			nNum = 0;
 		}
 
-		for( int i = 0; i < MAX_ELEMENT; i ++ )
+		int i; for( i = 0; i < MAX_ELEMENT; i ++ )
 		{
 			if( m_Element[i].m_pObject3D )	
 			{
@@ -324,7 +324,7 @@ public:
 	}
 	BOOL	IsEmptyElement( void )
 	{
-		for( int i = 0; i < MAX_ELEMENT; i ++ )
+		int i; for( i = 0; i < MAX_ELEMENT; i ++ )
 			if( m_Element[i].m_pObject3D )	return FALSE;
 		return TRUE;
 	}
@@ -375,7 +375,7 @@ public:
 	{	
 		O3D_ELEMENT *pElem = m_Element;
 		D3DXVECTOR3 *pTri;
-		for( int i = 0; i < MAX_ELEMENT; i ++ )
+		int i; for( i = 0; i < MAX_ELEMENT; i ++ )
 		{
 			if( pElem->m_pObject3D )
 			{

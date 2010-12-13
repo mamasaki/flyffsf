@@ -83,7 +83,8 @@ HRESULT CDialogMsg::InvalidateDeviceObjects()
 }
 void CDialogMsg::ClearAllMessage()
 {
-	for(int i = 0; i < m_textArray.GetSize(); i++)
+	
+	int i;for( i = 0; i < m_textArray.GetSize(); i++)
 	{
 		LPCUSTOMTEXT lpCustomText = (LPCUSTOMTEXT)m_textArray.GetAt(i);
 		// 퀘스트 이모티콘을 다시 보이게 한다.
@@ -100,7 +101,8 @@ void CDialogMsg::ClearAllMessage()
 
 void CDialogMsg::ClearMessage( CObj* pObj )
 {
-	for(int i = 0; i < m_textArray.GetSize(); i++)
+	int i;
+	for( i = 0; i < m_textArray.GetSize(); i++)
 	{
 		LPCUSTOMTEXT pText	= (LPCUSTOMTEXT)m_textArray.GetAt( i );
 		if( pText->m_pObj == pObj )
@@ -128,7 +130,7 @@ void CDialogMsg::ClearMessage( CObj* pObj )
 
 void CDialogMsg::RemoveDeleteObjMsg()
 {
-	for( int i = 0; i < m_textArray.GetSize(); i++ )
+	int i; for( i = 0; i < m_textArray.GetSize(); i++ )
 	{
 		LPCUSTOMTEXT lpCustomText 
 			= (LPCUSTOMTEXT) m_textArray.GetAt( i );
@@ -162,7 +164,7 @@ void CDialogMsg::Render( C2DRender* p2DRender )
 {
 	CSize size;	
 	LPCUSTOMTEXT lpCustomText;
-	for( int i = 0; i < m_textArray.GetSize(); i++ )
+	int i; for( i = 0; i < m_textArray.GetSize(); i++ )
 	{
 		lpCustomText = (LPCUSTOMTEXT) m_textArray.GetAt( i );
 		if( lpCustomText->m_timer.TimeOut() )
@@ -223,7 +225,7 @@ void CDialogMsg::Render( C2DRender* p2DRender )
 				int nHeight = rect.Height() / 8;
 				int nWidth  = rect.Width()  / 8;
 
-				for( int i = 0; i < nHeight; i++)
+				int i; for( i = 0; i < nHeight; i++)
 				{
 					int nIndex;
 					if( i == 0 ) 
@@ -232,7 +234,7 @@ void CDialogMsg::Render( C2DRender* p2DRender )
 						nIndex = 3;
 					else 
 						nIndex = 6;
-					for( int j = 0; j < nWidth; j++)
+					int j; for(  j = 0; j < nWidth; j++)
 					{
 						CPoint point = CPoint( x + j * 8, y + i * 8);
 						if( j == 0 )
@@ -289,7 +291,7 @@ void CDialogMsg::Render( C2DRender* p2DRender )
 					DWORD dwCurOffset;
 					TCHAR strHan[ 3 ];
 					x = vOut.x + 8;;
-					for( int j = 0; j < nLength; j++)
+					int j; for(  j = 0; j < nLength; j++)
 					{
 						if( IsHangul( string[j] ) )
 						{
@@ -354,7 +356,7 @@ void CDialogMsg::Render( C2DRender* p2DRender )
 	CPoint point;
 	int nIndex;
 		
-	for( int i = 0; i < m_textArray.GetSize(); i++ )
+	int i; for( i = 0; i < m_textArray.GetSize(); i++ )
 	{
 		lpCustomText = (LPCUSTOMTEXT) m_textArray.GetAt( i );
 		TEXTUREVERTEX* pVertices = vertex; 
@@ -765,7 +767,7 @@ void CDialogMsg::Scroll()
 
 void CDialogMsg::RemoveMessage( CObj* pObj )
 {
-	for( int i = 0; i < m_textArray.GetSize(); i++ )
+	int i; for( i = 0; i < m_textArray.GetSize(); i++ )
 	{
 		LPCUSTOMTEXT lpCustomText = (LPCUSTOMTEXT) m_textArray.GetAt( i );
 		if( lpCustomText->m_pObj == pObj )
@@ -790,7 +792,7 @@ void CDialogMsg::AddEmoticon( CObj* pObj, int nEmoticonIdx )
 }
 void CDialogMsg::AddTexture( CObj* pObj, CTexture* pTexture )
 {
-	for( int i = 0; i < m_textArray.GetSize(); i++ )
+	int i; for( i = 0; i < m_textArray.GetSize(); i++ )
 	{
 		LPCUSTOMTEXT lpCustomText = (LPCUSTOMTEXT) m_textArray.GetAt( i );
 		if( lpCustomText->m_pObj == pObj )
@@ -860,7 +862,7 @@ void CDialogMsg::AddMessage( CObj* pObj, LPCTSTR lpszMessage, DWORD RGB, int nKi
 			return;
 		}
 		
-		for( int i = 0; i < m_textArray.GetSize(); i++ )
+		int i; for( i = 0; i < m_textArray.GetSize(); i++ )
 		{
 			LPCUSTOMTEXT lpCustomText = (LPCUSTOMTEXT) m_textArray.GetAt( i );
 			if( lpCustomText->m_pObj == pObj )
@@ -941,7 +943,7 @@ void CDialogMsg::AddVendorMessage(CObj *pObj, LPCTSTR lpszMessage, DWORD RGB)
 	}
 	lpszMessage = tempstr.GetBuffer(0);
 
-	for( int i = 0; i < m_VendortextArray.GetSize(); i++ )
+	int i; for( i = 0; i < m_VendortextArray.GetSize(); i++ )
 	{
 		LPCUSTOMTEXT lpCustomText = (LPCUSTOMTEXT) m_VendortextArray.GetAt( i );
 		if( lpCustomText->m_pObj == pObj )
@@ -999,7 +1001,7 @@ void CDialogMsg::AddVendorMessage(CObj *pObj, LPCTSTR lpszMessage, DWORD RGB)
 
 void CDialogMsg::RemoveVendorMessage(CObj *pObj)
 {
-	for( int i = 0; i < m_VendortextArray.GetSize(); i++ )
+	int i; for( i = 0; i < m_VendortextArray.GetSize(); i++ )
 	{
 		LPCUSTOMTEXT lpCustomText = (LPCUSTOMTEXT) m_VendortextArray.GetAt( i );
 		if( lpCustomText->m_pObj == pObj )

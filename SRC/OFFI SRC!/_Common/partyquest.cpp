@@ -24,7 +24,7 @@ CPartyQuestProcessor::~CPartyQuestProcessor()
 void CPartyQuestProcessor::Process()
 {
 	DWORD dwTickCount	= GetTickCount();
-	for( int i = 0; i < MAX_GUILD_QUEST; i++ )
+	int i; for( i = 0; i < MAX_GUILD_QUEST; i++ )
 	{
 		PPARTYQUESTELEM pElem = &m_pElem[i];
 		if( pElem->nId == i )
@@ -319,7 +319,7 @@ void CPartyQuestProcessor::SetPartyQuest( int nQuestId, int nState, int ns, int 
 	CParty* pParty	= g_PartyMng.GetParty( idParty );
 	if( pParty )
 	{
-		for( int i = 0 ; i < pParty->GetSizeofMember() ; ++i )
+		int i; for( i = 0 ; i < pParty->GetSizeofMember() ; ++i )
 		{
 			CUser* pUsertmp = (CUser *)prj.GetUserByID( pParty->GetPlayerId( i ) );
 			if( IsValidObj( pUsertmp ) )
@@ -339,7 +339,7 @@ void CPartyQuestProcessor::SendQuestLimitTime( int nState, DWORD dwTime, u_long 
 	CParty* pParty	= g_PartyMng.GetParty( idParty );
 	if( pParty )
 	{
-		for( int i = 0 ; i < pParty->GetSizeofMember() ; ++i )
+		int i; for( i = 0 ; i < pParty->GetSizeofMember() ; ++i )
 		{
 			CUser* pUsertmp = (CUser *)prj.GetUserByID( pParty->GetPlayerId( i ) );
 			if( IsValidObj( pUsertmp ) )
@@ -370,7 +370,7 @@ PPARTYQUESTRECT CPartyQuestProcessor::GetPartyQuestRect( int nQuestId )
 		return NULL;
 	if( m_pElem[nQuestId].nId == -1 )
 		return NULL;
-	for( int i = 0; i < m_nRect; i++ )
+	int i; for( i = 0; i < m_nRect; i++ )
 	{
 		if( m_pRect[i].nId == nQuestId )
 			return &m_pRect[i];
@@ -432,7 +432,7 @@ void CPartyQuestProcessor::AddQuestRect( int nId, DWORD dwWorldId, int x1, int y
 int CPartyQuestProcessor::PtInQuestRect( DWORD dwWorldId, const D3DXVECTOR3 & vPos )
 {
 	POINT point	= { (int)vPos.x, (int)vPos.z	};
-	for( int i = 0; i < m_nRect; i++ )
+	int i; for( i = 0; i < m_nRect; i++ )
 	{
 		
 		if( m_pRect[i].dwWorldId == dwWorldId && m_pRect[i].rect.PtInRect( point ) )

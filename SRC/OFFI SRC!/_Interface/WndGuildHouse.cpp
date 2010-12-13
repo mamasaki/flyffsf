@@ -383,7 +383,7 @@ int CWndGHTeleporter::GetSlotIndexByPoint( const CPoint& point )
 {
 	LPWNDCTRL wndCtrl = NULL;
 	CRect rect;
-	for( int i = 0; i < MAX_TELEPORTER_SLOT; ++i )
+	int i; for( i = 0; i < MAX_TELEPORTER_SLOT; ++i )
 	{
 		wndCtrl = GetWndCtrl( m_nCtrlId[i] );		// 슬롯으로 만들어진 윈도우에 대하여 
 		rect  = wndCtrl->rect;
@@ -398,7 +398,7 @@ int CWndGHTeleporter::GetSlotIndexByPoint( const CPoint& point )
 int CWndGHTeleporter::GetCountListUp( )
 {
 	int count = 0;
-	for( int i = 0; i < MAX_TELEPORTER_SLOT; ++i )
+	int i; for( i = 0; i < MAX_TELEPORTER_SLOT; ++i )
 	{
 		HOUSING_ITEM& kItem = m_cWndItems[ i ];
 		if( EMPTY_SLOT != kItem.m_nType && !kItem.m_bDeploy )		//On Slot되어 있고 설치되지 않았다면 ( 리스트 업만 된 상태 )
@@ -492,7 +492,7 @@ void CWndGHTeleporter::OnMouseWndSurface( CPoint point )
 
 GH_Fntr_Info* CWndGHTeleporter::GetInstalledItem( int& serverSlot )
 {
-	for( int i = 0; i < GuildHouse->GetFurnitureListSize( ); ++i )
+	int i; for( i = 0; i < GuildHouse->GetFurnitureListSize( ); ++i )
 	{
 		GH_Fntr_Info* pItem = GuildHouse->GetFurnitureInfoPtr( i );
 		assert( pItem );
@@ -549,7 +549,7 @@ void CWndGHTeleporter::RefreshItems( )
 	
 	// 1~ 4번 슬롯 채우기 
 	int telSlot = 1;
-	for( int i = 0; i < GuildHouse->GetFurnitureListSize( ); ++i )
+	int i; for( i = 0; i < GuildHouse->GetFurnitureListSize( ); ++i )
 	{
 		 GH_Fntr_Info* pItem = GuildHouse->GetFurnitureInfoPtr( i );
 		 assert( pItem );

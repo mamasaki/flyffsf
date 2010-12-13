@@ -108,9 +108,9 @@ BOOL CMapMonsterInformationPack::LoadScript( const CString& strFileName )
 			center.x = scanner.GetNumber();
 			center.y = scanner.GetNumber();
 
-			for( int i = start.y; i < m_size.cy; i += size.cy )
+			int i; for( i = start.y; i < m_size.cy; i += size.cy )
 			{
-				for( int j = start.x; j < m_size.cx; j += size.cx, ++nCount )
+				int j; for(  j = start.x; j < m_size.cx; j += size.cx, ++nCount )
 				{
 					if( nCount < nFrame )
 					{
@@ -144,11 +144,11 @@ BOOL CMapMonsterInformationPack::LoadScript( const CString& strFileName )
 				}
 			}
 
-			for( int i = 0; i < nFrame; ++i )
+			int i; for( i = 0; i < nFrame; ++i )
 			{
 				CMapMonsterInformation* pMapMonsterInformation = new CMapMonsterInformation;
 				pMapMonsterInformation->SetMonsterIDNumber( scanner.GetNumber() );
-				for( int j = 0; j < pMapMonsterInformation->GetMonsterIDNumber(); ++j )
+				int j; for(  j = 0; j < pMapMonsterInformation->GetMonsterIDNumber(); ++j )
 				{
 					DWORD dwMonsterID = scanner.GetNumber();
 					pMapMonsterInformation->InsertMonsterID( dwMonsterID );

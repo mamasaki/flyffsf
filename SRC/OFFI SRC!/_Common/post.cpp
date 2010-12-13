@@ -263,7 +263,7 @@ void CMailBox::Read( CAr & ar )
 	int nSize;
 	ar >> nSize;
 	CMail temp;
-	for( int i = 0; i < nSize; i++ )
+	int i; for( i = 0; i < nSize; i++ )
 	{
 		u_long nMail;
 		ar >> nMail;
@@ -310,7 +310,7 @@ void CMailBox::ReadReq( CAr & ar )
 	int nSize;
 	ar >> nSize;
 
-	for( int i = 0; i < nSize; i++ )
+	int i; for( i = 0; i < nSize; i++ )
 	{
 		u_long nMail;
 		ar >> nMail;
@@ -372,7 +372,7 @@ void CMailBox::Serialize( CAr & ar, BOOL bData )
 #ifdef __CLIENT
 			Error( _T( "CMailBox::Serialize m_idReceiver:%d, nSize:%d" ), m_idReceiver, nSize );
 #endif
-		for( int i = 0; i < nSize; i++ )
+		int i; for( i = 0; i < nSize; i++ )
 		{
 			CMail* pMail	= new CMail;
 			pMail->Serialize( ar, bData );
@@ -580,7 +580,7 @@ void CPost::Serialize( CAr & ar, BOOL bData )
 	{
 		int nSize;
 		ar >> nSize;
-		for( int i = 0; i < nSize; i++ )
+		int i; for( i = 0; i < nSize; i++ )
 		{
 			CMailBox* pMailBox	= new CMailBox;
 			pMailBox->Serialize( ar, bData );

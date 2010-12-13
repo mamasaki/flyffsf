@@ -1019,7 +1019,7 @@ int		CObject3D :: LoadObject( LPCTSTR szFileName )
 	if( pPool == NULL )
 		Error( "메모리 할당 실패:CObject3D::LoadObject( %s ) %d", m_szFileName, nPoolSize );
 	memset( pPool, 0, sizeof(GMOBJECT) * nPoolSize );
-	for( int i = 0; i < nMaxGroup; i ++ )
+	int i; for( i = 0; i < nMaxGroup; i ++ )
 	{
 		pGroup = &m_Group[i];
 		resFp.Read( &pGroup->m_nMaxObject, 4, 1 );		// geometry 갯수
@@ -1908,7 +1908,7 @@ int	CObject3D::SlideVectorUnder( D3DXVECTOR3 *pOut, const D3DXVECTOR3 &vPos, con
 	D3DXVec3TransformCoord( &vInvEnd, &vEnd, &mInv );	// Line끝점을 역시 변환
 	vInvDir = vInvEnd - vInvPos;
 
-	for( int j = 0; j < pObject->m_nMaxFaceList; ++j )
+	int j; for(  j = 0; j < pObject->m_nMaxFaceList; ++j )
 	{
 		v1 = &pVB[ *pIB++ ].position;
 		v2 = &pVB[ *pIB++ ].position;
@@ -2554,7 +2554,7 @@ void	CObject3D :: ClearNormal( void )
 /*	int		i;
 	D3DXVECTOR3		n = D3DXVECTOR3( 0.0f, 1.0f, 0.0f );
 
-	for( int j = 0; j < m_nMaxObject; j++ )
+	int j; for(  j = 0; j < m_nMaxObject; j++ )
 	{
 		GMOBJECT* pObject = &m_pObject[j];
 		if( pObject->m_Type == GMT_SKIN )

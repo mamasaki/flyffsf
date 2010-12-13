@@ -289,7 +289,7 @@ BOOL IBuffItemBase::HasChrState( CMover*, DWORD dwChrState )
 	ItemProp* pProp	= GetProp();
 	if( pProp )
 	{
-		for( int i = 0; i < 2; i++ )
+		int i; for( i = 0; i < 2; i++ )
 			if( pProp->dwDestParam[i] == DST_CHRSTATE && pProp->nAdjParamVal[i] & dwChrState )
 				return TRUE;
 	}
@@ -519,7 +519,7 @@ BOOL CBuffSkill::HasChrState( CMover* pMover, DWORD dwChrState )
 	ItemProp* pSkillProp;
 	AddSkillProp* pAddSkillProp;
 	pMover->GetSkillProp( &pSkillProp, &pAddSkillProp, GetId(), GetLevel(), "CBuffSkill.HasChrState" );
-	for( int i = 0; i < 2; i++ )
+	int i; for( i = 0; i < 2; i++ )
 		if( pAddSkillProp->dwDestParam[i] == DST_CHRSTATE && pAddSkillProp->nAdjParamVal[i] & dwChrState )
 			return TRUE;
 	return FALSE;
@@ -531,7 +531,7 @@ BOOL CBuffSkill::HasDstParam( CMover* pMover, DWORD dwDstParam )
 	ItemProp* pSkillProp;
 	AddSkillProp* pAddSkillProp;
 	pMover->GetSkillProp( &pSkillProp, &pAddSkillProp, GetId(), GetLevel(), "CBuffSkill.HasDstParam" );
-	for( int i = 0; i < 2; i++ )
+	int i; for( i = 0; i < 2; i++ )
 		if( pSkillProp->nEvildoing < 0 && pAddSkillProp->dwDestParam[i] == dwDstParam )
 			return TRUE;
 	return FALSE;

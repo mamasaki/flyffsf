@@ -111,7 +111,9 @@ BOOL CWndGuildName::OnChildNotify( UINT message, UINT nID, LRESULT* pLResult )
 			return TRUE;
 		}
 		else
-		for( int i = 0; i < strGuild.GetLength(); i++ )
+		{
+		int i;
+		for( i = 0; i < strGuild.GetLength(); i++ )
 		{
 			c = strGuild.GetAt( i );
 			// 숫자나 알파벳이 아닐 경우는 의심하자.
@@ -135,6 +137,7 @@ BOOL CWndGuildName::OnChildNotify( UINT message, UINT nID, LRESULT* pLResult )
 				g_WndMng.OpenMessageBox( _T( prj.GetText(TID_DIAG_0013) ) );
 				return TRUE;
 			}
+		}
 		}
 
 		if( prj.IsInvalidName( szName ) 
@@ -268,7 +271,7 @@ BOOL CWndGuildNickName::OnChildNotify( UINT message, UINT nID, LRESULT* pLResult
 			}
 			else
 			{
-				for( int i = 0; i < strNickName.GetLength(); i++ )
+				int i; for( i = 0; i < strNickName.GetLength(); i++ )
 				{
 					c = strNickName[ i ];
 					// 숫자나 알파벳이 아닐 경우는 의심하자.

@@ -295,7 +295,8 @@ int CUltimateWeapon::SetGem( CUser* pUser, OBJID objItemId, OBJID objGemItemId )
 	}
 		
 #if __VER >= 12 // __EXT_PIERCING
-	for( int nCount=0; nCount < pItemElem->GetUltimatePiercingSize(); nCount++ )
+	int nCount=0;
+	for( ; nCount < pItemElem->GetUltimatePiercingSize(); nCount++ )
 		if( pItemElem->GetUltimatePiercingItem( nCount ) == 0 )
 #else // __EXT_PIERCING
 	for( int nCount=0; nCount < pItemElem->GetPiercingSize(); nCount++ )
@@ -436,7 +437,8 @@ int CUltimateWeapon::MakeItem( CUser* pUser, OBJID* objItemId )
 	}
 
 	int nItemCount = 0;
-	for( map<OBJID, int>::iterator it = mapObjId1.begin() ; it != mapObjId1.end() ; ++it )
+	map<OBJID, int>::iterator it;
+	for(  it = mapObjId1.begin() ; it != mapObjId1.end() ; ++it )
 	{
 		CItemElem* pItemElem;
 		pItemElem = pUser->m_Inventory.GetAtId( it->first );

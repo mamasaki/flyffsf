@@ -104,7 +104,7 @@ void CWndBagEx::OnDraw( C2DRender* p2DRender )
 	else 
 		return;
 
-	for( int i = 1 ; i < 3 ; ++i )
+	int i; for( i = 1 ; i < 3 ; ++i )
 	{
 		if( m_bUse[i - 1] == FALSE )
 		{
@@ -396,7 +396,7 @@ BOOL CWndBagEx::OnChildNotify( UINT message, UINT nID, LRESULT* pLResult )
 					}
 					else
 					{
-						for( int i = 0; i < (int)( SelectCount ); i++ )
+						int i; for( i = 0; i < (int)( SelectCount ); i++ )
 						{
 							int nItem = pWndItemCtrl->GetSelectedItem( i );
 							pWndItemCtrl->GetItem( nItem );
@@ -470,7 +470,7 @@ BOOL CWndBagEx::OnChildNotify( UINT message, UINT nID, LRESULT* pLResult )
 					}
 					else
 					{
-						for( int i = 0; i < (int)( SelectCount ); i++ )
+						int i; for( i = 0; i < (int)( SelectCount ); i++ )
 						{
 							int nItem = pWndItemCtrl->GetSelectedItem( i );
 							pWndItemCtrl->GetItem( nItem );

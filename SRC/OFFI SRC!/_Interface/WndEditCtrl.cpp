@@ -910,7 +910,7 @@ void CWndCandList::UpdateCandList( CPoint windowPos )
 	
 	int max_width = 0;
 
-	for( int i = 0; i < (int)( candidateList.dwCount ); i++ ) 
+	int i; for( i = 0; i < (int)( candidateList.dwCount ); i++ ) 
 	{
 		char buf[255];
 		int len = g_imeMgr.GetCandidate(i, buf+2, sizeof(buf)-3);
@@ -936,7 +936,7 @@ void CWndCandList::UpdateCandList( CPoint windowPos )
 	int nDiv2 = 9 - ( candidateList.dwCount % 9 );
 	if( nDiv2 < 9 )
 	{
-		for( int i = 0; i < nDiv2; i++ )
+		int i; for( i = 0; i < nDiv2; i++ )
 			AddString( "" );
 	}
 	// 스크롤 포지션을 복원한다.
@@ -1036,7 +1036,7 @@ void CWndHCandList::UpdateCandList(CPoint windowPos)
 
 	m_candidate.clear();
 
-	for( int i = candidateList.dwPageStart; i < (int)( dwPageEnd ); i++ ) 
+	int i; for( i = candidateList.dwPageStart; i < (int)( dwPageEnd ); i++ ) 
 	{
 		int len = 0;
 		char buf[255];
@@ -2000,7 +2000,7 @@ BOOL CWndEdit::GetResultString()
 	CRect rect = GetClientRect();
 	m_string.Init( m_pFont, &rect );
 	
-	for( int i = 0 ; i < (int)( len ); i++)
+	int i; for( i = 0 ; i < (int)( len ); i++)
 	{
 		m_string.Insert( i + m_dwOffset, str[ i ], EDIT_COLOR, 0, g_imeMgr.m_codePage );
 	}

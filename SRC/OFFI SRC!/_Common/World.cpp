@@ -181,7 +181,7 @@ void CWorld::Free()
 	}
 	
 	int nBk = m_vecBackground.size();
-	for( int i = 0; i < nBk; ++i )
+	int i; for( i = 0; i < nBk; ++i )
 		SAFE_DELETE( m_vecBackground[i] );
 	m_vecBackground.clear();
 	
@@ -210,7 +210,7 @@ void CWorld::Free()
 	m_mapLight.RemoveAll();
 	if( m_apLand != NULL )
 	{
-		for( int i = 0; i < m_nLandWidth * m_nLandHeight; i++)
+		int i; for( i = 0; i < m_nLandWidth * m_nLandHeight; i++)
 			SAFE_DELETE( m_apLand[ i ] );
 		SAFE_DELETE_ARRAY( m_apLand );
 	}
@@ -379,7 +379,7 @@ CLight* CWorld::GetLight( LPCTSTR lpszKey )
 BOOL CWorld::DoNotAdd( CObj* pObj )
 {
 
-	for( int i = 0; i < m_cbAddObjs; i++ )
+	int i; for( i = 0; i < m_cbAddObjs; i++ )
 	{
 		if( m_apAddObjs[i] == pObj )
 		{
@@ -1374,7 +1374,7 @@ void CWorld::ModifyView( CCtrl* pCtrl )
 BOOL CWorld::PreremoveObj( OBJID objid )
 {
 	CObj* pObj;
-	for( int i = 0; i < m_cbAddObjs; i++ )
+	int i; for( i = 0; i < m_cbAddObjs; i++ )
 	{
 		pObj	= m_apAddObjs[i];
 		if( pObj && pObj->IsDynamicObj() && ( (CCtrl*)pObj )->GetId() == objid )
@@ -1389,7 +1389,7 @@ BOOL CWorld::PreremoveObj( OBJID objid )
 CObj* CWorld::PregetObj( OBJID objid )
 {
 	CObj* pObj;
-	for( int i = 0; i < m_cbAddObjs; i++ )
+	int i; for( i = 0; i < m_cbAddObjs; i++ )
 	{
 		pObj	= m_apAddObjs[i];
 		if( pObj && pObj->IsDynamicObj() && ( (CCtrl*)pObj )->GetId() == objid )
@@ -1408,7 +1408,7 @@ void CWorld::_add( void )
 		return;
 	}
 
-	for( int i = 0; i < m_cbAddObjs; i++ )
+	int i; for( i = 0; i < m_cbAddObjs; i++ )
 	{
 		pObj	= m_apAddObjs[i];
 		if( NULL == pObj )	
@@ -1453,7 +1453,7 @@ void CWorld::_modifylink( void )
 	int nLinkLevel;
 	DWORD dwLinkType;
 
-	for( int i = 0; i < m_cbModifyLink; i++ )
+	int i; for( i = 0; i < m_cbModifyLink; i++ )
 	{
 		pObj	= m_apModifyLink[i];
 		if( IsInvalidObj( pObj ) )	
@@ -1525,11 +1525,11 @@ void CWorld::_delete( void )
 {
 	CObj* pObj;
 
-	for( int i = 0; i < m_nDeleteObjs; i++ )
+	int i; for( i = 0; i < m_nDeleteObjs; i++ )
 	{
 		pObj	= m_apDeleteObjs[i];
 
-		for( int j = 0; j < m_cbReplaceObj; j++ )
+		int j; for(  j = 0; j < m_cbReplaceObj; j++ )
 		{
 			if( m_aReplaceObj[j].pObj == pObj )
 				m_aReplaceObj[j].pObj	= NULL;
@@ -1569,7 +1569,7 @@ void CWorld::_replace( void )
 	D3DXVECTOR3 vPos;
 	u_long		uIdofMulti;
 	
-	for( int i = 0; i < m_cbReplaceObj; ++i )
+	int i; for( i = 0; i < m_cbReplaceObj; ++i )
 	{
 		pMover	= m_aReplaceObj[i].pObj;
 		if( ::IsInvalidObj( pMover ) )
@@ -1906,7 +1906,7 @@ void	CWorld::SendDamageAround( const D3DXVECTOR3 *pvPos, int nDmgType, CMover *p
 #ifdef __CLIENT
 void CWorld::ProcessAllSfx( void )
 {
-	for( int i = 0; i < m_nLandWidth; i++ )
+	int i; for( i = 0; i < m_nLandWidth; i++ )
 	{
 		for ( int j = 0; j < m_nLandWidth; j++ )
 		{
@@ -1932,7 +1932,7 @@ void CWorld::OnDie( CMover* pDie, CMover* pAttacker )
 {
 	if( m_cbOnDie >= MAX_ON_DIE )
 		return;
-	for( int i = 0; i < m_cbOnDie; i++ )
+	int i; for( i = 0; i < m_cbOnDie; i++ )
 	{
 		if( m_aOnDie[i].pDie == pDie )
 			return;
@@ -1944,7 +1944,7 @@ void CWorld::OnDie( CMover* pDie, CMover* pAttacker )
 
 void CWorld::_OnDie( void )
 {
-	for( int i = 0; i < m_cbOnDie; i++ )
+	int i; for( i = 0; i < m_cbOnDie; i++ )
 	{
 		g_GuildCombatMng.OutWar( m_aOnDie[i].pDie, NULL );
 		g_GuildCombatMng.GetPoint( m_aOnDie[i].pAttacker, m_aOnDie[i].pDie );

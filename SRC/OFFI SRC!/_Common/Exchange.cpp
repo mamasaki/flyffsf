@@ -267,7 +267,8 @@ BOOL CExchange::CheckCondition( CUser* pUser, int nMMIId, int nListNum )
 	
 	BOOL bReturn = TRUE;
 	vector<__ITEM> vecItem = pSetList->vecSet[nListNum].vecCondItem;
-	for( int i=0; i<(int)( vecItem.size() ); i++ )
+	int i; 
+	for(  i=0; i<(int)( vecItem.size() ); i++ )
 	{
 		int nItemCount = 0;
 		if( vecItem[i].dwItemId == II_GOLD_SEED1 )
@@ -483,7 +484,7 @@ int CExchange::ResultExchange( CUser* pUser, int nMMIId, int nListNum )
 	}
 #if __VER >= 15 // __CAMPUS
 	// 포인트 차감
-	for( int i = 0; i < (int)( vecRemovePoint.size() ); ++i )
+	int i; for( i = 0; i < (int)( vecRemovePoint.size() ); ++i )
 	{
 		if( vecRemovePoint[i].nType == POINTTYPE_CAMPUS )
 			g_dpDBClient.SendUpdateCampusPoint( pUser->m_idPlayer, vecRemovePoint[i].nPoint, FALSE, 'E' );

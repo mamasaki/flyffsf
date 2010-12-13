@@ -69,7 +69,7 @@ CPocketController::~CPocketController()
 
 void CPocketController::Clear( void )
 {
-	for( int i = 0; i < MAX_POCKET; i++ )
+	int i; for( i = 0; i < MAX_POCKET; i++ )
 		SAFE_DELETE( m_apPocket[i] );
 }
 
@@ -118,11 +118,11 @@ BOOL	CPocketController::Add( CItemElem* pItemElem, vector<PocketController_Resul
 	short	anNum[POCKET_SLOT_SIZE_1_2];
 	BYTE nCount	= 0;
 	
-	for( int i = 0; i < MAX_POCKET; i++ )
+	int i; for( i = 0; i < MAX_POCKET; i++ )
 	{
 		if( IsAvailable( i ) && m_apPocket[i]->Add( pItemElem, anId, anNum, &nCount ) )
 		{
-			for( int j = 0; j < nCount; j++ )
+			int j; for(  j = 0; j < nCount; j++ )
 			{
 				PocketController_Result	result( i, anId[j], anNum[j] ); 
 				apResult->push_back( result );
@@ -144,7 +144,7 @@ BOOL	CPocketController::Add( int nPocket, CItemElem*pItemElem, vector<PocketCont
 	{
 		if( apResult )
 		{
-			for( int i = 0; i < nCount; i++ )
+			int i; for( i = 0; i < nCount; i++ )
 			{
 				PocketController_Result	result( nPocket, anId[i], anNum[i] ); 
 				apResult->push_back( result );
@@ -185,12 +185,12 @@ int	CPocketController::RemoveItem( DWORD dwItemId, int nNum )
 	short nRemnant	= nNum;
 	CItemElem* pItemElem	= NULL;
 
-	for( int i = 0; i < MAX_POCKET; i++ )
+	int i; for( i = 0; i < MAX_POCKET; i++ )
 	{
 		if( IsAvailable( i ) )
 		{
 			int nMax	= m_apPocket[i]->GetMax();
-			for( int j = 0; j < nMax && nRemnant > 0; j++ )
+			int j; for(  j = 0; j < nMax && nRemnant > 0; j++ )
 			{
 				pItemElem	= m_apPocket[i]->GetAtId( j ) ;
 				if( pItemElem && pItemElem->m_dwItemId == dwItemId )
@@ -216,7 +216,7 @@ int	CPocketController::RemoveItem( DWORD dwItemId, int nNum )
 int		CPocketController::GetEmptyCount( void )
 {
 	int nCount	= 0;
-	for( int i = 0; i < MAX_POCKET; i++ )
+	int i; for( i = 0; i < MAX_POCKET; i++ )
 	{
 		if( IsAvailable( i ) )
 			nCount	+= m_apPocket[i]->GetEmptyCount();
@@ -228,7 +228,7 @@ int		CPocketController::GetEmptyCount( void )
 BOOL	CPocketController::IsAllClean( void )
 {
 	int nCount	= 0,nCountMax = 0;
-	for( int i = 0; i < MAX_POCKET; i++ )
+	int i; for( i = 0; i < MAX_POCKET; i++ )
 	{
 		if( m_apPocket[i] != NULL )
 		{
@@ -245,7 +245,7 @@ BOOL	CPocketController::IsAllClean( void )
 int		CPocketController::GetCount( DWORD dwItemId )
 {
 	int nCount	= 0;
-	for( int i = 0; i < MAX_POCKET; i++ )
+	int i; for( i = 0; i < MAX_POCKET; i++ )
 	{
 		if( IsAvailable( i ) )
 			nCount	+= m_apPocket[i]->GetCount( dwItemId );
@@ -290,7 +290,7 @@ void	CPocketController::SetAttribute( int nAttribute, int nPocket, int nData )
 void	CPocketController::Copy( CPocketController & rPocketController )
 {
 	Clear();
-	for( int i = 0; i < MAX_POCKET; i++ )
+	int i; for( i = 0; i < MAX_POCKET; i++ )
 	{
 		if( rPocketController.IsAvailable( i, FALSE ) )
 		{
@@ -304,7 +304,7 @@ void	CPocketController::Serialize( CAr & ar )
 {
 	if( ar.IsStoring() )
 	{
-		for( int i = 0; i < MAX_POCKET; i++ )
+		int i; for( i = 0; i < MAX_POCKET; i++ )
 		{
 			if( IsAvailable( i, FALSE ) )
 			{
@@ -318,7 +318,7 @@ void	CPocketController::Serialize( CAr & ar )
 	else
 	{
 		Clear();
-		for( int i = 0; i < MAX_POCKET; i++ )
+		int i; for( i = 0; i < MAX_POCKET; i++ )
 		{
 			BYTE bExists;
 			ar >> bExists;
@@ -344,7 +344,7 @@ void	CPocketController::ProcessExpiring( void )
 		return;
 	CUser* pUser	= (CUser*)m_pMover;
 
-	for( int i = 1; i < MAX_POCKET; i++ )
+	int i; for( i = 1; i < MAX_POCKET; i++ )
 	{
 		if( IsAvailable( i ) )
 		{

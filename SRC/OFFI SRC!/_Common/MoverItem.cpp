@@ -74,7 +74,7 @@ void CVTInfo::Init( CMover* pOwner )
 void CVTInfo::TradeClear()
 {
 	SetOther( NULL );
-	for( int i = 0; i < MAX_TRADE; i++ )
+	int i; for( i = 0; i < MAX_TRADE; i++ )
 	{
 		if( m_apItem_VT[i] )
 		{
@@ -140,7 +140,7 @@ BOOL CVTInfo::TradeConsent()
 	a.SetItemContainer( ITYPE_ITEM, MAX_TRADE );
 			
 	CItemBase* pItemBase;
-	for( int i = 0; i < MAX_TRADE; i++ )
+	int i; for( i = 0; i < MAX_TRADE; i++ )
 	{
 		pItemBase = m_apItem_VT[i];
 		if( !pItemBase )
@@ -259,7 +259,8 @@ void TradeLog( CAr & ar, CItemBase* pItemBase, short nItemCount )
 	ar << ( (CItemElem*)pItemBase )->m_dwKeepTime;
 #if __VER >= 12 // __EXT_PIERCING
 	ar << ( (CItemElem*)pItemBase )->GetPiercingSize();
-	for( int i=0; i<( (CItemElem*)pItemBase )->GetPiercingSize(); i++ )
+	int i;
+	for(  i=0; i<( (CItemElem*)pItemBase )->GetPiercingSize(); i++ )
 		ar << ( (CItemElem*)pItemBase )->GetPiercingItem( i );
 	ar << ( (CItemElem*)pItemBase )->GetUltimatePiercingSize();
 	for( i=0; i<( (CItemElem*)pItemBase )->GetUltimatePiercingSize(); i++ )
@@ -374,7 +375,7 @@ TRADE_CONFIRM_TYPE CVTInfo::TradeLastConfirm( CAr & ar )
 	int nPlayers = 0;
 	int nTraders = 0;
 
-	for( int i = 0; i < MAX_TRADE; i++ )
+	int i; for( i = 0; i < MAX_TRADE; i++ )
 	{
 		if( GetItem( i ) )
 			nPlayers++;
@@ -423,7 +424,7 @@ TRADE_CONFIRM_TYPE CVTInfo::TradeLastConfirm( CAr & ar )
 
 		// item_step1. m_pOwner->юс╫ц 
 		CItemBase* pItemBase;
-		for( int i = 0; i < MAX_TRADE; i++ )
+		int i; for( i = 0; i < MAX_TRADE; i++ )
 		{
 			pItemBase = m_apItem_VT[i];
 			if( pItemBase == NULL )
@@ -589,7 +590,7 @@ void CVTInfo::VendorCopyItems( CItemBase** ppItemVd )
 
 void CVTInfo::VendorClose( BOOL bClearTitle )
 {
-	for( int i = 0; i < MAX_VENDITEM; i++ )
+	int i; for( i = 0; i < MAX_VENDITEM; i++ )
 	{
 		if( m_apItem_VT[i] )
 		{
@@ -624,7 +625,7 @@ BOOL CVTInfo::VendorIsVendor()
 
 BOOL CVTInfo::IsTrading( CItemElem* pItemElem )
 {
-	for( int i = 0; i < MAX_VENDITEM; i++ )
+	int i; for( i = 0; i < MAX_VENDITEM; i++ )
 	{
 		if( m_apItem_VT[i] == pItemElem )
 			return TRUE;

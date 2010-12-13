@@ -717,10 +717,10 @@ BOOL CWorld::ReadRespawn( CScript& s )
 			else
 				maxjob = 32;
 
-			for( int i = 0; i < maxjob; i++ )
+			int i; for( i = 0; i < maxjob; i++ )
 				pInfo->m_CtrlElem.m_bSetJob[ i ] = s.GetNumber();
 #else //__LEGEND
-			for( int i = 0; i < MAX_JOB; i++ )
+			int i; for( i = 0; i < MAX_JOB; i++ )
 				pInfo->m_CtrlElem.m_bSetJob[ i ] = s.GetNumber();
 #endif //__LEGEND
 
@@ -842,8 +842,8 @@ BOOL CWorld::ReadWorld( const CRect & rcLandscape )
 					f.Read( &yLand, sizeof( yLand ) );
 				}
 				f.Read( (void*)aHeightMap, sizeof(FLOAT), ( MAP_SIZE + 1 ) * ( MAP_SIZE + 1 ) );
-
-				for( int y2 = 0; y2 < MAP_SIZE; y2++ )
+				int y2;
+				for(  y2 = 0; y2 < MAP_SIZE; y2++ )
 				{
 					for( int x2 = 0; x2 < MAP_SIZE; x2++ )
 					{
@@ -964,8 +964,8 @@ BOOL CWorld::ReadWorld( D3DXVECTOR3 vPos, BOOL bEraseOldLand  )
 
 	m_nCharLandPosX = x;
 	m_nCharLandPosZ = z;
-		
-	for(int i = z - m_nVisibilityLand; i <= z + m_nVisibilityLand; i++)
+		int i;
+	for( i = z - m_nVisibilityLand; i <= z + m_nVisibilityLand; i++)
 	{
 		for(int j = x - m_nVisibilityLand; j <= ( x + m_nVisibilityLand ); j++)
 		{
@@ -1009,7 +1009,7 @@ BOOL CWorld::ReadWorld( D3DXVECTOR3 vPos, BOOL bEraseOldLand  )
 		CRect rect( x - m_nVisibilityLand - 1, z - m_nVisibilityLand - 1, x + m_nVisibilityLand + 2, z + m_nVisibilityLand + 2 );
 		for( i = 0; i < m_nLandHeight; i++ )
 		{
-			for( int j = 0; j < m_nLandWidth; j++ )
+			int j; for(  j = 0; j < m_nLandWidth; j++ )
 			{
 				CLandscape* pLand = m_apLand[ i * m_nLandWidth + j];
 				if( pLand )
@@ -1058,7 +1058,7 @@ BOOL CWorld::ReadWorld( D3DXVECTOR3 vPos, BOOL bEraseOldLand  )
 				// x가 11 이하면 완전히 갈 수 없도록 하자.
 				if( x <= 11 || ( x == 12 && y == 9 ) || ( x == 12 && y == 8 ) )
 				{
-					for( int i = 0; i < ( MAP_SIZE + 1 ) * ( MAP_SIZE + 1 ); i++ )
+					int i; for( i = 0; i < ( MAP_SIZE + 1 ) * ( MAP_SIZE + 1 ); i++ )
 					{
 						if( aHeightMap[ i ] >= HGT_DIE )
 							aHeightMap[ i ] -= HGT_DIE;
@@ -1239,7 +1239,7 @@ BOOL CWorld::HasNobody_Process( int nLayer )
 
 BOOL CWorld::HasNoObj_Add( int nLayer )
 {
-	for( int i = 0; i < m_cbAddObjs; i++ )
+	int i; for( i = 0; i < m_cbAddObjs; i++ )
 	{
 		if( m_apAddObjs[i] && m_apAddObjs[i]->GetLayer() == nLayer )
 			return FALSE;
@@ -1252,7 +1252,7 @@ BOOL CWorld::HasNobody_Replace( int nLayer )
 #if __VER >= 15 // __GUILD_HOUSE
 	return g_WorldMng.HasNobody_Replace( GetID(), nLayer );
 #else // __GUILD_HOUSE
-	for( int i = 0; i < m_cbReplaceObj; ++i )
+	int i; for( i = 0; i < m_cbReplaceObj; ++i )
 	{
 		if( m_aReplaceObj[i].nLayer == nLayer )
 			return FALSE;

@@ -898,7 +898,8 @@ void CDbManager::LoadPiercingInfo( CItemElem & itemElem, char* szPirecingInven, 
 			itemElem.SetUltimatePiercingItem( i, (DWORD)GetIntPaFromStr( szPirecingInven, pLocation ) );
 	}
 	itemElem.SetPiercingSize( GetIntFromStr( szPirecingInven, pLocation ) );
-	for( int i = 0 ; i < itemElem.GetPiercingSize(); ++i )
+	int i;
+	for(  i = 0 ; i < itemElem.GetPiercingSize(); ++i )
 		itemElem.SetPiercingItem( i, (DWORD)GetIntFromStr( szPirecingInven, pLocation ) );
 #if __VER >= 15 // __PETVIS
 	if( itemElem.IsVisPet() )
@@ -1285,7 +1286,8 @@ BOOL CDbManager::GetQuest( CMover* pMover, CQuery *qry, LPDB_OVERLAPPED_PLUS lpD
 	{
 		if( pMover->m_aQuest[ i ].m_nState == QS_END )
 		{
-			for( int j = 0; j < pMover->m_nCompleteQuestSize; j++ )
+			int j;
+			for(  j = 0; j < pMover->m_nCompleteQuestSize; j++ )
 			{
 				if( pMover->m_aCompleteQuest[ j ] == pMover->m_aQuest[ i ].m_wId )
 					break;
@@ -1713,8 +1715,8 @@ BOOL CDbManager::IsAbnormalPlayerData( CMover* pMover )
 	DWORD dwId;
 	int nMax	= pMover->m_Inventory.m_dwItemMax;
 	int nNumberofIndex	= pMover->m_Inventory.m_dwIndexNum;
-
-	for( int i = 0; i < nMax; i++ )
+	int i;
+	for(  i = 0; i < nMax; i++ )
 	{
 		dwId	= pMover->m_Inventory.m_apIndex[i];
 		if( dwId != NULL_ID )
@@ -1765,7 +1767,8 @@ BOOL CDbManager::NormalizePlayerData( CMover* pMover )
 	int nMax	= pMover->m_Inventory.m_dwItemMax;
 	int nNumberofIndex	= pMover->m_Inventory.m_dwIndexNum;
 	DWORD dwId;
-	for( int i = 0; i < nMax; i++ )
+	int i;
+	for(  i = 0; i < nMax; i++ )
 	{
 		dwId	= pMover->m_Inventory.m_apIndex[i];
 		if( dwId != NULL_ID )
@@ -1774,7 +1777,8 @@ BOOL CDbManager::NormalizePlayerData( CMover* pMover )
 			{
 
 				DWORD dwIndex	= NULL_ID;
-				for( int j = 0; j < nMax; j++ )
+				int j;
+				for(  j = 0; j < nMax; j++ )
 				{	
 					if( pMover->m_Inventory.m_apItem[j].m_dwObjIndex == i )
 					{

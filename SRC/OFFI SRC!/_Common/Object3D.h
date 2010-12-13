@@ -289,7 +289,7 @@ public:
 	void	SetTextureEx( GMOBJECT *pObj, int nNumEx );
 	void	SetTextureEx( int nNumEx )
 	{
-		for( int i = 0; i < m_pGroup->m_nMaxObject; i ++ )
+		int i; for( i = 0; i < m_pGroup->m_nMaxObject; i ++ )
 			SetTextureEx( &(m_pGroup->m_pObject[i]), nNumEx );		
 	}
 	void	LoadTextureEx( int nNumEx, GMOBJECT *pObj, MATERIAL *pmMaterial[16] );

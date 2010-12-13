@@ -109,7 +109,7 @@ void CWndPartyCtrl::OnDraw( C2DRender* p2DRender )
 	TEXTUREVERTEX2* pVertex = new TEXTUREVERTEX2[ 6 * 2 * nMax ];
 	TEXTUREVERTEX2* pVertices = pVertex;
 	
-	for( int i = m_wndScrollBar.GetScrollPos(); i < nMax; i++ ) 
+	int i; for( i = m_wndScrollBar.GetScrollPos(); i < nMax; i++ ) 
 	{
 		CMover* pObjMember = prj.GetUserByID( g_Party.m_aMember[i].m_uPlayerId );
 		CString strMember;
@@ -194,7 +194,7 @@ void CWndPartyCtrl::OnLButtonUp( UINT nFlags, CPoint point )
 	CRect rect;
 
 	pt.y -= (m_nFontHeight + 3) * m_wndScrollBar.GetScrollPos();
-	for( int i = 0; i < g_Party.m_nSizeofMember; i++ ) 
+	int i; for( i = 0; i < g_Party.m_nSizeofMember; i++ ) 
 	{
 		CMover* pObjMember = prj.GetUserByID( g_Party.m_aMember[i].m_uPlayerId );
 		rect.SetRect( pt.x, pt.y, pt.x + m_rectWindow.Width() - m_wndScrollBar.GetClientRect().Width(), pt.y + m_nFontHeight );
@@ -228,7 +228,7 @@ void CWndPartyCtrl::OnLButtonDblClk( UINT nFlags, CPoint point )
 	if( nMax - m_wndScrollBar.GetScrollPos() > m_wndScrollBar.GetScrollPage() )
 		nMax = m_wndScrollBar.GetScrollPage();
 	
-	for( int i = m_wndScrollBar.GetScrollPos(); i < nMax; i++ ) 
+	int i; for( i = m_wndScrollBar.GetScrollPos(); i < nMax; i++ ) 
 	{
 		CMover* pObjMember = prj.GetUserByID( g_Party.m_aMember[i].m_uPlayerId );
 		rect.SetRect( pt.x, pt.y, pt.x + m_rectWindow.Width() - m_wndScrollBar.GetClientRect().Width(), pt.y + m_nFontHeight );

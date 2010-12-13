@@ -281,7 +281,7 @@ void CMessenger::Serialize( CAr & ar )
 
 		int nCount = 0;
 		ar >> nCount;
-		for( int i = 0 ; i < nCount ; i++ )
+		int i; for( i = 0 ; i < nCount ; i++ )
 		{
 			LPFRIEND pFriend = new FRIEND;
 			ar >> pFriend->bGroup;

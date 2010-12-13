@@ -63,7 +63,8 @@ BOOL CClipboard::GetText (LPSTR lpszBuffer, int nBufSize, HWND hWnd)
 
 	// Now, copy the text into the return buffer. At the
 	// end, we need to add a NULL string terminator.
-	for (UINT i = 0; i < nSize; ++i)
+	UINT i;
+	for ( i = 0; i < nSize; ++i)
 		*(lpszBuffer + i) = *(lpszData + i);
 	*(lpszBuffer + i) = 0;
 

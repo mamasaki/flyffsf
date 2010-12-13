@@ -29,40 +29,40 @@ extern	CGuildWarMng	g_GuildWarMng;
 CDPCacheSrvr::CDPCacheSrvr() 
 {
 	BEGIN_MSG;
-	ON_MSG( PACKETTYPE_JOIN, OnAddPlayer );
-	ON_MSG( PACKETTYPE_DESTROY_PLAYER, OnQueryRemovePlayer );
-	ON_MSG( PACKETTYPE_ADDPARTYMEMBER, OnAddPartyMember );
-	ON_MSG( PACKETTYPE_REMOVEPARTYMEMBER, OnRemovePartyMember );
-	ON_MSG( PACKETTYPE_CHANGETROUP, OnPartyChangeTroup );
-	ON_MSG( PACKETTYPE_CHANPARTYNAME, OnPartyChangeName );
-	ON_MSG( PACKETTYPE_PARTYCHANGEITEMMODE, OnPartyChangeItemMode );
-	ON_MSG( PACKETTYPE_PARTYCHANGEEXPMODE, OnPartyChangeExpMode );
-	ON_MSG( PACKETTYPE_ADDFRIEND, OnAddFriend );
-	ON_MSG( PACKETTYPE_GETFRIENDSTATE, OnGetFriendState );
-	ON_MSG( PACKETTYPE_SETFRIENDSTATE, OnSetFrinedState );
-	ON_MSG( PACKETTYPE_FRIENDINTERCEPTSTATE, OnFriendInterceptState );
-	ON_MSG( PACKETTYPE_REMOVEFRIEND, OnRemoveFriend );
-	ON_MSG( PACKETTYPE_GUILD_SETNAME, OnGuildSetName );
-	ON_MSG( PACKETTYPE_GUILD_PENYA, OnGuildPenya );
-	ON_MSG( PACKETTYPE_GUILD_AUTHORITY, OnGuildAuthority );
-	ON_MSG( PACKETTYPE_DESTROY_GUILD, OnDestroyGuild );
-	ON_MSG( PACKETTYPE_ADD_GUILD_MEMBER, OnAddGuildMember );
-	ON_MSG( PACKETTYPE_REMOVE_GUILD_MEMBER, OnRemoveGuildMember );
-	ON_MSG( PACKETTYPE_GUILD_MEMBER_LEVEL, OnGuildMemberLv );
-	ON_MSG( PACKETTYPE_GUILD_CLASS, OnGuildClass );
-	ON_MSG( PACKETTYPE_GUILD_NICKNAME, OnGuildNickName );
-	ON_MSG( PACKETTYPE_DECL_GUILD_WAR, OnDeclWar );
-	ON_MSG( PACKETTYPE_ACPT_GUILD_WAR, OnAcptWar );
-	ON_MSG( PACKETTYPE_SURRENDER, OnSurrender );
-	ON_MSG( PACKETTYPE_QUERY_TRUCE, OnQueryTruce );
-	ON_MSG( PACKETTYPE_ACPT_TRUCE, OnAcptTruce );
-	ON_MSG( PACKETTYPE_NC_ADDVOTE, OnAddVote );
-	ON_MSG( PACKETTYPE_NC_REMOVEVOTE, OnRemoveVote );
-	ON_MSG( PACKETTYPE_NC_CLOSEVOTE, OnCloseVote );
-	ON_MSG( PACKETTYPE_NC_CASTVOTE, OnCastVote );
-	ON_MSG( PACKETTYPE_PARTYCHANGELEADER, OnPartyChangeLeader );
-	ON_MSG( PACKETTYPE_SENDTAG, OnSendTag );
-	ON_MSG( PACKETTYPE_CHG_MASTER, OnChgMaster );
+	ON_MSG( PACKETTYPE_JOIN,& CDPCacheSrvr::OnAddPlayer );
+	ON_MSG( PACKETTYPE_DESTROY_PLAYER, & CDPCacheSrvr::OnQueryRemovePlayer );
+	ON_MSG( PACKETTYPE_ADDPARTYMEMBER, & CDPCacheSrvr::OnAddPartyMember );
+	ON_MSG( PACKETTYPE_REMOVEPARTYMEMBER,& CDPCacheSrvr:: OnRemovePartyMember );
+	ON_MSG( PACKETTYPE_CHANGETROUP, & CDPCacheSrvr::OnPartyChangeTroup );
+	ON_MSG( PACKETTYPE_CHANPARTYNAME, & CDPCacheSrvr::OnPartyChangeName );
+	ON_MSG( PACKETTYPE_PARTYCHANGEITEMMODE, & CDPCacheSrvr::OnPartyChangeItemMode );
+	ON_MSG( PACKETTYPE_PARTYCHANGEEXPMODE,& CDPCacheSrvr:: OnPartyChangeExpMode );
+	ON_MSG( PACKETTYPE_ADDFRIEND,& CDPCacheSrvr:: OnAddFriend );
+	ON_MSG( PACKETTYPE_GETFRIENDSTATE, & CDPCacheSrvr::OnGetFriendState );
+	ON_MSG( PACKETTYPE_SETFRIENDSTATE, & CDPCacheSrvr::OnSetFrinedState );
+	ON_MSG( PACKETTYPE_FRIENDINTERCEPTSTATE,& CDPCacheSrvr:: OnFriendInterceptState );
+	ON_MSG( PACKETTYPE_REMOVEFRIEND,& CDPCacheSrvr:: OnRemoveFriend );
+	ON_MSG( PACKETTYPE_GUILD_SETNAME, & CDPCacheSrvr::OnGuildSetName );
+	ON_MSG( PACKETTYPE_GUILD_PENYA,& CDPCacheSrvr:: OnGuildPenya );
+	ON_MSG( PACKETTYPE_GUILD_AUTHORITY,& CDPCacheSrvr:: OnGuildAuthority );
+	ON_MSG( PACKETTYPE_DESTROY_GUILD,& CDPCacheSrvr:: OnDestroyGuild );
+	ON_MSG( PACKETTYPE_ADD_GUILD_MEMBER,& CDPCacheSrvr:: OnAddGuildMember );
+	ON_MSG( PACKETTYPE_REMOVE_GUILD_MEMBER, & CDPCacheSrvr::OnRemoveGuildMember );
+	ON_MSG( PACKETTYPE_GUILD_MEMBER_LEVEL, & CDPCacheSrvr::OnGuildMemberLv );
+	ON_MSG( PACKETTYPE_GUILD_CLASS,& CDPCacheSrvr:: OnGuildClass );
+	ON_MSG( PACKETTYPE_GUILD_NICKNAME, & CDPCacheSrvr::OnGuildNickName );
+	ON_MSG( PACKETTYPE_DECL_GUILD_WAR,& CDPCacheSrvr:: OnDeclWar );
+	ON_MSG( PACKETTYPE_ACPT_GUILD_WAR, & CDPCacheSrvr::OnAcptWar );
+	ON_MSG( PACKETTYPE_SURRENDER, & CDPCacheSrvr::OnSurrender );
+	ON_MSG( PACKETTYPE_QUERY_TRUCE, & CDPCacheSrvr::OnQueryTruce );
+	ON_MSG( PACKETTYPE_ACPT_TRUCE, & CDPCacheSrvr::OnAcptTruce );
+	ON_MSG( PACKETTYPE_NC_ADDVOTE, & CDPCacheSrvr::OnAddVote );
+	ON_MSG( PACKETTYPE_NC_REMOVEVOTE,& CDPCacheSrvr:: OnRemoveVote );
+	ON_MSG( PACKETTYPE_NC_CLOSEVOTE, & CDPCacheSrvr::OnCloseVote );
+	ON_MSG( PACKETTYPE_NC_CASTVOTE, & CDPCacheSrvr::OnCastVote );
+	ON_MSG( PACKETTYPE_PARTYCHANGELEADER,& CDPCacheSrvr:: OnPartyChangeLeader );
+	ON_MSG( PACKETTYPE_SENDTAG, & CDPCacheSrvr::OnSendTag );
+	ON_MSG( PACKETTYPE_CHG_MASTER,& CDPCacheSrvr:: OnChgMaster );
 }
 
 CDPCacheSrvr::~CDPCacheSrvr()
@@ -2334,7 +2334,8 @@ void CDPCacheSrvr::OnSurrender( CAr & ar, DPID dpidCache, DPID dpidUser, u_long 
 
 void CDPCacheSrvr::SendSurrender( u_long idWar, CGuild* pDecl, CGuild* pAcpt, u_long idPlayer, const char* sPlayer, BOOL bDecl )
 {
-	for( map<u_long, CGuildMember*>::iterator i = pDecl->m_mapPMember.begin();	// neuz
+	 map<u_long, CGuildMember*>::iterator  i;
+	for(i = pDecl->m_mapPMember.begin();	// neuz
 		i != pDecl->m_mapPMember.end(); ++i )
 	{
 		CPlayer* pPlayer	= g_PlayerMng.GetPlayer( i->second->m_idPlayer );
@@ -2571,7 +2572,8 @@ void CDPCacheSrvr::OnAcptWar( CAr & ar, DPID dpidCache, DPID dpidUser, u_long uB
 		pAcpt->m_idWar	= idWar;
 		pAcpt->m_idEnemyGuild	= pDecl->m_idGuild;
 
-		for( map<u_long, CGuildMember*>::iterator i = pDecl->m_mapPMember.begin();
+		 map<u_long, CGuildMember*>::iterator i;
+		for( i = pDecl->m_mapPMember.begin();
 				i != pDecl->m_mapPMember.end(); ++i )
 		{
 			CPlayer* pPlayer	= g_PlayerMng.GetPlayer( i->second->m_idPlayer );

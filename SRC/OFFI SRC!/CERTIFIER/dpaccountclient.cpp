@@ -16,11 +16,11 @@ extern	CDPCertifier	g_dpCertifier;
 CDPAccountClient::CDPAccountClient()
 {
 	BEGIN_MSG;
-	ON_MSG( PACKETTYPE_ADD_ACCOUNT, OnAddAccount );
-	ON_MSG( PACKETTYPE_DESTROY_PLAYER, OnDestroyPlayer );
-	ON_MSG( PACKETTYPE_SRVR_LIST, OnServersetList );
-	ON_MSG( PACKETTYPE_PLAYER_COUNT, OnPlayerCount );
-	ON_MSG( PACKETTYPE_ENABLE_SERVER, OnEnableServer );
+	ON_MSG( PACKETTYPE_ADD_ACCOUNT,& CDPAccountClient::OnAddAccount );
+	ON_MSG( PACKETTYPE_DESTROY_PLAYER, &CDPAccountClient::OnDestroyPlayer );
+	ON_MSG( PACKETTYPE_SRVR_LIST, &CDPAccountClient::OnServersetList );
+	ON_MSG( PACKETTYPE_PLAYER_COUNT, &CDPAccountClient::OnPlayerCount );
+	ON_MSG( PACKETTYPE_ENABLE_SERVER,&CDPAccountClient:: OnEnableServer );
 }
 
 CDPAccountClient::~CDPAccountClient()

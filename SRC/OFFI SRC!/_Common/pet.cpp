@@ -52,7 +52,7 @@ BYTE	CPetProperty::GetLevelupAvailLevel( BYTE wLevel )
 {
 	DWORD dwTotal	= 0;
 	DWORD dwRandom	= xRandom( 1, 10001 );	// 1 ~ 10000
-	for( int i = 0; i <= m_anLevelupAvailLevelMax[wLevel]; i++ )
+	int i; for( i = 0; i <= m_anLevelupAvailLevelMax[wLevel]; i++ )
 	{
 		dwTotal		+= m_adwLevelupAvailLevelProbability[wLevel][i];
 		if(  dwTotal >= dwRandom )
@@ -79,7 +79,7 @@ BYTE	CPetProperty::Hatch( void )
 {
 	DWORD dwTotal	= 0;
 	DWORD dwRandom	= xRandom( 1, 10001 );	// 1 - 10000
-	for( int i = 0; i < PK_MAX; i++ )
+	int i; for( i = 0; i < PK_MAX; i++ )
 	{
 		dwTotal	+= m_aPetAvailParam[i].m_dwProbability;
 		if( dwTotal >= dwRandom )
@@ -140,7 +140,7 @@ BOOL CPetProperty::LoadScript( LPCTSTR szFile )
 			{
 				ASSERT( nKind < PK_MAX );
 				m_aPetAvailParam[nKind].dwDstParam	= dwDstParam;
-				for( int i = 0; i < MAX_PET_AVAIL_LEVEL; i++ )
+				int i; for( i = 0; i < MAX_PET_AVAIL_LEVEL; i++ )
 					m_aPetAvailParam[nKind].m_anParam[i]	= s.GetNumber();
 				m_aPetAvailParam[nKind].m_dwItemId	= s.GetNumber();
 				m_aPetAvailParam[nKind].m_adwIndex[0]	= s.GetNumber();
@@ -159,7 +159,7 @@ BOOL CPetProperty::LoadScript( LPCTSTR szFile )
 			while( *s.token != '}' )
 			{
 				m_adwLevelupAvailLevelProbability[nLevel][0]	= dwProbability;
-				for( int i = 1; i < MAX_PET_AVAIL_LEVEL; i++ )
+				int i; for( i = 1; i < MAX_PET_AVAIL_LEVEL; i++ )
 				{
 					m_adwLevelupAvailLevelProbability[nLevel][i]	= s.GetNumber();
 					if( m_adwLevelupAvailLevelProbability[nLevel][i] > 0 )
@@ -248,7 +248,7 @@ BOOL CPetProperty::LoadScript( LPCTSTR szFile )
 /*
 #ifdef _DEBUG
 	TRACE( "GetAvailParam\n" );
-	for( int i = 0; i < PK_MAX; i++ )
+	int i; for( i = 0; i < PK_MAX; i++ )
 	{
 		PPETAVAILPARAM pPetAvailParam	= GetAvailParam( i );
 		TRACE( "dwDstParam=%d, nBase=%d, nParam=%d\n", pPetAvailParam->dwDstParam, pPetAvailParam->nBase, pPetAvailParam->nParam );
@@ -257,7 +257,7 @@ BOOL CPetProperty::LoadScript( LPCTSTR szFile )
 	// 0은 모두 0이어야 한다.
 	for( i = PL_EGG; i < PL_MAX; i++ )
 	{
-		for( int j = 0; j < 100; j++ )
+		int j; for(  j = 0; j < 100; j++ )
 		{
 			BYTE nAvailLevel	= GetLevelupAvailLevel( i );
 			TRACE( "PetLevel=%d, AvailLevel=%d\n", i, nAvailLevel );
@@ -382,7 +382,7 @@ void CPet::GetAvailDestParam( DWORD & dwDestParam, int & nParam )
 	if( pAvailParam )
 	{
 		dwDestParam	= pAvailParam->dwDstParam;
-		for( int i = PL_D; i <= m_nLevel; i++ )
+		int i; for( i = PL_D; i <= m_nLevel; i++ )
 			nParam += pAvailParam->m_anParam[m_anAvailLevel[i-1] - 1];
 	}
 }
@@ -430,9 +430,9 @@ enum
 
 BEGIN_AISTATE_MAP( CAIEgg, CAIInterface )
 
-	ON_STATE( STATE_INIT, StateInit )
-	ON_STATE( STATE_IDLE, StateIdle )
-	ON_STATE( STATE_RAGE, StateRage )
+	ON_STATE( STATE_INIT, &CAIEgg::StateInit )
+	ON_STATE( STATE_IDLE, &CAIEgg::StateIdle )
+	ON_STATE( STATE_RAGE, &CAIEgg::StateRage )
 
 END_AISTATE_MAP()
 
@@ -950,7 +950,7 @@ CItemElem* CTransformItemProperty::CreateItemPet( CScript & s )
 	pItem->m_dwItemId	= pPet->GetItemId();
 	BYTE anAvail[PL_MAX - 1]	= { 0,};
 	char sAvail[2]	= { 0,};
-	for( int i = 0; i < pPet->GetLevel(); i++ )
+	int i; for( i = 0; i < pPet->GetLevel(); i++ )
 	{
 		sAvail[0]	= s.Token.GetAt( i );
 		sAvail[1]	= '\0';

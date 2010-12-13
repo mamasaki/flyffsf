@@ -68,7 +68,7 @@ void	CMover::SetMasterSkillPointUp()
 	if( IsHero() )
 		return;
 
-	for( int i = 0; i < MAX_SKILL_JOB; i++ ) 
+	int i; for( i = 0; i < MAX_SKILL_JOB; i++ ) 
 	{				
 		LPSKILL lpSkill = &(m_aJobSkill[i]);
 		if( lpSkill && lpSkill->dwSkill != NULL_ID )
@@ -1145,7 +1145,8 @@ DWORD	CMover::GetRemoveSfxObj(DWORD	dwRemoveSfxObjID)
 
 void	CMover::SetRemoveSfxObj(DWORD	dwRemoveSfxObjID)
 {
-	for(int i=0;i<MAX_SKILLBUFF_COUNT;i++)
+	int i;
+	for( i=0;i<MAX_SKILLBUFF_COUNT;i++)
 	{
 		if(dwRemoveSfxObj[i] ==  dwRemoveSfxObjID)
 			return;
@@ -2401,7 +2402,7 @@ int	CMover::DoUseItemSystem( ItemProp *pItemProp, CItemElem* pItemElem, int nPar
 #endif // __S_ADD_EXP
 				if( nBufCount < nMaxBuf )
 				{
-					for( int i = 0 ; i < nMaxBuf ; ++i )
+					int i; for( i = 0 ; i < nMaxBuf ; ++i )
 					{
 						if( bBuf[i] == FALSE )
 						{
@@ -2909,7 +2910,7 @@ BOOL CMover::IsDoUseBuff( ItemProp* pItemProp )
 	{
 		int nMax	= m_Inventory.GetMax();
 		CItemElem* pItem;
-		for( int i = 0 ; i < nMax; i++ )
+		int i; for( i = 0 ; i < nMax; i++ )
 		{
 			pItem	= m_Inventory.GetAtId( i );
 			if( IsUsableItem( pItem )
@@ -3065,9 +3066,9 @@ BOOL	CMover::DoUseItemFood( ItemProp *pItemProp, CItemElem* pItemElem )
 	int nPoint;
 	int nMax, nHP, nHPMax;
 #ifdef __PROP_0827
-	for( int i = 0; i < 3; i ++ )
+	int i; for( i = 0; i < 3; i ++ )
 #else	// __PROP_0827
-	for( int i = 0; i < 2; i ++ )
+	int i; for( i = 0; i < 2; i ++ )
 #endif	// __PROP_0827
 	{
 		if( pItemProp->dwDestParam[i] != (DWORD)-1 )
@@ -3952,7 +3953,7 @@ int CMover::DoUseItemFeedPocket( CItemElem* pPocket )
 		{
 			int nMax	= m_Inventory.GetMax();
 			CItemElem* pItemElem;
-			for( int i = 0 ; i < nMax; i++ )
+			int i; for( i = 0 ; i < nMax; i++ )
 			{
 				pItemElem	= m_Inventory.GetAtId( i );
 				if( IsUsableItem( pItemElem )

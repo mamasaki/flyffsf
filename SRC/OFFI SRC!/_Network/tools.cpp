@@ -23,7 +23,7 @@ void md5( char* out, const BYTE* pbContent, DWORD cbContent )
 				{
 					// Make a string version of the numeric digest value
 					char tmp[4];
-					for( int i = 0; i < 16; i++ )
+					int i; for( i = 0; i < 16; i++ )
 					{
 						sprintf( tmp, "%02x", bHash[i] );
 						strcat( out, tmp );

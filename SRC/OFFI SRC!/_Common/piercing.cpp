@@ -38,11 +38,11 @@ void CPiercing::Serialize( CAr & ar )
 	if( ar.IsStoring() )
 	{
 		ar << GetPiercingSize();
-		for( int i = 0; i < GetPiercingSize(); i++ )
+		int i; for( i = 0; i < GetPiercingSize(); i++ )
 			ar << GetPiercingItem( i );
 #if __VER >= 12 // __EXT_PIERCING
 		ar << GetUltimatePiercingSize();
-		for( int i = 0; i < GetUltimatePiercingSize(); i++ )
+		for( i = 0; i < GetUltimatePiercingSize(); i++ )
 			ar << GetUltimatePiercingItem( i );
 #endif // __EXT_PIERCING
 #if __VER >= 15 // __PETVIS
@@ -57,7 +57,8 @@ void CPiercing::Serialize( CAr & ar )
 		size_t nSize;
 		ar >> nSize;
 		SetPiercingSize( nSize );
-		for( size_t i = 0; i < nSize; i++ )
+		size_t i;
+		for(  i = 0; i < nSize; i++ )
 		{
 			DWORD dwItem;
 			ar >> dwItem;

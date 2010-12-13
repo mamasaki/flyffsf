@@ -30,10 +30,10 @@ enum
 
 static DWORD s_tmAttack = SEC(20);	//  m_tmAttack 20√  
 
-BEGIN_AISTATE_MAP( CAIMeteonyker, CAIInterface )
-	ON_STATE( STATE_INIT, StateInit )
-	ON_STATE( STATE_IDLE, StateIdle )
-	ON_STATE( STATE_RAGE, StateRage )
+BEGIN_AISTATE_MAP( CAIMeteonyker,CAIInterface )
+	ON_STATE( STATE_INIT, &CAIMeteonyker::StateInit )
+	ON_STATE( STATE_IDLE, &CAIMeteonyker::StateIdle )
+	ON_STATE( STATE_RAGE, &CAIMeteonyker::StateRage )
 END_AISTATE_MAP()
 
 CAIMeteonyker::CAIMeteonyker()

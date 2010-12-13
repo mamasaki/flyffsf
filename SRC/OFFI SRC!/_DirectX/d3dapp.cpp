@@ -1866,6 +1866,7 @@ HRESULT CD3DApplication::DisplayErrorMsg( HRESULT hr, DWORD dwType )
         return hr;
 
 	BOOL bDefault = FALSE;
+	
     switch( hr )
     {
         case D3DAPPERR_NODIRECT3D:
@@ -1938,7 +1939,6 @@ HRESULT CD3DApplication::DisplayErrorMsg( HRESULT hr, DWORD dwType )
             break;
 
         case D3DAPPERR_MEDIANOTFOUND:
-        case HRESULT_FROM_WIN32( ERROR_FILE_NOT_FOUND ):
             _tcscpy( strMsg, _T("Could not load required media." ) );
             break;
 
@@ -1974,12 +1974,17 @@ HRESULT CD3DApplication::DisplayErrorMsg( HRESULT hr, DWORD dwType )
             break;
 
         default:
-            _tcscpy( strMsg, _T("Generic application error. Enable\n")
-                             _T("debug output for detailed information."));
-			char ErrorCode[12];
-			sprintf(ErrorCode, "%d", (int)hr);
-			_tcscat( strMsg, _T(ErrorCode));
-			bDefault = TRUE;
+			if(hr ==D3DAPPERR_FILE_NOT_FOUND)
+				_tcscpy( strMsg, _T("Could not load required media." ) );
+			else
+			{
+				_tcscpy( strMsg, _T("Generic application error. Enable\n")
+								 _T("debug output for detailed information."));
+				char ErrorCode[12];
+				sprintf(ErrorCode, "%d", (int)hr);
+				_tcscat( strMsg, _T(ErrorCode));
+				bDefault = TRUE;
+			}
     }
 
     if( MSGERR_APPMUSTEXIT == dwType )

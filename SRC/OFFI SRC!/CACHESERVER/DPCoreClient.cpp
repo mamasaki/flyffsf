@@ -21,12 +21,12 @@ extern	CMyTrace	g_MyTrace;
 CDPCoreClient::CDPCoreClient()
 {
 	BEGIN_MSG;
-	ON_MSG( PACKETTYPE_PROCSERVER_LIST, OnProcServerList );
-	ON_MSG( PACKETTYPE_LOAD_WORLD, OnProcServer );
-	ON_MSG( PACKETTYPE_JOIN, OnJoin );
-	ON_MSG( PACKETTYPE_LEAVE, OnLeave );
-	ON_MSG( PACKETTYPE_DESTROY_ALLPLAYERS, OnDestroyAllPlayers );
-	ON_MSG( PACKETTYPE_KILLPLAYER, OnKillPlayer );
+	ON_MSG( PACKETTYPE_PROCSERVER_LIST,&CDPCoreClient:: OnProcServerList );
+	ON_MSG( PACKETTYPE_LOAD_WORLD,&CDPCoreClient:: OnProcServer );
+	ON_MSG( PACKETTYPE_JOIN,&CDPCoreClient:: OnJoin );
+	ON_MSG( PACKETTYPE_LEAVE,&CDPCoreClient:: OnLeave );
+	ON_MSG( PACKETTYPE_DESTROY_ALLPLAYERS,&CDPCoreClient:: OnDestroyAllPlayers );
+	ON_MSG( PACKETTYPE_KILLPLAYER,&CDPCoreClient:: OnKillPlayer );
 
 #ifdef __CRASH_0404
 	CCrashStatus::GetInstance()->RegisterDPMng( "CDPCoreClient", this );

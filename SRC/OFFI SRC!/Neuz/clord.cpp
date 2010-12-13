@@ -175,7 +175,8 @@ void CCElection::DoEndVoteComplete( void )
 	{
 		// 군주관련 숏컷제거 - 단축키
 		CWndTaskBar* pTaskBar = g_WndMng.m_pWndTaskBar;
-		for(int nSlot = 0; nSlot < MAX_SLOT_ITEM_COUNT; ++nSlot)
+		int nSlot;
+		for(nSlot = 0; nSlot < MAX_SLOT_ITEM_COUNT; ++nSlot)
 		{
 			for(int nIndex = 0; nIndex < MAX_SLOT_ITEM; ++nIndex)
 			{
@@ -222,7 +223,7 @@ void CCElection::State( void )
 	g_WndMng.PutString( lpString, NULL, 0xff00ff00 );
 	sprintf( lpString, "candidates list" );
 	g_WndMng.PutString( lpString, NULL, 0xff00ff00 );
-	for( int i = 0; i < (int)( m_vCandidates.size() ); i++ )
+	int i; for( i = 0; i < (int)( m_vCandidates.size() ); i++ )
 	{
 		SPC ptr		= m_vCandidates[i];
 		sprintf( lpString, "%02d: %07d: %I64d: %s: %d: %d", i, ptr->GetIdPlayer(), ptr->GetDeposit(), ptr->GetPledge(), ptr->GetVote(), ptr->GetCreate() );

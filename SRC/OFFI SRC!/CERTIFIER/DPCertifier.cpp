@@ -42,11 +42,11 @@ CDPCertifier::CDPCertifier()
 #endif	// __SECURITY_0628
 
 	BEGIN_MSG;
-	ON_MSG( PACKETTYPE_CERTIFY, OnCertify );
-	ON_MSG( PACKETTYPE_PING, OnPing );
-	ON_MSG( PACKETTYPE_CLOSE_EXISTING_CONNECTION, OnCloseExistingConnection );
-	ON_MSG( PACKETTYPE_KEEP_ALIVE, OnKeepAlive );
-	ON_MSG( PACKETTYPE_ERROR, OnError );
+	ON_MSG( PACKETTYPE_CERTIFY,& CDPCertifier::OnCertify );
+	ON_MSG( PACKETTYPE_PING, &CDPCertifier::OnPing );
+	ON_MSG( PACKETTYPE_CLOSE_EXISTING_CONNECTION,& CDPCertifier::OnCloseExistingConnection );
+	ON_MSG( PACKETTYPE_KEEP_ALIVE,& CDPCertifier::OnKeepAlive );
+	ON_MSG( PACKETTYPE_ERROR, &CDPCertifier::OnError );
 }
 
 CDPCertifier::~CDPCertifier()

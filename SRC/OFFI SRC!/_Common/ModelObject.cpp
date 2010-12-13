@@ -480,7 +480,7 @@ void	CModelObject::TakeOffParts( int nParts )
 	if( pElem && pElem->m_ppd3d_VB )
 	{
 		pElem->m_pObject3D->SetLOD(0);
-		for( int j = 0; j < pElem->m_pObject3D->GetMaxObject(); j ++ )		// 
+		int j; for(  j = 0; j < pElem->m_pObject3D->GetMaxObject(); j ++ )		// 
 			SAFE_RELEASE( pElem->m_ppd3d_VB1[j] );
 		pElem->m_pObject3D->SetLOD(1);
 		for( j = 0; j < pElem->m_pObject3D->GetMaxObject(); j ++ )
@@ -674,8 +674,8 @@ int		CModelObject::LoadElement( LPCTSTR szFileName, int nParts )
 			return FAIL;
 		}
 	}
-	
-	for( int i=0; i<MAX_ELEMENT; i++ )
+	int i;
+	for(  i=0; i<MAX_ELEMENT; i++ )
 	{
 		if( m_Element[ i ].m_nPartsIdx == -1 )
 			break;
@@ -2425,7 +2425,7 @@ void	CModelObject::GetHandPos( D3DXVECTOR3 *vOut, int nParts, const D3DXMATRIX &
 BOOL CModelObject::GetPosBone( D3DXVECTOR3* pOut, const char* bonename )
 {
 	//gmpbigsun : 본이름으로 본좌표 추출 
-	for( int i =0; i < m_pBone->m_nMaxBone; ++i )
+	int i; for( i =0; i < m_pBone->m_nMaxBone; ++i )
 	{
 		BONE* pUnitBone = m_pBone->GetBone( i );
 		if( !pUnitBone )

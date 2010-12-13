@@ -144,7 +144,7 @@ BOOL CWndTutorial::AddToList(int nIndex)
 
 	map<int, TUTORIAL_STRING>::iterator iter = m_mapTutorial.find(nIndex);
 
-	if(iter != NULL)
+	if(iter != m_mapTutorial.end())
 	{
 		CWndListBox* pWndListBox	= (CWndListBox*)GetDlgItem( WIDC_LIST1 );
 		pWndListBox->AddString(iter->second.strTitle);

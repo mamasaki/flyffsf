@@ -21,7 +21,7 @@ CWndQITreeCtrl::~CWndQITreeCtrl( void )
 void CWndQITreeCtrl::OnLButtonDown( UINT nFlags, CPoint point )
 {
 	LPTREEITEM pTreeItem = NULL;
-	for( int i = 0; i < GetTreeItemArray()->GetSize(); ++i )
+	int i; for( i = 0; i < GetTreeItemArray()->GetSize(); ++i )
 	{
 		pTreeItem = ( LPTREEITEM )GetTreeItemArray()->GetAt( i );
 		if( GetMemberCheckingMode() == TRUE )
@@ -264,7 +264,7 @@ BOOL CWndQuestQuickInfo::Process( void )
 
 		if( nCheckedQuestSize > 0 )
 		{
-			for( int i = 0; i < nCheckedQuestSize; ++i )
+			int i; for( i = 0; i < nCheckedQuestSize; ++i )
 			{
 				if( IsVisible() != TRUE )
 					SetVisible( TRUE );

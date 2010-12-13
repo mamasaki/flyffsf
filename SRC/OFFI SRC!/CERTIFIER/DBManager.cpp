@@ -40,7 +40,8 @@ CDbManager::CDbManager()
 
 CDbManager::~CDbManager()
 {
-	for( int i = 0; i < DEFAULT_DB_WORKER_THREAD_NUM; i++ )
+	int i;
+	for(  i = 0; i < DEFAULT_DB_WORKER_THREAD_NUM; i++ )
 	{
 		PostQueuedCompletionStatus( m_hIOCP[i], 0, NULL, NULL );
 		CLOSE_HANDLE( m_hIOCP[i] );

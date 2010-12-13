@@ -121,7 +121,7 @@ CEditString::~CEditString()
 }
 void CEditString::SetAlpha( DWORD dwAlpha )
 {
-	for( int i = 0; i < GetLength(); i++)
+	int i; for( i = 0; i < GetLength(); i++)
 	{
 		m_adwColor.SetAt( 
 			i ,
@@ -132,47 +132,47 @@ void CEditString::SetAlpha( DWORD dwAlpha )
 void CEditString::SetColor( DWORD dwColor )
 {
 	m_adwColor.SetSize( GetLength() );
-	for( int i = 0; i < GetLength(); i++)
+	int i; for( i = 0; i < GetLength(); i++)
 		m_adwColor.SetAt( i , dwColor );
 }
 void CEditString::SetStyle( DWORD dwStyle )
 {
 	m_abyStyle.SetSize( GetLength() );
-	for( int i = 0; i < GetLength(); i++)
+	int i; for( i = 0; i < GetLength(); i++)
 		m_abyStyle.SetAt( i , (BYTE)( dwStyle ) );
 }
 void CEditString::SetCodePage( WORD wCodePage )
 {
 	m_awCodePage.SetSize( GetLength() );
-	for( int i = 0; i < GetLength(); i++)
+	int i; for( i = 0; i < GetLength(); i++)
 		m_awCodePage.SetAt( i , CODE_PAGE(wCodePage) );
 }
 void CEditString::SetColor( int nPos, int nLength, DWORD dwColor )
 {
-	for( int i = nPos; i < nPos + nLength; i++)
+	int i; for( i = nPos; i < nPos + nLength; i++)
 		m_adwColor.SetAt( i, dwColor );
 }
 void CEditString::SetStyle( int nPos, int nLength, DWORD dwStyle )
 {
-	for( int i = nPos; i < nPos + nLength; i++)
+	int i; for( i = nPos; i < nPos + nLength; i++)
 		m_abyStyle.SetAt( i, (BYTE)( m_abyStyle.GetAt( i ) | dwStyle ) );
 }
 void CEditString::ClearStyle( int nPos, int nLength, DWORD dwStyle )
 {
-	for( int i = nPos; i < nPos + nLength; i++)
+	int i; for( i = nPos; i < nPos + nLength; i++)
 		m_abyStyle.SetAt( i , (BYTE)( m_abyStyle.GetAt( i ) & ~dwStyle ) );
 }
 
 void CEditString::ClearStyle( DWORD dwStyle )
 {
 	m_abyStyle.SetSize( GetLength() );
-	for( int i = 0; i < GetLength(); i++)
+	int i; for( i = 0; i < GetLength(); i++)
 		m_abyStyle.SetAt( i , (BYTE)( m_abyStyle.GetAt( i ) & ~dwStyle ) );
 }
 
 void CEditString::SetCodePage( int nPos, int nLength, WORD wCodePage )
 {
-	for( int i = nPos; i < nPos + nLength; i++)
+	int i; for( i = nPos; i < nPos + nLength; i++)
 		m_awCodePage.SetAt( i, CODE_PAGE(wCodePage) );
 }
 void CEditString::Empty( )
@@ -317,7 +317,7 @@ void CEditString::ParsingString( LPCTSTR lpsz, DWORD dwColor, DWORD dwStyle, WOR
 	TCHAR szColor[9];
 	int nLen = strlen( lpsz );
 	
-	for( int i = 0; i < nLen; i++ )
+	int i; for( i = 0; i < nLen; i++ )
 	{
 		if( lpsz[ i ] == '#' ) // 인식 코드
 		{
@@ -337,7 +337,7 @@ void CEditString::ParsingString( LPCTSTR lpsz, DWORD dwColor, DWORD dwStyle, WOR
 						DWORDLONG dwlNumber = 0;
 						DWORD dwMulCnt = 0;
 						CHAR cVal;
-						for( int j = 7; j >= 0; j--)
+						int j; for(  j = 7; j >= 0; j--)
 						{
 							cVal = szColor[ j ];
 							if( cVal >= 'a' )
@@ -457,7 +457,7 @@ void CEditString::AddParsingString( LPCTSTR lpsz, DWORD dwColor, DWORD dwStyle, 
 	int nBegin = GetLength();
 	int nEnd = nBegin + _tcslen( lpsz );
 	*((CString*)this) += lpsz; 
-	for( int i = nBegin; i < nEnd; i++ )
+	int i; for( i = nBegin; i < nEnd; i++ )
 		m_adwColor.SetAtGrow( i, dwColor ); 
 	for( i = nBegin; i < nEnd; i++ )
 		m_abyStyle.SetAtGrow( i, dwStyle ); 
@@ -490,7 +490,8 @@ void CEditString::AddString( LPCTSTR lpsz, DWORD dwColor, DWORD dwStyle, WORD wC
 	int nBegin = GetLength();
 	int nEnd = nBegin + _tcslen( lpsz );
 	*((CString*)this) += lpsz; 
-	for( int i = nBegin; i < nEnd; i++ )
+	int i;
+	for(  i = nBegin; i < nEnd; i++ )
 		m_adwColor.SetAtGrow( i, dwColor ); 
 	for( i = nBegin; i < nEnd; i++ )
 		m_abyStyle.SetAtGrow( i, (BYTE)( dwStyle ) ); 
@@ -589,7 +590,7 @@ int CEditString::DeleteLine( int nBeginLine, int nCount )
 		nCount -= nMax - m_adwLineOffset.GetSize();
 		nMax = m_adwLineOffset.GetSize();
 	}
-	for( int i = nBeginLine; i < nMax; i++ )
+	int i; for( i = nBeginLine; i < nMax; i++ )
 	{
 		nBeginOffset = GetLineOffset( i );
 		nEndOffset = GetLineOffset( i + 1 );
@@ -602,7 +603,7 @@ int CEditString::DeleteLine( int nBeginLine, int nCount )
 	m_awCodePage.RemoveAt( nBeginOffset, nLengthCount );
 	m_adwLineOffset.RemoveAt( nBeginLine, nCount ); 
 
-	for( int j = nBeginLine; j < m_adwLineOffset.GetSize(); j++ )
+	int j; for(  j = nBeginLine; j < m_adwLineOffset.GetSize(); j++ )
 	{
 		int nNewOffset = m_adwLineOffset.GetAt( j ) - nLengthCount;
 		m_adwLineOffset.SetAt( j, nNewOffset );
@@ -847,7 +848,7 @@ CEditString CEditString::GetEditString( DWORD dwLine )
 		else 
 			size = GetLength() - begin;
 		retval = Mid( begin, size ); 
-		for( int i = 0; i < size; i++ )
+		int i; for( i = 0; i < size; i++ )
 		{
 			retval.m_adwColor[ i ] = m_adwColor[ begin + i ];
 			retval.m_abyStyle[ i ] = m_abyStyle[ begin + i ];

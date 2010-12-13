@@ -403,8 +403,8 @@ BOOL CWndGuildVoteSeting::OnChildNotify( UINT message, UINT nID, LRESULT* pLResu
 				pEdit[1] = (CWndEdit*) GetDlgItem( WIDC_EDIT5 );
 				pEdit[2] = (CWndEdit*) GetDlgItem( WIDC_EDIT6 );
 				pEdit[3] = (CWndEdit*) GetDlgItem( WIDC_EDIT4 );
-
-				for( int i=0; i<4; i++ )
+				int i;
+				for(  i=0; i<4; i++ )
 				{
 					if( strlen( pEdit[i]->GetString() ) > 0 )
 						nChk = i;

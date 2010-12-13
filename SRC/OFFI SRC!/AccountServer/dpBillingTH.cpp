@@ -28,9 +28,9 @@ CDPBillingTH::CDPBillingTH()
 	m_nKeepAlive    = 0;
 
 	BEGIN_MSG;
-	ON_MSG( TH_ACK_KEEPALIVE, AckKeepAlive );
-	ON_MSG( TH_ACK_BILLINGINFO, AckBillingInfo );
-	ON_MSG( TH_REQ_ISALIVE, ReqIsAlive );
+	ON_MSG( TH_ACK_KEEPALIVE, &CDPBillingTH::AckKeepAlive );
+	ON_MSG( TH_ACK_BILLINGINFO, &CDPBillingTH::AckBillingInfo );
+	ON_MSG( TH_REQ_ISALIVE, &CDPBillingTH::ReqIsAlive );
 }
 
 CDPBillingTH::~CDPBillingTH()

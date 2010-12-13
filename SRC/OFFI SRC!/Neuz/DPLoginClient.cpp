@@ -32,18 +32,18 @@ CDPLoginClient::CDPLoginClient()
 #endif // __2ND_PASSWORD_SYSTEM
 
 	BEGIN_MSG;
-	ON_MSG( PACKETTYPE_ERROR, OnError );
-	ON_MSG( PACKETTYPE_PLAYER_LIST, OnPlayerList );
-	ON_MSG( PACKETTYPE_CACHE_ADDR, OnCacheAddr );
-	ON_MSG( PACKETTYPE_QUERYTICKCOUNT, OnQueryTickCount );
-	ON_MSG( PACKETTYPE_PRE_JOIN, OnPreJoin );
-	ON_MSG( PACKETTYPE_ONE_HOUR_NOTIFY, OnOneHourNotify );
+	ON_MSG( PACKETTYPE_ERROR,&CDPLoginClient:: OnError );
+	ON_MSG( PACKETTYPE_PLAYER_LIST, &CDPLoginClient::OnPlayerList );
+	ON_MSG( PACKETTYPE_CACHE_ADDR, &CDPLoginClient::OnCacheAddr );
+	ON_MSG( PACKETTYPE_QUERYTICKCOUNT, &CDPLoginClient::OnQueryTickCount );
+	ON_MSG( PACKETTYPE_PRE_JOIN, &CDPLoginClient::OnPreJoin );
+	ON_MSG( PACKETTYPE_ONE_HOUR_NOTIFY,&CDPLoginClient:: OnOneHourNotify );
 	
-	ON_MSG( PACKETTYPE_PING, OnPing );
-	ON_MSG( PACKETTYPE_AUTHQUERY, OnAuthQuery );
+	ON_MSG( PACKETTYPE_PING, &CDPLoginClient::OnPing );
+	ON_MSG( PACKETTYPE_AUTHQUERY,&CDPLoginClient:: OnAuthQuery );
 #if __VER >= 15 // __2ND_PASSWORD_SYSTEM
-	ON_MSG( PACKETTYPE_LOGIN_PROTECT_NUMPAD, OnLoginNumPad );
-	ON_MSG( PACKETTYPE_LOGIN_PROTECT_CERT, OnLoginProtect );
+	ON_MSG( PACKETTYPE_LOGIN_PROTECT_NUMPAD, &CDPLoginClient::OnLoginNumPad );
+	ON_MSG( PACKETTYPE_LOGIN_PROTECT_CERT,&CDPLoginClient:: OnLoginProtect );
 #endif // __2ND_PASSWORD_SYSTEM
 }
 
@@ -418,7 +418,7 @@ void CDPLoginClient::OnPlayerList( CAr & ar )
 
 	CObj::SetMethod( METHOD_NONE );
 
-	for( int i = 0 ; i < MAX_CHARACTER_LIST ; i++ )
+	int i; for( i = 0 ; i < MAX_CHARACTER_LIST ; i++ )
 	{
 		g_Neuz.m_nCharacterBlock[i] = 2; // ¸ðµÎ ºó½½·ÔÀ¸·Î ÇÔ
 		SAFE_DELETE( g_Neuz.m_apPlayer[i] );
@@ -485,7 +485,7 @@ void CDPLoginClient::OnPlayerList( CAr & ar )
 		ItemProp* pItemProp;
 		DWORD dwItemId;
 		int nParts = 0;
-		for( int i = 0; i < CountEquip ; i++ )
+		int i; for( i = 0; i < CountEquip ; i++ )
 		{
 			ar >> dwItemId;
 			pItemProp	= prj.GetItemProp( dwItemId );
@@ -525,7 +525,7 @@ void CDPLoginClient::OnPlayerList( CAr & ar )
 		pWndSelectChar->UpdateCharacter();
 		if( g_Neuz.m_nCharacterBlock[ pWndSelectChar->m_nSelectCharacter ] == 0 )
 		{
-			for( int i = 0 ; i < MAX_CHARACTER_LIST ; i++ )
+			int i; for( i = 0 ; i < MAX_CHARACTER_LIST ; i++ )
 			{
 				if( g_Neuz.m_nCharacterBlock[i] == 1 )
 				{

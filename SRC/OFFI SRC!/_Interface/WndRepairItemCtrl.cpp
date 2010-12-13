@@ -50,7 +50,7 @@ void CWndRepairItemCtrl::OnDraw( C2DRender* p2DRender )
 	int nWidth	= rect.Width() / 32;
 	int nHeight		= rect.Height() / 32;
 
-	for( int i = 0; i < MAX_REPAIRINGITEM; i++ )
+	int i; for( i = 0; i < MAX_REPAIRINGITEM; i++ )
 	{
 		int x	= i % 5;
 		int y	= i / 5;
@@ -98,7 +98,7 @@ BOOL CWndRepairItemCtrl::OnDropIcon( LPSHORTCUT pShortcut, CPoint point )
 		CItemBase* pItemBase = g_pPlayer->GetItemId( pShortcut->m_dwId );
 		if( pItemBase )
 		{
-			for( int i = 0; i < MAX_REPAIRINGITEM; i++ )
+			int i; for( i = 0; i < MAX_REPAIRINGITEM; i++ )
 			{
 				int x	= i % 5;
 				int y	= i / 5;
@@ -203,7 +203,7 @@ int CWndRepairItemCtrl::HitTest( CPoint point )
 	int nWidth	= rect.Width() / 32;
 	int nHeight		= rect.Height() / 32;
 
-	for( int i = 0; i < MAX_VENDITEM; i++ )
+	int i; for( i = 0; i < MAX_VENDITEM; i++ )
 	{
 		int x	= i % 5;
 		int y	= i / 5;

@@ -858,7 +858,7 @@ int CScanner::GetNumber( BOOL bComma )
 		DWORDLONG dwlNumber = 0;
 		DWORD dwMulCnt = 0;
 		CHAR cVal;
-		for( int i = Token.GetLength() - 1; i >= 0; i--)
+		int i; for( i = Token.GetLength() - 1; i >= 0; i--)
 		{
 			cVal = Token[ i ];
 			if( cVal >= 'a' )
@@ -970,7 +970,7 @@ DWORD CScanner::GetHex( BOOL bComma )
 		DWORDLONG dwlNumber = 0;
 		DWORD dwMulCnt = 0;
 		CHAR cVal;
-		for( int i = Token.GetLength() - 1; i >= 0; i--)
+		int i; for( i = Token.GetLength() - 1; i >= 0; i--)
 		{
 			cVal = Token[ i ];
 			if( cVal >= 'a' )

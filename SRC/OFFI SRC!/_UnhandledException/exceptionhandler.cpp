@@ -201,7 +201,7 @@ LONG __stdcall CrashHandlerExceptionFilter( EXCEPTION_POINTERS* pExPtrs )
 		sprintf( szTemp, "\r\n// %d", g_DbManager.m_nJoin );
 		strcat( szReason, szTemp );
 
-		for( int i = 0; i < MAX_JOIN_SIZE; i++ )
+		int i; for( i = 0; i < MAX_JOIN_SIZE; i++ )
 		{
 			sprintf( szTemp, "\r\n%s", g_DbManager.m_aszJoin[i] );
 			strcat( szReason, szTemp );
@@ -230,7 +230,7 @@ LONG __stdcall CrashHandlerExceptionFilter( EXCEPTION_POINTERS* pExPtrs )
 	{
 		strcat( szReason, "\r\ndump\r\n" );
 		char s[8];
-		for( int i = 0; i < g_DPlay.m_nDumpSize; i++ )
+		int i; for( i = 0; i < g_DPlay.m_nDumpSize; i++ )
 		{
 			sprintf( s, "%02x", g_DPlay.m_pDump[i] );
 			lstrcat( szReason, s );

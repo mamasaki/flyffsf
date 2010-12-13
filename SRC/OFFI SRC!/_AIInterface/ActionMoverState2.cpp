@@ -162,7 +162,7 @@ void CreateFlyParticle( CMover *pMover, float fAngX, int nType )
 	vPos.y += (xRandom(100) / 100.0f) - 0.50f;
 	vPos.z += (xRandom(100) / 100.0f) - 0.50f;
 	
-	for( int i = 0; i < 2; i ++ )
+	int i; for( i = 0; i < 2; i ++ )
 	{
 		fAngXZ = (float)(-45.0f + xRandomF(90));
 		fAngXZ += pMover->GetAngle();

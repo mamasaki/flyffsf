@@ -85,7 +85,7 @@ void CWndQuest::SerializeRegInfo( CAr& ar, DWORD& dwVersion )
 			WORD nQuest;
 			ar >> m_idSelQuest;
 			ar >> nNum;
-			for( int i = 0; i < nNum; i++ )
+			int i; for( i = 0; i < nNum; i++ )
 			{
 				ar >> nQuest;
 				m_aOpenTree.Add( nQuest );
@@ -103,7 +103,7 @@ void CWndQuest::SerializeRegInfo( CAr& ar, DWORD& dwVersion )
 		dwVersion = 1;
 		ar << m_idSelQuest;
 		ar << m_aOpenTree.GetSize();
-		for( int i = 0; i < m_aOpenTree.GetSize(); i++ )
+		int i; for( i = 0; i < m_aOpenTree.GetSize(); i++ )
 			ar << m_aOpenTree.GetAt( i );
 	}
 }
@@ -129,7 +129,7 @@ void CWndQuest::TreeOpen()
 		lpElem = pTreeCtrl->GetNextElem( lpRoot, nPos );
 		if( lpElem )
 		{
-			for( int i = 0; i < m_aOpenTree.GetSize(); i++ )
+			int i; for( i = 0; i < m_aOpenTree.GetSize(); i++ )
 			{
 				if( m_aOpenTree.GetAt( i ) == lpElem->m_dwData )
 				{
@@ -180,7 +180,7 @@ void CWndQuest::Update( int nNewQuestId )
 	CDWordArray aOldHeadData;
 	if( CTreeInformationManager::m_eQuestListGroup != CTreeInformationManager::COMPLETE_QUEST_LIST )
 	{
-		for( int i = 0; i < g_pPlayer->m_nQuestSize; ++i )
+		int i; for( i = 0; i < g_pPlayer->m_nQuestSize; ++i )
 		{
 			LPQUEST lpQuest = &g_pPlayer->m_aQuest[ i ];
 			if( lpQuest->m_wId == 0xffff )
@@ -190,7 +190,7 @@ void CWndQuest::Update( int nNewQuestId )
 	}
 	if( CTreeInformationManager::m_eQuestListGroup != CTreeInformationManager::CURRENT_QUEST_LIST )
 	{
-		for( int i = 0; i < g_pPlayer->m_nCompleteQuestSize; ++i )
+		int i; for( i = 0; i < g_pPlayer->m_nCompleteQuestSize; ++i )
 		{
 			WORD wQuest = g_pPlayer->m_aCompleteQuest[ i ];
 			if( wQuest == 0xffff )
@@ -214,7 +214,7 @@ void CWndQuest::Update( int nNewQuestId )
 			pQuestProp = prj.m_aPropQuest.GetAt( wQuest );
 			if( pQuestProp )
 			{
-				for( int j = 0; j < aOrderQuest.GetSize(); j++ )
+				int j; for(  j = 0; j < aOrderQuest.GetSize(); j++ )
 				{
 					paHeadQuest = (CUIntArray*) aOrderQuest.GetAt( j );
 					// 같은게 발견되면 뒤를 이어 추가 : 추가된건 일반 퀘스트 
@@ -249,7 +249,7 @@ void CWndQuest::Update( int nNewQuestId )
 			pQuestProp = prj.m_aPropQuest.GetAt( lpQuest->m_wId );
 			if( pQuestProp )
 			{
-				for( int j = 0; j < aOrderQuest.GetSize(); j++ )
+				int j; for(  j = 0; j < aOrderQuest.GetSize(); j++ )
 				{
 					paHeadQuest = (CUIntArray*) aOrderQuest.GetAt( j );
 					// 같은게 발견되면 뒤를 이어 추가 : 추가된건 일반 퀘스트 
@@ -284,7 +284,7 @@ void CWndQuest::Update( int nNewQuestId )
 	{
 		paHeadQuest = (CUIntArray*)aOrderQuest.GetAt( i );
 		LPTREEELEM lpTreeElem = NULL;
-		for( int j = 0; j < paHeadQuest->GetSize(); j++ )
+		int j; for(  j = 0; j < paHeadQuest->GetSize(); j++ )
 		{
 			int nQuestId = paHeadQuest->GetAt( j );
 			QuestProp * pQuestProp = prj.m_aPropQuest.GetAt( nQuestId );
@@ -442,7 +442,7 @@ void CWndQuest::UpdateText()
 		// 디스크립션만 출력
 		if( bComplete )
 		{
-			for( int i = QS_END; i >= 0; i-- )
+			int i; for( i = QS_END; i >= 0; i-- )
 			{
 				QuestState* pQuestState = pQuestProp->m_questState[ i ];
 				if( pQuestState )
@@ -474,7 +474,7 @@ void CWndQuest::UpdateText()
 			pTextCond->SetString( GETTEXT( TID_QUEST_COMPLETED  ), 0xff404040 );
 		else
 		{
-			for( int i = 0; i < 14; i++ )
+			int i; for( i = 0; i < 14; i++ )
 			{
 				if( pQuestProp->m_questState[ i ] == NULL )
 					break;
@@ -495,7 +495,7 @@ void CWndQuest::UpdateText()
 						strCond += "#cffff0000" + strTemp + "#ns#nc\n";
 					}
 				}
-				for( int i = 0 ; i < 2; i++ )
+				int i; for( i = 0 ; i < 2; i++ )
 				{
 					if( pQuestProp->m_nEndCondKillNPCIdx[ i ] )
 					{
@@ -929,7 +929,7 @@ void CWndQuest::UpdateText()
 				else
 				if( pQuestProp->m_lpszEndCondMultiCharacter ) 
 				{
-					for( int i = 0; i < 10; i++ )
+					int i; for( i = 0; i < 10; i++ )
 					{
 						CHAR* lpszChar = &pQuestProp->m_lpszEndCondMultiCharacter[ i * 64 ];
 						if( lpszChar[ 0 ] )
@@ -937,7 +937,7 @@ void CWndQuest::UpdateText()
 							LPCHARACTER lpCharacter = prj.GetCharacter( lpszChar );
 							if( lpCharacter )
 							{
-								for( int j = 0; j < lpCharacter->m_anDstQuestItem.GetSize(); j++ )
+								int j; for(  j = 0; j < lpCharacter->m_anDstQuestItem.GetSize(); j++ )
 								{
 									if( g_pPlayer->GetItemNum( lpCharacter->m_anDstQuestItem.GetAt( j ) ) )
 									{
@@ -960,7 +960,7 @@ void CWndQuest::UpdateText()
 		//////////////////////////////////////////////////////////////////////////////////
 		CString strReward;
 
-		for( int i = 0; i < pQuestProp->m_nEndRewardItemNum; i++ )
+		int i; for( i = 0; i < pQuestProp->m_nEndRewardItemNum; i++ )
 		{
 			QuestPropItem* pEndRewardItem = &pQuestProp->m_paEndRewardItem[ i ]; 
 
@@ -1073,7 +1073,7 @@ void CWndQuest::ControlOpenTree( const LPTREEELEM lpTreeElem )
 		m_aOpenTree.Add( (WORD)( lpTreeElem->m_dwData ) );
 	else
 	{
-		for( int i = 0; i < m_aOpenTree.GetSize(); ++i )
+		int i; for( i = 0; i < m_aOpenTree.GetSize(); ++i )
 		{
 			DWORD dwOpenTreeID = ( DWORD )m_aOpenTree.GetAt( i );
 			if( lpTreeElem->m_dwData == dwOpenTreeID )
@@ -1380,7 +1380,7 @@ CWndQuestTreeCtrl* CWndQuest::GetQuestTreeSelf( const DWORD dwQuestID )
 
 void CWndQuest::AddOpenTree( CWordArray& raOpenTree, CPtrArray& rPtrArray )
 {
-	for( int i = 0; i < rPtrArray.GetSize(); ++i )
+	int i; for( i = 0; i < rPtrArray.GetSize(); ++i )
 	{
 		LPTREEELEM lpTreeElem = ( LPTREEELEM )rPtrArray.GetAt( i );
 		if( lpTreeElem == NULL )
@@ -1397,7 +1397,7 @@ void CWndQuest::AddOpenTree( CWordArray& raOpenTree, CPtrArray& rPtrArray )
 
 void CWndQuest::OpenTreeArray( CPtrArray& rPtrArray, BOOL bOpen )
 {
-	for( int i = 0; i < rPtrArray.GetSize(); ++i )
+	int i; for( i = 0; i < rPtrArray.GetSize(); ++i )
 	{
 		LPTREEELEM lpTreeElem = ( LPTREEELEM )rPtrArray.GetAt( i );
 		if( lpTreeElem == NULL )
@@ -1405,7 +1405,7 @@ void CWndQuest::OpenTreeArray( CPtrArray& rPtrArray, BOOL bOpen )
 
 		if( lpTreeElem->m_ptrArray.GetSize() > 0 )
 		{
-			for( int i = 0; i < m_aOpenTree.GetSize(); ++i )
+			int i; for( i = 0; i < m_aOpenTree.GetSize(); ++i )
 			{
 				DWORD dwOpenTree = ( DWORD )m_aOpenTree.GetAt( i );
 				if( lpTreeElem->m_dwData == dwOpenTree )
@@ -1493,7 +1493,7 @@ void CWndQuest::InsertQuestItem( const DWORD dwQuestID, CDWordArray& raOldHeadQu
 
 DWORD CWndQuest::FindOldHeadQuest( const CDWordArray& raOldHeadQuestID, const DWORD dwNowHeadQuestID ) const
 {
-	for( int i = 0; i < raOldHeadQuestID.GetSize(); ++i )
+	int i; for( i = 0; i < raOldHeadQuestID.GetSize(); ++i )
 	{
 		DWORD dwOldHeadQuestID = raOldHeadQuestID.GetAt( i );
 		if( dwNowHeadQuestID == dwOldHeadQuestID )
@@ -1504,7 +1504,7 @@ DWORD CWndQuest::FindOldHeadQuest( const CDWordArray& raOldHeadQuestID, const DW
 
 BOOL CWndQuest::IsCheckedQuestID( DWORD dwQuestID )
 {
-	for( int i = 0; i < g_pPlayer->m_nCheckedQuestSize; ++i )
+	int i; for( i = 0; i < g_pPlayer->m_nCheckedQuestSize; ++i )
 	{
 		DWORD dwCheckedQuestID = g_pPlayer->m_aCheckedQuest[ i ];
 		if( dwCheckedQuestID == dwQuestID )
@@ -1527,7 +1527,7 @@ BOOL CWndQuestTreeCtrl::OnChildNotify( UINT nCode, UINT nID, LRESULT* pLResult )
 	{
 	case WIDC_CHECK:
 		{
-			for( int i = 0; i < GetTreeItemArray()->GetSize(); ++i )
+			int i; for( i = 0; i < GetTreeItemArray()->GetSize(); ++i )
 			{
 				LPTREEITEM pTreeItem = ( LPTREEITEM )GetTreeItemArray()->GetAt( i );
 				if( GetMemberCheckingMode() == TRUE )
@@ -1567,7 +1567,7 @@ BOOL CWndQuestTreeCtrl::OnChildNotify( UINT nCode, UINT nID, LRESULT* pLResult )
 void CWndQuestTreeCtrl::OnLButtonDown( UINT nFlags, CPoint point )
 {
 	LPTREEITEM pTreeItem = NULL;
-	for( int i = 0; i < GetTreeItemArray()->GetSize(); ++i )
+	int i; for( i = 0; i < GetTreeItemArray()->GetSize(); ++i )
 	{
 		pTreeItem = ( LPTREEITEM )GetTreeItemArray()->GetAt( i );
 		if( GetMemberCheckingMode() == TRUE )
@@ -1614,7 +1614,7 @@ CWndQConditionTreeCtrl::~CWndQConditionTreeCtrl( void )
 void CWndQConditionTreeCtrl::OnLButtonDown( UINT nFlags, CPoint point )
 {
 	LPTREEITEM pTreeItem = NULL;
-	for( int i = 0; i < GetTreeItemArray()->GetSize(); ++i )
+	int i; for( i = 0; i < GetTreeItemArray()->GetSize(); ++i )
 	{
 		pTreeItem = ( LPTREEITEM )GetTreeItemArray()->GetAt( i );
 		if( GetMemberCheckingMode() == TRUE )
@@ -1751,7 +1751,7 @@ void CWndQuestDetail::UpdateQuestDetailText( DWORD dwQuestID, LPQUEST lpQuest, B
 	// 디스크립션만 출력
 	if( bComplete )
 	{
-		for( int i = QS_END; i >= 0; --i )
+		int i; for( i = QS_END; i >= 0; --i )
 		{
 			QuestState* pQuestState = pQuestProp->m_questState[ i ];
 			if( pQuestState )
@@ -1785,7 +1785,7 @@ void CWndQuestDetail::UpdateQuestDetailText( DWORD dwQuestID, LPQUEST lpQuest, B
 	// 보상 아이템 목록
 	//////////////////////////////////////////////////////////////////////////////////
 	CString strReward = _T( "" );
-	for( int i = 0; i < pQuestProp->m_nEndRewardItemNum; i++ )
+	int i; for( i = 0; i < pQuestProp->m_nEndRewardItemNum; i++ )
 	{
 		QuestPropItem* pEndRewardItem = &pQuestProp->m_paEndRewardItem[ i ];
 		if( pEndRewardItem->m_nSex == -1 || pEndRewardItem->m_nSex == g_pPlayer->GetSex() )
@@ -1890,7 +1890,7 @@ void MakeQuestConditionItems( DWORD dwQuestID, CWndTreeCtrl* pWndTreeCtrl, BOOL 
 	LPQUEST lpQuest = g_pPlayer->FindQuest( dwQuestID );
 	QuestProp* pQuestProp = prj.m_aPropQuest.GetAt( dwQuestID );
 
-	for( int i = 0; i < 14; i++ )
+	int i; for( i = 0; i < 14; i++ )
 	{
 		if( pQuestProp->m_questState[ i ] == NULL )
 			break;
@@ -1911,7 +1911,7 @@ void MakeQuestConditionItems( DWORD dwQuestID, CWndTreeCtrl* pWndTreeCtrl, BOOL 
 				pWndTreeCtrl->InsertItem( lpTreeElem, "#cffff0000" + strTemp + "#ns#nc", 0, TRUE, FALSE, dwStartColor, dwSelectColor );
 			}
 		}
-		for( int i = 0 ; i < 2; i++ )
+		int i; for( i = 0 ; i < 2; i++ )
 		{
 			if( pQuestProp->m_nEndCondKillNPCIdx[ i ] )
 			{
@@ -2325,7 +2325,7 @@ void MakeQuestConditionItems( DWORD dwQuestID, CWndTreeCtrl* pWndTreeCtrl, BOOL 
 		}
 		else if( pQuestProp->m_lpszEndCondMultiCharacter )
 		{
-			for( int i = 0; i < 10; i++ )
+			int i; for( i = 0; i < 10; i++ )
 			{
 				CHAR* lpszChar = &pQuestProp->m_lpszEndCondMultiCharacter[ i * 64 ];
 				if( lpszChar[ 0 ] )
@@ -2333,7 +2333,7 @@ void MakeQuestConditionItems( DWORD dwQuestID, CWndTreeCtrl* pWndTreeCtrl, BOOL 
 					LPCHARACTER lpCharacter = prj.GetCharacter( lpszChar );
 					if( lpCharacter )
 					{
-						for( int j = 0; j < lpCharacter->m_anDstQuestItem.GetSize(); j++ )
+						int j; for(  j = 0; j < lpCharacter->m_anDstQuestItem.GetSize(); j++ )
 						{
 							if( g_pPlayer->GetItemNum( lpCharacter->m_anDstQuestItem.GetAt( j ) ) )
 							{

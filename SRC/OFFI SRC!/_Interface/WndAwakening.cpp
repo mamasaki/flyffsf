@@ -377,7 +377,7 @@ void CWndSelectAwakeCase::OutputOptionString( C2DRender* p2DRender, CItemElem* p
 	CString str;
 
 	// option
-	for( int i = 0; i < nSize; i++ )
+	int i; for( i = 0; i < nSize; i++ )
 	{
 		int nDst = 0, nAdj = 0;
 		if( !g_xRandomOptionProperty->GetParam( n64Options, i, &nDst, &nAdj ) )

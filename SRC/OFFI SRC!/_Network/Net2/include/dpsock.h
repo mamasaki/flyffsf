@@ -193,7 +193,8 @@ BOOL CDPSock<T>::CloseIoWorker( void )
 		if( cbThread > 0 )
 		{
 			lphThread	= new HANDLE[cbThread];
-			for( DWORD i = 0; i < cbThread; i++ )
+			DWORD i;
+			for(  i = 0; i < cbThread; i++ )
 			{
 				lphThread[i]	= m_listthread.front();
 				m_listthread.pop_front();

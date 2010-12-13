@@ -51,7 +51,7 @@ BOOL	CALLBACK	MaxConnDlgProc( HWND hDlg, UINT iMessage, WPARAM wParam, LPARAM lP
 BOOL	CALLBACK	ToggleDlgProc( HWND hDlg, UINT iMessage, WPARAM wParam, LPARAM lParam );
 BOOL	CALLBACK	SetTimeDlgProc( HWND hDlg, UINT iMessage, WPARAM wParam, LPARAM lParam );
 
-
+/*
 
 // //////////////////////////////////////////////////////////////////////////
 // //	BEGINTEST100111	FFL_DUMP
@@ -64,7 +64,7 @@ BOOL	CALLBACK	SetTimeDlgProc( HWND hDlg, UINT iMessage, WPARAM wParam, LPARAM lP
 #endif
 // //	ENDTEST100111	FFL_DUMP
 // //////////////////////////////////////////////////////////////////////////
-
+*/
 
 
 void InitLanguageFromResource( HINSTANCE hInstance )
@@ -87,7 +87,7 @@ int APIENTRY WinMain(HINSTANCE hInstance,
 {
 	//////////////////////////////////////////////////////////////////////////
 	//	BEGINTEST100111	FFL_DUMP
- 	ffl_dump_unexception_filter::install( ffl_dump_level_heavy );
+// 	ffl_dump_unexception_filter::install( ffl_dump_level_heavy );
 	//	ENDTEST100111	FFL_DUMP
 	//////////////////////////////////////////////////////////////////////////
 

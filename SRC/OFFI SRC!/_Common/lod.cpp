@@ -252,12 +252,12 @@ CLandscape::CLandscape()
 	// 8   -> 4
 	// 2   -> 0 -> 1
 	int nWidth	= MAP_SIZE * 2;
-	for( int i = 0; i < MAX_LINKLEVEL; i++ )
+	int i; for( i = 0; i < MAX_LINKLEVEL; i++ )
 	{
 		nWidth /= 2;
 		if( nWidth == 0 ) nWidth = 1;
 		// 128	// 64	// 32	// 16 // 8 // 4  -	// 4	// 8	// 16	// 32 // 64 // 128
-		for( int j = 0; j < MAX_LINKTYPE; j++ )
+		int j; for(  j = 0; j < MAX_LINKTYPE; j++ )
 		{
 			m_apObjLink[j][i]	= new CObj*[nWidth*nWidth];
 			memset( m_apObjLink[j][i], 0, sizeof(CObj*) * nWidth*nWidth );
@@ -276,10 +276,10 @@ CLandscape::~CLandscape()
 	FreeTerrain();
 	SAFE_DELETE_ARRAY( m_pWaterVB );
 	// 오브젝트 파괴 
-	for( int i = 0; i < MAX_OBJARRAY; i++)
+	int i; for( i = 0; i < MAX_OBJARRAY; i++)
 	{
 		CObj** apObject = m_apObject[ i ];
-		for( int j = 0; j < int( m_adwObjNum[ i ] ); j++ )
+		int j; for(  j = 0; j < int( m_adwObjNum[ i ] ); j++ )
 		{
 			if( m_pWorld->m_pObjFocus == apObject[ j ] )
 				m_pWorld->SetObjFocus( NULL );
@@ -289,7 +289,7 @@ CLandscape::~CLandscape()
 		}
 		SAFE_DELETE_ARRAY( apObject );
 	}
-	for( int j = 0; j < MAX_LINKTYPE; j++ ) 
+	int j; for(  j = 0; j < MAX_LINKTYPE; j++ ) 
 	{
 		for( i = 0; i < MAX_LINKLEVEL; i++ ) 
 			SAFE_DELETE_ARRAY( m_apObjLink[j][i] );
@@ -338,10 +338,10 @@ HRESULT CLandscape::RestoreDeviceObjects(LPDIRECT3DDEVICE9 pd3dDevice)
 	pd3dDevice->SetSamplerState( 1, D3DSAMP_MINFILTER, D3DTEXF_LINEAR );		
 	pd3dDevice->SetSamplerState( 1, D3DSAMP_MAGFILTER, D3DTEXF_LINEAR );		
 
-	for( int i = 0; i < MAX_OBJARRAY; i++)
+	int i; for( i = 0; i < MAX_OBJARRAY; i++)
 	{
 		CObj** apObject = m_apObject[ i ];
-		for( int j = 0; j < int( m_adwObjNum[ i ] ); j++ )
+		int j; for(  j = 0; j < int( m_adwObjNum[ i ] ); j++ )
 		{
 			if( apObject[ j ] && apObject[ j ]->m_pModel->IsAniable() )
 				apObject[ j ]->m_pModel->RestoreDeviceObjects();
@@ -365,8 +365,8 @@ HRESULT CLandscape::MakeWaterVertexBuffer()
 	WATERVERTEX* pVerticesCloud;
 	m_nWaterVertexNum = 0;
 	m_nCloudVertexNum = 0;
-	
-	for ( int loop = 0 ; loop < prj.m_terrainMng.m_nWaterFrame ; loop++ )
+	int loop;
+	for (  loop = 0 ; loop < prj.m_terrainMng.m_nWaterFrame ; loop++ )
 	{
 		SAFE_RELEASE( m_pWaterVB[ loop ].pVB );
 		m_pWaterVB[ loop ].WaterVertexNum = 0;
@@ -374,9 +374,9 @@ HRESULT CLandscape::MakeWaterVertexBuffer()
 	WATERVERTEX**	pVAWater;
 	byte byWaterTexture;
 	pVAWater = new WATERVERTEX*[ prj.m_terrainMng.m_nWaterFrame ];
-	for( int i = 0; i < NUM_PATCHES_PER_SIDE; i++ )
+	int i; for( i = 0; i < NUM_PATCHES_PER_SIDE; i++ )
 	{
-		for( int j = 0; j < NUM_PATCHES_PER_SIDE; j++ )
+		int j; for(  j = 0; j < NUM_PATCHES_PER_SIDE; j++ )
 		{
 			byWaterTexture = m_aWaterHeight[ j + i * NUM_PATCHES_PER_SIDE ].byWaterTexture;
 			if( ( byWaterTexture & (byte)(~MASK_WATERFRAME)) == WTYPE_WATER )
@@ -418,7 +418,7 @@ HRESULT CLandscape::MakeWaterVertexBuffer()
 	int nWorldZ = m_nWorldY * MPU;
 	for( i = 0; i < NUM_PATCHES_PER_SIDE; i++ )
 	{
-		for( int j = 0; j < NUM_PATCHES_PER_SIDE; j++ )
+		int j; for(  j = 0; j < NUM_PATCHES_PER_SIDE; j++ )
 		{
 			LPWATERHEIGHT lpWaterHeight = &m_aWaterHeight[ j + i * NUM_PATCHES_PER_SIDE ];
 			if( ( lpWaterHeight->byWaterTexture & (byte)(~MASK_WATERFRAME) ) == WTYPE_WATER )
@@ -614,10 +614,10 @@ HRESULT CLandscape::InvalidateDeviceObjects()
 	// 매모리풀이 default이므로 비디오메모리에 잡힌다. 따라서 
 	// InvalidateDeviceObjects에서 파괴해야한다.
 	//SAFE_RELEASE( m_texMiniMap.m_pTexture );
-	for( int i = 0; i < MAX_OBJARRAY; i++)
+	int i; for( i = 0; i < MAX_OBJARRAY; i++)
 	{
 		CObj** apObject = m_apObject[ i ];
-		for( int j = 0; j < int( m_adwObjNum[ i ] ); j++ )
+		int j; for(  j = 0; j < int( m_adwObjNum[ i ] ); j++ )
 		{
 			if( apObject[ j ] && apObject[ j ]->m_pModel->IsAniable() )
 				apObject[ j ]->m_pModel->InvalidateDeviceObjects();
@@ -628,10 +628,10 @@ HRESULT CLandscape::InvalidateDeviceObjects()
 HRESULT CLandscape::DeleteDeviceObjects()
 {
 	SAFE_RELEASE( m_texMiniMap.m_pTexture );
-	for( int i = 0; i < MAX_OBJARRAY; i++)
+	int i; for( i = 0; i < MAX_OBJARRAY; i++)
 	{
 		CObj** apObject = m_apObject[ i ];
-		for( int j = 0; j < int( m_adwObjNum[ i ] ); j++ )
+		int j; for(  j = 0; j < int( m_adwObjNum[ i ] ); j++ )
 		{
 			if( apObject[ j ] && apObject[ j ]->m_pModel->IsAniable() )
 				apObject[ j ]->m_pModel->DeleteDeviceObjects();
@@ -703,9 +703,9 @@ void CLandscape::SetVertices()
 				patch = &(m_aPatches[ Y ][ X ]);
 				if( patch->isDirty() ) {
 					patch->SetDirty( FALSE );
-					for( int i = 0; i < PATCH_SIZE + 1; i++ )
+					int i; for( i = 0; i < PATCH_SIZE + 1; i++ )
 					{
-						for( int j = 0; j < PATCH_SIZE + 1; j++ )
+						int j; for(  j = 0; j < PATCH_SIZE + 1; j++ )
 						{
 							float fHeight  = GetHeightMap( ( ( i + Y * PATCH_SIZE ) * ( MAP_SIZE + 1 ) ) + ( j + X * PATCH_SIZE ) );
 							vTempPos=pVB[nV].p=D3DXVECTOR3((float) ( X*PATCH_SIZE+j+m_nWorldX ) * MPU,fHeight,(float) ( Y * PATCH_SIZE + i + m_nWorldY ) * MPU );
@@ -808,8 +808,8 @@ void CLandscape::RenderPatches()
 	CPatch* patch;
 	CLandLayer* pLayer;
 	int nBlendStatus=0;
-	
-	for(int i = 0; i < NUM_PATCHES_PER_SIDE * NUM_PATCHES_PER_SIDE; i++ )
+	int i;
+	for( i = 0; i < NUM_PATCHES_PER_SIDE * NUM_PATCHES_PER_SIDE; i++ )
 		m_abPatchRendered[ i ] = FALSE;
 
 	for( i = 0; i < m_aLayer.GetSize(); i++ ) 
@@ -1253,10 +1253,10 @@ FLOAT CLandscape::GetHeight(POINT pos)
 
 void CLandscape::SetUsedAllObjects()
 {
-	for( int i = 0; i < MAX_OBJARRAY; i++ )
+	int i; for( i = 0; i < MAX_OBJARRAY; i++ )
 	{
 		CObj** apObjs = m_apObject[ i ];
-		for( int j = 0; j < (int)( m_adwObjNum[ i ] ); j++ )
+		int j; for(  j = 0; j < (int)( m_adwObjNum[ i ] ); j++ )
 		{
 			if( apObjs[ j ] )
 				apObjs[ j ]->m_pModel->m_pModelElem->m_bUsed = TRUE;
@@ -1296,7 +1296,8 @@ BOOL CLandscape::LoadLandscape( LPCTSTR lpszFileName, int xx, int yy )
 	file.Read( &nLayer, sizeof(BYTE) , 1 );
 	CLandLayer* pLayer;
 	WORD nTex;
-	for(int j = 0; j < nLayer; j++ )  
+	int j;
+	for( j = 0; j < nLayer; j++ )  
 	{
 		file.Read( &( nTex ), sizeof(WORD), 1 );
 
@@ -1307,7 +1308,7 @@ BOOL CLandscape::LoadLandscape( LPCTSTR lpszFileName, int xx, int yy )
 #ifdef __16BITLIGHT
 		DWORD dwLightMap[ MAP_SIZE*MAP_SIZE ];
 		file.Read( dwLightMap, sizeof( DWORD ), MAP_SIZE * MAP_SIZE );
-		for( int i = 0; i < MAP_SIZE * MAP_SIZE; i++ )
+		int i; for( i = 0; i < MAP_SIZE * MAP_SIZE; i++ )
 		{
 			((WORD *)rectLock.pBits)[i] = 
 			D3DCOLOR_ARGB16
@@ -1350,7 +1351,7 @@ BOOL CLandscape::LoadLandscape( LPCTSTR lpszFileName, int xx, int yy )
 	DWORD dwObjNum;
 	file.Read( &dwObjNum, sizeof( DWORD ), 1 );
 	TRACE( "Load Object Num = %d\n", dwObjNum );
-	for( int i = 0; i < (int)( dwObjNum ); i++ )
+	int i; for( i = 0; i < (int)( dwObjNum ); i++ )
 	{
 		CObj* pObj = ::ReadObj( &file );
 		if( m_dwVersion >= 1 )	
@@ -1589,7 +1590,7 @@ void CLandscape::RemoveObjArray( CObj* pObj )
 int CLandscape::GetObjArraySize()
 {
 	int nSum = 0;
-	for( int i = 0; i < MAX_OBJARRAY; i++ )
+	int i; for( i = 0; i < MAX_OBJARRAY; i++ )
 		nSum += int( m_adwObjNum[ i ] );
 	return nSum;
 }
@@ -1597,7 +1598,8 @@ int CLandscape::GetObjArraySize()
 CLandLayer* CLandscape::NewLayer( WORD nTex )
 {
 	CLandLayer* pLayer = NULL;
-	for(int i = 0; i < m_aLayer.GetSize(); i++) 
+	int i;
+	for( i = 0; i < m_aLayer.GetSize(); i++) 
 	{
 		pLayer = (CLandLayer*)(m_aLayer.GetAt(i));
 		if( pLayer->m_nTex == nTex ) 
@@ -1617,7 +1619,7 @@ CLandLayer* CLandscape::NewLayer( WORD nTex )
 
 		D3DLOCKED_RECT rectLock;
 		pLayer->m_pLightMap->LockRect( 0 , &rectLock, 0, 0);
-		for( int i = 0; i < MAP_SIZE * MAP_SIZE; i++ ) 
+		int i; for( i = 0; i < MAP_SIZE * MAP_SIZE; i++ ) 
 		{
 			((WORD *)rectLock.pBits)[i]=0;//color;
 		}
@@ -1688,10 +1690,10 @@ CLandLayer::CLandLayer(LPDIRECT3DDEVICE9 pd3dDevice,WORD nTex)
 		D3DLOCKED_RECT rectLock;
 		m_pLightMap->LockRect( 0, &rectLock, 0, 0 );
 	#ifdef __16BITLIGHT
-		for( int i = 0; i < MAP_SIZE * MAP_SIZE; i++ )
+		int i; for( i = 0; i < MAP_SIZE * MAP_SIZE; i++ )
 			((WORD *)rectLock.pBits)[i] = D3DCOLOR_ARGB16( 0, 127, 127, 127 );
 	#else
-		for( int i = 0; i < MAP_SIZE * MAP_SIZE; i++ )
+		int i; for( i = 0; i < MAP_SIZE * MAP_SIZE; i++ )
 			((DWORD *)rectLock.pBits)[i] = D3DCOLOR_ARGB16( 0, 127, 127, 127 );
 	#endif
 		m_pLightMap->UnlockRect( 0 );

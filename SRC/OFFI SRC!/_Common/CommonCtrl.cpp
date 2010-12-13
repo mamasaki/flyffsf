@@ -122,7 +122,7 @@ void CCommonCtrl::DestroyWall( void )
 	{
 		if( pAttacker->IsPlayer() )
 		{
-			for( int i = 0; i < 2; i ++ )
+			int i; for( i = 0; i < 2; i ++ )
 			{
 				if( ((CUser *)pAttacker)->m_pWall[i] == this )		
 					((CUser *)pAttacker)->m_pWall[i] = NULL;
@@ -370,7 +370,7 @@ void CCommonCtrl::Process()
 		}
 	}
 
-	for( int i = 0; i < 4; i++ )
+	int i; for( i = 0; i < 4; i++ )
 	{
 		// 속성검사하여 적절한 처리
 		if( ((CModelObject*)m_pModel)->IsAttrHit() )

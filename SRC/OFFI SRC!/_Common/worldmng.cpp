@@ -562,7 +562,7 @@ PRegionElem	CWorldMng::GetRevivalPosChao( DWORD dwWorldId, LPCTSTR sKey )
 {
 	int nSize	= m_aRevivalPos.GetSize();
 	PRegionElem pRgnElem;
-	for( int i = 0; i < nSize; i++ )
+	int i; for( i = 0; i < nSize; i++ )
 	{
 		pRgnElem	= m_aRevivalPos.GetAt( i );
 		if( dwWorldId == pRgnElem->m_dwWorldId && strcmp( sKey, pRgnElem->m_szKey ) == 0 && pRgnElem->m_bChaoKey )
@@ -581,7 +581,7 @@ PRegionElem CWorldMng::GetNearRevivalPosChao( DWORD dwWorldId, D3DXVECTOR3 & vPo
 	
 	nSize	= m_aRevivalPos.GetSize();
 	long	d	= 2147483647L, tmp;	// 46340	// 21722
-	for( int i = 0; i < nSize; i++ )
+	int i; for( i = 0; i < nSize; i++ )
 	{
 		pRgnElem	= m_aRevivalPos.GetAt( i );
 		if( dwWorldId == pRgnElem->m_dwWorldId && pRgnElem->m_bChaoKey )
@@ -615,7 +615,7 @@ PRegionElem	CWorldMng::GetRevivalPos( DWORD dwWorldId, LPCTSTR sKey )
 {
 	int nSize	= m_aRevivalPos.GetSize();
 	PRegionElem pRgnElem;
-	for( int i = 0; i < nSize; i++ )
+	int i; for( i = 0; i < nSize; i++ )
 	{
 		pRgnElem	= m_aRevivalPos.GetAt( i );
 		if( dwWorldId == pRgnElem->m_dwWorldId && strcmp( sKey, pRgnElem->m_szKey ) == 0 && pRgnElem->m_bChaoKey == FALSE )
@@ -630,7 +630,7 @@ PRegionElem CWorldMng::GetNearRevivalPos( DWORD dwWorldId, D3DXVECTOR3 & vPos )
 	CPoint point;
 
 	int nSize	= m_aRevivalRgn.GetSize();
-	for( int i = 0; i < nSize; i++ )
+	int i; for( i = 0; i < nSize; i++ )
 	{
 		pRgnElem	= m_aRevivalRgn.GetAt( i );
 		if( dwWorldId == pRgnElem->m_dwWorldId && pRgnElem->m_dwIndex == RI_REVIVAL && pRgnElem->m_bChaoKey == FALSE )

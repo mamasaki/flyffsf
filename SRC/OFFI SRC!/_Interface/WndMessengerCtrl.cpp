@@ -515,8 +515,8 @@ void CWndFriendCtrlEx::OnDraw( C2DRender* p2DRender )
 			strFormat += "...";
 		}
 #if __VER >= 15 // __CAMPUS
-		const NAME_TEXT_X = 226;
-		const NAME_TEXT_Y = pt.y + 3;
+		const int NAME_TEXT_X = 226;
+		const int NAME_TEXT_Y = pt.y + 3;
 		if( stPlayer.m_bVisitAllowed )
 			p2DRender->TextOut( NAME_TEXT_X, NAME_TEXT_Y, strFormat, 0xff00ff00 );
 		else
@@ -1757,7 +1757,7 @@ void CWndCampus::OnDraw( C2DRender* p2DRender )
 		pt.y = DISCIPLE_RENDERING_POSITION;
 		int nDiscipleMax = GetDiscipleDrawCount();
 		vector < __MESSENGER_PLAYER >::iterator iter = m_vDisciplePlayer.begin();
-		for( int i = 0; iter < m_vDisciplePlayer.end(); ++i, ++iter )
+		int i; for( i = 0; iter < m_vDisciplePlayer.end(); ++i, ++iter )
 		{
 			CString strFormat = _T( "" );
 			if( i >= nDiscipleMax )
@@ -1965,7 +1965,7 @@ void CWndCampus::OnMouseMove( UINT nFlags, CPoint point )
 	{
 		pt.y = DISCIPLE_RENDERING_POSITION;
 		CRect rect( 0, 0, 0, 0 );
-		for( int i = 0; i < (int)( m_vDisciplePlayer.size() ); ++i )
+		int i; for( i = 0; i < (int)( m_vDisciplePlayer.size() ); ++i )
 		{
 			rect.SetRect( pt.x, pt.y, pt.x + 24, pt.y + m_nFontHeight );
 			if( rect.PtInRect( point ) == TRUE )
@@ -2098,7 +2098,7 @@ u_long CWndCampus::GetSelectedDiscipleID( CPoint point )
 	{
 		CPoint pt( 3, DISCIPLE_RENDERING_POSITION );
 		CRect rect( 0, 0, 0, 0 );
-		for( int i = 0; i < (int)( m_vDisciplePlayer.size() ); ++i )
+		int i; for( i = 0; i < (int)( m_vDisciplePlayer.size() ); ++i )
 		{
 			rect.SetRect( pt.x, pt.y, pt.x + m_rectWindow.Width(), pt.y + m_nFontHeight );
 			if( rect.PtInRect( point ) == TRUE )

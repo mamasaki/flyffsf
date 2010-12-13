@@ -83,7 +83,7 @@ CObj *CWorld::GetObjByName(TCHAR* ObjName)
 
 void CWorld::ForceTexture(LPDIRECT3DTEXTURE9 pNewTex)
 {
-	for( int i = 0; i < m_nLandWidth * m_nLandHeight; i++)
+	int i; for( i = 0; i < m_nLandWidth * m_nLandHeight; i++)
 	{
 		if(m_apLand[ i ]) m_apLand[ i ]->ForceTexture(pNewTex);
 	}
@@ -752,7 +752,7 @@ BOOL	CWorld::IntersectObjLine( D3DXVECTOR3 *pOut, const D3DXVECTOR3 &vPos, const
 		CObj* pNonCullObjs[ 10000 ];
 		CObj **pList = m_aobjCull;
 		int nNonCullNum = 0;
-		for( int i = 0; i < m_nObjCullSize; i++ )
+		int i; for( i = 0; i < m_nObjCullSize; i++ )
 		{
 			pObj = *pList++;
 			if( pObj )

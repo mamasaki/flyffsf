@@ -131,7 +131,8 @@ BOOL CProject::OpenProject( LPCTSTR lpszFileName )
 			s.GetToken();
 			LoadPropItem( s.token, &m_aPropSkill );
 			memset( m_aJobSkillNum, 0, sizeof(m_aJobSkillNum ) );
-			for( int i = 1; i < m_aPropSkill.GetSize(); i++ )
+			int i;
+			for(  i = 1; i < m_aPropSkill.GetSize(); i++ )
 			{
 				ItemProp* pItemProp	= (ItemProp*)m_aPropSkill.GetAt( i );
 				if( pItemProp )

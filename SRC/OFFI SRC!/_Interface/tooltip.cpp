@@ -57,9 +57,9 @@ CToolTip::~CToolTip()
 void CToolTip::Delete()
 {
 	int nloadTexture = 0;
-	for( int i = 0 ; i < MAX_TT ; ++i )
+	int i; for( i = 0 ; i < MAX_TT ; ++i )
 	{
-		for( int j = 0 ; j < 9 ; ++ j )
+		int j; for(  j = 0 ; j < 9 ; ++ j )
 		{
 			m_apTextureToolTip[j].DeleteDeviceObjects();
 			++nloadTexture;
@@ -75,9 +75,9 @@ void CToolTip::InitTexture()
 	
 	char szBuf[32];
 	int nloadTexture = 0;
-	for( int i = 0 ; i < MAX_TT ; ++i )
+	int i; for( i = 0 ; i < MAX_TT ; ++i )
 	{
-		for( int j = 0 ; j < 9 ; ++ j )
+		int j; for(  j = 0 ; j < 9 ; ++ j )
 		{
 			szTextName = szTextNamebuf;
 			sprintf( szBuf, "%02d", ( i * 10 ) + j );
@@ -571,9 +571,9 @@ void CToolTip::Paint(C2DRender* p2DRender)
 		PlusRect.right = rect.right- 16 + nPlusLow;
 		PlusRect.bottom = rect.bottom - 16 + nPlusColumn;
 
-		for( int i = 0 ; i < nlowDraw ; ++i )
+		int i; for( i = 0 ; i < nlowDraw ; ++i )
 		{
-			for( int j = 0 ; j < nColumnDraw ; ++j )
+			int j; for(  j = 0 ; j < nColumnDraw ; ++j )
 			{
 				// 테두리 처리
 				if( i == 0 || j == 0 )

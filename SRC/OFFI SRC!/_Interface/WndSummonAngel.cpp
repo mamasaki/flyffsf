@@ -394,7 +394,8 @@ void CWndSummonAngel::SetDie(CItemElem* pItemElem)
 
 void CWndSummonAngel::ReFreshAll(BOOL extracheck)
 {
-	for(int i=0; i<MAX_MATDIE; i++)
+	int i;
+	for( i=0; i<MAX_MATDIE; i++)
 	{
 		m_MatDie[i].isUse = FALSE;
 		if(m_MatDie[i].pItemElem != NULL)
@@ -438,7 +439,8 @@ BOOL CWndSummonAngel::OnChildNotify( UINT message, UINT nID, LRESULT* pLResult )
 			{
 				m_nowStarting = TRUE;
 				m_nitemcount = 0;
-				for(int i=0; i<MAX_MATDIE; i++)
+				int  i;
+				for( i=0; i<MAX_MATDIE; i++)
 				{
 					if(m_MatDie[i].isUse)
 					{

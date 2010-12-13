@@ -53,7 +53,7 @@ void CWndTradeCtrl::OnDraw(C2DRender* p2DRender)
 	int nWidth = rect.Width() / 32;
 	int nHeight = rect.Height() / 32;
 
-	for( int i = 0; i < MAX_TRADE; i++ )
+	int i; for( i = 0; i < MAX_TRADE; i++ )
 	{
 		int x = i % 5;
 		int y = i / 5;
@@ -143,7 +143,7 @@ BOOL CWndTradeCtrl::OnDropIcon( LPSHORTCUT pShortcut, CPoint point )
 #endif //__CSC_VER9_1
 			if( ( (CItemElem*)pItemBase )->m_nItemNum > 1 )
 			{
-				for( int i = 0; i < MAX_TRADE; i++ )
+				int i; for( i = 0; i < MAX_TRADE; i++ )
 				{
 					int x = i % 5;
 					int y = i / 5;
@@ -160,7 +160,7 @@ BOOL CWndTradeCtrl::OnDropIcon( LPSHORTCUT pShortcut, CPoint point )
 		}
 	}
 
-	for( int i = 0; i < MAX_TRADE; i++ )
+	int i; for( i = 0; i < MAX_TRADE; i++ )
 	{
 		int x = i % 5;
 		int y = i / 5;

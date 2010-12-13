@@ -69,7 +69,7 @@ void CCampus::Serialize( CAr & ar )
 		Clear();
 		size_t nSize;
 		ar >> m_idCampus >> m_idMaster >> nSize;
-		for( int i = 0; i < (int)( nSize ); ++i )
+		int i; for( i = 0; i < (int)( nSize ); ++i )
 		{
 			CCampusMember* pMember = new CCampusMember;
 			pMember->Serialize( ar );

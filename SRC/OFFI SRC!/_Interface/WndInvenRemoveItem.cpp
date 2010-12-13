@@ -115,7 +115,7 @@ BOOL CWndInvenRemoveItem::OnChildNotify( UINT message, UINT nID, LRESULT* pLResu
 			if( OnButtonOK() )
 			{
 				// 100304_mirchang vendor item check
-				for( int i = 0; i < MAX_VENDITEM; i++ )
+				int i; for( i = 0; i < MAX_VENDITEM; i++ )
 				{
 					if( g_Neuz.m_aSavedInven[i].m_dwObjId == m_pItemElem->m_dwObjId && g_Neuz.m_aSavedInven[i].m_dwItemId == m_pItemElem->m_dwItemId )
 					{
@@ -145,7 +145,7 @@ BOOL CWndInvenRemoveItem::OnButtonOK( void )
 
 	// 숫자 검사
 	int nlen = strlen(szNumber);
-	for( int i = 0 ; i < nlen ; i++ )
+	int i; for( i = 0 ; i < nlen ; i++ )
 	{
 		if( (isdigit2( szNumber[i] ) == FALSE) )
 		{

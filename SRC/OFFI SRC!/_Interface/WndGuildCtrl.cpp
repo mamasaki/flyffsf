@@ -101,7 +101,7 @@ void CWndGuildCtrl::OnDraw( C2DRender* p2DRender )
 		map<u_long, CGuildMember*>::iterator iter = pGuild->m_mapPMember.begin();
 
 		m_nDrawCount = 0;
-		for( int i = 0; i < m_wndScrollBar.GetScrollPos() && iter != pGuild->m_mapPMember.end(); i++, iter++, m_nDrawCount++ );
+		int i; for( i = 0; i < m_wndScrollBar.GetScrollPos() && iter != pGuild->m_mapPMember.end(); i++, iter++, m_nDrawCount++ );
 
 		BOOL bReturn = FALSE;
 		memset( m_nServerCount, 0, sizeof( m_nServerCount ) );
@@ -133,7 +133,7 @@ void CWndGuildCtrl::OnDraw( C2DRender* p2DRender )
 		}
 
 		// 나의 멀티서버 먼저 출력
-		for( int j = 0 ; j < m_nServerCount[g_Neuz.m_uIdofMulti-1] && i < nMax; ++j, ++i )
+		int j; for(  j = 0 ; j < m_nServerCount[g_Neuz.m_uIdofMulti-1] && i < nMax; ++j, ++i )
 		{
 			u_long uGuildMemberId = m_uServerPlayerId[g_Neuz.m_uIdofMulti-1][j];
 			CGuildMember * pGuildMember = pGuild->GetMember( uGuildMemberId );
@@ -295,7 +295,7 @@ void CWndGuildCtrl::OnLButtonUp( UINT nFlags, CPoint point )
 	
 	pt.y -= (m_nFontHeight) * m_wndScrollBar.GetScrollPos();
 	int count = 0;	
-	for( int j = 0 ; j < m_nServerCount[g_Neuz.m_uIdofMulti-1] ; ++j, ++count )
+	int j; for(  j = 0 ; j < m_nServerCount[g_Neuz.m_uIdofMulti-1] ; ++j, ++count )
 	{
 		rect.SetRect( pt.x, pt.y, pt.x + m_rectWindow.Width() - m_wndScrollBar.GetClientRect().Width(), pt.y + m_nFontHeight );
 		if( rect.PtInRect( point ) )
@@ -467,7 +467,7 @@ int CWndGuildCtrl::GetSelect( CPoint point, CGuildMember ** lppGuildMember )
 	CGuild * pGuild = g_pPlayer->GetGuild();
 	if( pGuild )
 	{
-		for( int j = 0 ; j < m_nServerCount[g_Neuz.m_uIdofMulti-1] ; ++j, ++count )
+		int j; for(  j = 0 ; j < m_nServerCount[g_Neuz.m_uIdofMulti-1] ; ++j, ++count )
 		{
 			rect.SetRect( pt.x, pt.y, pt.x + m_rectWindow.Width() - m_wndScrollBar.GetClientRect().Width(), pt.y + m_nFontHeight );
 			if( rect.PtInRect( point ) )

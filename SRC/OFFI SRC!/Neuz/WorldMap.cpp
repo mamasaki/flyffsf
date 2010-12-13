@@ -451,9 +451,9 @@ void CWorldMap::Process()
 #ifndef __IMPROVE15_WORLDMAP
 
 #if __VER >= 13 // __CSC_VER13_1
-		for( int i = 0 ; i < MAX_BUTTON ; ++i )
+		int i; for( i = 0 ; i < MAX_BUTTON ; ++i )
 #else //__CSC_VER13_1
-		for( int i = 0 ; i < 6 ; ++i )
+		int i; for( i = 0 ; i < 6 ; ++i )
 #endif //__CSC_VER13_1
 		{
 			if( m_nMap != i && m_cRect[i].PtInRect( point ) )
@@ -809,7 +809,7 @@ void CWorldMap::RenderWorldMap( C2DRender *p2DRender )
 #endif // __IMPROVE_QUEST_INTERFACE
 		RenderPlayer( p2DRender, TRUE, g_pPlayer->GetPos( ) , g_pPlayer->GetName() );
 		
-		for( int i = 0 ; i < g_Party.GetSizeofMember() ; ++i )
+		int i; for( i = 0 ; i < g_Party.GetSizeofMember() ; ++i )
 		{
 			if( g_pPlayer->m_idPlayer != g_Party.GetPlayerId( i ) )
 			{
@@ -935,7 +935,7 @@ BOOL CWorldMap::LoadWorldMap()
 	CWndWorld* pWndWorld = (CWndWorld*)g_WndMng.GetWndBase( APP_WORLD );
 	m_pWndList->Create( WBS_CHILD, rect, pWndWorld, 0 );
 
-//	for( int i = 0; i < MAX_BUTTON; ++i )
+//	int i; for( i = 0; i < MAX_BUTTON; ++i )
 //		m_pWndList->AddString( CContinent::GetInstance()->GetContinentName( i ).GetBuffer( 0 ) );
 
 	//´ë·ú ÀÎµ¦½º ÀÛ¾÷ÀÌ ¾ÈµÅÀÖ¾î¼­ °Á ÀÏ´Ü Å×½ºÆ®·Î..
@@ -1122,7 +1122,7 @@ void CWorldMap::OnLButtonDown( )
 	{
 		CPoint pt = pWndWorld->GetMousePoint( );
 		int max_size = m_cTelPosRects.size();
-		for( int i = 0; i < max_size; ++i )
+		int i; for( i = 0; i < max_size; ++i )
 		{
 			WMapIcon& kIcon = m_cTelPosRects[ i ];
 			CRect& rect = kIcon._rect;
@@ -1185,9 +1185,9 @@ void CWorldMap::OnLButtonDown( )
 		CPoint point = pWndWorld->GetMousePoint();
 		
 #if __VER >= 13 // __CSC_VER13_1
-		for( int i = 0 ; i < MAX_BUTTON ; ++i )
+		int i; for( i = 0 ; i < MAX_BUTTON ; ++i )
 #else //__CSC_VER13_1
-		for( int i = 0 ; i < 6 ; ++i )
+		int i; for( i = 0 ; i < 6 ; ++i )
 #endif //__CSC_VER13_1
 		{
 			if( m_cRect[i].PtInRect( point ) )
@@ -1247,7 +1247,7 @@ void CWorldMap::UpdateTeleportWorld( )
 	CPoint pt;
 	CSize size( 16, 16 );
 	int max_size = m_cWorldPos.size();
-	for( int i = 0; i < max_size; ++i )
+	int i; for( i = 0; i < max_size; ++i )
 	{
 		BOOL bOK = WorldPosToMapPos( m_cWorldPos[i], pt );
 		if( bOK )
@@ -1584,9 +1584,9 @@ BOOL CMonsterInfoPack::LoadScript( LPDIRECT3DDEVICE9 pd3dDevice, LPCTSTR pszFile
 			center.x = scanner.GetNumber();
 			center.y = scanner.GetNumber();
 			
-			for( int i = start.y; i < m_size.cy; i += size.cy )
+			int i; for( i = start.y; i < m_size.cy; i += size.cy )
 			{
-				for( int j = start.x; j < m_size.cx; j += size.cx, nCnt++ )
+				int j; for(  j = start.x; j < m_size.cx; j += size.cx, nCnt++ )
 				{
 					if( nCnt < nFrame )
 					{
@@ -1725,9 +1725,9 @@ BOOL CRainbowNPCPack::LoadScript( LPDIRECT3DDEVICE9 pd3dDevice, LPCTSTR pszFileN
 			center.x = scanner.GetNumber();
 			center.y = scanner.GetNumber();
 			
-			for( int i = start.y; i < m_size.cy; i += size.cy )
+			int i; for( i = start.y; i < m_size.cy; i += size.cy )
 			{
-				for( int j = start.x; j < m_size.cx; j += size.cx, nCnt++ )
+				int j; for(  j = start.x; j < m_size.cx; j += size.cx, nCnt++ )
 				{
 					if( nCnt < nFrame )
 					{

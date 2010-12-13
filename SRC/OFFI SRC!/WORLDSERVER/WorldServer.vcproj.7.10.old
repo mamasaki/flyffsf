@@ -1,12 +1,11 @@
-<?xml version="1.0" encoding="ks_c_5601-1987"?>
+<?xml version="1.0" encoding="gb2312"?>
 <VisualStudioProject
 	ProjectType="Visual C++"
 	Version="7.10"
 	Name="WorldServer"
-	SccProjectName=""
-	SccAuxPath=""
-	SccLocalPath=""
-	SccProvider="">
+	ProjectGUID="{D7B22D20-658B-4083-9C78-89C6DD0874B8}"
+	SccProjectName="&quot;$/Neurospace/Program/WorldServer&quot;, CDSAAAAA"
+	SccLocalPath=".">
 	<Platforms>
 		<Platform
 			Name="Win32"/>
@@ -23,7 +22,7 @@
 			<Tool
 				Name="VCCLCompilerTool"
 				Optimization="0"
-				AdditionalIncludeDirectories="..\BOOST_SDK;..\DX_SDK;..\_aiinterface;..\_Network\Net\Include;..\_Network\Misc\Include;.;..\_Network\Mcl\Include;..\_DirectX;..\..\resource;..\_Common;..\_network;..\_Interface;..\_AIInterface"
+				AdditionalIncludeDirectories="..\_aiinterface;..\_Network\Net\Include;..\_Network\Misc\Include;.;..\_Network\Mcl\Include;..\_DirectX;..\..\resource;..\_Common;..\_network;..\_Interface;..\_AIInterface;..\DX_SDK;..\boost_1_34_1;..\BOOST_SDK"
 				PreprocessorDefinitions="WIN32;_DEBUG;_WINDOWS"
 				BasicRuntimeChecks="3"
 				RuntimeLibrary="1"
@@ -44,7 +43,7 @@
 				Name="VCLinkerTool"
 				AdditionalDependencies="d3dx9dt.lib d3d9.lib Dxerr9.lib winmm.lib odbc32.lib odbccp32.lib ws2_32.lib d3dxof.lib dxguid.lib imm32.lib Dsound.lib pdh.lib VERSION.LIB"
 				OutputFile=".\..\..\Output\WorldServer\Debug/WorldServer.exe"
-				LinkIncremental="2"
+				LinkIncremental="1"
 				SuppressStartupBanner="TRUE"
 				AdditionalLibraryDirectories="..\_Network\Mcl\Lib\Release;..\Lib"
 				IgnoreDefaultLibraryNames="msvcrt.lib"
@@ -93,7 +92,7 @@
 				Name="VCCLCompilerTool"
 				Optimization="2"
 				InlineFunctionExpansion="1"
-				AdditionalIncludeDirectories="..\DX_SDK;..\boost_1_34_1\boost_1_34_1;..\_Network\Net\Include;..\_Network\Misc\Include;.;..\_Network\Mcl\Include;..\_DirectX;..\..\resource;..\_Common;..\_network;..\_Interface;..\_AIInterface"
+				AdditionalIncludeDirectories="..\_Network\Net\Include;..\_Network\Misc\Include;.;..\_Network\Mcl\Include;..\_DirectX;..\..\resource;..\_Common;..\_network;..\_Interface;..\_AIInterface;..\DX_SDK;..\boost_1_34_1;..\BOOST_SDK"
 				PreprocessorDefinitions="WIN32;NDEBUG;_WINDOWS"
 				StringPooling="TRUE"
 				RuntimeLibrary="0"

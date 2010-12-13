@@ -349,7 +349,7 @@ BOOL	CMover::ApplyParam( CCtrl *pSrc, ItemProp *pSkillProp, AddSkillProp *pAddSk
 			}
 			else
 			{
-				for( int i = 0; i < nAdjParam; i ++ )
+				int i; for( i = 0; i < nAdjParam; i ++ )
 					pTarget->RemoveBuffOne();
 			}
 			break;
@@ -1821,7 +1821,7 @@ BOOL	CMover::OnAttackMeleeContinue( DWORD dwState )
 					vScal.y *= vModelScal.y;
 					vScal.z *= vModelScal.z;
 
-					for( int i = 0; i < 2; i ++ )
+					int i; for( i = 0; i < 2; i ++ )
 					{
 						vTemp = vDir * (xRandomF( 0.2f ) + 0.1f );
 						vTemp *= 0.8f;
@@ -2331,7 +2331,7 @@ BOOL CMover::SubLootDropMobParty( CItem *pItem, CParty *pParty )
 	
 	// 아이템줍는사람 반경안에 드는 멤버들만 추려낸다.
 	memset( pListMember, 0, sizeof(pListMember) );
-	for( int i = 0; i < pParty->m_nSizeofMember; i++ )
+	int i; for( i = 0; i < pParty->m_nSizeofMember; i++ )
 	{
 		pMember		= g_UserMng.GetUserByPlayerID( pParty->m_aMember[i].m_uPlayerId );
 //		if( IsValidObj( (CObj*)pMember ) )

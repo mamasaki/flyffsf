@@ -22,25 +22,25 @@ extern  CDPCoreSrvr			g_dpCoreSrvr;
 CDPDatabaseClient::CDPDatabaseClient()
 {
 	BEGIN_MSG;
-	ON_MSG( PACKETTYPE_PARTYNAME, OnPartyName );
-	ON_MSG( PACKETTYPE_GLOBAL_DATA, OnGlobalData );
-	ON_MSG( PACKETTYPE_INSERTTAG_RESULT, OnInsertTagResult );
-	ON_MSG( PACKETTYPE_DC_ADDVOTERESULT, OnAddVoteResult );
-	ON_MSG( PACKETTYPE_UPDATE_GUILD_RANKING_END, OnUpdateGuildRankFinish );
-	ON_MSG( PACKETTYPE_DEL_PLAYER, OnDelPlayer );
-	ON_MSG( PACKETTYPE_GUILD_MEMBERTIME, OnGuildMemberTime );
-	ON_MSG( PACKETTYPE_BUYING_INFO, OnBuyingInfo );
-	ON_MSG( PACKETTYPE_TC_LIST, OnTCList );
-	ON_MSG( PACKETTYPE_QUERYSETPLAYERNAME, OnSetPlayerName );
+	ON_MSG( PACKETTYPE_PARTYNAME,& CDPDatabaseClient::OnPartyName );
+	ON_MSG( PACKETTYPE_GLOBAL_DATA, & CDPDatabaseClient::OnGlobalData );
+	ON_MSG( PACKETTYPE_INSERTTAG_RESULT, & CDPDatabaseClient::OnInsertTagResult );
+	ON_MSG( PACKETTYPE_DC_ADDVOTERESULT,& CDPDatabaseClient:: OnAddVoteResult );
+	ON_MSG( PACKETTYPE_UPDATE_GUILD_RANKING_END,& CDPDatabaseClient:: OnUpdateGuildRankFinish );
+	ON_MSG( PACKETTYPE_DEL_PLAYER,& CDPDatabaseClient:: OnDelPlayer );
+	ON_MSG( PACKETTYPE_GUILD_MEMBERTIME, & CDPDatabaseClient::OnGuildMemberTime );
+	ON_MSG( PACKETTYPE_BUYING_INFO,& CDPDatabaseClient:: OnBuyingInfo );
+	ON_MSG( PACKETTYPE_TC_LIST,& CDPDatabaseClient:: OnTCList );
+	ON_MSG( PACKETTYPE_QUERYSETPLAYERNAME, & CDPDatabaseClient::OnSetPlayerName );
 
 #if __VER >= 11 // __SYS_PLAYER_DATA
-	ON_MSG( PACKETTYPE_UPDATE_PLAYER_DATA, OnUpdatePlayerData );
+	ON_MSG( PACKETTYPE_UPDATE_PLAYER_DATA, & CDPDatabaseClient::OnUpdatePlayerData );
 #endif	// __SYS_PLAYER_DATA
 #ifdef __AUTO_NOTICE
-	ON_MSG( PACKETTYPE_EVENTLUA_NOTICE, OnEventNotice );
+	ON_MSG( PACKETTYPE_EVENTLUA_NOTICE, & CDPDatabaseClient::OnEventNotice );
 #endif // __AUTO_NOTICE
 #ifdef __RT_1025
-	ON_MSG( PACKETTYPE_REMOVEFRIEND, OnRemovePlayerFriend );
+	ON_MSG( PACKETTYPE_REMOVEFRIEND, & CDPDatabaseClient::OnRemovePlayerFriend );
 #endif // __RT_1025
 }
 

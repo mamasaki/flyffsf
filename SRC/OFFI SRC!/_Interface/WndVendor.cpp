@@ -150,7 +150,7 @@ void CWndVendor::ReloadItemList()
 	// 백업해 둔 리스트를 로드한다 	
 	if( !g_pPlayer->m_vtInfo.IsVendorOpen() )
 	{
-		for( int i = 0; i < MAX_VENDITEM; i++ )
+		int i; for( i = 0; i < MAX_VENDITEM; i++ )
 		{
 			for(int nIndex = 0;nIndex < g_pPlayer->m_Inventory.GetMax(); nIndex++)
 			{
@@ -444,7 +444,7 @@ BOOL CWndVendor::OnChildNotify( UINT message, UINT nID, LRESULT* pLResult )
 
 			//if( g_pPlayer->m_vtInfo.IsVendorOpen() )
 			//{
-				for( int i = 0; i < MAX_VENDITEM; i++ )
+				int i; for( i = 0; i < MAX_VENDITEM; i++ )
 				{
 					// 리스트를 클리어 한다. 
 					CItemBase* pItemBase = g_pPlayer->m_vtInfo.GetItem(i);
@@ -484,7 +484,7 @@ void CWndVendor::OnDestroy( void )
 {
 #if __VER >= 11 // __MOD_VENDOR
 	// 리스트를 백업해둔다
-	for( int i = 0; i < MAX_VENDITEM; i++ )
+	int i; for( i = 0; i < MAX_VENDITEM; i++ )
 	{
 		CItemBase* pItemBase = g_pPlayer->m_vtInfo.GetItem(i);
 		if(pItemBase)
@@ -529,7 +529,7 @@ void CWndVendorMessage::OnDraw( C2DRender* p2DRender )
 	
 	pWndList->ResetContent();
 
-	for( int i = 0 ; i < g_Chatting.GetChattingMember(); ++i )
+	int i; for( i = 0 ; i < g_Chatting.GetChattingMember(); ++i )
 	{
 		pWndList->AddString( g_Chatting.m_szName[i] );
 	}

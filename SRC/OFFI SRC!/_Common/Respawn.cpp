@@ -225,7 +225,7 @@ CRespawner::CRespawner()
 #ifdef __LAYER_1021
 CRespawner::CRespawner( const CRespawner & respawner )
 {
-	for( int i = 0; i < 3; ++i )
+	int i; for( i = 0; i < 3; ++i )
 		m_vRespawnInfo[i].assign( respawner.m_vRespawnInfo[i].begin(), respawner.m_vRespawnInfo[i].end() );
 }
 #endif	// __LAYER_1021
@@ -398,7 +398,7 @@ u_long CRespawner::Spawn( CWorld* pWorld )
 	for( int nType = 0; nType < 3; nType++ )
 	{
 		int nSize	= m_vRespawnInfo[nType].size();
-		for( int i = 0; i < nSize; i++ )			// 04.10.11 - 480개 정도 이다.
+		int i; for( i = 0; i < nSize; i++ )			// 04.10.11 - 480개 정도 이다.
 		{
 			pi	= &m_vRespawnInfo[nType][i];
 
@@ -653,7 +653,7 @@ lbl_retry:
 				#endif // __S1108_BACK_END_SYSTEM
 				}	// while( cb-- > 0 )					
 			} // if( pi->m_cbTime < 0 )
-		} // for( int i = 0; i < nSize; i++ )
+		} // int i; for( i = 0; i < nSize; i++ )
 	} // for( int nType = 0; nType < 3; nType++ )
 
 	return uRespawned;

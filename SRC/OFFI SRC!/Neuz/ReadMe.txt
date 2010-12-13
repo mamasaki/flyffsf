@@ -23,7 +23,7 @@ BOOL CProject::OpenProject( LPCTSTR lpszFileName )
 	{
 		int nSize;
 		fileState.Read( &nSize, sizeof( nSize ) );
-		for( int i = 0;i < nSize; i++ )
+		int i; for( i = 0;i < nSize; i++ )
 		{
 			int nQuest;
 			fileState.Read( &nQuest, sizeof( nQuest ) );
@@ -41,7 +41,7 @@ BOOL CProject::OpenProject( LPCTSTR lpszFileName )
 	{
 		int nSize = m_aStateQuest.GetSize();
 		fileState.Write( &nSize, sizeof( nSize ) );
-		for( int i = 0;i < m_aStateQuest.GetSize(); i++ )
+		int i; for( i = 0;i < m_aStateQuest.GetSize(); i++ )
 		{
 			int nQuest = m_aStateQuest.GetAt( i );
 			fileState.Write( &nQuest, sizeof( nQuest ) );
@@ -64,7 +64,7 @@ BOOL CProject::OpenProject( LPCTSTR lpszFileName )
 // 1	// set
 	int cbMonster	= 0;
 	MoverProp*	apMonster[4096];
-	for( int i = 0; i < m_nMoverPropSize; i++ )
+	int i; for( i = 0; i < m_nMoverPropSize; i++ )
 	{
 		MoverProp* pMoverProp	= GetMoverProp( i );
 		if( pMoverProp && pMoverProp->dwID && pMoverProp->dwBelligerence != BELLI_PEACEFUL && pMoverProp->dwBelligerence != BELLI_ALLIANCE )
@@ -90,7 +90,7 @@ BOOL CProject::OpenProject( LPCTSTR lpszFileName )
 //	1	// sort
 	for( i = 0; i < cbMonster - 1; i++ )
 	{
-		for( int j = i + 1; j < cbMonster; j++ )
+		int j; for(  j = i + 1; j < cbMonster; j++ )
 		{
 			if( (int)apMonster[i]->dwLevel > (int)apMonster[j]->dwLevel )
 			{
@@ -103,7 +103,7 @@ BOOL CProject::OpenProject( LPCTSTR lpszFileName )
 
 	for( i = 0; i < cbWeapon - 1; i++ )
 	{
-		for( int j = i + 1; j < cbWeapon; j++ )
+		int j; for(  j = i + 1; j < cbWeapon; j++ )
 		{
 			if( (int)apWeapon[i]->dwItemLV > (int)apWeapon[j]->dwItemLV )
 			{
@@ -116,7 +116,7 @@ BOOL CProject::OpenProject( LPCTSTR lpszFileName )
 
 	for( i = 0; i < cbArmor - 1; i++ )
 	{
-		for( int j = i + 1; j < cbArmor; j++ )
+		int j; for(  j = i + 1; j < cbArmor; j++ )
 		{
 			if( (int)apArmor[i]->dwItemLV > (int)apArmor[j]->dwItemLV )
 			{
@@ -175,7 +175,7 @@ BOOL CProject::OpenProject( LPCTSTR lpszFileName )
 
 	for( i = 0; i < MAX_JOB; i++ )
 	{
-		for( int j = 0; j < MAX_JOB; j++ )
+		int j; for(  j = 0; j < MAX_JOB; j++ )
 		{
 			ItemProp** apSkillProp	= prj.m_aJobSkill[j];
 			int nJobNum	= prj.m_aJobSkillNum[j];
@@ -226,14 +226,14 @@ BOOL CProject::OpenProject( LPCTSTR lpszFileName )
 	{
 		m_mapCharacter.GetNextAssoc( pos, string, (void*&)lpCharacter );
 		FILEOUT( "shop.txt", "[%s]", lpCharacter->m_szKey );
-		for( int i = 0; i < MAX_VENDOR_INVENTORY_TAB; i++ )
+		int i; for( i = 0; i < MAX_VENDOR_INVENTORY_TAB; i++ )
 		{
 			int cbSize	= 0;
 			ItemProp* apItemProp[MAX_VENDOR_INVENTORY];
 			if( lpCharacter->m_venderItemAry[i].GetSize() )
 			{
 
-				for( int j = 0; j < lpCharacter->m_venderItemAry[i].GetSize(); j++ )
+				int j; for(  j = 0; j < lpCharacter->m_venderItemAry[i].GetSize(); j++ )
 				{
 					LPVENDOR_ITEM pVendor	= (LPVENDOR_ITEM)lpCharacter->m_venderItemAry[i].GetAt( j );
 					CPtrArray* pItemKindAry		= GetItemKindAry( pVendor->m_nItemkind3 );
@@ -259,7 +259,7 @@ BOOL CProject::OpenProject( LPCTSTR lpszFileName )
 					int nMinIdx	= -1, nMaxIdx	= -1;
 					
 					{
-						for( int j = pVendor->m_nUniqueMin; j <= pVendor->m_nUniqueMax; j++ )
+						int j; for(  j = pVendor->m_nUniqueMin; j <= pVendor->m_nUniqueMax; j++ )
 						{
 							nMinIdx		= prj.GetMinIdx( pVendor->m_nItemkind3, j );
 							if( nMinIdx != -1 )
@@ -318,7 +318,7 @@ BOOL CProject::OpenProject( LPCTSTR lpszFileName )
 			}
 			//
 			{
-				for( int i = 0; i < cbSize; i++ )
+				int i; for( i = 0; i < cbSize; i++ )
 				{
 					FILEOUT( "shop.txt", " \t%s\t%d\t%d\t%d\t%d", apItemProp[i]->szName, apItemProp[i]->dwLimitLevel1, apItemProp[i]->dwItemLV, apItemProp[i]->dwItemRare, apItemProp[i]->dwLimitJob1 );
 				}
@@ -346,7 +346,7 @@ BOOL CProject::OpenProject( LPCTSTR lpszFileName )
 #ifdef __ADDSKILLPROP0811
 void CProject::OutputSkill( void )
 {
-	for( int i = 0; i < m_aPropSkill.GetSize(); i++ )
+	int i; for( i = 0; i < m_aPropSkill.GetSize(); i++ )
 	{
 		ItemProp* pSkillProp	= m_aPropSkill.GetAt( i );
 		if( pSkillProp && pSkillProp->dwID )
@@ -367,14 +367,14 @@ void CProject::OutputStore( const char* lpStrKey, CMover* pMover  )
 		return;
 
 	FILEOUT( "shop.txt", "%s\t%s\t%.2f\t%.2f", pMover->GetName(), lpCharacter->m_szKey, pMover->GetPos().x, pMover->GetPos().z );
-	for( int i = 0; i < MAX_VENDOR_INVENTORY_TAB; i++ )
+	int i; for( i = 0; i < MAX_VENDOR_INVENTORY_TAB; i++ )
 	{
 		int cbSize	= 0;
 		ItemProp* apItemProp[MAX_VENDOR_INVENTORY];
 		if( lpCharacter->m_venderItemAry[i].GetSize() )
 		{
 
-			for( int j = 0; j < lpCharacter->m_venderItemAry[i].GetSize(); j++ )
+			int j; for(  j = 0; j < lpCharacter->m_venderItemAry[i].GetSize(); j++ )
 			{
 				LPVENDOR_ITEM pVendor	= (LPVENDOR_ITEM)lpCharacter->m_venderItemAry[i].GetAt( j );
 				CPtrArray* pItemKindAry		= GetItemKindAry( pVendor->m_nItemkind3 );
@@ -400,7 +400,7 @@ void CProject::OutputStore( const char* lpStrKey, CMover* pMover  )
 				int nMinIdx	= -1, nMaxIdx	= -1;
 				
 				{
-					for( int j = pVendor->m_nUniqueMin; j <= pVendor->m_nUniqueMax; j++ )
+					int j; for(  j = pVendor->m_nUniqueMin; j <= pVendor->m_nUniqueMax; j++ )
 					{
 						nMinIdx		= prj.GetMinIdx( pVendor->m_nItemkind3, j );
 						if( nMinIdx != -1 )
@@ -459,7 +459,7 @@ void CProject::OutputStore( const char* lpStrKey, CMover* pMover  )
 		}
 		//
 		{
-			for( int i = 0; i < cbSize; i++ )
+			int i; for( i = 0; i < cbSize; i++ )
 			{
 				FILEOUT( "shop.txt", " \t%s\t%d\t%d\t%d\t%d", apItemProp[i]->szName, apItemProp[i]->dwLimitLevel1, apItemProp[i]->dwItemLV, apItemProp[i]->dwItemRare, apItemProp[i]->dwLimitJob1 );
 			}
@@ -488,7 +488,7 @@ void CProject::OutputDropItem( void )
 	CString sLog[100];
 	int nCount	= 0;
 	int nWrite	= 0;
-	for( int i = 0; i < m_nMoverPropSize; i++ )
+	int i; for( i = 0; i < m_nMoverPropSize; i++ )
 	{
 		
 		if( (++nCount % 10) == 0 )
@@ -510,7 +510,7 @@ void CProject::OutputDropItem( void )
 //			QUESTITEM
 			/*
 			int cbQuest	= (int)pMoverProp->m_QuestItemGenerator.GetSize();
-			for( int j = 0; j < cbQuest; j++ )
+			int j; for(  j = 0; j < cbQuest; j++ )
 			{
 				QUESTITEM* pQuestItem	= pMoverProp->m_QuestItemGenerator.GetAt( j );
 				ItemProp* pItemProp	= prj.GetItemProp( pQuestItem->dwIndex );
@@ -522,7 +522,7 @@ void CProject::OutputDropItem( void )
 				int cbDropItem	= pMoverProp->m_DropItemGenerator.GetSize();
 				int nNumber	= 0;
 				DROPITEM* lpDropItem;
-				for( int i = 0; i < cbDropItem; i++ )
+				int i; for( i = 0; i < cbDropItem; i++ )
 				{
 					if( lpDropItem = pMoverProp->m_DropItemGenerator.GetAt( i, FALSE, false ) )
 					{
@@ -563,12 +563,12 @@ void CProject::OutputDropItem( void )
 				DROPKIND* pDropKind;
 				CPtrArray* pItemKindAry;
 				int nAbilityOption, nDropLuck;
-				for( int i = 0; i < nSize; i++ )
+				int i; for( i = 0; i < nSize; i++ )
 				{
 					pDropKind	= pMoverProp->m_DropKindGenerator.GetAt( i );
 					pItemKindAry	= prj.GetItemKindAry( pDropKind->dwIK3 );
 					int nMinIdx	= -1,	nMaxIdx		= -1;
-					for( int j = pDropKind->nMinUniq; j <= pDropKind->nMaxUniq; j++ )
+					int j; for(  j = pDropKind->nMinUniq; j <= pDropKind->nMaxUniq; j++ )
 					{
 						nMinIdx		= prj.GetMinIdx( pDropKind->dwIK3, j );
 						if( nMinIdx != -1 )
@@ -622,7 +622,7 @@ LoadPropQuest()
 #if defined( __WRITE_STATE_QUEST ) || defined( __CHECK_STATE_QUEST )
 				if( nState != 0 && nState != QS_END )
 				{
-					for( int i = 0; i < m_aStateQuest.GetSize(); i++ )
+					int i; for( i = 0; i < m_aStateQuest.GetSize(); i++ )
 					{
 						if( m_aStateQuest.GetAt( i ) == nQuest )
 							break;
@@ -862,7 +862,7 @@ expSkill // 1 based
 	{	
 		script.GetToken();
 		strcpy( m_aReNewEventTime[nCount].strTime, script.Token );
-		for( int i = 0 ; i < MAX_REALITEM ; i++ )
+		int i; for( i = 0 ; i < MAX_REALITEM ; i++ )
 		{
 			m_aReNewEventTime[nCount].nRealitem[i] = script.GetNumber();
 		}
@@ -921,7 +921,7 @@ BOOL	CProject::LoadReNewEventRealItem( LPCTSTR lpszFileName )
 #endif // __S0517
 		m_aRealEventItem[ m_nMaxReNewEventItem ].nLevel = bufLevel;
 		int nTotalPercent = 0;
-		for( int i = 0 ; i < MAX_REALITEM ; i++ )
+		int i; for( i = 0 ; i < MAX_REALITEM ; i++ )
 		{ 
 			m_aRealEventItem[m_nMaxReNewEventItem].nRealitem[i] = script.GetNumber();
 			m_aRealEventItem[m_nMaxReNewEventItem].nRealitemCount[i] = script.GetNumber();

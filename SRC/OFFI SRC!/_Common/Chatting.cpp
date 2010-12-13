@@ -58,7 +58,7 @@ BOOL CChatting::RemoveChattingMember( u_long uidPlayer )
 	int nFindMember = FindChattingMember( uidPlayer );
 	if( nFindMember >= 0 )
 	{
-		for( int i = nFindMember ; i < m_nSizeofMember-1 ; ++i )
+		int i; for( i = nFindMember ; i < m_nSizeofMember-1 ; ++i )
 		{
 			m_idMember[i] = m_idMember[i+1];
 			strcpy( m_szName[i], m_szName[i+1] );
@@ -74,7 +74,7 @@ BOOL CChatting::RemoveChattingMember( u_long uidPlayer )
 	int nFindMember = FindChattingMember( uidPlayer );
 	if( nFindMember >= 0 )
 	{
-		for( int i = nFindMember ; i < m_nSizeofMember-1 ; ++i )
+		int i; for( i = nFindMember ; i < m_nSizeofMember-1 ; ++i )
 		{
 			m_idMember[i] = m_idMember[i+1];
 		}
@@ -87,7 +87,7 @@ BOOL CChatting::RemoveChattingMember( u_long uidPlayer )
 
 int CChatting::FindChattingMember( u_long uidPlayer )
 {
-	for( int i = 0 ; i < m_nSizeofMember ; ++i )
+	int i; for( i = 0 ; i < m_nSizeofMember ; ++i )
 	{
 		if( m_idMember[i] == uidPlayer )
 		{

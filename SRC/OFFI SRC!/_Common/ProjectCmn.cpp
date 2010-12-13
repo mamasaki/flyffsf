@@ -575,7 +575,7 @@ BOOL CProject::LoadText( LPCTSTR lpszFileName )
 		dwId = scanner.GetNumber();	// next
 	} while( scanner.tok != FINISHED );
 
-	for( int i = 0; i < strArray.GetSize(); i++ )
+	int i; for( i = 0; i < strArray.GetSize(); i++ )
 	{
 		if( strArray.GetAt( i ).IsEmpty() == FALSE )
 		{
@@ -858,7 +858,7 @@ BOOL	CProject::IsAllowedLetter( LPCSTR szName, BOOL bVendor )
 		return TRUE;
 
 	int nLen	= lstrlen( szName );
-	for( int i = 0; i < nLen; i++ )
+	int i; for( i = 0; i < nLen; i++ )
 	{
 		char chLetter	= szName[i];
 		set<char>::iterator it	= ptr->find( chLetter );

@@ -1397,7 +1397,8 @@ BOOL CDbManager::GetSendItem( CQuery *pQry, __SendItemContents * pSendItemConten
 	pItemElem->SetRandomOptItemId( pQry->GetInt64( "nRandomOptItemId" ) == CQuery::CQUERYNULL ? 0 : pQry->GetInt64( "nRandomOptItemId" ) );
 
 	pItemElem->SetPiercingSize( pQry->GetInt( "nPiercedSize" ) <= CQuery::CQUERYNULL ? 0 : pQry->GetInt( "nPiercedSize" ) );
-	for( int i=0; i<pItemElem->GetPiercingSize(); i++ )
+	int i;
+	for(  i=0; i<pItemElem->GetPiercingSize(); i++ )
 	{
 		char szItem[32] = {0,};
 		sprintf( szItem, "adwItemId%d", i );
@@ -1585,7 +1586,8 @@ SERIALNUMBER CDbManager::SendItem( CQuery *pQry, char* szSql, CMover* pMover, __
 	// 피어싱 검사
 	if( pItemElem->IsPiercedItem() )
 	{
-		for( int i=0; i<pItemElem->GetPiercingSize(); i++ )		// 일반 아이템
+		int i;
+		for(  i=0; i<pItemElem->GetPiercingSize(); i++ )		// 일반 아이템
 		{
 			if( pItemElem->GetPiercingItem( i ) != 0 )
 			{
@@ -1954,7 +1956,8 @@ BOOL CDbManager::CreateDbWorkers( void )
 
 	m_hIOCPGet	= CreateIoCompletionPort( INVALID_HANDLE_VALUE, NULL, 0, 0 );	// select
 	ASSERT( m_hIOCPGet );
-	for( int i = 0; i < MAX_GETTHREAD_SIZE; i++ )
+	int i;
+	for(  i = 0; i < MAX_GETTHREAD_SIZE; i++ )
 	{
 		m_hThreadGet[i]		= chBEGINTHREADEX( NULL, 0, _GetThread, (LPVOID)this, 0, &dwThreadId ); 
 		ASSERT( m_hThreadGet[i] );
@@ -2013,7 +2016,8 @@ void CDbManager::CloseDbWorkers( void )
 {
 	if( NULL != m_hIOCPGet )
 	{
-		for( int i = 0; i < MAX_GETTHREAD_SIZE; i++ )
+		int i;
+		for(  i = 0; i < MAX_GETTHREAD_SIZE; i++ )
 			PostQueuedCompletionStatus( m_hIOCPGet, 0, NULL, NULL );
 		WaitForMultipleObjects( MAX_GETTHREAD_SIZE, m_hThreadGet, TRUE, INFINITE );
 		CLOSE_HANDLE( m_hIOCPGet );
@@ -2022,7 +2026,8 @@ void CDbManager::CloseDbWorkers( void )
 	}
 	if( NULL != m_hIOCPPut )
 	{
-		for( int i = 0; i < MAX_PUTTHREAD_SIZE; i++ )
+		int i;
+		for(  i = 0; i < MAX_PUTTHREAD_SIZE; i++ )
 			PostQueuedCompletionStatus( m_hIOCPPut, 0, NULL, NULL );
 		WaitForMultipleObjects( MAX_PUTTHREAD_SIZE, m_hThreadPut, TRUE, INFINITE );
 		CLOSE_HANDLE( m_hIOCPPut );
@@ -2467,7 +2472,8 @@ void CDbManager::SPThread( void )
 	DWORD dwThreadId;
 	m_hIOCPUpdate	= CreateIoCompletionPort( INVALID_HANDLE_VALUE, NULL, 0, 0 );	// insert log
 	ASSERT( m_hIOCPUpdate );
-	for( int i = 0; i < MAX_UPDATETHREAD_SIZE; i++ )
+	int i;
+	for(  i = 0; i < MAX_UPDATETHREAD_SIZE; i++ )
 	{
 		m_hThreadUpdate[i]		= chBEGINTHREADEX( NULL, 0, _UpdateThread, (LPVOID)this, 0, &dwThreadId ); 
 		ASSERT( m_hThreadUpdate[i] );
@@ -2521,7 +2527,8 @@ void CDbManager::CreateGuild( CQuery* pQuery, CQuery* pQueryLog, LPDB_OVERLAPPED
 			return;
 		}
 	}
-	for( int i = 0; i < nSize; i++ )
+	int i;
+	for(  i = 0; i < nSize; i++ )
 	{
 		if( info[i].idPlayer != 0 )
 		{
@@ -5125,7 +5132,7 @@ void CDbManager::GetPenyaGuildGC( CQuery* pQuery, LPDB_OVERLAPPED_PLUS lpDbOverl
 		{	WriteLog( "GetPenyaGuildGuildCombat()");	TRACE("ERROR: GetPenyaGuildGuildCombat()\n");	}
 
 		CDPTrans::GetInstance()->SendGetPenyaGuildGC( uidPlayer, nGuildCombatID, uidGuild );
-		vector<__GCRESULTVALUEGUILD>::iterator ita = &(m_GCResultValueGuild[nFindVeci]);
+		vector<__GCRESULTVALUEGUILD>::iterator ita = m_GCResultValueGuild.begin()+nFindVeci;
 		m_GCResultValueGuild.erase( ita );		
 	}
 	FreeRequest( lpDbOverlappedPlus );
@@ -5161,7 +5168,7 @@ void CDbManager::GetPenyaPlayerGC( CQuery* pQuery, LPDB_OVERLAPPED_PLUS lpDbOver
 		{	WriteLog( "GetPenyaGuildGuildCombat()");	TRACE("ERROR: GetPenyaGuildGuildCombat()\n");	}
 
 		CDPTrans::GetInstance()->SendGetPenyaPlayerGC( uidPlayer, nGuildCombatID, uidGuild );
-		vector<__GCRESULTVALUEPLAYER>::iterator ita = &(m_GCResultValuePlayer[nFindVeci]);
+		vector<__GCRESULTVALUEPLAYER>::iterator ita = m_GCResultValuePlayer.begin()+nFindVeci;
 		m_GCResultValuePlayer.erase( ita );		
 	}
 	FreeRequest( lpDbOverlappedPlus );

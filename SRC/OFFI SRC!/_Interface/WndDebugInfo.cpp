@@ -113,7 +113,7 @@ void CWndDebugInfo::OnInitialUpdate()
 		_T( "Weather" ), _T( "NudeSkin" ), _T( "Capture" ), _T( "BoundBox" ), _T( "Collision" )
 	};
 
-	for( int i = 0, i3 = 0; i < 6; i++ )
+	int i; for( i = 0, i3 = 0; i < 6; i++ )
 	{
 		for( int i2 = 0; i2 < 3; i2++, i3++)
 		{

@@ -169,7 +169,8 @@ BOOL CWndSealCharSelect::OnChildNotify( UINT message, UINT nID, LRESULT* pLResul
 	if( nID == WIDC_OK ) 
 	{
 		UINT nRadios[2] = { WIDC_RADIO1, WIDC_RADIO2 };
-		for( int i=0; i<2; ++i )
+		int i;
+		for(  i=0; i<2; ++i )
 		{
 			CWndButton* pButton = (CWndButton* )GetDlgItem( nRadios[i] );
 			if( pButton->GetCheck() )

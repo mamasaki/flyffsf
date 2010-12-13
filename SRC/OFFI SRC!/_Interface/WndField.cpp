@@ -102,7 +102,7 @@ void CWndDropItem::OnDraw( C2DRender* p2DRender )
 			_itoa( m_pItemElem->m_nItemNum, szNumberbuf, 10 );
 			m_pEdit->SetString( szNumberbuf );
 		}
-		for( int i = 0 ; i < 8 ; i++ )
+		int i; for( i = 0 ; i < 8 ; i++ )
 		{
 			char szNumberbuf[8] = {0, };
 			strncpy( szNumberbuf, szNumber, 8 );
@@ -936,7 +936,7 @@ void CWndQueryEquip::SetMover( DWORD ObjID )
 void CWndQueryEquip::SetEquipInfoAdd( EQUIP_INFO_ADD* aEquipInfoAdd )
 {
 //	memcpy( m_aEquipInfoAdd, aEquipInfoAdd, sizeof(EQUIP_INFO_ADD) * MAX_HUMAN_PARTS );
-	for( int i = 0; i < MAX_HUMAN_PARTS; i++ )
+	int i; for( i = 0; i < MAX_HUMAN_PARTS; i++ )
 		m_aEquipInfoAdd[i]	= aEquipInfoAdd[i];
 
 	CMover* pMover = GetMover();
@@ -1756,7 +1756,7 @@ BOOL CWndInventory::OnChildNotify( UINT message, UINT nID, LRESULT* pLResult )
 			if( pWndFrame->GetWndId() == APP_SHOP_ )
 			{
 				CWndItemCtrl* pWndItemCtrl = (CWndItemCtrl*)lpShortcut->m_pFromWnd;
-				for( int i = 0; i < (int)( pWndItemCtrl->GetSelectedCount() ); i++ )
+				int i; for( i = 0; i < (int)( pWndItemCtrl->GetSelectedCount() ); i++ )
 				{
 					int nItem = pWndItemCtrl->GetSelectedItem( i );
 					pWndItemCtrl->GetItem( nItem );
@@ -1850,7 +1850,7 @@ BOOL CWndInventory::OnChildNotify( UINT message, UINT nID, LRESULT* pLResult )
 					
 					CWndItemCtrl* pWndItemCtrl = (CWndItemCtrl*)lpShortcut->m_pFromWnd;
 					
-					for( int i = 0; i < (int)( pWndItemCtrl->GetSelectedCount() ); i++ )
+					int i; for( i = 0; i < (int)( pWndItemCtrl->GetSelectedCount() ); i++ )
 					{
 						int nItem = pWndItemCtrl->GetSelectedItem( i );
 						pWndItemCtrl->GetItem( nItem );
@@ -1942,7 +1942,7 @@ BOOL CWndInventory::OnChildNotify( UINT message, UINT nID, LRESULT* pLResult )
 					
 					CWndItemCtrl* pWndItemCtrl = (CWndItemCtrl*)lpShortcut->m_pFromWnd;
 					
-					for( int i = 0; i < (int)( pWndItemCtrl->GetSelectedCount() ); i++ )
+					int i; for( i = 0; i < (int)( pWndItemCtrl->GetSelectedCount() ); i++ )
 					{
 						int nItem = pWndItemCtrl->GetSelectedItem( i );
 						pWndItemCtrl->GetItem( nItem );
@@ -2007,7 +2007,7 @@ BOOL CWndInventory::OnChildNotify( UINT message, UINT nID, LRESULT* pLResult )
 					{
 						CWndItemCtrl* pWndItemCtrl = (CWndItemCtrl*)lpShortcut->m_pFromWnd;
 						
-						for( int i = 0; i < (int)( pWndItemCtrl->GetSelectedCount() ); i++ )
+						int i; for( i = 0; i < (int)( pWndItemCtrl->GetSelectedCount() ); i++ )
 						{
 							int nItem = pWndItemCtrl->GetSelectedItem( i );
 							pWndItemCtrl->GetItem( nItem );
@@ -3093,7 +3093,7 @@ void CWndCharInfo::OnDraw(C2DRender* p2DRender)
 	//채널 정보
 	LPSERVER_DESC pServerDesc = NULL;
 	int nCount = 0;
-	for( int j = 0; j < (int)( g_dpCertified.m_dwSizeofServerset ); j++ )
+	int j; for(  j = 0; j < (int)( g_dpCertified.m_dwSizeofServerset ); j++ )
 	{
 		if(g_dpCertified.m_aServerset[j].dwParent == NULL_ID)
 		{
@@ -3586,7 +3586,7 @@ BOOL CWndCharInfo::OnChildNotify(UINT message,UINT nID,LRESULT* pLResult)
 	if( nID == 100 || nID == 103 || nID == 106 || nID == 109 )
 	{
 		CString tempnum = m_editStrCount.GetString();
-		for( int i = 0 ; i < tempnum.GetLength() ; i++ )
+		int i; for( i = 0 ; i < tempnum.GetLength() ; i++ )
 		{
 			if( isdigit2( tempnum.GetAt(i) ) == FALSE )
 				return FALSE;
@@ -3983,7 +3983,7 @@ float CWndCharInfo::GetVirtualATKSpeed()
 	if( 187.5f <= A )
 		A	= (int)( 187.5f );
 
-	const MAX_ATTACK_SPEED_PLUSVALUE = 18;
+	const int MAX_ATTACK_SPEED_PLUSVALUE = 18;
 	
 	int nIndex = A / 10;
 	nIndex = max( nIndex, 0 );
@@ -4655,7 +4655,7 @@ void CWndCharacterBase::OnDraw(C2DRender* p2DRender)
 	//채널 정보
 	LPSERVER_DESC pServerDesc = NULL;
 	int nCount = 0;
-	for( int j = 0; j < (int)( g_dpCertified.m_dwSizeofServerset ); j++ )
+	int j; for(  j = 0; j < (int)( g_dpCertified.m_dwSizeofServerset ); j++ )
 	{
 		if(g_dpCertified.m_aServerset[j].dwParent == NULL_ID)
 		{
@@ -5828,7 +5828,7 @@ float CWndCharacterDetail2::GetVirtualATKSpeed()
 	if( 187.5f <= A )
 		A	= (int)( 187.5f );
 
-	const MAX_ATTACK_SPEED_PLUSVALUE = 18;
+	const int MAX_ATTACK_SPEED_PLUSVALUE = 18;
 	
 	int nIndex = A / 10;
 	nIndex = max( nIndex, 0 );
@@ -5872,7 +5872,7 @@ BOOL CWndCharacterDetail2::OnChildNotify(UINT message,UINT nID,LRESULT* pLResult
 	if( nID == 100 || nID == 103 || nID == 106 || nID == 109 )
 	{
 		CString tempnum = m_editStrCount.GetString();
-		for( int i = 0 ; i < tempnum.GetLength() ; i++ )
+		int i; for( i = 0 ; i < tempnum.GetLength() ; i++ )
 		{
 			if( isdigit2( tempnum.GetAt(i) ) == FALSE )
 				return FALSE;
@@ -6032,7 +6032,7 @@ void CWndChangeJob::OnDraw( C2DRender* p2DRender )
 void CWndChangeJob::OnInitialUpdate() 
 { 
 	CWndNeuz::OnInitialUpdate(); 
-	for( int i  = 0 ; i < 6 ; ++i )
+	int i; for( i  = 0 ; i < 6 ; ++i )
 	{
 		m_wndExpert[ i ].SetFontColor( 0xffffffff );
 	}
@@ -6152,7 +6152,7 @@ CWndSkillTreeEx::CWndSkillTreeEx()
 	m_nJob = -1;
 	m_pVBGauge = NULL;
 
-	for( int i = 0; i < MAX_SKILL_JOB; i++ ) 
+	int i; for( i = 0; i < MAX_SKILL_JOB; i++ ) 
 		m_atexSkill[ i ] = NULL;
 
 	m_aSkillLevel[ 0 ] = NULL;
@@ -6505,7 +6505,7 @@ BOOL CWndSkillTreeEx::IsDownPoint(DWORD skill)
 
 void CWndSkillTreeEx::SubSkillPointDown( LPSKILL lpSkill )
 {
-	for( int i = 0; i < MAX_SKILL_JOB; i++ )	
+	int i; for( i = 0; i < MAX_SKILL_JOB; i++ )	
 	{
 		if( m_apSkill[i].dwSkill == NULL_ID )
 			continue;
@@ -6551,7 +6551,7 @@ void CWndSkillTreeEx::SubSkillPointDown( LPSKILL lpSkill )
 
 LPSKILL CWndSkillTreeEx::GetdwSkill( DWORD dwSkill )
 {
-	for( int i = 0; i < MAX_SKILL_JOB; i++ )	
+	int i; for( i = 0; i < MAX_SKILL_JOB; i++ )	
 	{
 		if( m_apSkill[i].dwSkill == dwSkill )
 			return &m_apSkill[i];
@@ -6598,7 +6598,7 @@ void CWndSkillTreeEx::OnSize(UINT nType, int cx, int cy)
 	//rect.bottom += 20;
 	//	lpTabCtrl->SetWndRect( rect );
 	
-	//for( int i = 0; i < 2; i++ )
+	//int i; for( i = 0; i < 2; i++ )
 	//{
 	//	m_wndSkillCtrl[ i ].SetWndRect( rect );
 	//}
@@ -7381,7 +7381,7 @@ void CWndSkillTreeEx::LoadTextureSkillicon()
 	if( m_apSkill == NULL )
 		return;
 
-	for( int i = 0; i < MAX_SKILL_JOB; i++ ) 
+	int i; for( i = 0; i < MAX_SKILL_JOB; i++ ) 
 	{
 		LPSKILL lpSkill;
 		lpSkill = &m_apSkill[ i ];
@@ -7529,7 +7529,7 @@ BOOL CWndSkillTreeEx::Process()
 void CWndSkillTreeEx::OnMouseWndSurface( CPoint point )
 {
 	DWORD dwMouseSkill = NULL_ID;
-	for( int i = 0; i < MAX_SKILL_JOB; i++ )
+	int i; for( i = 0; i < MAX_SKILL_JOB; i++ )
 	{
 		LPSKILL pSkill = GetSkill( i );
 		if( pSkill == NULL )
@@ -7730,7 +7730,7 @@ void CWndSkillTreeEx::OnDraw(C2DRender* p2DRender)
 	}
 #endif //__CSC_VER9_1
 
-	for( int i = 0; i < MAX_SKILL_JOB; i++ ) 
+	int i; for( i = 0; i < MAX_SKILL_JOB; i++ ) 
 	{
 		LPSKILL pSkill = GetSkill( i );
 		if( pSkill == NULL ) 
@@ -8207,7 +8207,7 @@ void CWndSkillTreeEx::OnLButtonDown(UINT nFlags, CPoint point)
 #endif
 	
 				
-	for( int i = 0; i < MAX_SKILL_JOB; i++ ) 
+	int i; for( i = 0; i < MAX_SKILL_JOB; i++ ) 
 	{
 		LPSKILL pSkill = GetSkill( i );
 		if( pSkill == NULL ) 
@@ -8281,7 +8281,7 @@ void CWndSkillTreeEx::OnLButtonDblClk( UINT nFlags, CPoint point)
 		return;
 
 	// 스킬창에서 더블클릭하면 자동으로 스킬바에 등록된다.
-	for( int i = 0; i < MAX_SKILL_JOB; i++ ) 
+	int i; for( i = 0; i < MAX_SKILL_JOB; i++ ) 
 	{
 		LPSKILL pSkill = GetSkill( i );
 		if( pSkill == NULL ) 
@@ -9442,7 +9442,7 @@ BOOL CWndNavigator::OnEraseBkgnd(C2DRender* p2DRender)
 		for( i = 0 ; i < g_Party.GetSizeofMember() && g_Party.GetSizeofMember() != nPartyMapCount ; ++i )
 		{
 			BOOL bDisplay = TRUE;
-			for( int j = 0 ; j < nPartyMapCount ; ++j )
+			int j; for(  j = 0 ; j < nPartyMapCount ; ++j )
 			{
 				if( nPartyMap[j] == i )
 				{
@@ -11002,7 +11002,7 @@ void CWndStatus::RenderGauge( C2DRender* p2DRender, CRect* pRect, DWORD dwColor,
 		size.cx /= 3;
 		
 		pVertices = pVertices_;
-		for( int i = 0; i < nVertexNum; i++ )
+		int i; for( i = 0; i < nVertexNum; i++ )
 		{
 			pVertices->z = 0;
 			pVertices->rhw = 1.0f;
@@ -11570,7 +11570,7 @@ void CWndEmotion::OnInitialUpdate()
 	m_wndViewCtrl.Create( WBS_CHILD, CRect( 5, 5, m_rectClient.Width() - 5,m_rectClient.Height() - 60 ), this, 1005 );//,m_pSprPack,-1);//m_pSprPack,16);
 
 	PropMotion* pProp;
-	for( int i = 0; i < prj.m_aPropMotion.GetSize(); i++ )
+	int i; for( i = 0; i < prj.m_aPropMotion.GetSize(); i++ )
 	{
 		pProp = prj.GetPropMotion( i );
 		if( pProp && pProp->dwRequireLv )
@@ -13271,7 +13271,7 @@ void CWndInventory::RunUpgrade( CItemBase* pItem )
 			}
 			
 			int nCount = 0;
-			for( int j = 0; j < ( (CItemElem*)pItem )->GetPiercingSize(); j++ )
+			int j; for(  j = 0; j < ( (CItemElem*)pItem )->GetPiercingSize(); j++ )
 			{
 				if( ( (CItemElem*)pItem )->GetPiercingItem( j ) != 0 )
 					nCount++;
@@ -14391,7 +14391,7 @@ BOOL CWndPostSend::OnChildNotify( UINT message, UINT nID, LRESULT* pLResult )
 
 			if( nlen > 0 )
 			{
-				for( int i = 0 ; i < nlen ; i++ )
+				int i; for( i = 0 ; i < nlen ; i++ )
 				{
 					if( (isdigit2( szstr4[i] ) == FALSE) )
 					{
@@ -15950,7 +15950,7 @@ void CWndGuildCombatSelection::RemoveGuildPlayer( int nIndex )
 	CWndListBox* pWndList = (CWndListBox*)GetDlgItem( WIDC_LISTBOX1 );
 	
 	pWndList->DeleteString( nIndex );
-	vector<u_long>::iterator where = &(m_vecGuildList[nIndex]);	
+	vector<u_long>::iterator where = m_vecGuildList.begin()+nIndex;	
 	m_vecGuildList.erase( where );	
 } 
 
@@ -15959,7 +15959,7 @@ void CWndGuildCombatSelection::RemoveCombatPlayer( int nIndex )
 	CWndListBox* pWndList = (CWndListBox*)GetDlgItem( WIDC_LISTBOX2 );
 	
 	pWndList->DeleteString( nIndex );
-	vector<u_long>::iterator where = &(m_vecSelectPlayer[nIndex]);	
+	vector<u_long>::iterator where =  m_vecGuildList.begin()+nIndex;
 	if( m_vecSelectPlayer[nIndex] == m_uidDefender )
 		SetDefender( -1 );
 
@@ -16023,7 +16023,7 @@ void CWndGuildCombatSelection::UpDateGuildListBox()
 
 u_long CWndGuildCombatSelection::FindCombatPlayer(u_long uiPlayer)
 {
-	for( int i = 0; i < (int)( m_vecSelectPlayer.size() ); i++ )
+	int i; for( i = 0; i < (int)( m_vecSelectPlayer.size() ); i++ )
 	{
 		if( m_vecSelectPlayer[i] == uiPlayer )
 			return m_vecSelectPlayer[i];
@@ -16034,7 +16034,7 @@ u_long CWndGuildCombatSelection::FindCombatPlayer(u_long uiPlayer)
 
 u_long CWndGuildCombatSelection::FindGuildPlayer(u_long uiPlayer)
 {
-	for( int i = 0; i < (int)( m_vecGuildList.size() ); i++ )
+	int i; for( i = 0; i < (int)( m_vecGuildList.size() ); i++ )
 	{
 		if( m_vecGuildList[i] == uiPlayer )
 			return m_vecGuildList[i];
@@ -16058,8 +16058,8 @@ void CWndGuildCombatSelection::OnDraw( C2DRender* p2DRender )
 		else
 		{
 			pWndStatic->SetVisible( TRUE );
-
-			for( int i=0; i<(int)( m_vecSelectPlayer.size() ); i++ )
+			int i;
+			for(  i=0; i<(int)( m_vecSelectPlayer.size() ); i++ )
 			{
 				if( m_uidDefender == m_vecSelectPlayer[i] )
 				{
@@ -19425,7 +19425,8 @@ BOOL CWndMixJewel::OnChildNotify( UINT message, UINT nID, LRESULT* pLResult )
 			m_bStart = TRUE;
 			
 			m_nitemcount = 0;
-			for(int i=0; i<MAX_JEWEL; i++)
+			int i;
+			for( i=0; i<MAX_JEWEL; i++)
 			{
 				if(m_MatJewel[i].isUse)
 				{

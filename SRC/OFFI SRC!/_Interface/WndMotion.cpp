@@ -91,7 +91,7 @@ void CWndMotion1::OnDraw(C2DRender* p2DRender)
 	MotionProp* pMotionProp = NULL;
 	int j = 0;
 	int ny;
-	for( int i = 0; i < m_motionArray.GetSize(); i++ )
+	int i; for( i = 0; i < m_motionArray.GetSize(); i++ )
 	{
 		pMotionProp = (MotionProp*)m_motionArray.GetAt( i );
 		if( pMotionProp )
@@ -108,7 +108,7 @@ void CWndMotion1::OnInitialUpdate()
 
 	MotionProp* pMotionProp = NULL;
 	int j = 0;
-	for( int i = 0; i < prj.m_aPropMotion.GetSize(); i++ )
+	int i; for( i = 0; i < prj.m_aPropMotion.GetSize(); i++ )
 	{
 		pMotionProp = prj.GetMotionProp( i );
 		if( pMotionProp )
@@ -167,7 +167,7 @@ void CWndMotion1::OnLButtonDown(UINT nFlags, CPoint point)
 	MotionProp* pMotionProp = NULL;
 	int j = 0;
 	int ny;
-	for( int i = 0; i < m_motionArray.GetSize(); i++ )
+	int i; for( i = 0; i < m_motionArray.GetSize(); i++ )
 	{
 		pMotionProp = (MotionProp*)m_motionArray.GetAt( i );
 		if( pMotionProp )
@@ -208,7 +208,7 @@ BOOL CWndMotion1::Process( void )
 	MotionProp* pMotionProp = NULL;
 	int j = 0;
 	int ny;
-	for( int i = 0; i < m_motionArray.GetSize(); i++ )
+	int i; for( i = 0; i < m_motionArray.GetSize(); i++ )
 	{
 		pMotionProp = (MotionProp*)m_motionArray.GetAt( i );
 		if( pMotionProp  )
@@ -274,7 +274,7 @@ void CWndMotion1::OnMouseWndSurface( CPoint point )
 	MotionProp* pMotionProp = NULL;
 	int j = 0;
 	int ny;
-	for( int i = 0; i < m_motionArray.GetSize(); i++ )
+	int i; for( i = 0; i < m_motionArray.GetSize(); i++ )
 	{
 		pMotionProp = (MotionProp*)m_motionArray.GetAt( i );
 		if( pMotionProp )
@@ -400,7 +400,7 @@ void CWndEmoticon::OnMouseWndSurface( CPoint point )
 	CPoint pt;
 	int j = 0;
 	int ny;
-	for( int i = 0; i < (int)( g_DialogMsg.m_texEmoticonUser.GetNumber() ) ; i++ )
+	int i; for( i = 0; i < (int)( g_DialogMsg.m_texEmoticonUser.GetNumber() ) ; i++ )
 	{
 		CTexture *pTexture = g_DialogMsg.m_texEmoticonUser.GetAt(i);
 		if( pTexture )

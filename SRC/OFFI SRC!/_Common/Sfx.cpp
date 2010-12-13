@@ -1183,14 +1183,14 @@ void CSfxItemYoyoAtk::MakePath(int nType)
 	int		nMaxVertex = 7;
 
 	m_nMaxSpline = 0;
-	for( int i = 0; i < nMaxVertex-1; i ++ )
+	int i; for( i = 0; i < nMaxVertex-1; i ++ )
 	{
 		// i ~ i+1사이를 보간한다.  
 		a = i - 1;		if( a < 0 )	a = 0;
 		b = i;
 		c = i+1;
 		d = i+2;		if( d >= nMaxVertex )	d = nMaxVertex - 1;
-		for( int j = 0; j < MAX_SF_SLERP+1; j ++ )
+		int j; for(  j = 0; j < MAX_SF_SLERP+1; j ++ )
 		{
 			if( m_nMaxSpline >= 30 )
 			{
@@ -1421,8 +1421,8 @@ void CSfxItemRangeAtk_JunkBow::Process()
 			m_pSfxObj->m_vRotate.z = m_SfxObj2.m_vRotate.z = D3DXToDegree(vYPW.z);
 
 		}
-		
-		for( int i=0; i<3; i++ )
+		int i;
+		for(  i=0; i<3; i++ )
 		{
 			if( m_pTail[i] )
 			{
@@ -1770,7 +1770,7 @@ void CSfxAtkStraight::Process()
 		vScal.y *= vModelScal.y;
 		vScal.z *= vModelScal.z;
 
-		for( int i = 0; i < 2; i ++ )
+		int i; for( i = 0; i < 2; i ++ )
 		{
 			//vTemp = vDir * (xRandomF( 0.2f ) + 0.1f );
 			//vTemp *= 0.8f;
@@ -3593,7 +3593,7 @@ void CSfxShootWave::Process()
 
 	if( (m_nFrame & 3) == 0 )
 	{
-		for( int i = MAX_SHOOTWAVE_TAIL-1; i > 0; i -- )
+		int i; for( i = MAX_SHOOTWAVE_TAIL-1; i > 0; i -- )
 		{
 			m_vTail[i] = m_vTail[i-1];	// 뒤로 한칸씩 민다.
 			m_nTailFrame[i] = m_nTailFrame[i-1];
@@ -3677,7 +3677,7 @@ void CSfxShootWave::Render( LPDIRECT3DDEVICE9 pd3dDevice )
 	m_pSfxObj->m_vScale = GetScale();
 	int nFrame = m_pSfxObj->m_nCurFrame;
 
-	for( int i = 0; i < MAX_SHOOTWAVE_TAIL; i ++ )
+	int i; for( i = 0; i < MAX_SHOOTWAVE_TAIL; i ++ )
 	{
 		if( m_vTail[i].x )
 		{

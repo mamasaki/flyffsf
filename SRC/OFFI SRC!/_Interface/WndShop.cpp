@@ -107,7 +107,7 @@ void CWndConfirmSell::OnDraw( C2DRender* p2DRender )
 			_itoa( m_pItemElem->m_nItemNum, szNumberbuf, 10 );
 			m_pEdit->SetString( szNumberbuf );
 		}
-		for( int i = 0 ; i < 8 ; i++ )
+		int i; for( i = 0 ; i < 8 ; i++ )
 		{
 			char szNumberbuf[8] = {0, };
 			strncpy( szNumberbuf, szNumber, 8 );
@@ -785,7 +785,7 @@ void CWndShop::OnInitialUpdate()
 
 	if( lpCharacter )
 	{
-		for( int i = 0; i < MAX_VENDOR_INVENTORY_TAB; i++ )
+		int i; for( i = 0; i < MAX_VENDOR_INVENTORY_TAB; i++ )
 		{
 			if( lpCharacter->m_venderSlot[ i ].IsEmpty() == FALSE )
 			{

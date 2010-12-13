@@ -28,7 +28,7 @@ void CWndBank::OnDraw( C2DRender* p2DRender )
 	int     nIndex[3] = { WIDC_CUSTOM4, WIDC_CUSTOM5, WIDC_CUSTOM6 };
 	CString str;
 	
-	for( int i = 0 ; i < 3 ; ++i )
+	int i; for( i = 0 ; i < 3 ; ++i )
 	{
 		str.Format( _T( "%d" ),g_pPlayer->m_dwGoldBank[i] );
 		pCost[i]->SetTitle( str );	
@@ -124,7 +124,7 @@ void CWndBank::OnInitialUpdate()
 
 void CWndBank::ReSetBank( )
 {
-	for( int i = 0 ; i < 3 ; ++i )
+	int i; for( i = 0 ; i < 3 ; ++i )
 	{
 		if( g_pPlayer->m_nSlot == i )
 		{
@@ -221,7 +221,7 @@ BOOL CWndBank::OnChildNotify( UINT message, UINT nID, LRESULT* pLResult )
 					}
 					else
 					{
-						for( int i = 0; i < (int)( SelectCount ); i++ )
+						int i; for( i = 0; i < (int)( SelectCount ); i++ )
 						{
 							int nItem = pWndItemCtrl->GetSelectedItem( i );
 							pWndItemCtrl->GetItem( nItem );
@@ -304,7 +304,7 @@ BOOL CWndBank::OnChildNotify( UINT message, UINT nID, LRESULT* pLResult )
 					}
 					else
 					{
-						for( int i = 0; i < (int)( SelectCount ); i++ )
+						int i; for( i = 0; i < (int)( SelectCount ); i++ )
 						{
 							int nItem = pWndItemCtrl->GetSelectedItem( i );
 							pWndItemCtrl->GetItem( nItem );
@@ -483,7 +483,7 @@ BOOL CWndConfirmBank::OnChildNotify( UINT message, UINT nID, LRESULT* pLResult )
 			if( strlen( szPass ) == 4 )
 			{
 				BOOL bDigit = TRUE;
-				for( int i = 0 ; i < 4 ; i++ )
+				int i; for( i = 0 ; i < 4 ; i++ )
 				{
 					if( isdigit2( szPass[i] ) == FALSE )
 					{
@@ -632,7 +632,7 @@ BOOL CWndBankPassword::OnChildNotify( UINT message, UINT nID, LRESULT* pLResult 
 				if( 0 == strcmp( szNewPass, szConfirmPass ) )
 				{
 					BOOL bDigit = TRUE;
-					for( int i = 0 ; i < 4 ; i++ )
+					int i; for( i = 0 ; i < 4 ; i++ )
 					{
 						if( (isdigit2( szLastPass[i] ) == FALSE) || (isdigit2( szNewPass[i] ) == FALSE) || (isdigit2( szConfirmPass[i] ) == FALSE) )
 						{

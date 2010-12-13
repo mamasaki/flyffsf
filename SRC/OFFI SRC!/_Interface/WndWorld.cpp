@@ -96,7 +96,7 @@ CCaption::~CCaption()
 }
 void CCaption::RemoveAll()
 {
-	for( int i = 0; i < m_aCaption.GetSize(); i++ )
+	int i; for( i = 0; i < m_aCaption.GetSize(); i++ )
 	{
 		LPCAPTION lpCaption = ( LPCAPTION ) m_aCaption.GetAt( i );
 		safe_delete( lpCaption );
@@ -113,7 +113,7 @@ void CCaption::Process()
 	{
 		if( m_timer.IsTimeOut() )
 		{
-			for( int i = 0; i < m_aCaption.GetSize(); i++ )
+			int i; for( i = 0; i < m_aCaption.GetSize(); i++ )
 			{
 				LPCAPTION lpCaption = ( LPCAPTION ) m_aCaption.GetAt( i );
 				lpCaption->m_nAlpha -= 3;
@@ -123,7 +123,7 @@ void CCaption::Process()
 		}
 	}
 	else
-	for( int i = 0; i < m_nCount; i++ )
+	for(int  i = 0; i < m_nCount; i++ )
 	{
 		LPCAPTION lpCaption = ( LPCAPTION ) m_aCaption.GetAt( i );
 		lpCaption->m_fAddScale += 0.002f;
@@ -175,7 +175,7 @@ void CCaption::Render( CPoint ptBegin, C2DRender* p2DRender )
 	//CD3DFont* pFontOld = p2DRender->GetFont();
 	int nCount = m_nCount > m_aCaption.GetSize() ? m_aCaption.GetSize() : m_nCount;
 
-	for( int i = 0; i < nCount; i++ )
+	int i; for( i = 0; i < nCount; i++ )
 	{
 		LPCAPTION lpCaption = ( LPCAPTION ) m_aCaption.GetAt( i );
 		//p2DRender->SetFont( lpCaption->m_pFont );
@@ -607,7 +607,7 @@ m_buffs( NULL )
 
 	m_dwOneSecCount = GetTickCount();
 
-	for( int j = 0 ; j < SM_MAX ; ++j )
+	int j; for(  j = 0 ; j < SM_MAX ; ++j )
 	{
 		m_dwSMItemTexture[j] = NULL;
 		m_bSMFlsh[j] = FALSE;
@@ -1010,7 +1010,7 @@ BOOL CWndWorld::OnEraseBkgnd(C2DRender* p2DRender)
 	v3CameraDir = g_Neuz.m_camera.m_vLookAt - g_Neuz.m_camera.m_vPos;
 	D3DXVec3Normalize( &v3CameraDir, &v3CameraDir );
 
-	for( int i = 0 ; i < g_Party.GetSizeofMember() ; i++ )
+	int i; for( i = 0 ; i < g_Party.GetSizeofMember() ; i++ )
 	{
 		u_long idPlayer = g_Party.GetPlayerId( i );
 		CMover* pMover  = prj.GetUserByID( idPlayer );
@@ -2693,7 +2693,7 @@ void CWndWorld::GetBoundRect( CObj* pObj, CRect* pRect )
 
 	const BOUND_BOX* pBB = pModel->GetBBVector();
 	D3DXVECTOR3 vOut[ 8 ];
-	for( int i = 0; i < 8; i++ )
+	int i; for( i = 0; i < 8; i++ )
 		D3DXVec3Project( &vOut[ i ], &pBB->m_vPos[ i ], &vp, &pWorld->m_matProj, &pWorld->m_pCamera->m_matView, &matWorld );	
 
 	CRect rectClient = GetClientRect();
@@ -3698,7 +3698,7 @@ void CWndWorld::OnInitialUpdate()
 #if __VER >= 11 // __CSC_VER11_4
 	m_texPlayerDataIcon.LoadScript( m_pApp->m_pd3dDevice, "icon\\icon_PlayerData.inc" );
 #endif //__CSC_VER11_4
-	for( int j = 0 ; j < SM_MAX ; ++j )
+	int j; for(  j = 0 ; j < SM_MAX ; ++j )
 	{
 		if( j != SM_RESIST_ATTACK_LEFT && j != SM_RESIST_ATTACK_RIGHT && j != SM_RESIST_DEFENSE )
 		{
@@ -6629,7 +6629,7 @@ void CWndWorld::ShowMoverMenu( CMover* pTarget )
 			{
 				int nCount = 0;
 				UINT nMenu = 0; 
-				for( int j = 0; j < MAX_MOVER_MENU ; ++j )
+				int j; for(  j = 0; j < MAX_MOVER_MENU ; ++j )
 				{
 					if( lpCharacter->m_abMoverMenu[ j ] )
 					{
@@ -6646,7 +6646,7 @@ void CWndWorld::ShowMoverMenu( CMover* pTarget )
 
 				if( 1 < nCount )
 				{
-					for( int i = 0; i < MAX_MOVER_MENU; i++ )
+					int i; for( i = 0; i < MAX_MOVER_MENU; i++ )
 					{
 						if( i == MMI_QUEST )
 						{
@@ -7662,8 +7662,8 @@ void CWndWorld::OnKeyUp(UINT nChar, UINT nRepCnt, UINT nFlags)
 
 		if( n_nMoverSelectCount > MAX_MOVERSELECT )
 			n_nMoverSelectCount = 0;
-
-		for( int i=0; i<MAX_MOVERSELECT; i++ )
+		int i;
+		for(  i=0; i<MAX_MOVERSELECT; i++ )
 		{
 			if( n_nMoverSelectCount == i )
 				continue;
@@ -8560,7 +8560,7 @@ BOOL CWndWorld::Process()
 		m_bLButtonDowned = m_bLButtonDown;
 		int nSize = pWorld->m_aRegion.GetSize();
 		D3DXVECTOR3 vPos = g_pPlayer->GetPos();
-		for( int i = 0; i < nSize; i++ )
+		int i; for( i = 0; i < nSize; i++ )
 		{
 			LPREGIONELEM lpRegionElem = pWorld->m_aRegion.GetAt( i );
 			if( lpRegionElem->m_rect.PtInRect( CPoint( (int)( vPos.x ), (int)( vPos.z ) ) ) )
@@ -8866,7 +8866,7 @@ BOOL CWndWorld::Process()
 	{
 		int Mod = ( dwBufCount - m_dwOneSecCount ) % 1000;
 		m_dwOneSecCount = GetTickCount() - Mod;
-		for( int j = 0 ; j < SM_MAX ; ++j )
+		int j; for(  j = 0 ; j < SM_MAX ; ++j )
 		{
 			if( 0 < g_pPlayer->m_dwSMTime[j] && g_pPlayer->m_dwSMTime[j] != 1 )
 			{
@@ -9447,7 +9447,7 @@ void CWndWorld::RenderBuffIcon( C2DRender *p2DRender, IBuff* pBuff, BOOL bPlayer
 					CItemElem* pItemElem = NULL;
 
 					int nMax = g_pPlayer->m_Inventory.GetMax();
-					for( int i = 0 ; i < nMax; i++ )
+					int i; for( i = 0 ; i < nMax; i++ )
 					{
 						ptr	= g_pPlayer->m_Inventory.GetAtId( i );
 						if( IsUsableItem( ptr ) && ptr->m_dwItemId == II_SYS_SYS_SCR_PET_FEED_POCKET &&
@@ -9917,7 +9917,7 @@ void CWndWorld::RenderBuffIcon( C2DRender *p2DRender, SKILLINFLUENCE* pSkill, BO
 					CItemElem* pItemElem = NULL;
 
 					int nMax = g_pPlayer->m_Inventory.GetMax();
-					for( int i = 0 ; i < nMax; i++ )
+					int i; for( i = 0 ; i < nMax; i++ )
 					{
 						ptr	= g_pPlayer->m_Inventory.GetAtId( i );
 						if( IsUsableItem( ptr ) && ptr->m_dwItemId == II_SYS_SYS_SCR_PET_FEED_POCKET &&
@@ -10456,7 +10456,7 @@ void CWndWorld::RenderExpBuffIcon( C2DRender *p2DRender, SKILLINFLUENCE* pSkill,
 	strEdit.AddString( '\n' );
 	strEdit.AddString( prj.GetText( TID_GAME_EXP_COUTMSG0 ));//, 0xff99cc00 );
 #ifdef __BUFF_1107
-	for( int i = 0 ; i < nExpCount ; ++i )
+	int i; for( i = 0 ; i < nExpCount ; ++i )
 #else	// __BUFF_1107
 	for( i = 0 ; i < nExpCount ; ++i )
 #endif	// __BUFF_1107
@@ -10507,7 +10507,7 @@ void CWndWorld::RenderSMBuff( C2DRender *p2DRender, BUFFICON_INFO* pInfo, CPoint
 {
 	RECT rectHittest;
 	
-	for( int i = 0; i < SM_MAX ; ++i )
+	int i; for( i = 0; i < SM_MAX ; ++i )
 	{
 		if( g_pPlayer->m_dwSMTime[i] <= 0 )
 			continue;
@@ -10756,7 +10756,7 @@ void CWndWorld::RenderEventIcon( C2DRender* p2DRender, BUFFICON_INFO* pInfo, CPo
 {
 	RECT rectHittest;
 	ILordEvent* pEvent	= CCLord::Instance()->GetEvent();
-	for( int i = 0; i < pEvent->GetComponentSize(); i++ )
+	int i; for( i = 0; i < pEvent->GetComponentSize(); i++ )
 	{
 		CLEComponent* pComponent	= pEvent->GetComponentAt( i );
 		pInfo->pt.x	+= ( 32 + 5 );

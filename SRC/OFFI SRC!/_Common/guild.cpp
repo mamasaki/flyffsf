@@ -188,8 +188,8 @@ BOOL CGuildTable::ReadBlock( CScript & script )
 {
 	script.GetToken(); // { 
 	DWORD dwVal = script.GetNumber();
-
-	for( int i=0; *script.token != '}' ; ++i )
+	int i;
+	for( i=0; *script.token != '}' ; ++i )
 	{
 		m_table[ i ].dwPxpCount = dwVal;
 		m_table[ i ].dwPenya    = script.GetNumber();
@@ -818,7 +818,7 @@ void CGuildMng::Serialize( CAr & ar, BOOL bDesc )
 		ar >> m_id;
 		int nSize;
 		ar >> nSize;
-		for( int i = 0; i < nSize; i++ )
+		int i; for( i = 0; i < nSize; i++ )
 		{
 			CGuild* pGuild	= new CGuild;
 			pGuild->Serialize( ar, bDesc );
@@ -911,7 +911,7 @@ void CGuild::SetQuest( int nQuestId, int nState )
 			Error( "OVER MAX_GUILD_QUEST" );
 			return;
 		}
-		for( int i = 0; i < m_nQuestSize; i++ )
+		int i; for( i = 0; i < m_nQuestSize; i++ )
 		{
 			if( m_aQuest[i].nId == -1 )
 			{
@@ -962,7 +962,7 @@ PGUILDQUEST CGuild::FindQuest( int nQuestId )
 {
 	if( m_pQuest && m_pQuest->nId == nQuestId )
 		return m_pQuest;
-	for( int i = 0; i < m_nQuestSize; i++ )
+	int i; for( i = 0; i < m_nQuestSize; i++ )
 	{
 		if( m_aQuest[i].nId == nQuestId )
 		{
@@ -1045,7 +1045,7 @@ CGuildRank* CGuildRank::Instance()
 CItemElem* CGuild::GetItem( DWORD dwItemId, SERIALNUMBER iSerialNumber )
 {
 	int cbMax	= m_GuildBank.m_dwItemMax;
-	for( int i = 0; i < cbMax ; i++ )
+	int i; for( i = 0; i < cbMax ; i++ )
 	{
 		CItemElem* pItemElem	= m_GuildBank.GetAtId( i );
 		if( pItemElem && pItemElem->m_dwItemId == dwItemId && pItemElem->GetSerialNumber() == iSerialNumber )

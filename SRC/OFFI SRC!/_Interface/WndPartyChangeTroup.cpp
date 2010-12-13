@@ -116,7 +116,7 @@ BOOL CWndPartyChangeName::OnChildNotify( UINT message, UINT nID, LRESULT* pLResu
 			else
 			{
 
-				for( int i = 0; i < PartyName.GetLength(); i++ )
+				int i; for( i = 0; i < PartyName.GetLength(); i++ )
 				{
 					c = PartyName[ i ];
 					// 숫자나 알파벳이 아닐 경우는 의심하자.

@@ -19,10 +19,10 @@ CModelMng::CModelMng()
 }
 CModelMng::~CModelMng()
 {
-	for( int i = 0; i < MAX_OBJTYPE ; i++ )
+	int i; for( i = 0; i < MAX_OBJTYPE ; i++ )
 	{
 		CFixedArray< tagMODELELEM >* apModelElem = &m_aaModelElem[ i ];
-		for( int j = 0; j < apModelElem->GetSize(); j++ )
+		int j; for(  j = 0; j < apModelElem->GetSize(); j++ )
 		{
 			LPMODELELEM pModelElem = (LPMODELELEM) apModelElem->GetAt( j );
 			if( pModelElem )

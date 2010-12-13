@@ -21,7 +21,7 @@ CGuildQuestProcessor::~CGuildQuestProcessor()
 void CGuildQuestProcessor::Process()
 {
 	DWORD dwTickCount	= GetTickCount();
-	for( int i = 0; i < MAX_GUILD_QUEST; i++ )
+	int i; for( i = 0; i < MAX_GUILD_QUEST; i++ )
 	{
 		PGUILDQUESTELEM pElem = &m_pElem[i];
 		if( pElem->nId == i )
@@ -274,7 +274,7 @@ void CGuildQuestProcessor::AddQuestRect( int nId, int x1, int y1, int x2, int y2
 int CGuildQuestProcessor::PtInQuestRect( const D3DXVECTOR3 & vPos )
 {
 	POINT point	= { (int)vPos.x, (int)vPos.z	};
-	for( int i = 0; i < m_nRect; i++ )
+	int i; for( i = 0; i < m_nRect; i++ )
 	{
 		
 		if( m_pRect[i].rect.PtInRect( point ) )
@@ -285,7 +285,7 @@ int CGuildQuestProcessor::PtInQuestRect( const D3DXVECTOR3 & vPos )
 
 CRect* CGuildQuestProcessor::GetQuestRect( int nId )
 {
-	for( int i = 0; i < m_nRect; i++ )
+	int i; for( i = 0; i < m_nRect; i++ )
 	{
 		if( m_pRect[i].nId == nId )
 			return &m_pRect[i].rect;

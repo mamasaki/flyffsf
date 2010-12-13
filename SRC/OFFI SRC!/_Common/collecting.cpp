@@ -25,7 +25,7 @@ DWORD CCollectingProperty::GetItem( void )
 {
 //	DWORD dwRand	= xRandom( 10000 );	// 0 ~ 9999
 	DWORD dwRand	= xRandom( 1000000000 );	// 0 ~ 999999999
-	for( int i = 0; i < (int)( m_aItem.size() ); i++ )
+	int i; for( i = 0; i < (int)( m_aItem.size() ); i++ )
 	{
 		COLLECTING_ITEM item	= m_aItem[i];
 		if( dwRand < item.dwProb )
@@ -88,7 +88,7 @@ BOOL CCollectingProperty::LoadScript( LPCTSTR szFile )
 	}
 /*
 	TRACE( "cool\n" );
-	for( int i = 0; i < m_anCool.size(); i++ )
+	int i; for( i = 0; i < m_anCool.size(); i++ )
 	{
 		TRACE( "%d\t%d\n", i, m_anCool[i] );
 	}

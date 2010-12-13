@@ -226,7 +226,7 @@ void CWndMapEx::OnDraw( C2DRender* p2DRender )
 
 	RenderUserMarkPosition( p2DRender );
 
-	for( int i = 0; i < g_Party.GetSizeofMember(); ++i )
+	int i; for( i = 0; i < g_Party.GetSizeofMember(); ++i )
 	{
 		if( g_pPlayer->m_idPlayer != g_Party.GetPlayerId( i ) )
 		{
@@ -798,7 +798,7 @@ void CWndMapEx::ProcessMonsterInformationToolTip( void )
 
 	CPoint pointMouse = GetMousePoint();
 
-	for( int i = 0; i < static_cast< int >( pMapMonsterInformationPack->GetNumber() ); ++i )
+	int i; for( i = 0; i < static_cast< int >( pMapMonsterInformationPack->GetNumber() ); ++i )
 	{
 		CTexture* pMonsterIconTexture = pMapMonsterInformationPack->GetAt( i );
 		if( pMonsterIconTexture == NULL )
@@ -827,7 +827,7 @@ void CWndMapEx::ProcessMonsterInformationToolTip( void )
 			ClientToScreen( &pointMouseScreen );
 			ClientToScreen( &rectRevisedMonsterIconPositionScreen );
 
-			for( int j = 0; j < pMapMonsterInformation->GetMonsterIDNumber(); ++j )
+			int j; for(  j = 0; j < pMapMonsterInformation->GetMonsterIDNumber(); ++j )
 			{
 				MoverProp* pMoverProp = prj.GetMoverProp( pMapMonsterInformation->GetMonsterID( j ) );
 				if( pMoverProp == NULL )
@@ -1100,7 +1100,7 @@ void CWndMapEx::RenderMapMonsterInformation( C2DRender* p2DRender )
 		return;
 	}
 
-	for( int i = 0; i < static_cast< int >( pMapMonsterInformationPack->GetNumber() ); ++i )
+	int i; for( i = 0; i < static_cast< int >( pMapMonsterInformationPack->GetNumber() ); ++i )
 	{
 		CTexture* pMonsterIconTexture = pMapMonsterInformationPack->GetAt( i );
 		if( pMonsterIconTexture == NULL )
@@ -1141,7 +1141,7 @@ void CWndMapEx::RenderRainbowNPCInformation( C2DRender* p2DRender )
 		return;
 	}
 
-	for( int i = 0; i < static_cast< int >( pRainbowNPCInformationPack->GetNumber() ); ++i )
+	int i; for( i = 0; i < static_cast< int >( pRainbowNPCInformationPack->GetNumber() ); ++i )
 	{
 		CTexture* pRainbowNPCTexture = pRainbowNPCInformationPack->GetAt( i );
 		if( pRainbowNPCTexture == NULL )

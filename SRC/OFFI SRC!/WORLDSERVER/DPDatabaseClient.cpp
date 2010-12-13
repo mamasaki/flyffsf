@@ -72,157 +72,157 @@ CDPDatabaseClient	g_dpDBClient;
 CDPDatabaseClient::CDPDatabaseClient()
 {
 	BEGIN_MSG;
-	ON_MSG( PACKETTYPE_JOIN, OnJoin );
+	ON_MSG( PACKETTYPE_JOIN, &CDPDatabaseClient::OnJoin );
 #if __VER >= 11 // __SYS_PLAYER_DATA
-	ON_MSG( PACKETTYPE_ALL_PLAYER_DATA, OnAllPlayerData );
-	ON_MSG( PACKETTYPE_ADD_PLAYER_DATA, OnAddPlayerData );
-	ON_MSG( PACKETTYPE_DELETE_PLAYER_DATA, OnDeletePlayerData );
-	ON_MSG( PACKETTYPE_UPDATE_PLAYER_DATA, OnUpdatePlayerData );
+	ON_MSG( PACKETTYPE_ALL_PLAYER_DATA,&CDPDatabaseClient:: OnAllPlayerData );
+	ON_MSG( PACKETTYPE_ADD_PLAYER_DATA, &CDPDatabaseClient::OnAddPlayerData );
+	ON_MSG( PACKETTYPE_DELETE_PLAYER_DATA, &CDPDatabaseClient::OnDeletePlayerData );
+	ON_MSG( PACKETTYPE_UPDATE_PLAYER_DATA, &CDPDatabaseClient::OnUpdatePlayerData );
 #else	// __SYS_PLAYER_DATA
-	ON_MSG( PACKETTYPE_ALLPLAYERID, OnAllPlayerID );
-	ON_MSG( PACKETTYPE_PLAYERID, OnPlayerID );
-	ON_MSG( PACKETTYPE_REMOVEPLAYERID, OnRemovePlayerID );
+	ON_MSG( PACKETTYPE_ALLPLAYERID,&CDPDatabaseClient:: OnAllPlayerID );
+	ON_MSG( PACKETTYPE_PLAYERID, &CDPDatabaseClient::OnPlayerID );
+	ON_MSG( PACKETTYPE_REMOVEPLAYERID,&CDPDatabaseClient:: OnRemovePlayerID );
 #endif	// __SYS_PLAYER_DATA
-	ON_MSG( PACKETTYPE_GUILD_BANK, OnGuildBank );
-	ON_MSG( PACKETTYPE_UPDATE_GUILD_RANKING_END, OnUpdateGuildRankingFinish );
-	ON_MSG( PACKETTYPE_QUERYGUILDQUEST, OnQueryGuildQuest );
-	ON_MSG( PACKETTYPE_BASEGAMESETTING, OnBaseGameSetting );
-	ON_MSG( PACKETTYPE_MONSTERRESPAWNSETTING, OnMonsterRespawnSetting );
-	ON_MSG( PACKETTYPE_MONSTERPROPGAMESETTING, OnMonsterPropSetting );
-	ON_MSG( PACKETTYPE_GAMEMASTER_CHATTING, OnGMChat );
-	ON_MSG( PACKETTYPE_PING, OnPing );
+	ON_MSG( PACKETTYPE_GUILD_BANK, &CDPDatabaseClient::OnGuildBank );
+	ON_MSG( PACKETTYPE_UPDATE_GUILD_RANKING_END,&CDPDatabaseClient:: OnUpdateGuildRankingFinish );
+	ON_MSG( PACKETTYPE_QUERYGUILDQUEST,&CDPDatabaseClient:: OnQueryGuildQuest );
+	ON_MSG( PACKETTYPE_BASEGAMESETTING, &CDPDatabaseClient::OnBaseGameSetting );
+	ON_MSG( PACKETTYPE_MONSTERRESPAWNSETTING, &CDPDatabaseClient::OnMonsterRespawnSetting );
+	ON_MSG( PACKETTYPE_MONSTERPROPGAMESETTING,&CDPDatabaseClient:: OnMonsterPropSetting );
+	ON_MSG( PACKETTYPE_GAMEMASTER_CHATTING,&CDPDatabaseClient:: OnGMChat );
+	ON_MSG( PACKETTYPE_PING, &CDPDatabaseClient::OnPing );
 /*
 #ifdef __S0114_RELOADPRO
-	ON_MSG( PACKETTYPE_RELOAD_PROJECT, OnReloadProject );
+	ON_MSG( PACKETTYPE_RELOAD_PROJECT, &CDPDatabaseClient::OnReloadProject );
 #endif // __S0114_RELOADPRO
 */
-	ON_MSG( PACKETTYPE_ADD_GUILDCOMBAT, OnAllGuildCombat );
-	ON_MSG( PACKETTYPE_IN_GUILDCOMBAT, OnInGuildCombat );
-	ON_MSG( PACKETTYPE_OUT_GUILDCOMBAT, OnOutGuildCombat );
-	ON_MSG( PACKETTYPE_RESULT_GUILDCOMBAT, OnResultGuildCombat );
-	ON_MSG( PACKETTYPE_PLAYERPOINT_GUILDCOMBAT, OnPlayerPointGuildCombat );
-	ON_MSG( PACKETTYPE_GETPENYAGUILD_GUILDCOMBAT, OnGetPenyaGuildGC );
-	ON_MSG( PACKETTYPE_GETPENYAPLAYER_GUILDCOMBAT, OnGetPenyaPlayerGC );
-	ON_MSG( PACKETTYPE_CONTINUE_GUILDCOMBAT, OnContinueGC );
-	ON_MSG( PACKETTYPE_QUERYPOSTMAIL, OnPostMail );
-	ON_MSG( PACKETTYPE_QUERYREMOVEMAIL,	OnRemoveMail );
-	ON_MSG( PACKETTYPE_QUERYGETMAILITEM,	OnGetMailItem );
-	ON_MSG( PACKETTYPE_QUERYGETMAILGOLD,	OnGetMailGold );
-	ON_MSG( PACKETTYPE_READMAIL,	OnReadMail );
-	ON_MSG( PACKETTYPE_ALLMAIL, OnAllMail );
-	ON_MSG( PACKETTYPE_QUERYMAILBOX, OnMailBox );
+	ON_MSG( PACKETTYPE_ADD_GUILDCOMBAT, &CDPDatabaseClient::OnAllGuildCombat );
+	ON_MSG( PACKETTYPE_IN_GUILDCOMBAT,&CDPDatabaseClient:: OnInGuildCombat );
+	ON_MSG( PACKETTYPE_OUT_GUILDCOMBAT, &CDPDatabaseClient::OnOutGuildCombat );
+	ON_MSG( PACKETTYPE_RESULT_GUILDCOMBAT, &CDPDatabaseClient::OnResultGuildCombat );
+	ON_MSG( PACKETTYPE_PLAYERPOINT_GUILDCOMBAT,&CDPDatabaseClient:: OnPlayerPointGuildCombat );
+	ON_MSG( PACKETTYPE_GETPENYAGUILD_GUILDCOMBAT, &CDPDatabaseClient::OnGetPenyaGuildGC );
+	ON_MSG( PACKETTYPE_GETPENYAPLAYER_GUILDCOMBAT, &CDPDatabaseClient::OnGetPenyaPlayerGC );
+	ON_MSG( PACKETTYPE_CONTINUE_GUILDCOMBAT, &CDPDatabaseClient::OnContinueGC );
+	ON_MSG( PACKETTYPE_QUERYPOSTMAIL, &CDPDatabaseClient::OnPostMail );
+	ON_MSG( PACKETTYPE_QUERYREMOVEMAIL,	&CDPDatabaseClient::OnRemoveMail );
+	ON_MSG( PACKETTYPE_QUERYGETMAILITEM,	&CDPDatabaseClient::OnGetMailItem );
+	ON_MSG( PACKETTYPE_QUERYGETMAILGOLD,	&CDPDatabaseClient::OnGetMailGold );
+	ON_MSG( PACKETTYPE_READMAIL,	&CDPDatabaseClient::OnReadMail );
+	ON_MSG( PACKETTYPE_ALLMAIL, &CDPDatabaseClient::OnAllMail );
+	ON_MSG( PACKETTYPE_QUERYMAILBOX, &CDPDatabaseClient::OnMailBox );
 	
 
 	//////////////////////////////////////////////////////////////////////////
-	ON_MSG( PACKETTYPE_QUERYMAILBOX_REQ, OnMailBoxReq );
+	ON_MSG( PACKETTYPE_QUERYMAILBOX_REQ,&CDPDatabaseClient:: OnMailBoxReq );
 	//////////////////////////////////////////////////////////////////////////
 
 
-	ON_MSG( PACKETTYPE_QUERY_REMOVE_GUILD_BANK_TBL, OnQueryRemoveGuildBankTbl );
-	ON_MSG( PACKETTYPE_EVENT_GENERIC, OnEventGeneric );
-	ON_MSG( PACKETTYPE_EVENT_FLAG, OnEventFlag );
+	ON_MSG( PACKETTYPE_QUERY_REMOVE_GUILD_BANK_TBL,&CDPDatabaseClient:: OnQueryRemoveGuildBankTbl );
+	ON_MSG( PACKETTYPE_EVENT_GENERIC, &CDPDatabaseClient::OnEventGeneric );
+	ON_MSG( PACKETTYPE_EVENT_FLAG,&CDPDatabaseClient:: OnEventFlag );
 
 #if __VER >= 9 // __EVENTLUA
-	ON_MSG( PACKETTYPE_EVENTLUA_STATE, OnEventStateLua );
-	ON_MSG( PACKETTYPE_EVENTLUA_CHANGED, OnEventLuaChanged );
+	ON_MSG( PACKETTYPE_EVENTLUA_STATE,&CDPDatabaseClient:: OnEventStateLua );
+	ON_MSG( PACKETTYPE_EVENTLUA_CHANGED,&CDPDatabaseClient:: OnEventLuaChanged );
 #endif // __EVENTLUA
 
 #if __VER >= 11 // __GUILD_COMBAT_1TO1
-	ON_MSG( PACKETTYPE_GC1TO1_OPEN, OnGC1to1Open );
-	ON_MSG( PACKETTYPE_GC1TO1_TENDERTOSRVR, OnGC1to1TenderGuildFromDB );
+	ON_MSG( PACKETTYPE_GC1TO1_OPEN, &CDPDatabaseClient::OnGC1to1Open );
+	ON_MSG( PACKETTYPE_GC1TO1_TENDERTOSRVR, &CDPDatabaseClient::OnGC1to1TenderGuildFromDB );
 #endif // __GUILD_COMBAT_1TO1
 #if __VER >= 11 // __MA_VER11_04	// 길드 창고 로그 기능 world,database,neuz
-	ON_MSG( PACKETTYPE_GUILDLOG_VIEW, OnGuildBankLogViewFromDB );
+	ON_MSG( PACKETTYPE_GUILDLOG_VIEW,&CDPDatabaseClient:: OnGuildBankLogViewFromDB );
 #endif //__MA_VER11_04	// 길드 창고 로그 기능 world,database,neuz
 #if __VER >= 11 // __MA_VER11_05	// 케릭터 봉인 거래 기능 world,database,neuz
-	ON_MSG( PACKETTYPE_SEALCHAR_REQ, OnSealCharFromDB );
-	ON_MSG( PACKETTYPE_SEALCHARGET_REQ, OnSealCharGetFromDB );
+	ON_MSG( PACKETTYPE_SEALCHAR_REQ, &CDPDatabaseClient::OnSealCharFromDB );
+	ON_MSG( PACKETTYPE_SEALCHARGET_REQ, &CDPDatabaseClient::OnSealCharGetFromDB );
 #endif // __MA_VER11_05	// 케릭터 봉인 거래 기능 world,database,neuz
 
 #if __VER >= 12 // __LORD
-	ON_MSG( PACKETTYPE_ELECTION_ADD_DEPOSIT, OnElectionAddDeposit );
-	ON_MSG( PACKETTYPE_ELECTION_SET_PLEDGE, OnElectionSetPledge );
-	ON_MSG( PACKETTYPE_ELECTION_INC_VOTE, OnElectionIncVote );
-	ON_MSG( PACKETTYPE_ELECTION_BEGIN_CANDIDACY, OnElectionBeginCandidacy );
-	ON_MSG( PACKETTYPE_ELECTION_BEGIN_VOTE, OnElectionBeginVote );
-	ON_MSG( PACKETTYPE_ELECTION_END_VOTE, OnElectionEndVote );
-	ON_MSG( PACKETTYPE_LORD, OnLord );
-	ON_MSG( PACKETTYPE_L_EVENT_CREATE, OnLEventCreate );
-	ON_MSG( PACKETTYPE_L_EVENT_INITIALIZE, OnLEventInitialize );
-	ON_MSG( PACKETTYPE_LORD_SKILL_USE, OnLordSkillUse );
-	ON_MSG( PACKETTYPE_LORD_SKILL_TICK, OnLordSkillTick );
-	ON_MSG( PACKETTYPE_L_EVENT_TICK, OnLEventTick );
+	ON_MSG( PACKETTYPE_ELECTION_ADD_DEPOSIT,&CDPDatabaseClient:: OnElectionAddDeposit );
+	ON_MSG( PACKETTYPE_ELECTION_SET_PLEDGE, &CDPDatabaseClient::OnElectionSetPledge );
+	ON_MSG( PACKETTYPE_ELECTION_INC_VOTE, &CDPDatabaseClient::OnElectionIncVote );
+	ON_MSG( PACKETTYPE_ELECTION_BEGIN_CANDIDACY,&CDPDatabaseClient:: OnElectionBeginCandidacy );
+	ON_MSG( PACKETTYPE_ELECTION_BEGIN_VOTE,&CDPDatabaseClient:: OnElectionBeginVote );
+	ON_MSG( PACKETTYPE_ELECTION_END_VOTE,&CDPDatabaseClient:: OnElectionEndVote );
+	ON_MSG( PACKETTYPE_LORD, &CDPDatabaseClient::OnLord );
+	ON_MSG( PACKETTYPE_L_EVENT_CREATE,&CDPDatabaseClient:: OnLEventCreate );
+	ON_MSG( PACKETTYPE_L_EVENT_INITIALIZE,&CDPDatabaseClient:: OnLEventInitialize );
+	ON_MSG( PACKETTYPE_LORD_SKILL_USE, &CDPDatabaseClient::OnLordSkillUse );
+	ON_MSG( PACKETTYPE_LORD_SKILL_TICK, &CDPDatabaseClient::OnLordSkillTick );
+	ON_MSG( PACKETTYPE_L_EVENT_TICK, &CDPDatabaseClient::OnLEventTick );
 #endif	// __LORD
 
 #if __VER >= 12 // __TAX
-	ON_MSG( PACKETTYPE_TAX_ALLINFO, OnTaxInfo );
+	ON_MSG( PACKETTYPE_TAX_ALLINFO, &CDPDatabaseClient::OnTaxInfo );
 #endif // __TAX
 
 #if __VER >= 12 // __SECRET_ROOM
-	ON_MSG( PACKETTYPE_SECRETROOM_INFO_CLEAR, OnSecretRoomInfoClear );
-	ON_MSG( PACKETTYPE_SECRETROOM_TENDERINFO_TO_WSERVER, OnSecretRoomTenderInfo );
+	ON_MSG( PACKETTYPE_SECRETROOM_INFO_CLEAR, &CDPDatabaseClient::OnSecretRoomInfoClear );
+	ON_MSG( PACKETTYPE_SECRETROOM_TENDERINFO_TO_WSERVER, &CDPDatabaseClient::OnSecretRoomTenderInfo );
 #endif // __SECRET_ROOM
 
 #if __VER >= 13 // __RAINBOW_RACE
-	ON_MSG( PACKETTYPE_RAINBOWRACE_LOADDBTOWORLD, OnRainbowRaceInfo );
+	ON_MSG( PACKETTYPE_RAINBOWRACE_LOADDBTOWORLD, &CDPDatabaseClient::OnRainbowRaceInfo );
 #endif // __RAINBOW_RACE
 
 #if __VER >= 13 // __HOUSING
-	ON_MSG( PACKETTYPE_HOUSING_LOADINFO, OnHousingLoadInfo );
-	ON_MSG( PACKETTYPE_HOUSING_FURNITURELIST, OnHousingSetFunitureList );
-	ON_MSG( PACKETTYPE_HOUSING_SETUPFURNITURE, OnHousingSetupFuniture );
-	ON_MSG( PACKETTYPE_HOUSING_SETVISITALLOW, OnHousingSetVisitAllow );
-	ON_MSG( PACKETTYPE_HOUSING_DBFAILED, OnHousingDBFailed );
+	ON_MSG( PACKETTYPE_HOUSING_LOADINFO, &CDPDatabaseClient::OnHousingLoadInfo );
+	ON_MSG( PACKETTYPE_HOUSING_FURNITURELIST, &CDPDatabaseClient::OnHousingSetFunitureList );
+	ON_MSG( PACKETTYPE_HOUSING_SETUPFURNITURE, &CDPDatabaseClient::OnHousingSetupFuniture );
+	ON_MSG( PACKETTYPE_HOUSING_SETVISITALLOW,&CDPDatabaseClient:: OnHousingSetVisitAllow );
+	ON_MSG( PACKETTYPE_HOUSING_DBFAILED, &CDPDatabaseClient::OnHousingDBFailed );
 #endif // __HOUSING
 	m_bAlive	= TRUE;
 	m_cbPing	= 0;
 #if __VER >= 13 // __COUPLE_1117
-	ON_MSG( PACKETTYPE_PROPOSE, OnProposeResult );
-	ON_MSG( PACKETTYPE_COUPLE, OnCoupleResult );
-	ON_MSG( PACKETTYPE_DECOUPLE, OnDecoupleResult );
-	ON_MSG( PACKETTYPE_ALL_COUPLES, OnCouple );
+	ON_MSG( PACKETTYPE_PROPOSE,&CDPDatabaseClient:: OnProposeResult );
+	ON_MSG( PACKETTYPE_COUPLE, &CDPDatabaseClient::OnCoupleResult );
+	ON_MSG( PACKETTYPE_DECOUPLE, &CDPDatabaseClient::OnDecoupleResult );
+	ON_MSG( PACKETTYPE_ALL_COUPLES,&CDPDatabaseClient:: OnCouple );
 #if __VER >= 13 // __COUPLE_1202
-	ON_MSG( PACKETTYPE_ADD_COUPLE_EXPERIENCE, OnAddCoupleExperience );
+	ON_MSG( PACKETTYPE_ADD_COUPLE_EXPERIENCE, &CDPDatabaseClient::OnAddCoupleExperience );
 #endif	// __COUPLE_1202
 #endif	// __COUPLE_1117
 #ifdef __FUNNY_COIN
-	ON_MSG( PACKETTYPE_FUNNYCOIN_ACK_USE, OnFunnyCoinAckUse );
+	ON_MSG( PACKETTYPE_FUNNYCOIN_ACK_USE,&CDPDatabaseClient:: OnFunnyCoinAckUse );
 #endif // __FUNNY_COIN
 #if __VER >= 14 // __PCBANG
-	ON_MSG( PACKETTYPE_PCBANG_SETAPPLY, OnPCBangToggle );
+	ON_MSG( PACKETTYPE_PCBANG_SETAPPLY,&CDPDatabaseClient:: OnPCBangToggle );
 #endif // __PCBANG
 #ifdef __VTN_TIMELIMIT
-	ON_MSG( PACKETTYPE_TIMELIMIT_INFO, OnTimeLimitInfoAck );
-	ON_MSG( PACKETTYPE_TIMELIMIT_RESET, OnTimeLimitReset );
+	ON_MSG( PACKETTYPE_TIMELIMIT_INFO,&CDPDatabaseClient:: OnTimeLimitInfoAck );
+	ON_MSG( PACKETTYPE_TIMELIMIT_RESET, &CDPDatabaseClient::OnTimeLimitReset );
 #endif // __VTN_TIMELIMIT
 #ifdef __QUIZ
-	ON_MSG( PACKETTYPE_QUIZ_OPEN, OnQuizEventOpen );
-	ON_MSG( PACKETTYPE_QUIZ_LOADQUIZ, OnQuizList );
-	ON_MSG( PACKETTYPE_QUIZ_NOTICE, OnQuizEventNotice );
-	ON_MSG( PACKETTYPE_QUIZ_CHANGED, OnQuizEventChanged );
+	ON_MSG( PACKETTYPE_QUIZ_OPEN,&CDPDatabaseClient:: OnQuizEventOpen );
+	ON_MSG( PACKETTYPE_QUIZ_LOADQUIZ,&CDPDatabaseClient:: OnQuizList );
+	ON_MSG( PACKETTYPE_QUIZ_NOTICE, &CDPDatabaseClient::OnQuizEventNotice );
+	ON_MSG( PACKETTYPE_QUIZ_CHANGED, &CDPDatabaseClient::OnQuizEventChanged );
 #endif // __QUIZ
 
 #if __VER >= 15 // __GUILD_HOUSE
-	ON_MSG( PACKETTYPE_GUILDHOUSE_LOAD, OnLoadGuildHouse );
-	ON_MSG( PACKETTYPE_GUILDHOUSE_BUY, OnBuyGuildHouse );
-	ON_MSG( PACKETTYPE_GUILDHOUSE_REMOVE, OnRemoveGuildHouse );
-	ON_MSG( PACKETTYPE_GUILDHOUSE_PACKET, OnGuildHousePacket );
+	ON_MSG( PACKETTYPE_GUILDHOUSE_LOAD,&CDPDatabaseClient:: OnLoadGuildHouse );
+	ON_MSG( PACKETTYPE_GUILDHOUSE_BUY, &CDPDatabaseClient::OnBuyGuildHouse );
+	ON_MSG( PACKETTYPE_GUILDHOUSE_REMOVE,&CDPDatabaseClient:: OnRemoveGuildHouse );
+	ON_MSG( PACKETTYPE_GUILDHOUSE_PACKET, &CDPDatabaseClient::OnGuildHousePacket );
 #ifdef __GUILD_HOUSE_MIDDLE
-	ON_MSG( PACKETTYPE_GUILDHOUSE_TENDER_INFO, OnGuildHouseTenderInfo );
-	ON_MSG( PACKETTYPE_GUILDHOUSE_TENDER_JOIN, OnGuildHouseTenderJoin );
-	ON_MSG( PACKETTYPE_GUILDHOUSE_TENDER_STATE, OnGuildHouseTenderState );
-	ON_MSG( PACKETTYPE_GUILDHOUSE_TENDER_RESULT, OnGuildHouseTenderResult );
-	ON_MSG( PACKETTYPE_GUILDHOUSE_GRADE_UPDATE, OnGuildHouseGradeUpdate );
-	ON_MSG( PACKETTYPE_GUILDHOUSE_LEVEL_UPDATE, OnGuildHouseLevelUpdate );
-	ON_MSG( PACKETTYPE_GUILDHOUSE_EXPIRED, OnGuildHouseExpired );
+	ON_MSG( PACKETTYPE_GUILDHOUSE_TENDER_INFO, &CDPDatabaseClient::OnGuildHouseTenderInfo );
+	ON_MSG( PACKETTYPE_GUILDHOUSE_TENDER_JOIN, &CDPDatabaseClient::OnGuildHouseTenderJoin );
+	ON_MSG( PACKETTYPE_GUILDHOUSE_TENDER_STATE, &CDPDatabaseClient::OnGuildHouseTenderState );
+	ON_MSG( PACKETTYPE_GUILDHOUSE_TENDER_RESULT,&CDPDatabaseClient:: OnGuildHouseTenderResult );
+	ON_MSG( PACKETTYPE_GUILDHOUSE_GRADE_UPDATE, &CDPDatabaseClient::OnGuildHouseGradeUpdate );
+	ON_MSG( PACKETTYPE_GUILDHOUSE_LEVEL_UPDATE, &CDPDatabaseClient::OnGuildHouseLevelUpdate );
+	ON_MSG( PACKETTYPE_GUILDHOUSE_EXPIRED, &CDPDatabaseClient::OnGuildHouseExpired );
 #endif // __GUILD_HOUSE_MIDDLE
 #endif // __GUILD_HOUSE
 
 #if __VER >= 15 // __CAMPUS
-	ON_MSG( PACKETTYPE_CAMPUS_ALL, OnAllCampus );
-	ON_MSG( PACKETTYPE_CAMPUS_ADD_MEMBER, OnAddCampusMember );
-	ON_MSG( PACKETTYPE_CAMPUS_REMOVE_MEMBER, OnRemoveCampusMember );
-	ON_MSG( PACKETTYPE_CAMPUS_UPDATE_POINT, OnUpdateCampusPoint );
+	ON_MSG( PACKETTYPE_CAMPUS_ALL,&CDPDatabaseClient:: OnAllCampus );
+	ON_MSG( PACKETTYPE_CAMPUS_ADD_MEMBER,&CDPDatabaseClient:: OnAddCampusMember );
+	ON_MSG( PACKETTYPE_CAMPUS_REMOVE_MEMBER,&CDPDatabaseClient:: OnRemoveCampusMember );
+	ON_MSG( PACKETTYPE_CAMPUS_UPDATE_POINT, &CDPDatabaseClient::OnUpdateCampusPoint );
 #endif // __CAMPUS
 }
 
@@ -1523,7 +1523,7 @@ void CDPDatabaseClient::OnGetPenyaGuildGC( CAr & ar, DPID, DPID )
 				aLogItem.itemNumber	= (DWORD)( nGetPenya );
 				g_DPSrvr.OnLogItem( aLogItem );
 
-				vector<CGuildCombat::__GCRESULTVALUEGUILD>::iterator ita = &(g_GuildCombatMng.m_GCResultValueGuild[nFindVeci]);
+				vector<CGuildCombat::__GCRESULTVALUEGUILD>::iterator ita = g_GuildCombatMng.m_GCResultValueGuild.begin()+nFindVeci;
 				g_GuildCombatMng.m_GCResultValueGuild.erase( ita );		
 			}
 		}
@@ -1583,7 +1583,7 @@ void CDPDatabaseClient::OnGetPenyaPlayerGC( CAr & ar, DPID, DPID )
 				aLogItem.itemNumber	= (DWORD)( nGetPenya );
 				g_DPSrvr.OnLogItem( aLogItem );
 			}				
-			vector<CGuildCombat::__GCRESULTVALUEPLAYER>::iterator ita = &(g_GuildCombatMng.m_GCResultValuePlayer[nFindVeci]);
+			vector<CGuildCombat::__GCRESULTVALUEPLAYER>::iterator ita = g_GuildCombatMng.m_GCResultValuePlayer.begin()+nFindVeci;
 			g_GuildCombatMng.m_GCResultValuePlayer.erase( ita );		
 		}
 	}
@@ -1782,7 +1782,8 @@ void CDPDatabaseClient::OnMonsterRespawnSetting( CAr & ar, DPID, DPID )
 
 	int nMonsterRespawnSize;
 	ar >> nMonsterRespawnSize;
-	for( int i = 0 ; i < nMonsterRespawnSize ; ++i )
+	int i;
+	for(  i = 0 ; i < nMonsterRespawnSize ; ++i )
 	{
 		ar >> nAddIndex;
 		ar.ReadString( szMonsterName, 32 );
@@ -1853,7 +1854,8 @@ void CDPDatabaseClient::OnMonsterPropSetting( CAr & ar, DPID, DPID )
 	prj.m_nRemoveMonsterPropSize = 0;
 
 	ar >> nMonsterPropSize;
-	for( int i = 0 ; i < nMonsterPropSize ; ++i )
+	int i;
+	for(  i = 0 ; i < nMonsterPropSize ; ++i )
 	{
 		ar.ReadString( szMonsterName, 32 );
 		ar >> nHitPoint;
@@ -2099,7 +2101,8 @@ void CDPDatabaseClient::SendLogSMItemUse( const char *Action, CUser* pUser, CIte
 		ar << pItemElem->m_dwKeepTime;
 #if __VER >= 12 // __EXT_PIERCING
 		ar << pItemElem->GetPiercingSize();
-		for( int i=0; i<pItemElem->GetPiercingSize(); i++ )
+		int i;
+		for(  i=0; i<pItemElem->GetPiercingSize(); i++ )
 			ar << pItemElem->GetPiercingItem( i );
 		ar << pItemElem->GetUltimatePiercingSize();
 		for( i=0; i<pItemElem->GetUltimatePiercingSize(); i++ )
@@ -3001,7 +3004,7 @@ void CDPDatabaseClient::OnGC1to1TenderGuildFromDB( CAr & ar, DPID, DPID )
 
 	g_GuildCombat1to1Mng.m_vecTenderFailGuild.clear();
 	ar >> nVecGuildSize;
-	for( i=0; i<nVecGuildSize; i++ )
+	for( int i=0; i<nVecGuildSize; i++ )
 	{
 		ar >> uGuildId >> nPenya;
 		gc1to1Tender.ulGuildId = uGuildId;
@@ -3719,7 +3722,7 @@ void CDPDatabaseClient::OnRainbowRaceInfo( CAr & ar, DPID, DPID )
 	// 이전 대회 랭킹 정보를 받아온다.
 	vector<DWORD> vec_dwPrevRanking;
 	ar >> nSize;
-	for( i=0; i<nSize; i++ )
+	for(int  i=0; i<nSize; i++ )
 	{
 		ar >> dwPlayerId;
 		vec_dwPrevRanking.push_back( dwPlayerId );

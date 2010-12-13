@@ -619,7 +619,7 @@ void CWndButton::OnLButtonUp(UINT nFlags, CPoint point)
 		{
 			CWndMenu* pWndMenu = (CWndMenu*)m_pParentWnd;
 			// 공간 넓히기 
-			for( int i = 0; i < pWndMenu->m_awndMenuItem.GetSize(); i++ )
+			int i; for( i = 0; i < pWndMenu->m_awndMenuItem.GetSize(); i++ )
 			{
 				if( pWndMenu->GetMenuItem( i ) == this )
 				{
@@ -658,7 +658,7 @@ void CWndButton::OnLButtonUp(UINT nFlags, CPoint point)
 		{
 			CPtrArray* pWndArray = m_pParentWnd->GetWndArray();
 			// 내 버튼의 인덱스를 페어런트로부터 찾는다.
-			for( int i = 0; i < pWndArray->GetSize(); i++)
+			int i; for( i = 0; i < pWndArray->GetSize(); i++)
 			{
 				CWndButton* pWndBase = (CWndButton*)pWndArray->GetAt(i);
 				if( pWndBase == this )
@@ -1077,7 +1077,7 @@ void CWndTreeCtrl::SetTextColor( DWORD dwCategoryTextColor, DWORD dwNormalTextCo
 }
 void CWndTreeCtrl::CalculateTreeItemsNumber( int& nSumTreeItemsNumber, const CPtrArray& rPtrArray ) const
 {
-	for( int i = 0; i < rPtrArray.GetSize(); ++i )
+	int i; for( i = 0; i < rPtrArray.GetSize(); ++i )
 	{
 		LPTREEELEM lpTreeElem = ( LPTREEELEM )rPtrArray.GetAt( i );
  		if( lpTreeElem )
@@ -1090,7 +1090,7 @@ void CWndTreeCtrl::CalculateTreeItemsNumber( int& nSumTreeItemsNumber, const CPt
 }
 void CWndTreeCtrl::CalculateTreeItemsMaxHeight( int& nSumHeight, const CPtrArray& rPtrArray )
 {
-	for( int i = 0; i < rPtrArray.GetSize(); ++i )
+	int i; for( i = 0; i < rPtrArray.GetSize(); ++i )
 	{
 		LPTREEELEM lpTreeElem = ( LPTREEELEM )rPtrArray.GetAt( i );
 		if( lpTreeElem )
@@ -1103,7 +1103,7 @@ void CWndTreeCtrl::CalculateTreeItemsMaxHeight( int& nSumHeight, const CPtrArray
 }
 void CWndTreeCtrl::CalculateTextColor( DWORD dwCategoryTextColor, DWORD dwNormalTextColor, DWORD dwSelectedCategoryTextColor, DWORD dwSelectedNormalTextColor, const CPtrArray& rPtrArray )
 {
-	for( int i = 0; i < rPtrArray.GetSize(); ++i )
+	int i; for( i = 0; i < rPtrArray.GetSize(); ++i )
 	{
 		LPTREEELEM lpTreeElem = ( LPTREEELEM )rPtrArray.GetAt( i );
  		if( lpTreeElem )
@@ -3341,7 +3341,7 @@ CWndMenu::CWndMenu()
 }
 CWndMenu::~CWndMenu()
 {
-	for( int i = 0; i < m_awndMenuItem.GetSize(); i++)
+	int i; for( i = 0; i < m_awndMenuItem.GetSize(); i++)
 		safe_delete( GetMenuItem( i ) );
 }
 BOOL CWndMenu::CreateMenu( CWndBase* pWndParent )
@@ -3383,7 +3383,7 @@ BOOL CWndMenu::DestroyMenu()
 }
 void CWndMenu::DeleteAllMenu()
 {	
-	for( int i = 0; i < m_awndMenuItem.GetSize(); i++)
+	int i; for( i = 0; i < m_awndMenuItem.GetSize(); i++)
 		safe_delete( GetMenuItem( i ) );
 	m_awndMenuItem.RemoveAll();
 }
@@ -3392,7 +3392,7 @@ BOOL CWndMenu::DeleteMenu(UINT nPosition, UINT nFlags)
 {	
 	safe_delete( GetMenuItem( nPosition ) );
 	m_awndMenuItem.RemoveAt( nPosition );
-	for( int i = nPosition; i < m_awndMenuItem.GetSize(); i++)
+	int i; for( i = nPosition; i < m_awndMenuItem.GetSize(); i++)
 	{
 		CWndButton* pWndMenuItem = GetMenuItem( i );
 		CRect rect = pWndMenuItem->GetWindowRect(TRUE);
@@ -3415,7 +3415,7 @@ CWndButton* CWndMenu::AppendMenu(UINT nFlags, UINT nIDNewItem,	LPCTSTR lpszNewIt
 	pWndButton->Create(lpszNewItem, WBS_MENUITEM | WBS_HIGHLIGHT/* | WBS_NOMENUICON*/, CRect( 2, 2 + ( nCount * 22 ), m_nLargeWidth, 2 + ( nCount * 22 ) + 20 ), this, nIDNewItem );
 	pWndButton->DelWndStyle( WBS_NODRAWFRAME );
 	m_awndMenuItem.Add( pWndButton );
-	for( int i = 0; i < m_awndMenuItem.GetSize(); i++ )
+	int i; for( i = 0; i < m_awndMenuItem.GetSize(); i++ )
 	{
 		pWndButton = (CWndButton*)m_awndMenuItem.GetAt( i );
 		CRect rect = pWndButton->GetWindowRect( TRUE );
@@ -3467,7 +3467,7 @@ BOOL CWndMenu::InsertMenu(UINT nPosition, UINT nFlags, UINT nIDNewItem,	LPCTSTR 
 	pWndButton->Create(lpszNewItem, WBS_MENUITEM | WBS_HIGHLIGHT, CRect( 5, 50 + 5 + ( nPosition * 22 ), 175, 50 + 5 + ( nPosition * 22 ) + 20 ), this, nIDNewItem );
 	pWndButton->DelWndStyle( WBS_NODRAWFRAME );
 	m_awndMenuItem.InsertAt( nPosition, pWndButton );
-	for( int i = nPosition + 1; i < m_awndMenuItem.GetSize(); i++)
+	int i; for( i = nPosition + 1; i < m_awndMenuItem.GetSize(); i++)
 	{
 		CWndButton* pWndMenuItem = GetMenuItem( i );
 		CRect rect = pWndMenuItem->GetWindowRect(TRUE);
@@ -3507,7 +3507,7 @@ CWndButton* CWndMenu::GetMenuItem( int nPos )
 void CWndMenu::SetVisibleSub( BOOL bVisible )
 {
 	CWndBase::SetVisible( bVisible );
-	for( int i = 0; i < m_awndMenuItem.GetSize(); i++)
+	int i; for( i = 0; i < m_awndMenuItem.GetSize(); i++)
 	{
 		if( GetMenuItem( i )->m_pWndMenu )
 			GetMenuItem( i )->m_pWndMenu->SetVisibleSub( bVisible );
@@ -3526,7 +3526,7 @@ void CWndMenu::SetVisibleAllMenu( BOOL bVisible )
 	if( pMenu )
 	{
 		pMenu->CWndBase::SetVisible( bVisible );
-		for( int i = 0; i < pMenu->m_awndMenuItem.GetSize(); i++)
+		int i; for( i = 0; i < pMenu->m_awndMenuItem.GetSize(); i++)
 		{
 			if( pMenu->GetMenuItem( i )->m_pWndMenu )
 				pMenu->GetMenuItem( i )->m_pWndMenu->SetVisibleSub( bVisible );
@@ -3552,7 +3552,7 @@ void CWndMenu::OnDraw(C2DRender* p2DRender)
 		{
 			// 매뉴의 버튼을 훑어서 켜진거 다 끈다.
 		//	CWndMenu* pMenu = (CWndMenu*)m_pParentWnd;
-			for( int i = 0; i < m_awndMenuItem.GetSize(); i++)
+			int i; for( i = 0; i < m_awndMenuItem.GetSize(); i++)
 			{
 				if( ((CWndButton*)m_awndMenuItem.GetAt( i ) )->m_pWndMenu )
 					((CWndButton*)m_awndMenuItem.GetAt( i ) )->m_pWndMenu->SetVisibleSub( FALSE );
@@ -3647,7 +3647,7 @@ CWndListCtrl::~CWndListCtrl()
 {
 	LVCOLUMN* pColumn;
 	LVITEM* pItems;
-	for( int i = 0; i < m_aColumns.GetSize(); i++ )
+	int i; for( i = 0; i < m_aColumns.GetSize(); i++ )
 	{
 		pColumn = (LVCOLUMN*) m_aColumns.GetAt( i );
 		safe_delete( pColumn->pszText );
@@ -3656,7 +3656,7 @@ CWndListCtrl::~CWndListCtrl()
 	for( i = 0; i < m_aItems.GetSize(); i++ )
 	{
 		pItems = (LVITEM*)m_aItems.GetAt ( i );
-		for( int j = 0; j < m_aColumns.GetSize(); j++ )
+		int j; for(  j = 0; j < m_aColumns.GetSize(); j++ )
 		{
 			if( pItems[ j ].pszText )
 				safe_delete( pItems[ j ].pszText );
@@ -3718,7 +3718,7 @@ void CWndListCtrl::OnDraw(C2DRender* p2DRender)
 //	if( IsWndStyle( WLVS_REPORT ) )
 	{
 		pt.y -= (m_nFontHeight + 3) * m_wndScrollBar.GetScrollPos();
-		for( int i = 0; i < m_aItems.GetSize(); i++ ) 
+		int i; for( i = 0; i < m_aItems.GetSize(); i++ ) 
 		{
 			LVITEM* pItems = (LVITEM*)m_aItems.GetAt( i );
 			for( int i2 = 0, x = 0; i2 < m_aColumns.GetSize(); i2++ ) 
@@ -3755,7 +3755,7 @@ void CWndListCtrl::OnDraw(C2DRender* p2DRender)
 		int nHeight = rect.Height() / 32;
 		pt.y = 0;
 		pt.y += m_wndScrollBar.GetScrollPos() * nWidth;
-		for( int i = pt.y; i < m_aItems.GetSize(); i++ ) 
+		int i; for( i = pt.y; i < m_aItems.GetSize(); i++ ) 
 		{
 			int x = ( i - pt.y ) % nWidth;
 			int y = ( i - pt.y ) / nWidth;
@@ -3804,7 +3804,7 @@ void CWndListCtrl::OnLButtonUp( UINT nFlags, CPoint point )
 	//if( IsWndStyle( WLVS_REPORT ) )
 	{
 		pt.y -= (m_nFontHeight + 3) * m_wndScrollBar.GetScrollPos();
-		for( int i = 0; i < m_aItems.GetSize(); i++ ) 
+		int i; for( i = 0; i < m_aItems.GetSize(); i++ ) 
 		{
 			LVITEM* pItems = (LVITEM*)m_aItems.GetAt( i );
 			rect.SetRect( pt.x, pt.y, pt.x + m_rectWindow.Width() - m_wndScrollBar.GetClientRect().Width(), pt.y + m_nFontHeight );
@@ -3831,7 +3831,7 @@ void CWndListCtrl::OnLButtonUp( UINT nFlags, CPoint point )
 		int nHeight = rect.Height() / 32;
 		pt.y = 0;
 		pt.y += m_wndScrollBar.GetScrollPos() * nWidth;
-		for( int i = pt.y; i < m_aItems.GetSize(); i++ ) 
+		int i; for( i = pt.y; i < m_aItems.GetSize(); i++ ) 
 		{
 			int x = ( i - pt.y ) % nWidth;
 			int y = ( i - pt.y ) / nWidth;
@@ -3860,7 +3860,7 @@ void CWndListCtrl::OnLButtonDown( UINT nFlags, CPoint point )
 	//if( IsWndStyle( WLVS_REPORT ) )
 	{
 		pt.y -= (m_nFontHeight + 3) * m_wndScrollBar.GetScrollPos();
-		for( int i = 0; i < m_aItems.GetSize(); i++ ) 
+		int i; for( i = 0; i < m_aItems.GetSize(); i++ ) 
 		{
 			LVITEM* pItems = (LVITEM*)m_aItems.GetAt( i );
 			rect.SetRect( pt.x, pt.y, pt.x + m_rectWindow.Width() - m_wndScrollBar.GetClientRect().Width(), pt.y + m_nFontHeight );
@@ -3883,7 +3883,7 @@ void CWndListCtrl::OnLButtonDown( UINT nFlags, CPoint point )
 		int nHeight = rect.Height() / 32;
 		pt.y = 0;
 		pt.y += m_wndScrollBar.GetScrollPos() * nWidth;
-		for( int i = pt.y; i < m_aItems.GetSize(); i++ ) 
+		int i; for( i = pt.y; i < m_aItems.GetSize(); i++ ) 
 		{
 			int x = ( i - pt.y ) % nWidth;
 			int y = ( i - pt.y ) / nWidth;
@@ -3956,7 +3956,7 @@ void CWndListCtrl::PaintFrame( C2DRender* p2DRender )
 	//if( IsWndStyle( WLVS_REPORT ) )
 	{
 		// 컬럼 출력 
-		for( int i = 0, x = 0; i < m_aColumns.GetSize(); i++ )
+		int i,x; for( i = 0, x = 0; i < m_aColumns.GetSize(); i++ )
 		{
 			LVCOLUMN* pColumn = (LVCOLUMN*)m_aColumns.GetAt( i );
 			p2DRender->TextOut( x + 4, 4, pColumn->pszText ); 
@@ -4102,7 +4102,7 @@ CWndTabCtrl::~CWndTabCtrl()
 	for( itor = m_aTab.begin(); itor != m_aTab.end(); itor++ )
 		SAFE_DELETE( *itor );
 //#ifndef __NEWTAB
-//	for( int i = 0; i < 10; i++ )
+//	int i; for( i = 0; i < 10; i++ )
 //		SAFE_DELETE( m_apTexture[ i ] );
 //#endif
 }
@@ -4142,7 +4142,7 @@ void CWndTabCtrl::PaintFrame(C2DRender* p2DRender)
 	if( m_aTab.size() )
 	{
 		int nLength = rectClient.Width() / m_aTab.size();
-		for( int i = 0; i < (int)( m_aTab.size() ); i++ )
+		int i; for( i = 0; i < (int)( m_aTab.size() ); i++ )
 		{
 			LPWTCITEM pItem = m_aTab[ i ];
 			if( pItem )
@@ -4227,7 +4227,7 @@ void CWndTabCtrl::OnDraw( C2DRender* p2DRender )
 	if( nTabSize > 0 )
 	{
 		int nLength = rectClient.Width() / nTabSize;
-		for( int i = 0; i < nTabSize; ++i )
+		int i; for( i = 0; i < nTabSize; ++i )
 		{
 			LPWTCITEM pItem = m_aTab[ i ];
 			if( pItem )
@@ -4300,7 +4300,7 @@ void CWndTabCtrl::AdditionalSkinTexture( LPWORD pDest, CSize sizeSurface, D3DFOR
 	CString strFileName;
 	
 	int nImgBit = IMGBIT_32;
-	for( int i = 0; i < 9; i++ )
+	int i; for( i = 0; i < 9; i++ )
 	{
 		CString strTemp1 = m_strTile.Left( m_strTile.GetLength() - 6 );
 		CString strTemp2 = m_strTile.Right( 4 );
@@ -4326,7 +4326,7 @@ void CWndTabCtrl::AdditionalSkinTexture( LPWORD pDest, CSize sizeSurface, D3DFOR
 	CPoint point;
 	for( i = 0; i < nHeight; i++ )
 	{
-		for( int j = 0; j < nWidth; j++ )
+		int j; for(  j = 0; j < nWidth; j++ )
 		{
 			point = CPoint( j * 8, i * EDIT_HEIGHT ) + rect.TopLeft();
 			if( i == 0 )
@@ -4441,7 +4441,7 @@ void CWndTabCtrl::AdditionalSkinTexture( LPWORD pDest, CSize sizeSurface, D3DFOR
 		if( pWndBase->IsDestroy() == FALSE && pWndBase->IsVisible() )
 		{
  			pWndBase->AdditionalSkinTexture( pDest, sizeSurface, d3dFormat );
-			for( int i = 0; i < pWndBase->m_wndArray.GetSize(); i++ )
+			int i; for( i = 0; i < pWndBase->m_wndArray.GetSize(); i++ )
 			{
 				CWndBase* pWndChild = (CWndBase*)pWndBase->m_wndArray.GetAt( i );
 				CRect rectOldChild = pWndChild->m_rectWindow;
@@ -4471,7 +4471,7 @@ void CWndTabCtrl::OnLButtonDown(UINT nFlags, CPoint point)
 	int nSelect = -1;
 	if( m_aTab.size() )
 	{
-		for( int i = 0; i < (int)( m_aTab.size() ); i++ )
+		int i; for( i = 0; i < (int)( m_aTab.size() ); i++ )
 		{
 			pItem = m_aTab[ i ];
 			if( pItem )
@@ -4523,7 +4523,7 @@ int CWndTabCtrl::SetCurSel( int nItem )
 		if( IsWndStyle( WBS_VSCROLL ) )
 			rect.right -= 15;
 		rect.bottom -= 18;
-		for( int i = 0; i < (int)( m_aTab.size() ); i++ )
+		int i; for( i = 0; i < (int)( m_aTab.size() ); i++ )
 		{
 			LPWTCITEM pItem = m_aTab[ i ];
 			if( pItem && pItem->pWndBase )
@@ -4631,7 +4631,7 @@ void CWndTabCtrl::OnSize(UINT nType, int cx, int cy)
 //	if( IsWndStyle( WBS_VSCROLL ) )
 //		rect.right -= 15;
 	
-	for( int i = 0; i < (int)( m_aTab.size() ); i++ )
+	int i; for( i = 0; i < (int)( m_aTab.size() ); i++ )
 	{
 		LPWTCITEM pItem = m_aTab[ i ];
 		if( pItem && pItem->pWndBase )

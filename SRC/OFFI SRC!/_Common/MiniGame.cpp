@@ -297,7 +297,8 @@ int CMiniGame::Result_Alphabet( CUser* pUser, OBJID* objItemId, int nCount, int 
 	CString strWord;
 	CItemElem* pItemElem;
 	map<OBJID, int> map_Item;
-	for( int i=0; i<nCount; ++i )
+	int i;
+	for(  i=0; i<nCount; ++i )
 	{
 		pItemElem	= (CItemElem*)pUser->m_Inventory.GetAtId( objItemId[i] );
 		if( !IsUsableItem( pItemElem ) )
@@ -539,8 +540,8 @@ int CMiniGame::Result_FiveSystem( CUser* pUser )
 	// ÃÖ°í ÀÔÂû±Ý ¹× °¹¼ö
 	int nMaxBet = 0;
 	int nMaxCount = 0;
-
-	for( int i=0; i<6; ++i )
+	int i;
+	for(  i=0; i<6; ++i )
 	{
 		if( pUser->m_nBetFiveSystem[i] > nMaxBet )
 		{

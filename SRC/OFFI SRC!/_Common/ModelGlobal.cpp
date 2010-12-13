@@ -371,7 +371,7 @@ void	CPartsFire::Create( LPDIRECT3DDEVICE9 pd3dDevice, const D3DXVECTOR3 &vPos, 
 
 CPartsFire::~CPartsFire()
 {
-	for( int i = 0; i < MAX_PARTS_FIRE; i ++ )
+	int i; for( i = 0; i < MAX_PARTS_FIRE; i ++ )
 		SAFE_DELETE( m_pList[i] );
 	for( i = 0; i < MAX_PARTS_FIRE_2; i ++ )
 		SAFE_DELETE( m_pList_2[i] );
@@ -691,7 +691,7 @@ HRESULT CPartsFireDragon::InvalidateDeviceObjects( LPDIRECT3DDEVICE9 pd3dDevice 
 	SAFE_RELEASE( m_pTexture );
 	SAFE_RELEASE( m_pParticleVB );
 
-	for( int i = 0; i < MAX_PARTS_FIRE_DRAGON; i ++ )
+	int i; for( i = 0; i < MAX_PARTS_FIRE_DRAGON; i ++ )
 	{
 		if( m_pList[i] )
 		{

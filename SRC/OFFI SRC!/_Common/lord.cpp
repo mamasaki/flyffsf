@@ -75,7 +75,8 @@ void IElection::sProperty::Serialize( CAr & ar )
 		size_t nSize;
 		ar >> nSize;
 		float f;
-		for( size_t i = 0; i < nSize; i++ )
+		size_t i;
+		for(  i = 0; i < nSize; i++ )
 		{
 			ar >> f;
 			m_vReturnDepositRates.push_back( f );

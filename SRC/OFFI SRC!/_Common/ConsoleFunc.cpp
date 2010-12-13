@@ -147,7 +147,7 @@ void _sfx_pos( std::vector< string >& arg )
 		kPos = kPos - kDir * 2.0f;
 
 		CSfx *pSfx = NULL;
-		for( int i = 0; i < nRepeat; ++i )
+		int i; for( i = 0; i < nRepeat; ++i )
 		{
 			
 // 			CMover* pPet =  prj.GetMover( g_pPlayer->GetEatPetId( ) );
@@ -514,7 +514,7 @@ void _update_console( )
 				char* lpszText = "난 알아요 이밤이 흐르고 흐르면 모든것이 떠나야만 한다는 이사실을 그 이유를 나는 알수가 알수가 있어욤 taeji boys ye";
 				  
 
-				for( int i = 0; i < 90; ++i )
+				int i; for( i = 0; i < 90; ++i )
 				{
 					title.Format( "%d 번째 편지", i );
 					g_DPlay.SendQueryPostMail( 1, 1, (char*)pObj->GetName(), 0,title.GetBuffer(0),lpszText );
@@ -539,7 +539,7 @@ void _update_console( )
 
 			CMailBox& mailbox = *pMailBox;
 			
-			for( int i = 0; i < nMax; ++i )
+			int i; for( i = 0; i < nMax; ++i )
 			{
 				CMail* pMail = mailbox[i];
 				if( pMail )
@@ -600,7 +600,7 @@ void _update_console( )
 // 
 // 			sDelta = 5100;
 // 
-// // 			for( int i = 0; i < 26; ++i )
+// // 			int i; for( i = 0; i < 26; ++i )
 // // 			{
 // // 				g_bKeyTable[ 0x41 + i ] = rand() %2;
 // // 			}
