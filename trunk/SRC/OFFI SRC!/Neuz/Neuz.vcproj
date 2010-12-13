@@ -71,7 +71,7 @@
 			<Tool
 				Name="VCResourceCompilerTool"
 				PreprocessorDefinitions="NDEBUG"
-				Culture="1042"/>
+				Culture="2052"/>
 			<Tool
 				Name="VCWebServiceProxyGeneratorTool"/>
 			<Tool
@@ -1538,6 +1538,12 @@
 				</File>
 				<File
 					RelativePath="..\_Interface\FuncTextCmd.h">
+				</File>
+				<File
+					RelativePath="..\_Interface\WndGetBuff.cpp">
+				</File>
+				<File
+					RelativePath="..\_Interface\WndGetBuff.h">
 				</File>
 				<File
 					RelativePath="..\_Interface\WndGuideSystem.cpp">
@@ -10227,6 +10233,58 @@
 					RelativePath="..\..\resource\Music\track13.wav">
 				</File>
 			</Filter>
+		</Filter>
+		<Filter
+			Name="define"
+			Filter="">
+			<File
+				RelativePath="..\_Common\define.h">
+			</File>
+			<File
+				RelativePath="..\_Common\defineAttribute.h">
+			</File>
+			<File
+				RelativePath="..\_Common\defineEvent.h">
+			</File>
+			<File
+				RelativePath="..\_Common\defineHonor.h">
+			</File>
+			<File
+				RelativePath="..\_Common\defineItem.h">
+			</File>
+			<File
+				RelativePath="..\_Common\defineItemkind.h">
+			</File>
+			<File
+				RelativePath="..\_Common\defineJob.h">
+			</File>
+			<File
+				RelativePath="..\_Common\definelordskill.h">
+			</File>
+			<File
+				RelativePath="..\_Common\defineMapComboBoxData.h">
+			</File>
+			<File
+				RelativePath="..\_Common\defineNeuz.h">
+			</File>
+			<File
+				RelativePath="..\_Common\defineObj.h">
+			</File>
+			<File
+				RelativePath="..\_Common\definequest.h">
+			</File>
+			<File
+				RelativePath="..\_Common\defineSkill.h">
+			</File>
+			<File
+				RelativePath="..\_Common\defineSound.h">
+			</File>
+			<File
+				RelativePath="..\_Common\defineText.h">
+			</File>
+			<File
+				RelativePath="..\_Common\defineWorld.h">
+			</File>
 		</Filter>
 		<File
 			RelativePath="res\anvil.cur">

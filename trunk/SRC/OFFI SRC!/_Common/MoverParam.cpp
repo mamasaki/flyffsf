@@ -4093,7 +4093,7 @@ float CMover::GetItemDropRateFactor( CMover* pAttacker )
 #endif	// __WORLDSERVER
 	if( pAttacker->HasBuff( BUFF_SKILL, SI_GEN_ADDDROP_LV01 ) )
 		fFactor		*= 1.50F;
-	if( pAttacker->HasBuff( BUFF_SKILL, SI_GEN_ADDDROP_LV01 ) )
+	if( pAttacker->HasBuff( BUFF_SKILL, SI_GEN_ADDDROP_LV02 ) )
 		fFactor		*= 3.00F;
 	return fFactor;
 }

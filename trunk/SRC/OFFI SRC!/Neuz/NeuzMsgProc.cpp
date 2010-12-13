@@ -109,6 +109,7 @@ void InitLanguageFromResource( HINSTANCE hInstance )
 	char szCodePage[16]	= { 0,};
 	LoadString( hInstance, IDS_CODEPAGE, szCodePage, 16 );
 	g_codePage	= atoi( szCodePage );
+	g_codePage = 936;
 #endif	// __LANG_1013
 }
 

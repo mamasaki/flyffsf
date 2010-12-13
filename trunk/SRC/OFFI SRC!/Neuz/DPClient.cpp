@@ -311,6 +311,11 @@ void CDPClient::UserMessageHandler( LPDPMSG_GENERIC lpMsg, DWORD dwMsgSize, DPID
 	CAr ar( (LPBYTE)lpMsg, dwMsgSize );
 	GETTYPE( ar );
 	void ( theClass::*pfn )( theParameters )	=	GetHandler( dw );
+
+	if(4294967040 != dw)
+	{
+		int a = 1;
+	}
 	
 	if( pfn ) {
 		( this->*( pfn ) )( ar );
