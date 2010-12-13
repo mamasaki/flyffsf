@@ -15,7 +15,7 @@
 #define	WINVER		0x0500
 
 #define __DBSERVER
-
+#pragma warning(disable:4996)
 #include <afx.h>
 #include <afxwin.h>
 #include <afxext.h>         // MFC extensions

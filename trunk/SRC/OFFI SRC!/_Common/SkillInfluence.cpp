@@ -124,7 +124,7 @@ BOOL CSkillInfluence::InsertBuff(SKILLINFLUENCE *pNode, WORD wType, WORD wID, DW
 LPSKILLINFLUENCE CSkillInfluence::GetItemBuf( DWORD dwItemKind3 )
 {
 	char szGMCommand[64] = {0,};
-	for( int i = 0; i < MAX_SKILLINFLUENCE; i ++ )	
+	int i; for( i = 0; i < MAX_SKILLINFLUENCE; i ++ )	
 	{
 		if( m_aSkillInfluence[i].wType != BUFF_ITEM )
 			continue;
@@ -457,7 +457,7 @@ void CSkillInfluence::Reset( void )
 DWORD CSkillInfluence::GetDisguise( void )
 {
 	char szGMCommand[64] = {0,};
-	for( int i = 0; i < MAX_SKILLINFLUENCE; i ++ )	
+	int i; for( i = 0; i < MAX_SKILLINFLUENCE; i ++ )	
 	{
 		if( m_aSkillInfluence[i].wType != BUFF_ITEM )
 			continue;
@@ -493,7 +493,7 @@ BOOL CSkillInfluence::HasLikeItemBuf( DWORD dwItemKind3 )
 
 BOOL CSkillInfluence::LikeItemBuf( DWORD dwItemKind3 )
 {
-	for( int i = 0; i < MAX_SKILLINFLUENCE; i ++ )	
+	int i; for( i = 0; i < MAX_SKILLINFLUENCE; i ++ )	
 	{
 		if( m_aSkillInfluence[i].wType == BUFF_ITEM 
 #if __VER >= 11 // __SYS_COLLECTING
@@ -513,7 +513,7 @@ BOOL CSkillInfluence::LikeItemBuf( DWORD dwItemKind3 )
 
 void CSkillInfluence::RemoveLikeItemBuf( DWORD dwItemKind3 )
 {
-	for( int i = 0; i < MAX_SKILLINFLUENCE; i ++ )	
+	int i; for( i = 0; i < MAX_SKILLINFLUENCE; i ++ )	
 	{
 		if( m_aSkillInfluence[i].wType == BUFF_ITEM
 #if __VER >= 11 // __SYS_COLLECTING

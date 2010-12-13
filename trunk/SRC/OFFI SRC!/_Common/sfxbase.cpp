@@ -119,7 +119,7 @@ SfxKeyFrame* CSfxPart::GetNextKey(WORD nFrame, BOOL bSkip)
 {
 	SfxKeyFrame* pKey=NULL;
 	SfxKeyFrame* pTempKey;
-	for( int i = 0; i < m_apKeyFrames.GetSize(); i++ ) 
+	int i; for( i = 0; i < m_apKeyFrames.GetSize(); i++ ) 
 	{
 		pTempKey = Key( i );
 		if( bSkip )
@@ -1718,7 +1718,8 @@ BOOL CSfxBase::LoadMerge()
 
 BOOL CSfxBase::Load(void)
 {
-	for(int i=0;i<m_apParts.GetSize();i++)
+	int i;
+	for( i=0;i<m_apParts.GetSize();i++)
 		safe_delete( (CSfxPart*)m_apParts.GetAt(i) );
 	m_apParts.RemoveAll();
 	CString strFilename=_T( MakePath( DIR_SFX, LPCTSTR(m_strName+".sfx") ) );
@@ -1818,7 +1819,7 @@ CSfxBase* CSfxMng::GetSfxBase(BYTE nIndex)
 }
 CSfxBase* CSfxMng::GetSfxBase( CString strSfxName )
 {
-	for( int i = 0; i < m_apSfxBase.GetSize(); i++ ) 
+	int i; for( i = 0; i < m_apSfxBase.GetSize(); i++ ) 
 	{
 		if( GetSfxBase( i )->m_strName == strSfxName )
 			return GetSfxBase( i );
@@ -1923,7 +1924,7 @@ void CSfxModel::RemovePart( int nIndex )
 		CPtrArray* pParticles = (CPtrArray*)m_apParticles.GetAt( nIndex );
 		if( pParticles ) 
 		{
-			for( int i = 0; i < pParticles->GetSize(); i++ )
+			int i; for( i = 0; i < pParticles->GetSize(); i++ )
 			{
 				safe_delete( (Particle*)pParticles->GetAt( i ) );
 			}
@@ -1942,7 +1943,7 @@ void CSfxModel::SetSfx( CSfxBase* pSfxBase )
 	
 	m_pSfxBase = pSfxBase;
 	DeleteAll();
-	for( int i = 0; i < pSfxBase->m_apParts.GetSize(); i++ )  
+	int i; for( i = 0; i < pSfxBase->m_apParts.GetSize(); i++ )  
 	{
 		if(pSfxBase->Part(i)->m_nType==SFXPARTTYPE_PARTICLE) 
 		{
@@ -1980,7 +1981,7 @@ void CSfxModel::SetSfx( LPCTSTR szSfxName )
 	if( m_pSfxBase ) 
 	{
 		DeleteAll();
-		for( int i = 0; i < m_pSfxBase->m_apParts.GetSize(); i++ ) 
+		int i; for( i = 0; i < m_pSfxBase->m_apParts.GetSize(); i++ ) 
 		{
 			if( m_pSfxBase->Part( i )->m_nType == SFXPARTTYPE_PARTICLE ) 
 			{
@@ -2025,7 +2026,7 @@ void CSfxModel::SetSfx( DWORD dwIndex )
 		if( m_pSfxBase ) 
 		{
 			DeleteAll();
-			for( int i = 0; i < m_pSfxBase->m_apParts.GetSize(); i++ ) 
+			int i; for( i = 0; i < m_pSfxBase->m_apParts.GetSize(); i++ ) 
 			{
 				if( m_pSfxBase->Part( i )->m_nType == SFXPARTTYPE_PARTICLE ) 
 				{
@@ -2080,7 +2081,7 @@ BOOL CSfxModel::Render2( LPDIRECT3DDEVICE9 pd3dDevice, const D3DXMATRIX* pmWorld
 		CSfxMng::m_pd3dDevice->SetRenderState( D3DRS_SRCBLEND,  D3DBLEND_SRCALPHA );
 		CSfxMng::m_pd3dDevice->SetRenderState(D3DRS_ZWRITEENABLE,FALSE);
 		
-		for( int i = 0 ; i < m_pSfxBase->m_apParts.GetSize(); i++ ) 
+		int i; for( i = 0 ; i < m_pSfxBase->m_apParts.GetSize(); i++ ) 
 		{
 			if( m_pSfxBase->Part( i )->m_bUseing == FALSE )
 				continue;
@@ -2236,7 +2237,7 @@ void CSfxModel::RenderParticles2( D3DXVECTOR3 vPos, WORD nFrame, D3DXVECTOR3 fAn
 	Particle* pParticle = NULL;
 	CString		TexName;
 
-	for( int i = 0; i < pParticles->GetSize(); i++ ) 
+	int i; for( i = 0; i < pParticles->GetSize(); i++ ) 
 	{
 		pParticle = (Particle*)(pParticles->GetAt(i));
 #ifdef __SFX_OPT
@@ -2367,7 +2368,7 @@ BOOL CSfxModel::RenderZ( LPDIRECT3DDEVICE9 pd3dDevice, const D3DXMATRIX* pmWorld
 		CSfxMng::m_pd3dDevice->SetRenderState( D3DRS_SRCBLEND,  D3DBLEND_SRCALPHA );
 		CSfxMng::m_pd3dDevice->SetRenderState(D3DRS_ZWRITEENABLE,FALSE);
 
-		for( int i = 0 ; i < m_pSfxBase->m_apParts.GetSize(); i++ ) 
+		int i; for( i = 0 ; i < m_pSfxBase->m_apParts.GetSize(); i++ ) 
 		{
 			if( m_pSfxBase->Part( i )->m_bUseing == FALSE )
 				continue;
@@ -2445,7 +2446,7 @@ BOOL CSfxModel::Render( LPDIRECT3DDEVICE9 pd3dDevice, const D3DXMATRIX* pmWorld 
 		CSfxMng::m_pd3dDevice->SetRenderState( D3DRS_SRCBLEND,  D3DBLEND_SRCALPHA );
 		CSfxMng::m_pd3dDevice->SetRenderState(D3DRS_ZWRITEENABLE,FALSE);
 
-		for( int i = 0 ; i < m_pSfxBase->m_apParts.GetSize(); i++ ) 
+		int i; for( i = 0 ; i < m_pSfxBase->m_apParts.GetSize(); i++ ) 
 		{
 			if( m_pSfxBase->Part( i )->m_bUseing == FALSE )
 				continue;
@@ -2590,7 +2591,7 @@ void CSfxModel::RenderParticles( D3DXVECTOR3 vPos, WORD nFrame, FLOAT fAngle, CS
 	Particle* pParticle = NULL;
 	CString TexName;
 
-	for( int i = 0; i < pParticles->GetSize(); i++ ) 
+	int i; for( i = 0; i < pParticles->GetSize(); i++ ) 
 	{
 		pParticle = (Particle*)(pParticles->GetAt(i));
 #ifdef __SFX_OPT
@@ -2705,7 +2706,7 @@ BOOL CSfxModel::Process(void)
 	m_nCurFrame++;
 	
 	// 이 sfx에 파티클 part가 포함되어 있다면 파티클의 생성, 파괴 등을 처리한다.
-	for( int i = 0; i < m_apParticles.GetSize(); i++ ) 
+	int i; for( i = 0; i < m_apParticles.GetSize(); i++ ) 
 	{
 		CPtrArray* pParticles = (CPtrArray*)m_apParticles[ i ];
 		if( pParticles ) 
@@ -2756,7 +2757,7 @@ BOOL CSfxModel::Process(void)
 				{
 					if( m_nCurFrame == nStartFrame ) 
 					{
-						for( int i = 0; i < pPartParticle->m_nParticleCreateNum; i++ ) 
+						int i; for( i = 0; i < pPartParticle->m_nParticleCreateNum; i++ ) 
 						{
 							pParticle = new Particle;
 							pParticle->nFrame = 0;
@@ -2800,7 +2801,7 @@ BOOL CSfxModel::Process(void)
 				{
 					if( ( (m_nCurFrame) - nStartFrame ) % pPartParticle->m_nParticleCreate == 0 ) 
 					{
-						for( int i = 0; i < pPartParticle->m_nParticleCreateNum; i++ ) 
+						int i; for( i = 0; i < pPartParticle->m_nParticleCreateNum; i++ ) 
 						{
 							pParticle = new Particle;
 							pParticle->nFrame=0;
@@ -2850,7 +2851,7 @@ BOOL CSfxModel::Process(void)
 				{
 					if( m_nCurFrame == nStartFrame ) 
 					{
-						for( int i = 0; i < pPartParticle->m_nParticleCreateNum; i++ ) 
+						int i; for( i = 0; i < pPartParticle->m_nParticleCreateNum; i++ ) 
 						{
 							pParticle = new Particle;
 							pParticle->nFrame = 0;
@@ -2894,7 +2895,7 @@ BOOL CSfxModel::Process(void)
 				{
 					if( ( (m_nCurFrame) - nStartFrame ) % pPartParticle->m_nParticleCreate == 0 ) 
 					{
-						for( int i = 0; i < pPartParticle->m_nParticleCreateNum; i++ ) 
+						int i; for( i = 0; i < pPartParticle->m_nParticleCreateNum; i++ ) 
 						{
 							pParticle = new Particle;
 							pParticle->nFrame=0;
@@ -2979,7 +2980,7 @@ BOOL CSfxModel::SetFrame( int nFrame )
 //	CSfxPartParticle* pPartParticle;
 //	Particle* pParticle;
 	// 이 sfx에 파티클 part가 포함되어 있다면 파티클의 생성, 파괴 등을 처리한다.
-	for( int i = 0; i < m_apParticles.GetSize(); i++ ) 
+	int i; for( i = 0; i < m_apParticles.GetSize(); i++ ) 
 	{
 		CPtrArray* pParticles = (CPtrArray*)m_apParticles[ i ];
 		/*
@@ -3020,7 +3021,7 @@ BOOL CSfxModel::SetFrame( int nFrame )
 				{
 					if( m_nCurFrame == nStartFrame ) 
 					{
-						for( int i = 0; i < pPartParticle->m_nParticleCreateNum; i++ ) 
+						int i; for( i = 0; i < pPartParticle->m_nParticleCreateNum; i++ ) 
 						{
 							pParticle = new Particle;
 							pParticle->nFrame = 0;
@@ -3047,7 +3048,7 @@ BOOL CSfxModel::SetFrame( int nFrame )
 				{
 					if( ( m_nCurFrame - nStartFrame ) % pPartParticle->m_nParticleCreate == 0 ) 
 					{
-						for( int i = 0; i < pPartParticle->m_nParticleCreateNum; i++ ) 
+						int i; for( i = 0; i < pPartParticle->m_nParticleCreateNum; i++ ) 
 						{
 							pParticle = new Particle;
 							pParticle->nFrame=0;

@@ -18,12 +18,12 @@ CDPCertified::CDPCertified()
 	m_lError = 0;
 
 	BEGIN_MSG;
-	ON_MSG( PACKETTYPE_SRVR_LIST, OnSrvrList );
-	ON_MSG( PACKETTYPE_ERROR, OnError );
+	ON_MSG( PACKETTYPE_SRVR_LIST,& CDPCertified::OnSrvrList );
+	ON_MSG( PACKETTYPE_ERROR,& CDPCertified:: OnError );
 #ifdef __GPAUTH
-	ON_MSG( PACKETTYPE_ERROR_STRING, OnErrorString );
+	ON_MSG( PACKETTYPE_ERROR_STRING, & CDPCertified::OnErrorString );
 #endif	// __GPAUTH
-	ON_MSG( PACKETTYPE_KEEP_ALIVE, OnKeepAlive );
+	ON_MSG( PACKETTYPE_KEEP_ALIVE, & CDPCertified::OnKeepAlive );
 }
 
 CDPCertified::~CDPCertified()
@@ -177,7 +177,7 @@ void CDPCertified::SendCloseExistingConnection( const char* lpszAccount, const c
 LPCTSTR CDPCertified::GetServerName( int nServerIndex )
 {
 	int nCount = 0;		// 서버셋의 count
-	for( int i = 0; i < (int)( m_dwSizeofServerset ); i++ )
+	int i; for( i = 0; i < (int)( m_dwSizeofServerset ); i++ )
 	{
 		if( m_aServerset[i].dwParent == NULL_ID )
 		{
@@ -245,7 +245,7 @@ void CDPCertified::OnSrvrList( CAr & ar, DPID )
 
 	ar >> m_dwSizeofServerset;
 	LPSERVER_DESC pServer;
-	for( int i = 0; i < (int)( m_dwSizeofServerset ); i++ )
+	int i; for( i = 0; i < (int)( m_dwSizeofServerset ); i++ )
 	{
 		pServer		= m_aServerset + i;
 		ar >> pServer->dwParent;

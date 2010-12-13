@@ -137,7 +137,7 @@ void CWorld::InitWorldEnvir( const char* filename )
 
 	//todo:
 	TextureSet* pSet = NULL;
-	for( int i = 0; i < 3; ++i )
+	int i; for( i = 0; i < 3; ++i )
 	{
 		//sky
 		pSet = &m_kWorldEnvir._kSky[ i ];
@@ -189,7 +189,7 @@ BOOL CWorld::ReadFile24Light( const char* filename )
 	if( script.Load( fullname ) == FALSE )
 		return FALSE;
 
-	for( int i = 0; i < 24; ++i )
+	int i; for( i = 0; i < 24; ++i )
 	{
 		m_k24Light[ i ].r1 = script.GetFloat( );
 		m_k24Light[ i ].g1 = script.GetFloat( );

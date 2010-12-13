@@ -12,7 +12,7 @@
 
 #define WIN32_LEAN_AND_MEAN		// Exclude rarely-used stuff from Windows headers
 #pragma warning(disable:4786)
-
+#pragma warning(disable:4996)
 #pragma once   // Include this header file once per compilation unit
 #pragma comment(linker, "/subsystem:Windows,5")
 #pragma comment(linker, "/version:5")

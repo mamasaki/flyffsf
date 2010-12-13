@@ -132,7 +132,7 @@ protected:
 			m_ListOfMemBlockPtr.push_back( pMemBlock );
 			BlockNode* pNode	= reinterpret_cast<BlockNode*>(pMemBlock);
 			pNode	= reinterpret_cast<BlockNode*>( ( reinterpret_cast<DWORD>( pNode ) ) + ( m_nNumOfBlock - 1 ) * ( m_nListBlockSize ) );	// set pNode to last
-			for( int i = m_nNumOfBlock - 1; i >= 0; i-- )
+			int i; for( i = m_nNumOfBlock - 1; i >= 0; i-- )
 			{
 				pNode->pNext	= m_pFreeList;
 				m_pFreeList	= pNode;

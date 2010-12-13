@@ -36,7 +36,7 @@ CSkyBox::CSkyBox()
 		//m_nFall=300;
 		//m_nStar=300;
 	}
-	for( int i = 0; i < (int)( m_nFall ); i++ )  
+	int i; for( i = 0; i < (int)( m_nFall ); i++ )  
 	{
 		m_vFall[ i ] = D3DXVECTOR3( 0, 0, 0 );
 		m_vVelocity[ i ] = D3DXVECTOR3( 0, 0.3f, 0 );
@@ -97,7 +97,7 @@ void CSkyBox::SetWeather( int nWeather, BOOL bOnOff )
 
 void CSkyBox::InitFall()
 {
-	for( int i = 0; i < (int)( m_nFall ); i++ ) 
+	int i; for( i = 0; i < (int)( m_nFall ); i++ ) 
 	{
 		m_vFall[i].x = g_pPlayer->GetPos().x + ( float( rand() - RAND_MAX / 2 ) / RAND_MAX * 25 );
 		m_vFall[i].z = g_pPlayer->GetPos().z + ( float( rand() - RAND_MAX / 2 ) / RAND_MAX * 25 );
@@ -157,7 +157,7 @@ void CSkyBox::Process()
 
 		if( m_nWeather == WEATHER_RAIN )
 		{
-			for( int i = 0; i < (int)( m_nFall ); i++ ) 
+			int i; for( i = 0; i < (int)( m_nFall ); i++ ) 
 			{
 				FLOAT fheight = m_pWorld->GetLandHeight_Fast( m_vFall[ i ].x, m_vFall[ i ].z ) - 1.0f;
 				if( fheight == 0 ) fheight = 100000.0f;
@@ -245,7 +245,7 @@ void CSkyBox::Process()
 		else
 		if( m_nWeather == WEATHER_SNOW )
 		{
-			for( int i = 0; i < (int)( m_nFall ); i++) 
+			int i; for( i = 0; i < (int)( m_nFall ); i++) 
 			{
 				FLOAT fheight = m_pWorld->GetLandHeight_Fast( m_vFall[ i ].x, m_vFall[ i ].z ) - 1.0f;
 				if( fheight == 0 ) 
@@ -960,7 +960,7 @@ void CSkyBox::DrawLensFlare(LPDIRECT3DDEVICE9 pd3dDevice)
 		D3DCOLOR_ARGB(nAlpha,200,255,200),
 		D3DCOLOR_ARGB(nAlpha,255,255,255)
 	};
-	for( int i = 0; i < 8; i++ )
+	int i; for( i = 0; i < 8; i++ )
 	{
 		m_pLensFlareVB[ i ]->Lock( 0, 0, (void**)&pVB, 0 );
 		radius = afRadius[ i];
@@ -1125,7 +1125,7 @@ void CSkyBox::SetVertices()
 	{
 		D3DSKYBOXVERTEX* pVB;
 		m_pSideSkyBoxVB->Lock( 0, 0, (void**)&pVB, 0 );
-		for( int i = 0; i < 28; i++ ) 
+		int i; for( i = 0; i < 28; i++ ) 
 		{
 			FLOAT x1 = (float)sin( 2 * D3DX_PI / 28 * i ) * radius;
 			FLOAT z1 = (float)cos( 2 * D3DX_PI / 28 * i ) * radius;
@@ -1527,7 +1527,8 @@ HRESULT CSkyBox::DeleteDeviceObjects()
 	SAFE_RELEASE(m_pSunTexture);
 	SAFE_RELEASE(m_pSunTexture2);
 	SAFE_RELEASE(m_pSnowTexture);
-	for(int i=0;i<8;i++) SAFE_RELEASE(m_pLensTexture[i]);
+	int i;
+	for( i=0;i<8;i++) SAFE_RELEASE(m_pLensTexture[i]);
 
 	SAFE_RELEASE(m_pTopSkyBoxVB);
 	SAFE_RELEASE(m_pSideSkyBoxVB);

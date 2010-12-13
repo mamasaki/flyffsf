@@ -66,7 +66,7 @@ void CLinkMap::Init( int nLandWidth, int nLandHeight, int nView, int nMPU )
 	for( int i=0; i < MAX_LINKLEVEL; i++ )
 	{
 		// m_nVisibilityRange[i] = { 2, 1, 0, 0, 0, 0 };
-		m_nVisibilityRange[i]	= (int)( 2 * nView / pow( 2, i ) );		
+		m_nVisibilityRange[i]	= (int)( 2 * nView / pow( 2,(float) i ) );		
 		int nSizeOfMask	= ( 2 * m_nVisibilityRange[i] + 1 ) * ( 2 * m_nVisibilityRange[i] + 1 );
 		m_apfMask[i]	= new BOOL[nSizeOfMask];
 		memset( m_apfMask[i], 0, sizeof(BOOL) * nSizeOfMask );
@@ -690,8 +690,8 @@ DWORD CLinkMap::CalcLinkLevel( CObj* pObj, float fObjWidth )
 		fGrid = fDynamicGrid;
 
 	float fMulGrid = 0.25f * (float)m_iMPU;			//gmpbigsun!!
-	
-	for( int nLevel = 0; nLevel < MAX_LINKLEVEL; ++nLevel )
+	int nLevel = 0;
+	for( ; nLevel < MAX_LINKLEVEL; ++nLevel )
 	{
 		if( fObjWidth < ( fGrid[nLevel] * fMulGrid ) )
 			break;

@@ -13,7 +13,8 @@ struct CREATE_MONSTER_PROP
 	DWORD GetRandomMonsterId()
 	{
 		int nRandom = xRandom( 100 );
-		for( map<DWORD, int>::iterator it=mapMonster.begin(); it!=mapMonster.end(); it++ )
+		map<DWORD, int>::iterator it;
+		for( it=mapMonster.begin(); it!=mapMonster.end(); it++ )
 		{
 			if( nRandom < it->second )
 				break;

@@ -518,13 +518,13 @@ void CWndPartyInfo::OnDraw( C2DRender* p2DRender )
 
 #if __VER >= 8 //__CSC_VER8_2
 	DWORD dwColor;
-	for( int i = 0; i < g_Party.m_nSizeofMember; i++ ) 
+	int i; for( i = 0; i < g_Party.m_nSizeofMember; i++ ) 
 	{		
 		dwColor = 0xff000000;
 #else 
 	DWORD dwColor = 0xff000000;
-	for( int i = 0; i < g_Party.m_nSizeofMember; i++ ) 
-	//for( int i = 0; i < 8; i++ )//g_Party.m_nSizeofMember; i++ ) 
+	int i; for( i = 0; i < g_Party.m_nSizeofMember; i++ ) 
+	//int i; for( i = 0; i < 8; i++ )//g_Party.m_nSizeofMember; i++ ) 
 	{
 #endif //__CSC_VER8_2
 		CMover* pObjMember	= prj.GetUserByID( g_Party.m_aMember[ i ].m_uPlayerId );
@@ -847,9 +847,9 @@ void CWndPartySkill::OnDraw( C2DRender* p2DRender )
 		int nWidth = rect.Width() / 3;
 		int nHeight = rect.Height() / 3;
 		int nCount = 0;
-		for( int i = 0; i < 3; i++ )
+		int i; for( i = 0; i < 3; i++ )
 		{
-			for( int j = 0; j < 3; j++, nCount++ )
+			int j; for(  j = 0; j < 3; j++, nCount++ )
 			{
 				ItemProp* pItemProp =  prj.GetPartySkill( nCount + 1 );
 				if( pItemProp ) //&& g_Party.m_nSizeofMember >= 2 )
@@ -910,9 +910,9 @@ void CWndPartySkill::OnMouseWndSurface( CPoint point )
 	int nWidth = rect.Width() / 3;
 	int nHeight = rect.Height() / 3;
 	int nCount = 0;
-	for( int i = 0; i < 3; i++ )
+	int i; for( i = 0; i < 3; i++ )
 	{
-		for( int j = 0; j < 3; j++, nCount++ )
+		int j; for(  j = 0; j < 3; j++, nCount++ )
 		{
 			ItemProp* pItemProp =  prj.GetPartySkill( nCount + 1 );
 			if( pItemProp ) //&& g_Party.m_nSizeofMember >= 2 )

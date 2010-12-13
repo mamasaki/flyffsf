@@ -57,7 +57,7 @@ int CRTMessenger::Serialize( CAr & ar )
 
 		u_long idFriend;
 
-		for( int i = 0; i < nSize; i++ )
+		int i; for( i = 0; i < nSize; i++ )
 		{
 			ar >> idFriend;
 			Friend f;

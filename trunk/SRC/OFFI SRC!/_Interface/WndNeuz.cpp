@@ -148,7 +148,7 @@ CWndNeuz::CWndNeuz()
 CWndNeuz::~CWndNeuz()
 {
 	// PLAYSND( SND_INF_CLOSE );
-	for( int i = 0; i < m_wndArrayTemp.GetSize(); i++ )
+	int i; for( i = 0; i < m_wndArrayTemp.GetSize(); i++ )
 		safe_delete( (CWndBase*)m_wndArrayTemp.GetAt( i ) );
 #ifdef __CLIENT
 	// 애플렛으로 등록된 윈도만 파괴할 때 윈도의 정보를 저장한다. 
@@ -218,7 +218,7 @@ void CWndNeuz::OnInitialUpdate()
 		m_strTexture = lpWndApplet->strTexture;
 		m_d3dFormat = lpWndApplet->d3dFormat;
 
-		for( int i = 0; i < lpWndApplet->ptrCtrlArray.GetSize(); i++ )
+		int i; for( i = 0; i < lpWndApplet->ptrCtrlArray.GetSize(); i++ )
 		{
 			m_wndArrayTemp.Add(
 				CreateControl( m_pApp->GetSafeHwnd(), (LPWNDCTRL)lpWndApplet->ptrCtrlArray.GetAt( i ) )
@@ -271,7 +271,7 @@ void CWndNeuz::AdditionalSkinTexture( LPWORD pDest, CSize size1, D3DFORMAT d3dFo
 	*/
 //	m_strTile = "WndTile00.bmp";
 	int nImgBit = IMGBIT_32;
-	for( int i = 0; i < 12; i++ )
+	int i; for( i = 0; i < 12; i++ )
 	{
 		CString strTemp1 = m_strTexture.Left( m_strTexture.GetLength() - 6 );
 		CString strTemp2 = m_strTexture.Right( 4 );
@@ -651,7 +651,7 @@ BOOL CWndNeuz::InitDialog( HWND hWnd, LPWNDAPPLET LPWNDAPPLET )
 	CRect rect(0,0,300,300);
 	SetTitle( LPWNDAPPLET->strTitle );
 	BOOL bResult = CWndNeuz::Create( 0 | WBS_MOVE | WBS_SOUND | WBS_THICKFRAME | WBS_CAPTION, rect, NULL, LPWNDAPPLET->dwWndId);
-	for( int i = 0; i < LPWNDAPPLET->ptrCtrlArray.GetSize(); i++ )
+	int i; for( i = 0; i < LPWNDAPPLET->ptrCtrlArray.GetSize(); i++ )
 		CreateControl( hWnd, (LPWNDCTRL)LPWNDAPPLET->ptrCtrlArray.GetAt( i ) );
 	return bResult;
 }

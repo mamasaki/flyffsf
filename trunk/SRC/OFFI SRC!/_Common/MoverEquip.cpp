@@ -300,7 +300,7 @@ void CMover::UpdateParts( int nSex, int nSkinSet, int nFace, int nHairMesh, int 
 	// 먼저 익스크루시브 오브젝트를 TakeOff한다.
 	BOOL abExclusiveParts[ MAX_HUMAN_PARTS ];
 	ZeroMemory( abExclusiveParts, sizeof( abExclusiveParts ) );
-	for( int i = 0; i < MAX_HUMAN_PARTS; i++ )
+	int i; for( i = 0; i < MAX_HUMAN_PARTS; i++ )
 	{
 		if( i == PARTS_HAIR || i == PARTS_HEAD  )//|| i == PARTS_CAP || i == PARTS_HAND || i == PARTS_FOOT )
 			continue;
@@ -1932,7 +1932,7 @@ void CMover::RedoEquip( BOOL fFakeParts, BOOL bDestParam )
 	BOOL bEquip;
 
 	// 장착될 아이템의 선 처리 
-	for( int i = 0; i < MAX_HUMAN_PARTS; i++ )
+	int i; for( i = 0; i < MAX_HUMAN_PARTS; i++ )
 	{
 		bEquip	= fFakeParts? ( m_aEquipInfo[i].dwId != NULL_ID ) : ( m_Inventory.GetEquip( i ) != NULL );
 		if( bEquip )
@@ -2613,6 +2613,6 @@ BOOL CMover::DoUseEquipmentItem( CItemElem* pItemElem, DWORD dwId, int nPart )
 void CMover::ClearEquipInfo()
 {
 	memset( m_aEquipInfo, 0, sizeof(EQUIP_INFO) * MAX_HUMAN_PARTS );
-	for( int i = 0; i < MAX_HUMAN_PARTS; i++ )
+	int i; for( i = 0; i < MAX_HUMAN_PARTS; i++ )
 		m_aEquipInfo[i].dwId = NULL_ID;
 }

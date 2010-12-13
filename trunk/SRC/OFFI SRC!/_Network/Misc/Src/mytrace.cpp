@@ -24,7 +24,8 @@ int CMyTrace::FindKey( u_long uKey )
 	}
 	else
 	{
-		for( int i = m_uHead; i < MAX_LOG; i++ ) {
+		int i;
+		for(  i = m_uHead; i < MAX_LOG; i++ ) {
 			if( m_mts[i].uKey == uKey )
 				return i;
 		}
@@ -126,7 +127,8 @@ void CMyTrace::Paint( HDC hDC )
 	}
 	else
 	{
-		for( int i = m_uHead; i < MAX_LOG; i++, cy += 14 ) {
+		int i;
+		for(  i = m_uHead; i < MAX_LOG; i++, cy += 14 ) {
 			CMyTrace::TextOut( hDC, 4, cy, m_mts[i].szText, m_mts[i].fInverse );
 		}
 		for( i = 0; i < m_uTail; i++, cy += 14 ) {

@@ -95,7 +95,7 @@ BOOL CEnvironment::LoadScript()
 			return FALSE;
 		}
 
-		for( int i = 0; i < 12; ++i )
+		int i; for( i = 0; i < 12; ++i )
 		{
 			int nSeason = scanner.GetNumber();
 			if( nSeason < 0 || nSeason >= SEASON_MAX )

@@ -646,7 +646,7 @@ HRESULT CNeuzApp::FinalCleanup()
 	Drv_SetGamma(GetSafeHwnd(), 1.0f, 10, 1.0f);
 #endif //__Y_GAMMA_CONTROL_8
 	
-	for( int i = 0; i < MAX_CHARACTER_LIST; i++ )
+	int i; for( i = 0; i < MAX_CHARACTER_LIST; i++ )
 	{
 		if( m_apPlayer[i] )
 			m_apPlayer[i]->m_pModel = NULL; 
@@ -1608,7 +1608,7 @@ LRESULT CNeuzApp::MsgProc( HWND hWnd, UINT msg, WPARAM wParam, LPARAM lParam )
 		{
 			int nVirtKey = (int) wParam;    // virtual-key code
 			int lKeyData = lParam;
-			for( int i = 0; i < MAX_SLOT_ITEM; ++i )
+			int i; for( i = 0; i < MAX_SLOT_ITEM; ++i )
 			{
 				if( g_bSlotSwitchAboutEquipItem[ i ] == TRUE )
 					g_bSlotSwitchAboutEquipItem[ i ] = FALSE;

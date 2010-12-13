@@ -96,7 +96,7 @@ LPSKILL CMover::GetSkill( int nType, int nIdx )
 }
 LPSKILL CMover::GetSkill( DWORD dwSkill )
 {
-	for( int i = 0; i < MAX_SKILL_JOB; i++ )	
+	int i; for( i = 0; i < MAX_SKILL_JOB; i++ )	
 	{
 		if( m_aJobSkill[i].dwSkill == dwSkill )
 			return &m_aJobSkill[i];
@@ -106,7 +106,7 @@ LPSKILL CMover::GetSkill( DWORD dwSkill )
 
 int		CMover::GetSkillIdx( DWORD dwSkill )
 {
-	for( int i = 0; i < MAX_SKILL_JOB; i++ )	
+	int i; for( i = 0; i < MAX_SKILL_JOB; i++ )	
 	{
 		if( m_aJobSkill[i].dwSkill == dwSkill )
 			return i;
@@ -161,7 +161,7 @@ BOOL CMover::CheckSkill( DWORD dwSkill )
 void CMover::PutLvUpSkillName_1( DWORD dwLevel )
 {
 #ifdef __CLIENT
-	for( int i = 0; i < MAX_SKILL_JOB; i++ )	
+	int i; for( i = 0; i < MAX_SKILL_JOB; i++ )	
 	{
 		if( m_aJobSkill[i].dwSkill == NULL_ID ) 
 			continue;
@@ -288,7 +288,7 @@ void CMover::PutLvUpSkillName_2( DWORD dwSkill )
 	
 	//현재 활성화 되어있는냐?
 	//나를 갖고있는 스킬을 검사하여 조건에 맞으면 그스킬을 활성화 한다.
-	for( int i = 0; i < MAX_SKILL_JOB; i++ )	
+	int i; for( i = 0; i < MAX_SKILL_JOB; i++ )	
 	{
 		if( m_aJobSkill[i].dwSkill == NULL_ID ) 
 			continue;
@@ -468,7 +468,7 @@ BOOL  CMover::SetExpert( int nJob )
 	LPSKILL lpSkill;
 	ItemProp** apSkillProp = prj.m_aJobSkill[ m_nJob ];
 	int nJobNum = prj.m_aJobSkillNum[ m_nJob ];
-	for( int i = 0; i < nJobNum; i++ )
+	int i; for( i = 0; i < nJobNum; i++ )
 	{
 		ItemProp* pSkillProp = apSkillProp[ i ];
 		lpSkill = &m_aJobSkill[ nNum++ ];
@@ -1619,7 +1619,7 @@ BOOL CMover::AddChangeJob( int nJob )
 		
 		ItemProp** apSkillProp = prj.m_aJobSkill[ m_nJob ];
 		int nJobNum = prj.m_aJobSkillNum[ m_nJob ];
-		for( int i = 0; i < nJobNum; i++ )
+		int i; for( i = 0; i < nJobNum; i++ )
 		{
 			ItemProp* pSkillProp = apSkillProp[ i ];
 			lpSkill = &m_aJobSkill[ i + MAX_JOB_SKILL ];
@@ -1633,7 +1633,7 @@ BOOL CMover::AddChangeJob( int nJob )
 		
 		ItemProp** apSkillProp = prj.m_aJobSkill[ m_nJob ];
 		int nJobNum = prj.m_aJobSkillNum[ m_nJob ];
-		for( int i = 0; i < nJobNum; i++ )
+		int i; for( i = 0; i < nJobNum; i++ )
 		{
 			ItemProp* pSkillProp = apSkillProp[ i ];
 			lpSkill = &m_aJobSkill[ i + MAX_JOB_SKILL + MAX_EXPERT_SKILL ];
@@ -1648,7 +1648,7 @@ BOOL CMover::AddChangeJob( int nJob )
 		
 		ItemProp** apSkillProp = prj.m_aJobSkill[ m_nJob ];
 		int nJobNum = prj.m_aJobSkillNum[ m_nJob ];
-		for( int i = 0; i < nJobNum; i++ )
+		int i; for( i = 0; i < nJobNum; i++ )
 		{
 			ItemProp* pSkillProp = apSkillProp[ i ];
 			lpSkill = &m_aJobSkill[ i + MAX_JOB_SKILL + MAX_EXPERT_SKILL + MAX_PRO_SKILL];
@@ -1664,7 +1664,7 @@ BOOL CMover::AddChangeJob( int nJob )
 		
 		ItemProp** apSkillProp = prj.m_aJobSkill[ m_nJob ];
 		int nJobNum = prj.m_aJobSkillNum[ m_nJob ];
-		for( int i = 0; i < nJobNum; i++ )
+		int i; for( i = 0; i < nJobNum; i++ )
 		{
 			ItemProp* pSkillProp = apSkillProp[ i ];
 			lpSkill = &m_aJobSkill[ i + MAX_JOB_SKILL + MAX_EXPERT_SKILL + MAX_PRO_SKILL + MAX_MASTER_SKILL ];
@@ -1740,7 +1740,7 @@ BOOL CMover::SetExperience( EXPINTEGER nExp1, int nLevel )
 		
 		// 2, 8, 12
 		static	int nPatLv[4]	= { 2, 8, 12, 0	};
-		for( int i = 0; i < 3; i++ ) {
+		int i; for( i = 0; i < 3; i++ ) {
 			if( m_nLevel < nPatLv[i] && nLevel >= nPatLv[i] ) {
 				g_WndMng.PutString( prj.GetText( TID_GAME_PATTERNUP ), NULL, prj.GetTextColor( TID_GAME_PATTERNUP ) );
 				break;
@@ -1906,7 +1906,7 @@ void CMover::SetEquipDstParam()
 	if( IsPlayer() ) 
 	{
 		CItemElem* pItemElem;
-		for( int i = 0; i < MAX_HUMAN_PARTS; i++ )
+		int i; for( i = 0; i < MAX_HUMAN_PARTS; i++ )
 		{
 			pItemElem = GetEquipItem( i ); //m_Inventory.GetAtId( m_adwEquipment[ i ] );
 			if( pItemElem )
@@ -1925,7 +1925,7 @@ int CMover::SumEquipDefenseAbility( LONG* pnMin, LONG* pnMax )
 		CItemElem* pItemElem;
 		ItemProp *pItemProp;
 
-		for( int i = 0; i < MAX_HUMAN_PARTS; i++ )
+		int i; for( i = 0; i < MAX_HUMAN_PARTS; i++ )
 		{
 			pItemElem = GetEquipItem( i ); //m_Inventory.GetAtId( m_adwEquipment[ i ] );
 			//if(pItem && !pItem->IsBreakableItem() && (pItem->m_nHitPoint == 1 || pItem->m_nHitPoint == 0))
@@ -1982,7 +1982,7 @@ void CMover::SumEquipAdjValue( int* pnAdjHitRate, int* pnAdjParray )
 	*pnAdjParray = 0;
 
 	CItemElem* pItemElem;
-	for( int i = 0; i < MAX_HUMAN_PARTS; i++ )
+	int i; for( i = 0; i < MAX_HUMAN_PARTS; i++ )
 	{
 		pItemElem = GetEquipItem( i );
 		if( pItemElem )  
@@ -3376,7 +3376,7 @@ void CMover::HalfForceSet( D3DXVECTOR3 & vPos, D3DXVECTOR3 & vd, float fAngle, f
 
 BOOL CMover::IsCompleteQuest( int nQuestId )
 {
-	for( int i = 0; i < m_nCompleteQuestSize; i++ )
+	int i; for( i = 0; i < m_nCompleteQuestSize; i++ )
 	{
 		if( m_aCompleteQuest[ i ] == nQuestId )
 		{
@@ -3388,7 +3388,7 @@ BOOL CMover::IsCompleteQuest( int nQuestId )
 
 BOOL CMover::MakeCompleteQuest( int nQuestId, LPQUEST lpQuest )
 {
-	for( int i = 0; i < m_nCompleteQuestSize; i++ )
+	int i; for( i = 0; i < m_nCompleteQuestSize; i++ )
 	{
 		if( m_aCompleteQuest[ i ] == nQuestId )
 		{
@@ -3416,7 +3416,7 @@ void CMover::RemoveCompleteQuest()
 
 LPQUEST CMover::FindQuest( int nQuestId )
 {
-	for( int i = 0; i < m_nQuestSize; i++ )
+	int i; for( i = 0; i < m_nQuestSize; i++ )
 	{
 		if( m_aQuest[ i ].m_wId == nQuestId )
 		{
@@ -3430,7 +3430,7 @@ BOOL CMover::RemoveQuest( int nQuestId )
 {
 	QuestProp* pProp = prj.m_aPropQuest.GetAt( nQuestId );
 
-	for( int i = 0; i < m_nQuestSize; i++ )
+	int i; for( i = 0; i < m_nQuestSize; i++ )
 	{
 		if( m_aQuest[ i ].m_wId == nQuestId )
 		{
@@ -3529,7 +3529,7 @@ BOOL CMover::__SetQuest( LPQUEST lpQuest, LPQUEST lpNewQuest )
 		// 대신, 완료 궤스트 배열에 넣어 보관한다.
 		if( m_nCompleteQuestSize < MAX_COMPLETE_QUEST ) 
 		{
-			for( int i = 0; i < m_nQuestSize; i++ )
+			int i; for( i = 0; i < m_nQuestSize; i++ )
 			{
 				if( m_aQuest[ i ].m_wId == lpNewQuest->m_wId )
 				{
@@ -3588,7 +3588,7 @@ int CMover::GetItemNum( DWORD dwItemId )
 	int nNum	= 0;
 	int nSize	= m_Inventory.GetMax();
 	CItemElem* pItemElem;
-	for( int i = 0 ; i < nSize; i++ )
+	int i; for( i = 0 ; i < nSize; i++ )
 	{
 		pItemElem	= m_Inventory.GetAtId( i );
 		if( pItemElem )
@@ -3609,7 +3609,7 @@ int CMover::GetItemNumForClient( DWORD dwItemId )
 	int nNum	= 0;
 	int nSize	= m_Inventory.GetMax();
 	CItemElem* pItemElem;
-	for( int i = 0 ; i < nSize; i++ )
+	int i; for( i = 0 ; i < nSize; i++ )
 	{
 		pItemElem	= m_Inventory.GetAtId( i );
 		if( pItemElem )
@@ -3636,7 +3636,7 @@ int CMover::RemoveItemA( DWORD dwItemId, short nNum )
 	CItemElem* pItemElem;
 	short nRemnant	= nNum;
 
-	for( int i = 0 ; i < nSize && nRemnant > 0; i++ )
+	int i; for( i = 0 ; i < nSize && nRemnant > 0; i++ )
 	{
 		pItemElem	= m_Inventory.GetAtId( i );
 		if( pItemElem && pItemElem->m_dwItemId == dwItemId )
@@ -3663,7 +3663,7 @@ int CMover::RemoveAllItem( DWORD dwItemId )
 	int nNum = 0;
 	int	nSize	= m_Inventory.GetMax();
 
-	for( int i = 0 ; i < nSize; ++i )
+	int i; for( i = 0 ; i < nSize; ++i )
 	{
 		CItemElem* pItemElem = m_Inventory.GetAtId( i );
 		if( pItemElem && pItemElem->m_dwItemId == dwItemId )

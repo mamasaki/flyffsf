@@ -620,7 +620,7 @@ void CWndGuildHousing::OnInitialUpdate()
 	int sHeight = 30;
 
 	CRect rect( 368, 10, 408, 40 );
-	for( int i = 0; i < GH_MAX_VIEW_CAPACITY; ++i )
+	int i; for( i = 0; i < GH_MAX_VIEW_CAPACITY; ++i )
 	{
 		rect.top = 55 + ( i * sHeight ) + ( i + 1 ) * 10;
 		rect.bottom = 65 + ( i * sHeight ) + sHeight + ( i + 1 ) * 10;
@@ -809,7 +809,7 @@ void CWndGuildHousing::RefreshItemList( )
 		bShowWanted = TRUE;
 
 	int iMaxSize = GuildHouse->GetFurnitureListSize( );
-	for( int i = 0; i < iMaxSize; ++i )
+	int i; for( i = 0; i < iMaxSize; ++i )
 	{
 		GH_Fntr_Info* pInfo = GuildHouse->GetFurnitureInfoPtr( i );
 		if( !pInfo )
@@ -901,7 +901,7 @@ void CWndGuildHousing::UpdateIRButton( )
 		pWndListBox->SetScrollPos( 0 );
 
 	int iMaxSize = m_cWndItems.size( );
-	for( int i = 0; i < GH_MAX_VIEW_CAPACITY; ++i )
+	int i; for( i = 0; i < GH_MAX_VIEW_CAPACITY; ++i )
 	{
 		int top = i + nScrollPos;						//실제 데이터는 스크롤 포지션에 영향을 받고
 		
@@ -938,7 +938,7 @@ void CWndGuildHousing::UpdateIRButton( )
 	if( bResult && IsSection( GS_TELEPORTER ) )
 	{
 		BOOL bInstalledTeleporter = FALSE;
-		for( int i = 0; i < iMaxSize; ++i )
+		int i; for( i = 0; i < iMaxSize; ++i )
 		{
 			if( m_cWndItems[ i ].m_bDeploy )
 				bInstalledTeleporter = TRUE;
@@ -1097,7 +1097,7 @@ BOOL CWndGuildHousing::SetSelectedByObjID( OBJID objID )
 	// 오브젝트 아이디로 현재 유지하는 Data index를 뽑는다. 오브젝트를 선택했을때 윈도우에 자동선택기능을 위해 만들어짐 
 
 	int totalSize = m_cWndItems.size();
-	for( int i = 0; i < totalSize; ++i )
+	int i; for( i = 0; i < totalSize; ++i )
 	{
 		HOUSING_ITEM& kItem = m_cWndItems[ i ];
 		if( kItem.dwItemId == objID )
@@ -1142,7 +1142,7 @@ void CWndGuildHousing::FixScrollBar( const int nSelected )
 int CWndGuildHousing::GetWndItemIndexByObjID( OBJID objID )
 {
 	int totalSize = m_cWndItems.size();
-	for( int i = 0; i < totalSize; ++i )
+	int i; for( i = 0; i < totalSize; ++i )
 	{
 		HOUSING_ITEM& kItem = m_cWndItems[ i ];
 		if( kItem.dwItemId == objID )
@@ -1414,7 +1414,7 @@ BOOL CWndGuildHousing::Process()
 
 void CWndGuildHousing::SetEnableInstallBtns( BOOL bEnable )
 {
-	for( int i = 0; i < GH_MAX_VIEW_CAPACITY; ++i )
+	int i; for( i = 0; i < GH_MAX_VIEW_CAPACITY; ++i )
 	{
 		m_wndButton[ i ].EnableWindow( bEnable );
 	}
@@ -1925,7 +1925,7 @@ void CWndGuildHouseBid::MakeMoneyStyle( OUT CString& str )
 	if( len < 4 )
 		return;
 
-	for( int i = 0; i < len; ++i )
+	int i; for( i = 0; i < len; ++i )
 	{
 		if( i > 0 && i != (len-1) && i % 3 == 0 )		// i가 3의 배수이면
 			rst.Insert( rst.GetLength(), ',' );

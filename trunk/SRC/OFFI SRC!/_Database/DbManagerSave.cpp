@@ -729,8 +729,8 @@ void CDbManager::SaveQuest( CMover* pMover, char* szQuestCnt, char* szm_aComplet
 #if __VER >= 15 // __IMPROVE_QUEST_INTERFACE
 	char OneCheckedQuest[20] = {0, };
 #endif // __IMPROVE_QUEST_INTERFACE
-
-	for( int i = 0; i < pMover->m_nQuestSize; i++ )
+	int i;
+	for(  i = 0; i < pMover->m_nQuestSize; i++ )
 	{
 		sprintf( sPerQuest, "%d,%d,%d,%d,%d,%d,%d,%d,%d,%d,%d,%d,%d/",
 			pMover->m_aQuest[i].m_wId, pMover->m_aQuest[i].m_nState, pMover->m_aQuest[i].m_wTime,
@@ -968,7 +968,8 @@ void CDbManager::SaveTaskBar( CMover* pMover, char* szAppletTaskBar, char* szIte
 	char OneAppletTaskBar[MAX_TASKBAR] = { 0, };
 	char OneItemTaskBar[MAX_TASKBAR] = { 0, };
 	char OneSkillTaskBar[256] = { 0, };
-	for( int ch = 0 ; ch < MAX_SLOT_APPLET ; ch++ )
+	int ch;
+	for(  ch = 0 ; ch < MAX_SLOT_APPLET ; ch++ )
 	{
 		if( pMover->m_UserTaskBar.m_aSlotApplet[ch].m_dwShortcut != SHORTCUT_NONE )
 		{
@@ -1187,7 +1188,8 @@ void CDbManager::SaveOneItem( CItemElem* pItemElem, PItemStruct pItemStruct )
 		if( itemProp && itemProp->IsUltimate() )
 		{
 			sprintf( pItemStruct->szPiercing, "%d", pItemElem->GetUltimatePiercingSize() );
-			for( int nPirecing = 0 ; nPirecing < pItemElem->GetUltimatePiercingSize(); ++nPirecing )
+			int nPirecing;
+			for(  nPirecing = 0 ; nPirecing < pItemElem->GetUltimatePiercingSize(); ++nPirecing )
 			{
 				sprintf( szPiercing, ",%d", pItemElem->GetUltimatePiercingItem( nPirecing ) );
 				strncat( pItemStruct->szPiercing, szPiercing, sizeof(szPiercing) );
@@ -1201,8 +1203,8 @@ void CDbManager::SaveOneItem( CItemElem* pItemElem, PItemStruct pItemStruct )
 		else
 #endif // __EXT_PIERCING
 			sprintf( pItemStruct->szPiercing, "%d", pItemElem->GetPiercingSize() );
-
-		for( int nPirecing = 0 ; nPirecing < pItemElem->GetPiercingSize(); ++nPirecing )
+		int nPirecing ;
+		for( nPirecing = 0 ; nPirecing < pItemElem->GetPiercingSize(); ++nPirecing )
 		{
 			sprintf( szPiercing, ",%d", pItemElem->GetPiercingItem( nPirecing ) );
 			strncat( pItemStruct->szPiercing, szPiercing, sizeof(szPiercing) );

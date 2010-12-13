@@ -154,7 +154,7 @@ public:
 				ar >> nSize;
 				BYTE byHdr;
 				int nCount;
-				for( int i = 0; i < nSize; i++ )
+				int i; for( i = 0; i < nSize; i++ )
 				{
 					ar >> byHdr >> nCount;
 					insert( map<BYTE, int>::value_type( byHdr, nCount ) );

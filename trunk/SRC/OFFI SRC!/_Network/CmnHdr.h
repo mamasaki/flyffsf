@@ -315,7 +315,7 @@ inline BOOL IsAcValid( const TCHAR* lpszAccount )
 	if( _istalpha( *lpszAccount ) == 0 )
 		return FALSE;
 
-	for( int i = 0; i < len; i++ ) {
+	int i; for( i = 0; i < len; i++ ) {
 		if( _istalnum( lpszAccount[i] ) == 0 )
 			return FALSE;
 	}
@@ -330,7 +330,7 @@ inline BOOL IsAcValid( const TCHAR* lpszAccount )
 		}
 		else
 		{
-			for( int i = 0; i < strAccount.GetLength(); i++ )
+			int i; for( i = 0; i < strAccount.GetLength(); i++ )
 			{
 				c	= strAccount.GetAt( i );
 				if( IsDBCSLeadByte( c ) == TRUE )
@@ -364,7 +364,7 @@ inline BOOL IsPwdValid( const TCHAR* lpszPassword )
 		}
 		else
 		{
-			for( int i = 0; i < strPassword.GetLength(); i++ )
+			int i; for( i = 0; i < strPassword.GetLength(); i++ )
 			{
 				c	= strPassword.GetAt( i );
 				if( IsDBCSLeadByte( c ) == TRUE )

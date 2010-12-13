@@ -54,7 +54,7 @@ CParty::CParty()
 	m_nKindTroup = 0;							// 단막극단
 	m_nReferens = 0;
 	m_nGetItemPlayerId = 0;
-	for( int i = 0 ; i < MAX_PARTYMODE ; i++ )
+	int i; for( i = 0 ; i < MAX_PARTYMODE ; i++ )
 	{
 		m_nModeTime[i] = 0;
 	}
@@ -78,7 +78,7 @@ void CParty::InitParty()
 	m_nTroupsShareExp = m_nTroupeShareItem = 0;
 	m_nKindTroup = 0;							// 단막극단
 	m_nReferens = 0;	
-	for( int i = 0 ; i < MAX_PTMEMBER_SIZE ; i++ )
+	int i; for( i = 0 ; i < MAX_PTMEMBER_SIZE ; i++ )
 	{
 		m_aMember[i].m_uPlayerId	= 0;
 		m_aMember[i].m_tTime = CTime::GetCurrentTime();
@@ -105,7 +105,7 @@ CMover* CParty::GetLeader( void )
 
 int CParty::FindMember( u_long uPlayerId )
 {
-	for( int i = 0; i < m_nSizeofMember; i++ )
+	int i; for( i = 0; i < m_nSizeofMember; i++ )
 		if( m_aMember[i].m_uPlayerId == uPlayerId )
 			return i;
 	return -1;
@@ -145,7 +145,7 @@ BOOL CParty::DeleteMember( u_long uPlayerId )
 	int Findid = FindMember( uPlayerId );
 	if( Findid >= 0)
 	{
-		for( int i = Findid ; i < m_nSizeofMember-1 ; i++ )
+		int i; for( i = Findid ; i < m_nSizeofMember-1 ; i++ )
 		{
 			memcpy( &m_aMember[i], &m_aMember[i+1], sizeof(PartyMember) );
 		}
@@ -174,7 +174,7 @@ void CParty::Serialize( CAr & ar )
 		ar << m_nLevel << m_nExp << m_nPoint;
 		ar << m_nTroupsShareExp << m_nTroupeShareItem;
 		ar << m_idDuelParty;
-		for( int i = 0 ; i < MAX_PARTYMODE  ; i++ )
+		int i; for( i = 0 ; i < MAX_PARTYMODE  ; i++ )
 		{
 			ar << m_nModeTime[i];
 		}
@@ -200,7 +200,7 @@ void CParty::Serialize( CAr & ar )
 		ar >> m_nLevel >> m_nExp >> m_nPoint;
 		ar >> m_nTroupsShareExp >> m_nTroupeShareItem;
 		ar >> m_idDuelParty;
-		for( int i = 0 ; i < MAX_PARTYMODE  ; i++ )
+		int i; for( i = 0 ; i < MAX_PARTYMODE  ; i++ )
 		{
 			ar >> m_nModeTime[i];
 		}
@@ -739,7 +739,7 @@ void CParty::ReplaceLodestar( const CRect &rect )
 {
 	// locked
 	CUser* pUser;
-	for( int i = 0; i < m_nSizeofMember; i ++ )		// 극단원 모두에게 듀얼 해제를 세팅하고 클라에도 알림.
+	int i; for( i = 0; i < m_nSizeofMember; i ++ )		// 극단원 모두에게 듀얼 해제를 세팅하고 클라에도 알림.
 	{
 		pUser	= g_UserMng.GetUserByPlayerID( m_aMember[i].m_uPlayerId );
 
@@ -767,7 +767,7 @@ void CParty::ReplaceLodestar( const CRect &rect )
 void CParty::Replace( DWORD dwWorldId, D3DXVECTOR3 & vPos, BOOL bMasterAround )
 {
 	CUser *pMember;
-	for( int i = 0; i < m_nSizeofMember; i ++ )		// 극단원 모두에게 듀얼 해제를 세팅하고 클라에도 알림.
+	int i; for( i = 0; i < m_nSizeofMember; i ++ )		// 극단원 모두에게 듀얼 해제를 세팅하고 클라에도 알림.
 	{
 		pMember	= g_UserMng.GetUserByPlayerID( m_aMember[i].m_uPlayerId );
 
@@ -796,7 +796,7 @@ void CParty::Replace( DWORD dwWorldId, D3DXVECTOR3 & vPos, BOOL bMasterAround )
 void CParty::Replace( DWORD dwWorldId, LPCTSTR sKey )
 {
 	CUser *pMember;
-	for( int i = 0; i < m_nSizeofMember; i ++ )		// 극단원 모두에게 듀얼 해제를 세팅하고 클라에도 알림.
+	int i; for( i = 0; i < m_nSizeofMember; i ++ )		// 극단원 모두에게 듀얼 해제를 세팅하고 클라에도 알림.
 	{
 		pMember	= g_UserMng.GetUserByPlayerID( m_aMember[i].m_uPlayerId );
 		
@@ -812,7 +812,7 @@ void CParty::Replace( DWORD dwWorldId, LPCTSTR sKey )
 BOOL CParty::ReplaceChkLv( int Lv )
 {
 	CUser *pMember;
-	for( int i = 0; i < m_nSizeofMember; i ++ )		// 극단원 모두에게 듀얼 해제를 세팅하고 클라에도 알림.
+	int i; for( i = 0; i < m_nSizeofMember; i ++ )		// 극단원 모두에게 듀얼 해제를 세팅하고 클라에도 알림.
 	{
 		pMember	= g_UserMng.GetUserByPlayerID( m_aMember[i].m_uPlayerId );
 		
@@ -1000,7 +1000,7 @@ void CPartyMng::Serialize( CAr & ar )
 		int nCount;
 		ar >> m_id;
 		ar >> nCount;		
-		for( int i = 0 ; i < nCount ; i++ )
+		int i; for( i = 0 ; i < nCount ; i++ )
 		{
 			CParty* pParty	= new CParty;
 //			pParty->Lock();
@@ -1110,7 +1110,7 @@ void CPartyMng::Worker( void )
 			++i;
 			if( pParty->m_nReferens > 0 )
 			{
-				for( int j = 1; j < pParty->m_nSizeofMember; j++ )
+				int j; for(  j = 1; j < pParty->m_nSizeofMember; j++ )
 				{
 					if( pParty->m_aMember[j].m_uPlayerId != 0 && pParty->m_aMember[j].m_bRemove )
 					{
@@ -1141,7 +1141,7 @@ void CPartyMng::Worker( void )
 			}	// if
 
 			// 파티모드를 체크
-			for( int j = 0 ; j < MAX_PARTYMODE ; j++ )
+			int j; for(  j = 0 ; j < MAX_PARTYMODE ; j++ )
 			{
 				if( pParty->m_nModeTime[j] )
 				{
@@ -1218,7 +1218,7 @@ void CPartyMng::RemoveConnection( CPlayer* pPlayer )
 		if( i == 0 )
 		{
 			bool fRemoveParty	= true;
-			for( int j = 1; j < pParty->m_nSizeofMember; j++ )
+			int j; for(  j = 1; j < pParty->m_nSizeofMember; j++ )
 			{
 				if( pParty->m_aMember[j].m_bRemove == FALSE )
 				{
@@ -1271,7 +1271,7 @@ void CPartyMng::PartyMapInfo( )
 	for( C2PartyPtr::iterator i	= m_2PartyPtr.begin(); i != m_2PartyPtr.end(); ++i )
 	{
 		CParty* pParty = (CParty*)i->second;
-		for( int j = 0 ; j < pParty->GetSizeofMember() ; ++j )
+		int j; for(  j = 0 ; j < pParty->GetSizeofMember() ; ++j )
 		{
 			CMover* pMover = prj.GetUserByID( pParty->GetPlayerId( j ) );
 			if( !IsValidObj( pMover ) )

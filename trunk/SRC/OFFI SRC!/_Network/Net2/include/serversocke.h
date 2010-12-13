@@ -303,7 +303,7 @@ HRESULT CServerSockE<T>::GetPeerAddr( DPID dpid, LPVOID lpAddr, LPDWORD lpdwSize
 	}
 
 template <class T>
-CServerSockE<T>::ListenThreadE( void )
+int CServerSockE<T>::ListenThreadE( void )
 	{
 		HANDLE handle[3];
 		DWORD dw;

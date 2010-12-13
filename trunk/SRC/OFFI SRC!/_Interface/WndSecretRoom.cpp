@@ -96,7 +96,7 @@ void CWndSecretRoomSelection::RemoveGuildPlayer( int nIndex )
 	CWndListBox* pWndList = (CWndListBox*)GetDlgItem( WIDC_LISTBOX1 );
 	
 	pWndList->DeleteString( nIndex );
-	vector<u_long>::iterator where = &(m_vecGuildList[nIndex]);	
+	vector<u_long>::iterator where = m_vecGuildList.begin()+nIndex;	
 	m_vecGuildList.erase( where );	
 } 
 
@@ -105,7 +105,7 @@ void CWndSecretRoomSelection::RemoveCombatPlayer( int nIndex )
 	CWndListBox* pWndList = (CWndListBox*)GetDlgItem( WIDC_LISTBOX2 );
 	
 	pWndList->DeleteString( nIndex );
-	vector<u_long>::iterator where = &(m_vecSelectPlayer[nIndex]);	
+	vector<u_long>::iterator where =  m_vecGuildList.begin()+nIndex;	
 
 	m_vecSelectPlayer.erase( where );
 
@@ -167,7 +167,7 @@ void CWndSecretRoomSelection::UpDateGuildListBox()
 
 u_long CWndSecretRoomSelection::FindCombatPlayer(u_long uiPlayer)
 {
-	for( int i = 0; i < (int)( m_vecSelectPlayer.size() ); i++ )
+	int i; for( i = 0; i < (int)( m_vecSelectPlayer.size() ); i++ )
 	{
 		if( m_vecSelectPlayer[i] == uiPlayer )
 			return m_vecSelectPlayer[i];
@@ -178,7 +178,7 @@ u_long CWndSecretRoomSelection::FindCombatPlayer(u_long uiPlayer)
 
 u_long CWndSecretRoomSelection::FindGuildPlayer(u_long uiPlayer)
 {
-	for( int i = 0; i < (int)( m_vecGuildList.size() ); i++ )
+	int i; for( i = 0; i < (int)( m_vecGuildList.size() ); i++ )
 	{
 		if( m_vecGuildList[i] == uiPlayer )
 			return m_vecGuildList[i];
@@ -2242,7 +2242,8 @@ void CWndSecretRoomQuick::SortMemberList()
 	memset( memberList, 0, sizeof(u_long) * MAX_SECRETROOM_MEMBER );
 
 	int nCount = m_vecGuildMemberId.size();
-	for(int i=0; i<nCount-1; i++)
+	int i;
+	for( i=0; i<nCount-1; i++)
 		memberList[i] = m_vecGuildMemberId[i+1];
 
 	std::sort( memberList, memberList + nCount, prMemberLevelDesc );

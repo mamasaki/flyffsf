@@ -37,7 +37,7 @@ HRESULT CTerrainMng::InvalidateDeviceObjects()
 }
 HRESULT CTerrainMng::DeleteDeviceObjects()
 {
-	for( int i = 0; i < MAX_TERRAIN; i++ )
+	int i; for( i = 0; i < MAX_TERRAIN; i++ )
 	{
 		if( m_aTerrain[ i ].m_pTexture )
 			SAFE_RELEASE( m_aTerrain[ i ].m_pTexture );

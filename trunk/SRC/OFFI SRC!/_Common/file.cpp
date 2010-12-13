@@ -133,7 +133,7 @@ void CResFile::AddResource( TCHAR* lpszResName )
 		char *pCryptHeader = new char[ nFileHeaderSize ];
 		file.Read( pCryptHeader, nFileHeaderSize );
 		
-		for( int i = 0; i < nFileHeaderSize; i++ )
+		int i; for( i = 0; i < nFileHeaderSize; i++ )
 		{
 			pHeader[i] = Decryption( byEncryptionKey, pCryptHeader[ i ] );
 		}
@@ -151,7 +151,7 @@ void CResFile::AddResource( TCHAR* lpszResName )
 	memcpy( &nFileNumber, &pHeader[ nHeaderPosition ], sizeof( short ) ); nHeaderPosition += sizeof( short );
 	time_t time_;
 	BOOL bFind = FALSE;
-	for( int i = 0; i < nFileNumber; i++ )
+	int i; for( i = 0; i < nFileNumber; i++ )
 	{
 		memcpy( &nFileNameLength, &pHeader[ nHeaderPosition ], sizeof( short ) ); nHeaderPosition += sizeof( short );
 		memcpy( szFileName, &pHeader[ nHeaderPosition ], nFileNameLength ); nHeaderPosition += nFileNameLength;
@@ -414,7 +414,7 @@ BOOL CResFile::FindFileFromResource( char *filepath, LPCTSTR lpszFileName )
 		char *pCryptHeader = new char[ nFileHeaderSize ];
 		m_File.Read( pCryptHeader, nFileHeaderSize );
 
-		for( int i = 0; i < nFileHeaderSize; i++ )
+		int i; for( i = 0; i < nFileHeaderSize; i++ )
 		{
 			pHeader[i] = Decryption( m_byEncryptionKey, pCryptHeader[ i ] );
 		}
@@ -433,7 +433,7 @@ BOOL CResFile::FindFileFromResource( char *filepath, LPCTSTR lpszFileName )
 	memcpy( &nFileNumber, &pHeader[ nHeaderPosition ], sizeof( short ) ); nHeaderPosition += sizeof( short );
 	//	FILEOUT( "c:\\debug.txt", "1 -1 %s %s %d \n", lpszFileName, strVersion, nFileNumber );
 	time_t time_;
-	for( int i = 0; i < nFileNumber; i++ )
+	int i; for( i = 0; i < nFileNumber; i++ )
 	{
 		//FILEOUT( "c:\\debug.txt", "2 %s %s %d \n", lpszFileName, szFileName, nFileNumber );
 
@@ -488,7 +488,7 @@ LPVOID CResFile::Read( void )
 		// 암호화일 경우 암호를 푼다.
 		if( IsEncryption() )
 		{
-			for( int i = 0; i < size;  i++ )
+			int i; for( i = 0; i < size;  i++ )
 				((BYTE*)ptr)[ i ] = Decryption( m_byEncryptionKey, ((BYTE*)ptr)[ i ] );
 		}
 		return ptr;
@@ -507,7 +507,7 @@ size_t CResFile::Read( void *ptr, size_t size, size_t n /* = 1  */ )
 		// 암호화일 경우 암호를 푼다.
 		if( IsEncryption() )
 		{
-			for( int i = 0; i < (int)( size_ );  i++ )
+			int i; for( i = 0; i < (int)( size_ );  i++ )
 				((BYTE*)ptr)[ i ] = Decryption( m_byEncryptionKey, ((BYTE*)ptr)[ i ] );
 		}
 #ifdef __SECURITY_0628

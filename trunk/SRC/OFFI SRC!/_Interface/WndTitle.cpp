@@ -688,7 +688,7 @@ void CWndSelectServer::OnInitialUpdate()
 	TCHAR szTitle[3][10] = {_T("Server"), _T("Ping"), _T("Max") };
 	
 	BOOL bSeveServer = FALSE;
-	for( int j = 0; j < (int)( g_dpCertified.m_dwSizeofServerset ); j++ )
+	int j; for(  j = 0; j < (int)( g_dpCertified.m_dwSizeofServerset ); j++ )
 	{
 		char lpString[MAX_PATH]	= { 0, };
 		char lpStrtmp[32]	= { 0, };
@@ -931,7 +931,7 @@ BOOL CWndSelectServer::OnChildNotify(UINT message,UINT nID,LRESULT* pLResult)
 
 					pWndListMulti->ResetContent();
 					LPSERVER_DESC pServerDesc	= (LPSERVER_DESC)pWndListServer->GetItemData( pWndListServer->GetCurSel() );
-					for( int j = 0; j < (int)( g_dpCertified.m_dwSizeofServerset ); j++ )
+					int j; for(  j = 0; j < (int)( g_dpCertified.m_dwSizeofServerset ); j++ )
 					{
 						if( g_dpCertified.m_aServerset[j].dwParent == pServerDesc->dwID && ( g_dpCertified.m_aServerset[j].lEnable != 0L ) )
 						{
@@ -1025,7 +1025,7 @@ BOOL CWndSelectServer::OnChildNotify(UINT message,UINT nID,LRESULT* pLResult)
 			if( pServerDesc->dwParent != g_Neuz.m_dwSys )
 			{
 				CWndListBox* pWndListBox	= (CWndListBox*)GetDlgItem( WIDC_CONTROL0 );
-				for( int i = 0; i < pWndListBox->GetCount(); i++ )
+				int i; for( i = 0; i < pWndListBox->GetCount(); i++ )
 				{
 					LPSERVER_DESC ptr	= (LPSERVER_DESC)pWndListBox->GetItemData( i );
 					if( ptr && ptr->dwID == pServerDesc->dwParent )
@@ -1306,9 +1306,9 @@ BOOL CWndDeleteChar::OnChildNotify( UINT message, UINT nID, LRESULT* pLResult )
 			{
 				BOOL bisdigit = TRUE;
 #ifdef __DELETE_CHAR_CHANGE_KEY_VALUE
-				for( int i = 0 ; i < 4 ; i++ )
+				int i; for( i = 0 ; i < 4 ; i++ )
 #else // __DELETE_CHAR_CHANGE_KEY_VALUE
-				for( int i = 0 ; i < 7 ; i++ )
+				int i; for( i = 0 ; i < 7 ; i++ )
 #endif // __DELETE_CHAR_CHANGE_KEY_VALUE
 				{
 					if( (isdigit2( szNo[i] ) == FALSE) )
@@ -1379,7 +1379,7 @@ CWndSelectChar::~CWndSelectChar()
 {
 	InvalidateDeviceObjects();
 	DeleteDeviceObjects();
-	for( int i = 0; i < MAX_CHARACTER_LIST; i++ )
+	int i; for( i = 0; i < MAX_CHARACTER_LIST; i++ )
 	{
 		SAFE_DELETE( m_pBipedMesh[ i ] );
 	}
@@ -1427,7 +1427,7 @@ void CWndSelectChar::OnDestroyChildWnd( CWndBase* pWndChild )
 HRESULT CWndSelectChar::InitDeviceObjects()
 {
 	CWndBase::InitDeviceObjects();
-	for( int i = 0; i < MAX_CHARACTER_LIST; i++ )
+	int i; for( i = 0; i < MAX_CHARACTER_LIST; i++ )
 	{
 		if( m_pBipedMesh[ i ] )
 			m_pBipedMesh[ i ]->InitDeviceObjects( m_pApp->m_pd3dDevice );
@@ -1438,7 +1438,7 @@ HRESULT CWndSelectChar::InitDeviceObjects()
 HRESULT CWndSelectChar::RestoreDeviceObjects()
 {
 	CWndBase::RestoreDeviceObjects();
-	for( int i = 0; i < MAX_CHARACTER_LIST; i++ )
+	int i; for( i = 0; i < MAX_CHARACTER_LIST; i++ )
 	{
 		if( m_pBipedMesh[ i ] )
 			m_pBipedMesh[ i ]->RestoreDeviceObjects();
@@ -1448,7 +1448,7 @@ HRESULT CWndSelectChar::RestoreDeviceObjects()
 HRESULT CWndSelectChar::InvalidateDeviceObjects()
 {
 	CWndBase::InvalidateDeviceObjects();
-	for( int i = 0; i < MAX_CHARACTER_LIST; i++ )
+	int i; for( i = 0; i < MAX_CHARACTER_LIST; i++ )
 	{
 		if( m_pBipedMesh[ i ] )
 			m_pBipedMesh[ i ]->InvalidateDeviceObjects();
@@ -1458,7 +1458,7 @@ HRESULT CWndSelectChar::InvalidateDeviceObjects()
 HRESULT CWndSelectChar::DeleteDeviceObjects()
 {
 	CWndBase::DeleteDeviceObjects();
-	for( int i = 0; i < MAX_CHARACTER_LIST; i++ )
+	int i; for( i = 0; i < MAX_CHARACTER_LIST; i++ )
 	{
 		if( m_pBipedMesh[ i ] )
 			m_pBipedMesh[ i ]->DeleteDeviceObjects();
@@ -1477,7 +1477,7 @@ BOOL CWndSelectChar::Process()
 	ANILOOP_BACK			(0x00000010)			// 뒤에서 부터. - 사용되지 않음
 
 	 */
-	for( int i = 0; i < MAX_CHARACTER_LIST; i++ )
+	int i; for( i = 0; i < MAX_CHARACTER_LIST; i++ )
 	{
 		CRect rect = m_aRect[ i ];
 		CModelObject* pModel = (CModelObject*)m_pBipedMesh[ i ];
@@ -1556,7 +1556,7 @@ void CWndSelectChar::OnDraw( C2DRender* p2DRender )
 	CWndButton* pWndDelete = (CWndButton*)GetDlgItem( WIDC_DELETE );
 
 	CRect rect;
-	for( int i = 0; i < MAX_CHARACTER_LIST; i++ )
+	int i; for( i = 0; i < MAX_CHARACTER_LIST; i++ )
 	{
 		rect = m_aRect[ i ];
 
@@ -1818,7 +1818,7 @@ void CWndSelectChar::OnDraw( C2DRender* p2DRender )
 }
 void CWndSelectChar::DeleteCharacter()
 {
-	for( int i = 0; i < MAX_CHARACTER_LIST; i++ )
+	int i; for( i = 0; i < MAX_CHARACTER_LIST; i++ )
 	{
 		if( m_pBipedMesh[ i ] )
 		{
@@ -1830,7 +1830,7 @@ void CWndSelectChar::DeleteCharacter()
 }
 void CWndSelectChar::UpdateCharacter()
 {
-	for( int i = 0; i < MAX_CHARACTER_LIST; i++ )
+	int i; for( i = 0; i < MAX_CHARACTER_LIST; i++ )
 	{
 		CMover* pMover = g_Neuz.m_apPlayer[i];
 		if( pMover )
@@ -1901,7 +1901,7 @@ void CWndSelectChar::OnInitialUpdate()
 	m_bDisconnect = FALSE;
 
 	rect = CRect( 16, 16, 174, 254 );
-	for( int i = 0; i < MAX_CHARACTER_LIST; i++ )
+	int i; for( i = 0; i < MAX_CHARACTER_LIST; i++ )
 	{
 		m_aRect[ i ] = rect;
 		rect.OffsetRect( 170, 0 );
@@ -2100,7 +2100,7 @@ BOOL CWndSelectChar::OnChildNotify(UINT message,UINT nID,LRESULT* pLResult)
 					m_pWnd2ndPassword->Initialize( this, APP_2ND_PASSWORD_NUMBERPAD );
 					m_pWnd2ndPassword->SetInformation( g_dpLoginClient.GetNumberPad(), m_nSelectCharacter );
 #ifdef __CON_AUTO_LOGIN
-					for( int i = 0; i < 4; ++i )
+					int i; for( i = 0; i < 4; ++i )
 						m_pWnd2ndPassword->InsertPassword( g_Console._nPasswordFigure[ i ] );
 					m_pWnd2ndPassword->OnChildNotify( 0, WIDC_BUTTON_OK, 0 );
 #endif // __CON_AUTO_LOGIN
@@ -2293,7 +2293,7 @@ void CWndSelectChar::OnLButtonUp(UINT nFlags, CPoint point)
 	if( !g_Neuz.m_timerConnect.Over() )
 		return;
 		
-	for( int i = 0; i < MAX_CHARACTER_LIST; i++ )
+	int i; for( i = 0; i < MAX_CHARACTER_LIST; i++ )
 	{
 		if( /*m_pBipedMesh[ i ] &&*/ m_aRect[ i ].PtInRect( point ) )
 		{
@@ -2369,7 +2369,7 @@ void CWndCreateChar::OnDraw( C2DRender* p2DRender )
 
 	CPoint pt( 20, 15 );
 /*
-	for( int i = 0; i < 5; i++)
+	int i; for( i = 0; i < 5; i++)
 	{
 		p2DRender->RenderLine( pt, CPoint( pt.x + 200, pt. y ), D3DCOLOR_ARGB( 200, 50, 150, 250 ) );
 		p2DRender->RenderLine( CPoint( pt.x - 10, pt.y + 20 ), CPoint( pt.x + 200 - 10, pt. y + 20 ), D3DCOLOR_ARGB( 200, 50, 150, 250 ) );
@@ -2672,11 +2672,11 @@ void CWndCreateChar::SetSex( int nSex )
 
 	memset( m_Player.m_aEquipInfo, 0, sizeof(EQUIP_INFO) * MAX_HUMAN_PARTS );
 	{
-		for( int i = 0; i < MAX_HUMAN_PARTS; i++ )
+		int i; for( i = 0; i < MAX_HUMAN_PARTS; i++ )
 			m_Player.m_aEquipInfo[i].dwId	= NULL_ID;
 	}
 
-	for( int i = 0; i < MAX_BEGINEQUIP; i++ )
+	int i; for( i = 0; i < MAX_BEGINEQUIP; i++ )
 	{
 		DWORD dwEquip = prj.m_jobItem[ m_Player.m_byJob ].adwMale[ i ][ m_Player.m_bySex ];
 		if( dwEquip != NULL_ID )

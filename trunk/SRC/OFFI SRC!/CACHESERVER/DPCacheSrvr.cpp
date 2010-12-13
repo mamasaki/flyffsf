@@ -25,8 +25,8 @@ extern	CDPCoreClient	g_DPCoreClient;
 CDPCacheSrvr::CDPCacheSrvr()
 {
 	BEGIN_MSG;
-	ON_MSG( PACKETTYPE_JOIN, OnAddConnection );
-	ON_MSG( PACKETTYPE_KEEP_ALIVE, OnKeepAlive );
+	ON_MSG( PACKETTYPE_JOIN, &CDPCacheSrvr::OnAddConnection );
+	ON_MSG( PACKETTYPE_KEEP_ALIVE, &CDPCacheSrvr::OnKeepAlive );
 #ifdef __CRASH_0404
 	CCrashStatus::GetInstance()->RegisterDPMng( "CDPCacheSrvr", this );
 #endif	// __CRASH_0404

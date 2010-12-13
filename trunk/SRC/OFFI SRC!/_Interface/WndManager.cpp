@@ -342,7 +342,7 @@ CWndMgr::CWndMgr()
 	m_bConnect = FALSE;
 	m_timerMessenger.Set( MIN( 5 ) );
 
-	for( int i = 0 ; i < MAX_SKILL ; i++ )
+	int i; for( i = 0 ; i < MAX_SKILL ; i++ )
 	{
 		m_dwSkillTime[i] = 0;
 	}
@@ -1027,7 +1027,8 @@ void CWndMgr::OnInitialUpdate()
 	m_dwSavePlayerTime = 0;
 
 	char filename[MAX_PATH];
-	for( int i=0; i<128; i++ )
+	int i;
+	for(  i=0; i<128; i++ )
 	{
 		sprintf( filename, "Icon_CoolTime_%.3d.tga", i );
 		g_pCoolTexArry[i] = m_textureMng.AddTexture( g_Neuz.m_pd3dDevice,  MakePath( DIR_ICON, filename ), 0xffff00ff );
@@ -2151,7 +2152,7 @@ void CWndMgr::OpenField()
 	if( m_bTitle == FALSE )
 		return;
 	StopMusic();
-	for( int i = 0; i < MAX_CHARACTER_LIST; i++ )
+	int i; for( i = 0; i < MAX_CHARACTER_LIST; i++ )
 	{
 		if( g_Neuz.m_apPlayer[i] )
 			g_Neuz.m_apPlayer[i]->m_pModel = NULL; 
@@ -3158,7 +3159,7 @@ BOOL CWndMgr::OnDropIcon( LPSHORTCUT pShortcut, CPoint point )
 	return TRUE;
 	//CRect rect = GetClientRect();
 	//rect.DeflateRect( 5, 5);
-	for( int i = 0; i < m_awndShortCut.GetSize(); i++)
+	int i; for( i = 0; i < m_awndShortCut.GetSize(); i++)
 	{
 		if( ((CWndBase*)m_awndShortCut.GetAt( i ))->GetWndId() == pShortcut->m_dwIndex )
 		{
@@ -3792,7 +3793,7 @@ void CWndMgr::WordChange( CString& rString )
 	}
 	rString		= strResult;
 #else	// __FILTER_0705
-	for( int i = 0; i < prj.m_aWordFilter.GetSize(); i++)
+	int i; for( i = 0; i < prj.m_aWordFilter.GetSize(); i++)
 	{
 		LPFILTER lpFilter = prj.m_aWordFilter.GetAt( i );
 		int nFind;
@@ -3802,7 +3803,7 @@ void CWndMgr::WordChange( CString& rString )
 			{
 				TCHAR szWord[ 128 ];
 				int nLength = strlen( lpFilter->m_szSrc );
-				for( int i = 0; i < nLength; i++ )
+				int i; for( i = 0; i < nLength; i++ )
 					szWord[ i ] = '*';
 				szWord[ i ] = 0;
 				rString.Replace( lpFilter->m_szSrc,szWord );
@@ -4157,7 +4158,7 @@ void CWndMgr::PutString( LPCTSTR lpszString, CObj* pObj, DWORD dwColor, DWORD dw
 	{
 		if( pObj->GetType() == OT_MOVER )// && ((CMover*)pObj)->m_nQuestEmoticonIndex == -1 )
 		{
-			TCHAR* lpszChat	= _tcschr( lpszString, _T( ':' ) );
+			const TCHAR* lpszChat	= _tcschr( lpszString, _T( ':' ) );
 			lpszChat += sizeof(TCHAR) * 2;	// Skip ": "
 			g_DialogMsg.AddMessage( pObj, lpszChat, 0xffffffff, 0, dwPStyle );
 		}
@@ -4520,7 +4521,7 @@ BOOL IsDst_Rate( int nDstParam )
 // ex) nDstparam = DST_STR -> "힘"
 char *FindDstString( int nDstParam )
 {
-	for( int i = 0; ; ++i )
+	int i; for( i = 0; ; ++i )
 	{
 		if( g_DstString[i].nDstParam == 0 )
 			break;
@@ -4622,7 +4623,7 @@ void CWndMgr::PutItemAbilityPiercing( CItemElem* pItemElem, CEditString* pEdit, 
 	}
 	
 	int nCount = 0;
-	for( int j = 0; j < pItemElem->GetPiercingSize(); j++ )
+	int j; for(  j = 0; j < pItemElem->GetPiercingSize(); j++ )
 	{
 		if( pItemElem->GetPiercingItem( j ) != 0 )
 			nCount++;
@@ -4781,7 +4782,7 @@ void CWndMgr::PutAwakeningBlessing( CItemElem* pItemElem, CEditString* pEdit )
 #endif	// __PET_0519
 
 	// option
-	for( int i = 0; i < nSize; i++ )
+	int i; for( i = 0; i < nSize; i++ )
 	{
 		int nDst, nAdj;
 		if( !g_xRandomOptionProperty->GetParam( pItemElem->GetRandomOptItemId(), i, &nDst, &nAdj ) )
@@ -4836,7 +4837,7 @@ void CWndMgr::PutRandomOpt( CItemElem* pItemElem, CEditString* pEdit )
 	PRANDOMOPTITEM pRandomOptItem	= CRandomOptItemGen::GetInstance()->GetRandomOptItem( pItemElem->GetRandomOpt() );
 	if( pRandomOptItem ) // 2. 랜덤 옵션의 내용을 출력한다.
 	{
-		for( int i = 0; i < pRandomOptItem->ia.nSize; i++ )
+		int i; for( i = 0; i < pRandomOptItem->ia.nSize; i++ )
 		{
 			int nDst = (int)pRandomOptItem->ia.anDstParam[i];
 			int nAdj = (int)pRandomOptItem->ia.anAdjParam[i];
@@ -4863,7 +4864,7 @@ void CWndMgr::PutPiercingOpt( CItemElem* pItemElem, CEditString* pEdit )
 	PIERCINGAVAIL pa;
 	memset( &pa, 0, sizeof(PIERCINGAVAIL) );
 	pItemElem->GetPiercingAvail( &pa );
-	for( int i = 0; i < pa.nSize; i++ )
+	int i; for( i = 0; i < pa.nSize; i++ )
 	{
 		int nDst = (int)pa.anDstParam[i];
 		int nAdj = (int)pa.anAdjParam[i];
@@ -4953,7 +4954,7 @@ void CWndMgr::PutSetItemOpt( CMover* pMover, CItemElem* pItemElem, CEditString* 
 //		pEdit->AddString( strTemp, dwItemColor[g_Option.m_nToolTipText].dwSetName, ESSTY_BOLD );
 		pEdit->AddString( strTemp, dwItemColor[g_Option.m_nToolTipText].dwSetName );
 		
-		for( int i = 0; i < pSetItem->m_nElemSize; i++ )
+		int i; for( i = 0; i < pSetItem->m_nElemSize; i++ )
 		{
 			ItemProp* pItemProp	= prj.GetItemProp( pSetItem->m_adwItemId[i] );
 			if( pItemProp )
@@ -5100,9 +5101,9 @@ void CWndMgr::PutBaseItemOpt( CItemElem* pItemElem, CEditString* pEdit )
 	CString str;
 	CString strTemp;
 #ifdef __PROP_0827
-	for( int i = 0; i < 3; i ++ )
+	int i; for( i = 0; i < 3; i ++ )
 #else	// __PROP_0827
-	for( int i = 0; i < 2; i ++ )
+	int i; for( i = 0; i < 2; i ++ )
 #endif	// __PROP_0827
 	{
 		if( pItemElem->GetProp()->dwDestParam[i] != 0xffffffff )		
@@ -5141,7 +5142,7 @@ void CWndMgr::PutBaseItemOpt( CItemElem* pItemElem, CEditString* pEdit )
 	if( pItemElem && pItemElem->IsAccessory() )		// 액세서리
 	{
 		vector<SINGLE_DST>* pDst	= pProperty->GetDst( pItemElem->m_dwItemId, pItemElem->GetAbilityOption() );
-		for( int i = 0; i < (int)( pDst->size() ); i++ )
+		int i; for( i = 0; i < (int)( pDst->size() ); i++ )
 		{
 			int nDst	= (*pDst)[i].nDst;
 			int nAdj	= (*pDst)[i].nAdj;
@@ -7258,7 +7259,7 @@ BOOL CWndMgr::LoadRegInfo( LPCTSTR lpszFileName )
 			WNDREGINFO wndRegInfo;
 			//CWndBase* pWndBase; 
 			int nNum = file.GetDW();
-			for( int i = 0; i < nNum; i++ )
+			int i; for( i = 0; i < nNum; i++ )
 			{
 				file.Read( &wndRegInfo.dwWndId, sizeof( wndRegInfo.dwWndId ) );
 				file.Read( &wndRegInfo.rect, sizeof( wndRegInfo.rect ) );

@@ -308,7 +308,7 @@ template <class T> void CMyMap<T>::SetSize( size_t nHashSize, size_t nInitialSiz
 	m_pFirstActive	= NULL;
 
 	INIT_LOOP(10000);
-	for( int i = (int)nHashSize; ; i++ )
+	int i; for( i = (int)nHashSize; ; i++ )
 	{
 		VERIFY_LOOP( __FILE__, __LINE__ );
 		if( IsPrime( i ) )
@@ -383,7 +383,7 @@ template <class T> void CMyMap<T>::RemoveAll( void )
 
 	CMyBucket<T>* pBucket, *pNext;
 	INIT_LOOP(1000);
-	for( int i = 0; i < (int)( m_nHashSize ); i++ )
+	int i; for( i = 0; i < (int)( m_nHashSize ); i++ )
 	{
 		VERIFY_LOOP( __FILE__, __LINE__ );
 		pBucket		= &m_pBuckets[i];
@@ -544,7 +544,7 @@ template <class T> void CMyMap2<T>::SetSize( size_t nHashSize, size_t nInitialSi
 	m_pFirstActive	= NULL;
 	
 	INIT_LOOP(10000);
-	for( int i = (int)nHashSize; ; i++ )
+	int i; for( i = (int)nHashSize; ; i++ )
 	{
 		VERIFY_LOOP( __FILE__, __LINE__ );
 		if( IsPrime( i ) )
@@ -616,7 +616,7 @@ template <class T> void CMyMap2<T>::RemoveAll( void )
 	CMyBucket2<T> *pBucket, *pNext;
 
 	INIT_LOOP(1000);
-	for( int i = 0; i < m_nHashSize; i++ )
+	int i; for( i = 0; i < m_nHashSize; i++ )
 	{
 		VERIFY_LOOP( __FILE__, __LINE__ );
 		pBucket		= &m_pBuckets[i];
@@ -717,7 +717,7 @@ template <class T> inline void CMyMap2<T>::Unlock( void )
 template <class T> inline DWORD CMyMap2<T>::MAKESTR2DWORD( const char* pKey, size_t nSize )
 {
 	DWORD x	= 0, y	= 0;
-	for( int i =0; ( i + sizeof(DWORD) ) < nSize; i += sizeof(DWORD) )
+	int i; for( i =0; ( i + sizeof(DWORD) ) < nSize; i += sizeof(DWORD) )
 		x	+= *(LPDWORD)( pKey + i );
 	for(; i < nSize; i++ )
 		y	+= *(char*)( pKey + i );

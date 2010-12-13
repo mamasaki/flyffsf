@@ -288,7 +288,7 @@ void CWndGuildTabApp::SetPenya( void )
 	if( pGuild )
 	{
 		CString strMessege;
-		for( int i = 0 ; i < MAX_GM_LEVEL ; ++i )
+		int i; for( i = 0 ; i < MAX_GM_LEVEL ; ++i )
 		{
 			strMessege.Format( "%d", pGuild->m_adwPenya[ i ] );
 			m_pWndPenya[i]->SetTitle( strMessege );
@@ -519,7 +519,7 @@ BOOL CWndGuildPayConfirm::OnChildNotify( UINT message, UINT nID, LRESULT* pLResu
 		CString strcost = pWndEdit->GetString();
 
 		BOOL bisdigit = TRUE;
-		for( int i = 0 ; i < strcost.GetLength() ; i++ )
+		int i; for( i = 0 ; i < strcost.GetLength() ; i++ )
 		{
 			if( isdigit2( strcost.GetAt(i) ) == FALSE )
 			{
@@ -691,7 +691,7 @@ void CWndGuildTabApp::UpdateData()
 
 		EnableButton( FALSE );
 		
-		for( int i = 0 ; i < MAX_GM_LEVEL ; ++i )
+		int i; for( i = 0 ; i < MAX_GM_LEVEL ; ++i )
 		{
 			m_pWndPenya[i]->SetTitle( "0" );
 		}

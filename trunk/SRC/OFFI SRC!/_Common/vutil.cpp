@@ -137,7 +137,7 @@ void SetStrNull( TCHAR* lpStr, int nNullLength )
 	// 0을 넣을 포지션이 실제 스트링 길이보다 길면 실제 스트링 길이로 맞출 필요가 있음
 	if( nNullLength > nLength )
 		nNullLength = nLength;
-	for( int i = 0; i < nNullLength; )
+	int i; for( i = 0; i < nNullLength; )
 	{
 #ifdef __CLIENT
 		if( ::GetLanguage() == LANG_THA && g_codePage == 874 ) // 타이 
@@ -163,7 +163,7 @@ void SetStrNull( CString& string, int nNullLength )
 	// 0을 넣을 포지션이 실제 스트링 길이보다 길면 실제 스트링 길이로 맞출 필요가 있음
 	if( nNullLength > nLength )
 		nNullLength = nLength;
-	for( int i = 0; i < nNullLength; )
+	int i; for( i = 0; i < nNullLength; )
 	{
 #ifdef __CLIENT
 		if( ::GetLanguage() == LANG_THA && g_codePage == 874 ) // 타이 
@@ -388,7 +388,7 @@ void AdjustSize( SIZE* pSize )
 {
 	// 사이즈를 2의 자승으로 바꾸기 
 	WORD dwTemp = 0x8000;
-	for( int i = 0; i < 16; i++ )
+	int i; for( i = 0; i < 16; i++ )
 	{
 		if( pSize->cx & dwTemp )
 		{
@@ -507,7 +507,7 @@ BOOL LoadBMP( LPCTSTR lpszFileName, LPIMAGE lpImage ) //LPBYTE* lppData, SIZE* p
 
 	LPBYTE pTempDst = lpNewData + ( nPgWidth * ( nPgHeight - 1 ) );
 
-	for( int i = 0; i < nPgHeight; i++ )
+	int i; for( i = 0; i < nPgHeight; i++ )
 	{
 		memcpy( pTempDst, lpData, nLgWidth );
 		lpData += nLgWidth;

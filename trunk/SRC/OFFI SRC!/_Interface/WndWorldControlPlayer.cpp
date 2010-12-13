@@ -114,7 +114,7 @@ int		CWndWorld::ControlGround( DWORD dwMessage, CPoint point )
 
 	BOOL	bUp, bDown, bLeft, bRight, bSpace, bBoard, bLForward = FALSE, bRForward = FALSE;
 	BOOL	bWalk;
-	static	s_bWalk2 = 0;
+	static	BOOL s_bWalk2 = 0;
 
 	CMover* pMover = CMover::GetActiveMover();
 

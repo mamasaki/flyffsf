@@ -241,7 +241,7 @@ BOOL CWndGuildBank::OnChildNotify( UINT message, UINT nID, LRESULT* pLResult )
 						}
 						else
 						{
-							for( int i = 0; i < (int)( SelectCount ); i++ )
+							int i; for( i = 0; i < (int)( SelectCount ); i++ )
 							{
 								int nItem = pWndItemCtrl->GetSelectedItem( i );
 								pWndItemCtrl->GetItem( nItem );

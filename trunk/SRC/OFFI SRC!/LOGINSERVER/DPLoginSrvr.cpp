@@ -16,11 +16,11 @@ extern  char				g_szMSG_VER[];
 CDPLoginSrvr::CDPLoginSrvr()
 {
 	BEGIN_MSG;
-	ON_MSG( PACKETTYPE_PRE_JOIN, OnPreJoin );
-	ON_MSG( PACKETTYPE_PING, OnPing );
-	ON_MSG( PACKETTYPE_QUERYTICKCOUNT, OnQueryTickCount );
-	ON_MSG( PACKETTYPE_GETPLAYERLIST, OnAddConnection );
-	ON_MSG( PACKETTYPE_AUTHQUERY, OnAuthQuery );
+	ON_MSG( PACKETTYPE_PRE_JOIN,&CDPLoginSrvr:: OnPreJoin );
+	ON_MSG( PACKETTYPE_PING, &CDPLoginSrvr::OnPing );
+	ON_MSG( PACKETTYPE_QUERYTICKCOUNT,&CDPLoginSrvr:: OnQueryTickCount );
+	ON_MSG( PACKETTYPE_GETPLAYERLIST,&CDPLoginSrvr:: OnAddConnection );
+	ON_MSG( PACKETTYPE_AUTHQUERY, &CDPLoginSrvr::OnAuthQuery );
 
 	memset( m_aCache, 0, sizeof(CACHESTRUCT) * MAX_CACHE_SIZE );
 	m_nSizeOfCache	= 0;

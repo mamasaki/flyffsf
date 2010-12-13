@@ -142,7 +142,7 @@ GH_Fntr_Info*  CGuildHouseBase::Find( OBJID objID_ )
 
 int CGuildHouseBase::FindIndex( OBJID objID_ )
 {
-	for( int i = 0; i < GetFurnitureListSize( ); ++i )
+	int i; for( i = 0; i < GetFurnitureListSize( ); ++i )
 	{
 		GH_Fntr_Info* pInfo = GetFurnitureInfoPtr( i );
 		assert( pInfo );
@@ -246,7 +246,7 @@ void CGuildHouseBase::ApplyEFTexture( )
 	BOOL bTileTex = FALSE;
 
 	int iMaxSize = GetFurnitureListSize( );
-	for( int i = 0; i < iMaxSize; ++i )
+	int i; for( i = 0; i < iMaxSize; ++i )
 	{
 		GH_Fntr_Info* pInfo = GetFurnitureInfoPtr( i );
 		if( !pInfo )
@@ -1182,7 +1182,7 @@ void CGuildHouseMng::Serialize( CAr & ar )
 		int nTenderSize;
 		DWORD dwTenderGuildId;
 		ar >> nTenderSize;
-		for( int i = 0; i < nTenderSize; ++i )
+		int i; for( i = 0; i < nTenderSize; ++i )
 		{
 			GUILDHOUSE_TENDER GHT;
 			ar >> dwTenderGuildId;
@@ -1717,7 +1717,7 @@ bool CGuildHouseMng::CheckTenderOpenAble( DWORD dwGHType )
 		int nTenderArea = pTenderData->nTenderArea;
 		vector<OBJID> vecGHId;
 		vecGHId.clear();
-		for( int i = 1; i < GH_AREA_MAX; ++i )
+		int i; for( i = 1; i < GH_AREA_MAX; ++i )
 		{
 			int nArea = ++nTenderArea % GH_AREA_MAX;
 			for( MAP_GH_DATA::iterator it = m_mapGHData.begin(); it != m_mapGHData.end(); ++it )
@@ -2268,7 +2268,7 @@ void CGuildHouseMng::OnGuildHouseTenderInfo( CAr & ar )
 		vector<OBJID> vecGHId;
 		int nSize;
 		ar >> nSize;
-		for( int i = 0; i < nSize; ++i )
+		int i; for( i = 0; i < nSize; ++i )
 		{
 			OBJID objGHId;
 			ar >> objGHId;
@@ -2337,7 +2337,7 @@ void CGuildHouseMng::OnGuildHouseTenderResult( CAr & ar )
 	DWORD dwGHType;
 	int nSize;
 	ar >> dwGHType >> nSize;
-	for( int i = 0; i < nSize; ++i )
+	int i; for( i = 0; i < nSize; ++i )
 	{
 		DWORD dwGuildId;
 		ar >> dwGuildId;

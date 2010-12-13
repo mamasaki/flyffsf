@@ -4,7 +4,7 @@
 LPWNDCTRL WNDAPPLET::GetAt( DWORD dwWndId )
 {
 	LPWNDCTRL pWndCtrl = NULL;
-	for( int i = 0; i < ptrCtrlArray.GetSize(); i++ )
+	int i; for( i = 0; i < ptrCtrlArray.GetSize(); i++ )
 	{
 		pWndCtrl = (LPWNDCTRL) ptrCtrlArray.GetAt( i );
 		if( pWndCtrl->dwWndId == dwWndId )
@@ -30,7 +30,7 @@ void CResManager::Free()
 	while(pos)
 	{ 
 		m_mapWndApplet.GetNextAssoc( pos, (void*&)dwAppletId, (void*&)LPWNDAPPLET );
-		for( int i = 0; i < LPWNDAPPLET->ptrCtrlArray.GetSize(); i++ )
+		int i; for( i = 0; i < LPWNDAPPLET->ptrCtrlArray.GetSize(); i++ )
 			safe_delete( (LPWNDCTRL)LPWNDAPPLET->ptrCtrlArray.GetAt( i ) );
 		SAFE_DELETE( LPWNDAPPLET );
 	}

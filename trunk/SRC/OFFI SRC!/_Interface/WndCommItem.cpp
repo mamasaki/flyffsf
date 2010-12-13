@@ -152,7 +152,7 @@ void CWndCommItemCtrl::OnMouseWndSurface( CPoint point )
 	}
 	
 	int nCountinueCount = 0;
-	for( int i = 0; i < m_nMaxDraw; i++ ) 
+	int i; for( i = 0; i < m_nMaxDraw; i++ ) 
 	{
 		int x = 0, nWidth = m_rectClient.Width();// - 1;
 		CRect rectHittest = CRect( x + 3, pt.y, x + 3 + nWidth, pt.y + 32 );// pt.x, pt.y+ 12, pt.x + m_rectWindow.Width() - m_wndScrollBar.GetClientRect().Width(), pt.y + m_nFontHeight+ 12 );
@@ -244,7 +244,7 @@ void CWndCommItemCtrl::OnMouseWndSurface( CPoint point )
 				CItemElem* pItemElem = NULL;
 
 				int nMax = g_pPlayer->m_Inventory.GetMax();
-				for( int i = 0 ; i < nMax; i++ )
+				int i; for( i = 0 ; i < nMax; i++ )
 				{
 					ptr	= g_pPlayer->m_Inventory.GetAtId( i );
 					if( IsUsableItem( ptr ) && ptr->m_dwItemId == II_SYS_SYS_SCR_PET_FEED_POCKET &&
@@ -392,7 +392,7 @@ int CWndCommItemCtrl::GetMaxBuff()
 
 void CWndCommItemCtrl::DrawSM( C2DRender* p2DRender, CPoint* pPoint, int x, int &nScroll )
 {
-	for( int i = 0 ; i < SM_MAX; ++i )
+	int i; for( i = 0 ; i < SM_MAX; ++i )
 	{
 		if( g_pPlayer->m_dwSMTime[i] <= 0 )
 			continue;
@@ -664,7 +664,7 @@ void CWndCommItemCtrl::DrawSkill( C2DRender* p2DRender, CPoint* pPoint, int x, i
 				CItemElem* pItemElem = NULL;
 
 				int nMax = g_pPlayer->m_Inventory.GetMax();
-				for( int i = 0 ; i < nMax; i++ )
+				int i; for( i = 0 ; i < nMax; i++ )
 				{
 					ptr	= g_pPlayer->m_Inventory.GetAtId( i );
 					if( IsUsableItem( ptr ) && ptr->m_dwItemId == II_SYS_SYS_SCR_PET_FEED_POCKET &&
@@ -968,7 +968,7 @@ void CWndCommItemCtrl::DrawSkill( C2DRender* p2DRender, CPoint* pPoint, int x, i
 				CItemElem* pItemElem = NULL;
 
 				int nMax = g_pPlayer->m_Inventory.GetMax();
-				for( int i = 0 ; i < nMax; i++ )
+				int i; for( i = 0 ; i < nMax; i++ )
 				{
 					ptr	= g_pPlayer->m_Inventory.GetAtId( i );
 					if( IsUsableItem( ptr ) && ptr->m_dwItemId == II_SYS_SYS_SCR_PET_FEED_POCKET &&
@@ -1059,7 +1059,7 @@ void CWndCommItemCtrl::OnDraw( C2DRender* p2DRender )
 	if( nMax < m_wndScrollBar.GetScrollPos() )
 		nMax = 0;
 	
-	for( int i = 0; i < m_wndScrollBar.GetScrollPos() && i < nMaxCount; ++i );
+	int i; for( i = 0; i < m_wndScrollBar.GetScrollPos() && i < nMaxCount; ++i );
 
 	int x = 0, nWidth = m_rectClient.Width();// - 1;
 	CRect rect( x, pt.y, x + nWidth, pt.y + m_nFontHeight );

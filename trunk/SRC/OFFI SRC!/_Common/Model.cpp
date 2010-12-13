@@ -127,7 +127,7 @@ BOOL CModel::IntersectBB( const D3DXVECTOR3 &vRayOrig, const D3DXVECTOR3 &vRayDi
 	};
 	const BOUND_BOX* pBB = GetBBVector();
 
-	for( int i = 0; i < 12 * 3; i += 3 )
+	int i; for( i = 0; i < 12 * 3; i += 3 )
 	{
 		v1 = pBB->m_vPos[ anIntexTable[ i + 0 ] ];
 		v2 = pBB->m_vPos[ anIntexTable[ i + 1 ] ];

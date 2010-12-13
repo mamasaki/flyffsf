@@ -1085,7 +1085,7 @@ void CWndFoodConfirm::OnDraw( C2DRender* p2DRender )
 			m_pEdit->SetString( szNumberbuf );
 		}
 		
-		for( int i = 0 ; i < 8 ; i++ )
+		int i; for( i = 0 ; i < 8 ; i++ )
 		{
 			char szNumberbuf[8] = {0, };
 			strncpy( szNumberbuf, szNumber, 8 );
@@ -2151,7 +2151,7 @@ CWndBuffPetStatus::CWndBuffPetStatus( )
 	m_pPetModel = NULL;
 	m_pWndConfirmVis = NULL;
 
-	for( int i = 0; i < MAX_VIS; ++i )
+	int i; for( i = 0; i < MAX_VIS; ++i )
 		m_pItemElem[ i ] = NULL;
 
 	m_pTexPetStatusBg = NULL;
@@ -2173,7 +2173,7 @@ HRESULT CWndBuffPetStatus::InvalidateDeviceObjects()
 {
 	CWndBase::InvalidateDeviceObjects();
 	SAFE_DELETE( m_pWndConfirmVis );
-	for( int i = 0; i < MAX_VIS; ++i )
+	int i; for( i = 0; i < MAX_VIS; ++i )
 	{
 		SAFE_DELETE( m_pItemElem[ i ] );
 	}
@@ -2537,7 +2537,7 @@ void CWndBuffPetStatus::OnDestroy()
 		return FALSE;
 
 	// gmpbigsun: 비스를 착용하고 있는가?
-	for( int i = 0; i < MAX_VIS; ++i )
+	int i; for( i = 0; i < MAX_VIS; ++i )
 	{
 		DWORD dwIndex = pPetItem->GetPiercingItem( i );
 
@@ -2701,7 +2701,7 @@ int CWndBuffPetStatus::GetSlotIndexByPoint( const CPoint& point )
 {
 	LPWNDCTRL wndCtrl = NULL;
 	CRect rect;
-	for( int i = 0; i < MAX_VIS; ++i )
+	int i; for( i = 0; i < MAX_VIS; ++i )
 	{
 		wndCtrl = GetWndCtrl( m_nCtrlId[i] );		// 슬롯으로 만들어진 윈도우에 대하여 
 		rect  = wndCtrl->rect;

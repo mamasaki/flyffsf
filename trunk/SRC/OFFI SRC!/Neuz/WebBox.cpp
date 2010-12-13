@@ -701,7 +701,7 @@ void CWebBox::Refresh_Web()
 			char szEventFlag[128]	= { 0,};
 #ifdef __EVENT_1101_2
 			szEventFlag[0] = '0';
-			for( int i = 0; i < 63; i++ )
+			int i; for( i = 0; i < 63; i++ )
 			{
 				if( m_nEventFlag & (__int64)0x4000000000000000 >> i )
 					lstrcat( szEventFlag, "1" );
@@ -709,7 +709,7 @@ void CWebBox::Refresh_Web()
 					lstrcat( szEventFlag, "0" );
 			}
 #else // __EVENT_1101_2
-			for( int i = 0; i < 32; i++ )
+			int i; for( i = 0; i < 32; i++ )
 			{
 				if( m_dwEventFlag & 0x80000000 >> i )
 					lstrcat( szEventFlag, "1" );
@@ -848,7 +848,7 @@ bool CWebBox::Process(HWND hWnd,HINSTANCE hInstance, char* szUser, u_long nPlaye
 			char szEventFlag[128]	= { 0,};
 #ifdef __EVENT_1101_2
 			szEventFlag[0] = '0';
-			for( int i = 0; i < 63; i++ )
+			int i; for( i = 0; i < 63; i++ )
 			{
 				if( m_nEventFlag & (__int64)0x4000000000000000 >> i  )
 					lstrcat( szEventFlag, "1" );
@@ -856,7 +856,7 @@ bool CWebBox::Process(HWND hWnd,HINSTANCE hInstance, char* szUser, u_long nPlaye
 					lstrcat( szEventFlag, "0" );
 			}
 #else // __EVENT_1101_2
-			for( int i = 0; i < 32; i++ )
+			int i; for( i = 0; i < 32; i++ )
 			{
 				if( m_dwEventFlag & 0x80000000 >> i )
 					lstrcat( szEventFlag, "1" );

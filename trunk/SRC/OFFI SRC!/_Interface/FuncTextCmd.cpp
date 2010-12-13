@@ -127,7 +127,7 @@ BOOL TextCmd_InvenClear( CScanner& scanner )
 		int nNum = 0;
 		int	nSize	= pUser->m_Inventory.GetMax();
 		
-		for( int i = 0 ; i < nSize; ++i )
+		int i; for( i = 0 ; i < nSize; ++i )
 		{
 			CItemElem* pItemElem = pUser->m_Inventory.GetAtId( i );
 			if( pItemElem )
@@ -290,7 +290,7 @@ BOOL TextCmd_PropMonster( CScanner & scanner )
 	char chMessage[1024] = {0,};
 	if( 0 < prj.m_nAddMonsterPropSize )
 	{
-		for( int i = 0 ; i < prj.m_nAddMonsterPropSize ; ++i )
+		int i; for( i = 0 ; i < prj.m_nAddMonsterPropSize ; ++i )
 		{
 			sprintf( chMessage, "Monster Prop(%s) AttackPower(%d), Defence(%d), Exp(%d), Hitpioint(%d), ItemDorp(%d), Penya(%d)", 
 				prj.m_aAddProp[i].szMonsterName, prj.m_aAddProp[i].nAttackPower, prj.m_aAddProp[i].nDefence, prj.m_aAddProp[i].nExp,
@@ -462,7 +462,7 @@ BOOL TextCmd_Pet( CScanner & s )
 	BYTE anAvail[PL_MAX - 1]	= { 0,};
 	char sAvail[2]	= { 0,};
 	
-	for( int i = 0; i < nLevel; i++ )
+	int i; for( i = 0; i < nLevel; i++ )
 	{
 		sAvail[0]	= s.Token.GetAt( i );
 		sAvail[1]	= '\0';
@@ -757,7 +757,7 @@ BOOL TextCmd_Level( CScanner & scanner )
 	if( nLevel == 0 )
 		nLevel = 1;
 
-	for( int i = 0 ; i < MAX_JOB ; i++ )
+	int i; for( i = 0 ; i < MAX_JOB ; i++ )
 	{
 		if( strcmp( strJob, prj.m_aJob[i].szName ) == 0 || strcmp( strJob, prj.m_aJob[i].szEName ) == 0 )
 		{
@@ -778,7 +778,7 @@ BOOL TextCmd_Level( CScanner & scanner )
 	LONG	nLegend = scanner.GetNumber();
 	if( ( nLegend > 0 ) && ( nLegend < 3 ) )
 	{
-		for( int i = nJob + 1 ; i < MAX_JOB ; i++ )
+		int i; for( i = nJob + 1 ; i < MAX_JOB ; i++ )
 		{
 			if( strcmp( strJob, prj.m_aJob[i].szName ) == 0 || strcmp( strJob, prj.m_aJob[i].szEName ) == 0 )
 			{
@@ -811,7 +811,7 @@ BOOL TextCmd_Level( CScanner & scanner )
 			sprintf( chMessage, "Not Expert Job" );
 			pUser->AddText( chMessage );
 			sprintf( chMessage, "Expert Job : " );
-			for( int i = MAX_JOBBASE ; i < MAX_EXPERT ; ++i )
+			int i; for( i = MAX_JOBBASE ; i < MAX_EXPERT ; ++i )
 			{
 				if( strlen( prj.m_aJob[i].szName ) < 15 )
 				{
@@ -840,7 +840,7 @@ BOOL TextCmd_Level( CScanner & scanner )
 			sprintf( chMessage, "Not Professional Job" );
 			pUser->AddText( chMessage );
 			sprintf( chMessage, "Professional Job : " );
-			for( int i = MAX_EXPERT ; i < MAX_PROFESSIONAL ; ++i )
+			int i; for( i = MAX_EXPERT ; i < MAX_PROFESSIONAL ; ++i )
 			{
 				if( strlen( prj.m_aJob[i].szName ) < 15 )
 				{
@@ -883,7 +883,7 @@ BOOL TextCmd_ChangeJob( CScanner & scanner )
 	
 	int nJob = JOB_VAGRANT;
 	
-	for( int i = 0 ; i < MAX_JOB ; i++ )
+	int i; for( i = 0 ; i < MAX_JOB ; i++ )
 	{
 		if( strcmp( strJob, prj.m_aJob[i].szName ) == 0 || strcmp( strJob, prj.m_aJob[i].szEName ) == 0 )
 		{
@@ -1413,7 +1413,7 @@ BOOL TextCmd_SkillLevelAll( CScanner & scanner )
 	LPSKILL pSkill = NULL;
 	ItemProp* pSkillProp = NULL;
 
-	for( int i = 0; i < MAX_SKILL_JOB; i++ )	
+	int i; for( i = 0; i < MAX_SKILL_JOB; i++ )	
 	{
 		pSkill = &(pUser->m_aJobSkill[i]);
 
@@ -2889,7 +2889,7 @@ BOOL TextCmd_CreatePc( CScanner& scanner )
 		pMover->m_Inventory.SetItemContainer( ITYPE_ITEM, MAX_INVENTORY, MAX_HUMAN_PARTS ); 
 
 		static DWORD adwParts[5]	= {	PARTS_CAP, PARTS_HAND, PARTS_UPPER_BODY, PARTS_FOOT, PARTS_RWEAPON };
-		for( int i = 0; i < 5; i++ )
+		int i; for( i = 0; i < 5; i++ )
 		{
 			CItemElem itemElem;
 			ItemProp* pProp	= CPartsItem::GetInstance()->GetItemProp( ( i == 4? SEX_SEXLESS: nSex ), adwParts[i] );
@@ -3725,7 +3725,7 @@ BOOL TextCmd_JobName( CScanner & scanner )
 #ifdef __CLIENT
 	char chMessage[MAX_PATH] = {0,};
 	sprintf( chMessage, "Expert Job : " );
-	for( int i = MAX_JOBBASE ; i < MAX_EXPERT ; ++i )
+	int i; for( i = MAX_JOBBASE ; i < MAX_EXPERT ; ++i )
 	{
 		if( strlen( prj.m_aJob[i].szName ) < 15 )
 		{
@@ -4108,7 +4108,7 @@ BOOL TextCmd_TransyItemList( CScanner& scanner )
 		szMsg.Format( "Wait : Write %s", scanner.Token );
 		g_WndMng.PutString( szMsg );
 
-		for( int i = 0; i < prj.m_aPropItem.GetSize(); i++ )
+		int i; for( i = 0; i < prj.m_aPropItem.GetSize(); i++ )
 		{
 			ItemProp* pItemProp =  prj.GetItemProp( i );
 			g_pPlayer->GetTransyItem( pItemProp, TRUE, scanner.Token );
@@ -5120,7 +5120,7 @@ BOOL TextCmd_InvenRemove( CScanner& scanner )
 	if( IsValidObj( pUser ) )
 	{
 		int nSize = pUser->m_Inventory.GetMax();
-		for( int i = 0 ; i < nSize; ++i )
+		int i; for( i = 0 ; i < nSize; ++i )
 		{
 			CItemElem* pItemElem = pUser->m_Inventory.GetAtId( i );
 			if( IsUsableItem( pItemElem ) && !pUser->m_Inventory.IsEquip( pItemElem->m_dwObjId ) && !pItemElem->IsPet() && !pItemElem->IsEatPet() )
@@ -5600,7 +5600,7 @@ void ParsingEffect( TCHAR* pChar, int nLen )
 {
 	CString strTemp;
 	
-	for( int i = 0; i < nLen; i++ )
+	int i; for( i = 0; i < nLen; i++ )
 	{
 		if( pChar[ i ] == '#' ) // 인식 코드
 		{

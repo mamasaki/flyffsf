@@ -154,7 +154,7 @@ void CObj::UpdateMatrix()
 
 #ifdef __CLIENT
 	// Transform bounding box coords from local space to world space
-	for( int i = 0; i < 8; i++ )
+	int i; for( i = 0; i < 8; i++ )
 		D3DXVec3TransformCoord( &m_vecBoundsWorld[i], &m_vecBoundsLocal[i], &m_matWorld );
 
 	// Determine planes of the bounding box
@@ -564,7 +564,7 @@ void CObj::SetPos( const D3DXVECTOR3& vPos )
 
 			if( m_vRemoval != D3DXVECTOR3( 0, 0, 0 ) )
 			{
-				for( int i = 0; i < pWorld->m_cbModifyLink; i++ )
+				int i; for( i = 0; i < pWorld->m_cbModifyLink; i++ )
 				{
 					if( pWorld->m_apModifyLink[i] == this )
 					{
@@ -1000,7 +1000,7 @@ void CObj::CalcLinkLevel()
 
 	int nWidthLink, nWidthPerGrid;
 	nWidthLink	= MAP_SIZE * 2;
-	for( int i = 0; i < MAX_LINKLEVEL; i++ )
+	int i; for( i = 0; i < MAX_LINKLEVEL; i++ )
 	{
 		// 16	// 8	// 4	// 2	// 1	// 1	-	// 32	// 64	// 128	// 256	// 512	// 1024
 		// 128	// 64	// 32	// 16	-	// 4	// 8	// 16	// 32

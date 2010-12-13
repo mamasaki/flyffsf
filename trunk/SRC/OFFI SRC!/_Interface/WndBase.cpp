@@ -194,7 +194,7 @@ void CWndBase::AddWnd( CWndBase* pWndBase )
 	{
 		if(pWndBase->m_dwStyle & WBS_MANAGER)
 		{
-			for( int i = 0; i < m_wndOrder.GetSize(); i++)
+			int i; for( i = 0; i < m_wndOrder.GetSize(); i++)
 			{
 				CWndBase* pWndBase = (CWndBase*)m_wndOrder.GetAt( i );
 				if( !( pWndBase->m_dwStyle & WBS_MANAGER) )
@@ -210,7 +210,7 @@ void CWndBase::AddWnd( CWndBase* pWndBase )
 					m_wndOrder.Add( pWndBase );
 				else
 				{
-					for( int i = 0; i < m_wndOrder.GetSize(); i++ )
+					int i; for( i = 0; i < m_wndOrder.GetSize(); i++ )
 					{
 						CWndBase* pWnd = (CWndBase*)m_wndOrder[ i ];
 						if( ( pWnd->IsWndStyle( WBS_TOPMOST ) || pWnd->IsWndStyle( WBS_POPUP ) || pWnd->IsWndStyle( WBS_MODAL ) ) && pWnd->IsVisible() )
@@ -245,7 +245,8 @@ void CWndBase::AddWnd( CWndBase* pWndBase )
 }
 void CWndBase::RemoveWnd(CWndBase* pWndBase)
 {
-	for(int i = 0; i < m_wndOrder.GetSize(); i++)
+	int i;
+	for( i = 0; i < m_wndOrder.GetSize(); i++)
 	{
 		if(m_wndOrder.GetAt(i) == pWndBase)
 		{
@@ -344,7 +345,7 @@ BOOL CWndBase::Create(DWORD dwStyle,const RECT& rect,CWndBase* pParentWnd,UINT n
 		LPWNDAPPLET lpWndApplet = m_resMng.GetAt ( m_nIdWnd );
 		SetTitle( lpWndApplet->strTitle );
 		SetTexture( m_pApp->m_pd3dDevice, MakePath( DIR_THEME, lpWndApplet->strTexture ) );
-		for( int i = 0; i < lpWndApplet->ptrCtrlArray.GetSize(); i++ )
+		int i; for( i = 0; i < lpWndApplet->ptrCtrlArray.GetSize(); i++ )
 			CreateControl( hWnd, (LPWNDCTRL)lpWndApplet->ptrCtrlArray.GetAt( i ) );
 	}
 	*/
@@ -493,7 +494,7 @@ void CWndBase::PaintRoot( C2DRender* p2DRender )
 	// m_wndOrder 리스트에 있는 윈도는 차일드(종속) 윈도가 아니기 때문에
 	// 좌표계 이동이 필요 없고 단지 클립 영역만 지정해 주면 된다.
 	int nSize = m_wndOrder.GetSize();
-	for( int i = 0; i < nSize; i++ )
+	int i; for( i = 0; i < nSize; i++ )
 	{
 		CWndBase* pWnd = (CWndBase*)m_wndOrder[i];
 		if( pWnd->IsVisible() )//&& pWnd != this && pWnd != m_pWndWorld )
@@ -840,7 +841,7 @@ BOOL CWndBase::PostMessage(UINT message,WPARAM wParam,LPARAM lParam)
 }
 void CWndBase::SetChildFocus( CWndBase* pWndBase, POINT point )
 {
-	for( int i = 0; i < pWndBase->m_wndArray.GetSize(); i++ )
+	int i; for( i = 0; i < pWndBase->m_wndArray.GetSize(); i++ )
 	{
 		CWndBase* pWndCur = (CWndBase*)pWndBase->m_wndArray.GetAt( i );
 		if( pWndCur->IsWndStyle( WBS_CHILD ) && pWndCur->IsVisible() && pWndCur->IsWindowEnabled() )
@@ -855,7 +856,7 @@ CWndBase* CWndBase::GetChildFocus( CWndBase* pWndBase, POINT point )
 {
 	CWndBase* pWndSelect = pWndBase;
 	CWndBase* pWndTemp = NULL;
-	for( int i = 0; i < pWndBase->m_wndArray.GetSize(); i++ )
+	int i; for( i = 0; i < pWndBase->m_wndArray.GetSize(); i++ )
 	{
 		CWndBase* pWndCur = (CWndBase*)pWndBase->m_wndArray.GetAt( i );
 		if( pWndCur->IsWndStyle( WBS_CHILD ) && pWndCur->IsVisible() && pWndCur->IsWindowEnabled() )
@@ -920,7 +921,7 @@ LRESULT CWndBase::WindowRootProc( UINT message, WPARAM wParam, LPARAM lParam )
 	}
 	else
 	// 클릭할 때만 윈도를 검색하는 최적화가 필요함.
-	for( int i = m_wndOrder.GetSize() - 1; i >= 0 ; i-- )
+	for(int i = m_wndOrder.GetSize() - 1; i >= 0 ; i-- )
 	{
 		CWndBase* pWndBase = (CWndBase*)m_wndOrder[ i ];
 		if( pWndBase->IsVisible() )
@@ -1233,7 +1234,7 @@ LRESULT CWndBase::WindowProc( UINT message, WPARAM wParam, LPARAM lParam )
 			{
 				rectWnd.left += pt.x; 
 				// 다른 확대 윈도도 현재 윈도와 같은 사이즈로 맞춘다.
-				for( int i = 0; i < m_wndOrder.GetSize(); i++)
+				int i; for( i = 0; i < m_wndOrder.GetSize(); i++)
 				{
 					CWndBase* pWnd = (CWndBase*) m_wndOrder.GetAt( i );
 					if(pWnd != this && pWnd->m_nWinSize == 2)
@@ -1567,7 +1568,8 @@ LRESULT CWndBase::DefWindowProc( UINT message, WPARAM wParam, LPARAM lParam )
 						CWndBase* pWndTemp = m_pWndFocus;//->m_pWndFocusChild;// ? this : m_pParentWnd;
 						CWndBase* pWndBase;
 						int nCurIdx = -1;
-						for(int i = 0; i < pWndTemp->m_wndArray.GetSize() && nCurIdx == -1; i++)
+						int i;
+						for( i = 0; i < pWndTemp->m_wndArray.GetSize() && nCurIdx == -1; i++)
 						{
 							if(((CWndBase*)pWndTemp->m_wndArray.GetAt(i))->IsFocusChild())
 								nCurIdx = i;
@@ -1650,7 +1652,7 @@ void CWndBase::SetFocus()
 			if( !( m_dwStyle & WBS_MANAGER ) && this != m_pWndRoot )
 			{
 				CWndBase* pWndTop = (CWndBase*)m_wndOrder.GetAt( m_wndOrder.GetUpperBound() );
-				for( int i = m_wndOrder.GetSize()-1; i >= 0; i-- )
+				int i; for( i = m_wndOrder.GetSize()-1; i >= 0; i-- )
 				{
 					CWndBase* pWnd = (CWndBase*)m_wndOrder[i];
 					if( this == pWnd && pWnd->IsVisible() )
@@ -1877,7 +1879,7 @@ CRect CWndBase::GetLayoutRect(BOOL bParent)
 
 CWndBase* CWndBase::FindFullWnd()
 {
-	for( int i = 0; i < m_wndOrder.GetSize(); i++)
+	int i; for( i = 0; i < m_wndOrder.GetSize(); i++)
 	{
 		CWndBase* pWnd = (CWndBase*) m_wndOrder.GetAt( i );
 		if(pWnd->m_nWinSize == 2)
@@ -2043,7 +2045,7 @@ CWndBase* CWndBase::GetWndBase(UINT idWnd)
 }
 CWndBase* CWndBase::GetWndBase()
 {
-	for( int i = m_wndOrder.GetSize() - 1; i >= 0 ; i-- )
+	int i; for( i = m_wndOrder.GetSize() - 1; i >= 0 ; i-- )
 	{
 		CWndBase* pWnd = (CWndBase*)m_wndOrder.GetAt(i);
 		if(pWnd && pWnd->IsVisible() && !pWnd->IsWndStyle(WBS_MANAGER|WBS_TOPMOST) )
@@ -2546,7 +2548,7 @@ void CWndBase::AdditionalSkinTexture( LPWORD pDest, CSize sizeSurface, D3DFORMAT
 	LPIMAGE lpImage[9];
 
 	int nImgBit = IMGBIT_32;
-	for( int i = 0; i < 9; i++ )
+	int i; for( i = 0; i < 9; i++ )
 	{
 		CString strTemp1 = strTile.Left( strTile.GetLength() - 6 );
 		CString strTemp2 = strTile.Right( 4 );
@@ -2576,7 +2578,7 @@ void CWndBase::AdditionalSkinTexture( LPWORD pDest, CSize sizeSurface, D3DFORMAT
 	CPoint point;
 	for( i = 0; i < nHeight; i++ )
 	{
-		for( int j = 0; j < nWidth; j++ )
+		int j; for(  j = 0; j < nWidth; j++ )
 		{
 			point = CPoint( j * 8, i * EDIT_HEIGHT ) + rect.TopLeft();
 			if( i == 0 )
@@ -2645,7 +2647,7 @@ void CWndBase::AdjustWndBase( D3DFORMAT d3dFormat ) //= D3DFMT_A4R4G4B4 )
 	{
 		LPWORD pDest = (LPWORD)lockedRect.pBits;
 		AdditionalSkinTexture( pDest, size1, d3dFormat );
-		for( int i = 0; i < m_wndArray.GetSize(); i++ )
+		int i; for( i = 0; i < m_wndArray.GetSize(); i++ )
 		{
 			CWndBase* pWndBase = (CWndBase*)m_wndArray.GetAt( i );
 			if( pWndBase->IsDestroy() == FALSE && pWndBase->IsVisible() )

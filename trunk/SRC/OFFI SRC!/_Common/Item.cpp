@@ -330,12 +330,12 @@ BOOL CItemElem::IsCharged()
 
 void CItemElem::GetPiercingAvail( PPIERCINGAVAIL pPiercingAvail )
 {
-	for( int i = 0; i < GetPiercingSize(); i++ )
+	int i; for( i = 0; i < GetPiercingSize(); i++ )
 	{
 		PPIERCINGAVAIL ptr	= CPiercingAvail::GetInstance()->GetPiercingAvail( GetPiercingItem( i ) );
 		if( ptr )
 		{
-			for( int j = 0; j < ptr->nSize; j++ )
+			int j; for(  j = 0; j < ptr->nSize; j++ )
 			{
 				int nFind	= -1;
 				for( int k = 0; k < pPiercingAvail->nSize; k++ )

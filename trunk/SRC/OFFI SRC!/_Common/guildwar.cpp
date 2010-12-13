@@ -153,7 +153,7 @@ void CGuildWarMng::Serialize( CAr & ar )
 		ar >> m_id;
 		int nSize;
 		ar >> nSize;
-		for( int i = 0; i < nSize; i++ )
+		int i; for( i = 0; i < nSize; i++ )
 		{
 			CGuildWar* pWar	= new CGuildWar;
 			pWar->Serialize( ar );
@@ -227,8 +227,8 @@ void CGuildWarMng::Result( CGuildWar* pWar, CGuild* pDecl, CGuild* pAcpt, int nT
 	pWin->m_idEnemyGuild	= 0;
 	pLose->m_idWar	= 0;
 	pLose->m_idEnemyGuild	= 0;
-
-	for( map<u_long, CGuildMember*>::iterator i = pWin->m_mapPMember.begin();
+	 map<u_long, CGuildMember*>::iterator i;
+	for(i = pWin->m_mapPMember.begin();
 		i != pWin->m_mapPMember.end(); ++i )
 	{
 #ifdef __CORESERVER

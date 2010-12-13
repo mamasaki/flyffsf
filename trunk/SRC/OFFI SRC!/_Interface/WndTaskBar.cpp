@@ -99,7 +99,7 @@ void CWndQuickList::OnDraw( C2DRender* p2DRender )
 	CPoint point = CPoint( 0, 0);//POINT_ITEM;
 	for( int y = 0; y < 4; y++ )
 	{
-		for( int i = 0; i < MAX_SLOT_ITEM; i++ )
+		int i; for( i = 0; i < MAX_SLOT_ITEM; i++ )
 		{
 			point = CPoint( i * 32 + 32 , y * 38 + 6 );
 			LPSHORTCUT lpShortcut = &pWndTaskBar->m_aSlotItem[ y ][ i ] ;
@@ -253,7 +253,7 @@ void CWndTaskBar::Serialize( CAr & ar )
 		int nCount	= 0;
 		u_long uOffset	= ar.GetOffset();
 		ar << nCount;
-		for( int i = 0; i < MAX_SLOT_APPLET; i++ )
+		int i; for( i = 0; i < MAX_SLOT_APPLET; i++ )
 		{
 			if( m_aSlotApplet[i].m_dwShortcut == SHORTCUT_NONE )		// 값이 들어있는지 검사
 			{
@@ -274,7 +274,7 @@ void CWndTaskBar::Serialize( CAr & ar )
 		ar << nCount;
 		for( i = 0; i < MAX_SLOT_ITEM_COUNT; i++ )
 		{
-			for( int j = 0; j < MAX_SLOT_ITEM; j++ )
+			int j; for(  j = 0; j < MAX_SLOT_ITEM; j++ )
 			{
 				if( m_aSlotItem[i][j].m_dwShortcut == SHORTCUT_NONE )		// 값이 들어있는지 검사
 				{
@@ -314,7 +314,7 @@ void CWndTaskBar::Serialize( CAr & ar )
 		InitTaskBar();
 		int nCount, nIndex;
 		ar >> nCount;	// applet count
-		for( int i = 0; i < nCount; i++ )
+		int i; for( i = 0; i < nCount; i++ )
 		{
 			ar >> nIndex;
 			ar >> m_aSlotApplet[nIndex].m_dwShortcut >>	m_aSlotApplet[nIndex].m_dwId >> m_aSlotApplet[nIndex].m_dwType;
@@ -510,7 +510,7 @@ CWndTaskBar::CWndTaskBar()
 CWndTaskBar::~CWndTaskBar()
 {
 	/*
-	for( int i = 0; i < m_awndShortCut.GetSize(); i++ )
+	int i; for( i = 0; i < m_awndShortCut.GetSize(); i++ )
 	{
 		CWndButton* pButton = (CWndButton*)m_awndShortCut.GetAt( i );
 		SAFE_DELETE( pButton );
@@ -683,7 +683,7 @@ void CWndTaskBar::PutTooTip( LPSHORTCUT pShortcut, CPoint point, CRect* pRect )
 void CWndTaskBar::OnMouseWndSurface( CPoint point )
 {
 	CRect rect = CRect( POINT_APPLET_X, POINT_APPLET_Y, POINT_APPLET_X + ICON_SIZE, POINT_APPLET_Y + ICON_SIZE );
-	for( int i = 0; i < m_nMaxSlotApplet; i++ )
+	int i; for( i = 0; i < m_nMaxSlotApplet; i++ )
 	{
 		LPSHORTCUT lpShortcut = &m_aSlotApplet[ i ] ;
 		if( !lpShortcut->IsEmpty() && rect.PtInRect( point) )
@@ -817,7 +817,7 @@ void CWndTaskBar::OnDraw( C2DRender* p2DRender )
 
 	// 애플렛 아이콘 출력
 	CPoint point = POINT_APPLET;
-	for( int i = 0; i < m_nMaxSlotApplet; i++ )
+	int i; for( i = 0; i < m_nMaxSlotApplet; i++ )
 	{
 		LPSHORTCUT lpShortcut = &m_aSlotApplet[ i ] ;
 		if( !lpShortcut->IsEmpty() )
@@ -1091,7 +1091,7 @@ void CWndTaskBar::UpdateItem()
 	if( g_pPlayer == NULL )
 		return;
 	
-	for( int i = 0; i < MAX_SLOT_ITEM; i++ )
+	int i; for( i = 0; i < MAX_SLOT_ITEM; i++ )
 	{
 		LPSHORTCUT lpShortcut = &m_paSlotItem[ i ] ;
 		if( !lpShortcut->IsEmpty() )
@@ -1310,7 +1310,7 @@ BOOL CWndTaskBar::Initialize(CWndBase* pWndParent,DWORD dwWndId)
 BOOL CWndTaskBar::RemoveDeleteObj()
 {
 	/*
-	for( int i = 0; i < m_awndShortCut.GetSize(); i++ )
+	int i; for( i = 0; i < m_awndShortCut.GetSize(); i++ )
 	{
 		CWndButton* pWndButton = (CWndButton*)m_awndShortCut.GetAt( i );
 		if( pWndButton ) 
@@ -1448,7 +1448,7 @@ BACK:
 	{
 		ItemProp* pItemProp = g_pPlayer->GetSkill( 0, m_aSlotQueue[ nIndex ].m_dwId )->GetProp();
 		DWORD dwComboStyleSrc = pItemProp->dwComboStyle;
-		for( int i = nIndex; i < MAX_SLOT_QUEUE - 1; i++ )
+		int i; for( i = nIndex; i < MAX_SLOT_QUEUE - 1; i++ )
 		{
 			memcpy( &m_aSlotQueue[ i ], &m_aSlotQueue[ i + 1 ], sizeof( SHORTCUT ) );
 			m_aSlotQueue[ i ].m_dwIndex = i;
@@ -1787,7 +1787,7 @@ BOOL CWndTaskBar::SetSkillQueue( int nIndex, DWORD dwType, DWORD dwId, CTexture*
 		return FALSE;
 
 	// m_nCurQueueNum 보다 작은 슬롯에 비어있는게 있다면 오류 상태다. 클리어하자.
-	for( int i = 0; i < m_nCurQueueNum; i++ )
+	int i; for( i = 0; i < m_nCurQueueNum; i++ )
 	{
 		if( m_aSlotQueue[ i ].IsEmpty() )
 		{
@@ -1831,7 +1831,7 @@ BOOL CWndTaskBar::SetSkillQueue( int nIndex, DWORD dwType, DWORD dwId, CTexture*
 	{
 		if( !CheckAddSkill( dwComboStyleSrc, nIndex ) )		// Src를 nIndex에 넣어도 되는지 체크
 			return FALSE;
-		for( int i = m_nCurQueueNum; i > nIndex; i-- )
+		int i; for( i = m_nCurQueueNum; i > nIndex; i-- )
 		{
 			memcpy( &m_aSlotQueue[ i ], &m_aSlotQueue[ i - 1 ], sizeof( SHORTCUT ) );
 		}
@@ -2273,7 +2273,7 @@ BOOL CWndTaskBar::Process( void )
 	CPoint point = GetMousePoint();
 
 	CRect rect = CRect( POINT_APPLET_X, POINT_APPLET_Y, POINT_APPLET_X + ICON_SIZE, POINT_APPLET_Y + ICON_SIZE );
-	for( int i = 0; i < m_nMaxSlotApplet; i++ )
+	int i; for( i = 0; i < m_nMaxSlotApplet; i++ )
 	{
 		LPSHORTCUT lpShortcut = &m_aSlotApplet[ i ] ;
 		if( !lpShortcut->IsEmpty() && rect.PtInRect( point) )
@@ -2402,7 +2402,7 @@ BOOL CWndTaskBar::Process( void )
 				dwHotkey = dwHotkey1;
 #endif //__Y_INTERFACE_VER3
 
-				for( int i = 0; i < 10; i++ )
+				int i; for( i = 0; i < 10; i++ )
 				{
 					if( g_bKeyTable[ dwHotkey[i] ] && g_bSlotSwitchAboutEquipItem[ i ] == FALSE )
 					{
@@ -2522,7 +2522,7 @@ BOOL CWndTaskMenu::Process()
 	if( IsVisible() == FALSE )
 		return CWndBase::Process();
 
-	for( int i = 0; i < m_awndMenuItem.GetSize(); i++ )
+	int i; for( i = 0; i < m_awndMenuItem.GetSize(); i++ )
 	{
 		BOOL bHighLight = FALSE;
 		CWndButton* pWndButton = (CWndButton*)m_awndMenuItem.GetAt( i );
@@ -2744,7 +2744,7 @@ CWndButton* CWndTaskMenu::AppendMenu( CWndMenu* pWndMenu, UINT nFlags, UINT nIDN
 		m_nLargeWidth = size.cx + 60;
 	pWndButton->Create(lpszNewItem, WBS_MENUITEM | WBS_HIGHLIGHT, CRect( 2, 2 + ( nCount * 22 ), m_nLargeWidth, 2 + ( nCount * 22 ) + 20 ), this, nIDNewItem );
 	m_awndMenuItem.Add( pWndButton );
-	for( int i = 0; i < m_awndMenuItem.GetSize(); i++ )
+	int i; for( i = 0; i < m_awndMenuItem.GetSize(); i++ )
 	{
 		pWndButton = (CWndButton*)m_awndMenuItem.GetAt( i );
 		CRect rect = pWndButton->GetWindowRect( TRUE );

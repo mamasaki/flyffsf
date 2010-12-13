@@ -365,7 +365,7 @@ public:
 		{
 			if( dwItemId == 0 )
 				return NULL_ID;
-			for( int i = 0; i < (int)( m_dwIndexNum ); i++ )
+			int i; for( i = 0; i < (int)( m_dwIndexNum ); i++ )
 			{
 				DWORD nId	= m_apIndex[i];
 				if( nId < 0 || nId >= m_dwItemMax )
@@ -380,7 +380,7 @@ public:
 			if( dwItemId == 0 )
 				return 0;
 			int nCount	= 0;
-			for( int i = 0; i < (int)( m_dwItemMax ); i++ )
+			int i; for( i = 0; i < (int)( m_dwItemMax ); i++ )
 			{
 				CItemElem* pItemElem	= (CItemElem*)&m_apItem[i];
 				if( pItemElem->m_dwItemId == dwItemId )
@@ -435,7 +435,7 @@ public:
 	int		GetCountByIK3( DWORD dwItemKind3 )
 		{
 			int nCount	= 0;
-			for( int i = 0; i < m_dwItemMax; i++ )
+			int i; for( i = 0; i < m_dwItemMax; i++ )
 			{
 				if( m_apItem[i].IsEmpty() == FALSE && m_apItem[i].GetProp()->dwItemKind3 == dwItemKind3 )
 					nCount++;
@@ -924,7 +924,8 @@ template <class T> void CItemContainer<T>::Serialize( CAr & ar )	// 0-673	// 466
 	{
 		ar.Read( m_apIndex, sizeof(DWORD) * m_dwItemMax );
 		// Clear
-		for( u_long i = 0; i < m_dwItemMax; i++ )
+		u_long i;
+		for(  i = 0; i < m_dwItemMax; i++ )
 			m_apItem[i].Empty();
 
 		ar >> chSize;

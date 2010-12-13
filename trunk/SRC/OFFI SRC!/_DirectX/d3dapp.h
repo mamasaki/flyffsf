@@ -31,7 +31,7 @@ enum APPMSGTYPE { MSG_NONE, MSGERR_APPMUSTEXIT, MSGWARN_SWITCHEDTOREF };
 #define D3DAPPERR_RESETFAILED         0x8200000c
 #define D3DAPPERR_NULLREFDEVICE       0x8200000d
 
-
+const HRESULT D3DAPPERR_FILE_NOT_FOUND = HRESULT_FROM_WIN32( ERROR_FILE_NOT_FOUND );
 
 
 //-----------------------------------------------------------------------------

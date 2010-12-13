@@ -18,9 +18,9 @@ enum
 };
 BEGIN_AISTATE_MAP( CAIPet, CAIInterface )
 
-	ON_STATE( STATE_INIT   , StateInit   )
-	ON_STATE( STATE_IDLE   , StateIdle   )
-	ON_STATE( STATE_RAGE   , StateRage   )
+	ON_STATE( STATE_INIT   ,& CAIPet::StateInit   )
+	ON_STATE( STATE_IDLE   , &CAIPet::StateIdle   )
+	ON_STATE( STATE_RAGE   ,& CAIPet::StateRage   )
 
 END_AISTATE_MAP()
 

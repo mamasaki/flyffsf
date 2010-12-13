@@ -306,7 +306,8 @@ void CMover::InitProp( void )
 		memset( m_aJobSkill, 0, sizeof(SKILL) * ( MAX_SKILL_JOB ) );
 
 		LPSKILL lpSkill;
-		for( int i = 0; i < MAX_SKILL_JOB; i++ )
+		int i;
+		for(  i = 0; i < MAX_SKILL_JOB; i++ )
 		{
 			m_aJobSkill[ i ].dwSkill = NULL_ID;
 		}
@@ -377,8 +378,8 @@ BOOL CMover::IsAbnormalPlayerData()
 	DWORD dwId;
 	int nMax	= m_Inventory.m_dwItemMax;
 	int nNumberofIndex	= m_Inventory.m_dwIndexNum;
-	
-	for( int i = 0; i < nMax; i++ )
+	int i;
+	for(  i = 0; i < nMax; i++ )
 	{
 		dwId	= m_Inventory.m_apIndex[i];
 		if( dwId != NULL_ID )
@@ -429,7 +430,8 @@ BOOL CMover::NormalizePlayerData()
 	int nMax	= m_Inventory.m_dwItemMax;
 	int nNumberofIndex	= m_Inventory.m_dwIndexNum;
 	DWORD dwId;
-	for( int i = 0; i < nMax; i++ )
+	int i;
+	for(  i = 0; i < nMax; i++ )
 	{
 		dwId	= m_Inventory.m_apIndex[i];
 		if( dwId != NULL_ID )
@@ -438,7 +440,8 @@ BOOL CMover::NormalizePlayerData()
 			{
 				
 				DWORD dwIndex	= NULL_ID;
-				for( int j = 0; j < nMax; j++ )
+				int j;
+				for(  j = 0; j < nMax; j++ )
 				{	
 					if( m_Inventory.m_apItem[j].m_dwObjIndex == i )
 					{
@@ -908,7 +911,8 @@ void CMover::PeriodTick( void )
 BOOL CMover::RemoveQuest( int nQuestId )
 {
 	BOOL	bRemove	= FALSE;
-	for( int i = 0; i < m_nQuestSize; i++ )
+	int i;
+	for(  i = 0; i < m_nQuestSize; i++ )
 	{
 		if( m_aQuest[ i ].m_wId == nQuestId )
 		{

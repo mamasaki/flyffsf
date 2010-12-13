@@ -30,7 +30,7 @@ CDPClient::CDPClient()
 {
 	BEGIN_MSG;
 //	ON_MSG( PACKETTYPE_REPLACE, OnReplace );
-	ON_MSG( PACKETTYPE_QUERY_DESTROY_PLAYER, OnQueryDestroyPlayer );
+	ON_MSG( PACKETTYPE_QUERY_DESTROY_PLAYER,&CDPClient:: OnQueryDestroyPlayer );
 
 	m_pServer	= NULL;
 	pNext		= NULL;
@@ -174,7 +174,7 @@ void CDPClientArray::Free( void )
 	m_pFirstFree	= NULL;
 }
 
-CDPClientArray::Connect( CServerDesc *pServer )
+BOOL CDPClientArray::Connect( CServerDesc *pServer )
 {
 	CMclAutoLock Lock( m_AddRemoveLock );
 	CServerDescArray::iterator i = m_apServer.find( pServer->GetKey() );

@@ -96,7 +96,7 @@ void CWndGuildCombat1to1Selection::RemoveGuildPlayer( int nIndex )
 	CWndListBox* pWndList = (CWndListBox*)GetDlgItem( WIDC_LISTBOX1 );
 	
 	pWndList->DeleteString( nIndex );
-	vector<u_long>::iterator where = &(m_vecGuildList[nIndex]);	
+	vector<u_long>::iterator where = m_vecGuildList.begin()+nIndex;	
 	m_vecGuildList.erase( where );	
 } 
 
@@ -105,7 +105,7 @@ void CWndGuildCombat1to1Selection::RemoveCombatPlayer( int nIndex )
 	CWndListBox* pWndList = (CWndListBox*)GetDlgItem( WIDC_LISTBOX2 );
 	
 	pWndList->DeleteString( nIndex );
-	vector<u_long>::iterator where = &(m_vecSelectPlayer[nIndex]);	
+	vector<u_long>::iterator where = m_vecGuildList.begin()+nIndex;		
 //	if( m_vecSelectPlayer[nIndex] == m_uidDefender )
 //		SetDefender( -1 );
 
@@ -186,7 +186,7 @@ void CWndGuildCombat1to1Selection::UpDateGuildListBox()
 
 u_long CWndGuildCombat1to1Selection::FindCombatPlayer(u_long uiPlayer)
 {
-	for( int i = 0; i < (int)( m_vecSelectPlayer.size() ); i++ )
+	int i; for( i = 0; i < (int)( m_vecSelectPlayer.size() ); i++ )
 	{
 		if( m_vecSelectPlayer[i] == uiPlayer )
 			return m_vecSelectPlayer[i];
@@ -197,7 +197,7 @@ u_long CWndGuildCombat1to1Selection::FindCombatPlayer(u_long uiPlayer)
 
 u_long CWndGuildCombat1to1Selection::FindGuildPlayer(u_long uiPlayer)
 {
-	for( int i = 0; i < (int)( m_vecGuildList.size() ); i++ )
+	int i; for( i = 0; i < (int)( m_vecGuildList.size() ); i++ )
 	{
 		if( m_vecGuildList[i] == uiPlayer )
 			return m_vecGuildList[i];

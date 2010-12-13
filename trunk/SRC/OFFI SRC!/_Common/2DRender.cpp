@@ -509,8 +509,8 @@ void C2DRender::TextOut_EditString( int x,int y, CEditString& strEditString, int
 			nMax = strEditString.GetLineCount();
 
 			//nLines = nLength;
-		//for( int i = nPos; i < nPos + nLength; i++ )
-		for( int i = nPos; i < nMax; i++ )
+		//int i; for( i = nPos; i < nPos + nLength; i++ )
+		int i; for( i = nPos; i < nMax; i++ )
 		{
 			CString string = strEditString.GetLine( i );
 			DWORD dwOffset = strEditString.GetLineOffset( i );
@@ -1728,9 +1728,9 @@ BOOL CTexturePack::LoadScript( LPDIRECT3DDEVICE9 pd3dDevice, LPCTSTR pszFileName
 			center.x = scanner.GetNumber();	
 			center.y = scanner.GetNumber();	
 			
-			for( int i = start.y; i < m_size.cy; i += size.cy )
+			int i; for( i = start.y; i < m_size.cy; i += size.cy )
 			{
-				for( int j = start.x; j < m_size.cx; j += size.cx, nCnt++ )
+				int j; for(  j = start.x; j < m_size.cx; j += size.cx, nCnt++ )
 				{
 					if( nCnt < nFrame )
 					{
@@ -1956,7 +1956,7 @@ void CDamageNum::Render(CTexturePack *textPackNum)
 		sprintf( strTemp, "%d", m_nNumber );
 		int nLength = strlen(strTemp);
 		fX -= fScaleX * textPackNum->m_ap2DTexture[0].m_size.cx * (1.0f+0.5f*(nLength-1)) / 2.0f;
-		for( int i = 0; i < nLength; i++ )
+		int i; for( i = 0; i < nLength; i++ )
 		{
 			DWORD nIndex = strTemp[i] - '0' + m_nAttribute * 14;
 			if( (int)nIndex >= 0 )	// 에러방지.

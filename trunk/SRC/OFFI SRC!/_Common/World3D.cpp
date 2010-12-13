@@ -18,7 +18,7 @@
 
 // 대안으로 오브젝트 필터 정의를 한 것이다. ( OF_OBJ | OBJ_CTRL | OF_MOVER )
 //
-inline ObjTypeToObjFilter( DWORD dwType )
+inline int ObjTypeToObjFilter( DWORD dwType )
 {  
 	static DWORD m_dwFilter[] = { OF_OBJ, OF_ANI, OF_CTRL, OF_SFX, OF_ITEM, OF_MOVER, OF_REGION, OF_SHIP };
 	return m_dwFilter[ dwType ] ;
@@ -1362,7 +1362,7 @@ void	_DrawRect( LPDIRECT3DDEVICE9 pd3dDevice, int x, int y, int w, int h, DWORD 
 	};
 	FVF_2DVERTEX	m_aVertex[ 8 ];
 
-	for( int i = 0; i < 8; i ++ )
+	int i; for( i = 0; i < 8; i ++ )
 	{
 		m_aVertex[i].vPos    = D3DXVECTOR4( 0.0f, 0.0f, 0.0f, 1.0f );
 		m_aVertex[i].dwColor = 0xffffffff;
@@ -1688,7 +1688,7 @@ BOOL CWorld::CheckBound(D3DXVECTOR3* vPos,D3DXVECTOR3* vDest,D3DXVECTOR3* vOut, 
 		}
 	}					
 
-	for( int i = 0; i < int( length * 10 ); i++ ) 
+	int i; for( i = 0; i < int( length * 10 ); i++ ) 
 	{
 		tempVec2+=tempVec;
 		tempheight=GetLandHeight( tempVec2.x, tempVec2.z );
@@ -2019,7 +2019,7 @@ HRESULT CWorld::InitDeviceObjects( LPDIRECT3DDEVICE9 pd3dDevice )
 	if( prj.m_terrainMng.GetTerrain( 10 )->m_pTexture == NULL )
 		prj.m_terrainMng.LoadTexture( 10 );
  
-	for( int i = 0; i < prj.m_terrainMng.m_nWaterFrame ; i++ )
+	int i; for( i = 0; i < prj.m_terrainMng.m_nWaterFrame ; i++ )
 	{
 		for ( int j = 0 ; j < prj.m_terrainMng.m_pWaterIndexList[ i ].ListCnt ; j++ )
 			prj.m_terrainMng.LoadTexture( prj.m_terrainMng.m_pWaterIndexList[ i ].pList[ j ] );
@@ -2069,7 +2069,7 @@ HRESULT CWorld::RestoreDeviceObjects( LPDIRECT3DDEVICE9 pd3dDevice )
 		return S_OK;
 	HRESULT hr;
 	SetFogEnable( pd3dDevice, m_bViewFog );
-	for( int i = 0; i < m_nLandWidth * m_nLandHeight; i++ ) 
+	int i; for( i = 0; i < m_nLandWidth * m_nLandHeight; i++ ) 
 	{
 		if( m_apLand[ i ] )
 			m_apLand[ i ]->RestoreDeviceObjects( pd3dDevice );
@@ -2108,7 +2108,7 @@ HRESULT CWorld::DeleteDeviceObjects()
 	}
 	if( m_apLand != NULL )
 	{
-		for( int i = 0; i < m_nLandWidth * m_nLandHeight; i++)
+		int i; for( i = 0; i < m_nLandWidth * m_nLandHeight; i++)
 		{
 			SAFE_DELETE( m_apLand[ i ] );
 		}
@@ -2610,7 +2610,7 @@ CObj* CWorld::PickObject( RECT rectClient, POINT ptClient, D3DXMATRIX* pmatProj,
 	CObj* pObj;
 	CObj* pNonCullObjs[ 10000 ];
 	int nNonCullNum = 0;
-	for( int i = 0; i < m_nObjCullSize; i++ )
+	int i; for( i = 0; i < m_nObjCullSize; i++ )
 	{
 		pObj = m_aobjCull[ i ];
 		if( pObj )
@@ -2680,7 +2680,7 @@ CObj* CWorld::PickObject_Fast( RECT rectClient, POINT ptClient, D3DXMATRIX* pmat
 	CObj* pObj;
 	CObj* pNonCullObjs[ 10000 ];
 	int nNonCullNum = 0;
-	for( int i = 0; i < m_nObjCullSize; i++ )
+	int i; for( i = 0; i < m_nObjCullSize; i++ )
 	{
 		pObj = m_aobjCull[ i ];
 		if( pObj )
@@ -2749,7 +2749,7 @@ void CWorld::UpdateCullInfo(D3DXMATRIX* pMatView, D3DXMATRIX* pMatProj )
     g_cullinfo.vecFrustum[6] = D3DXVECTOR3(-1.0f,  1.0f,  1.0f); // xYZ
     g_cullinfo.vecFrustum[7] = D3DXVECTOR3( 1.0f,  1.0f,  1.0f); // XYZ
 
-    for( INT i = 0; i < 8; i++ )
+    int i; for( i = 0; i < 8; i++ )
         D3DXVec3TransformCoord( &g_cullinfo.vecFrustum[i], &g_cullinfo.vecFrustum[i], &mat );
 
     D3DXPlaneFromPoints( &g_cullinfo.planeFrustum[0], &g_cullinfo.vecFrustum[0], 
@@ -2847,7 +2847,8 @@ CULLSTATE CullObject( CULLINFO* pCullInfo, D3DXVECTOR3* pVecBounds, D3DXPLANE* p
     D3DXVECTOR3* pEdge;
     D3DXVECTOR3* pFace;
     pEdge = &edge[0][0];
-    for( INT iEdge = 0; iEdge < 12; iEdge++ )
+	INT iEdge;
+    for( iEdge = 0; iEdge < 12; iEdge++ )
     {
         pFace = &face[0][0];
         for( INT iFace = 0; iFace < 6; iFace++ )
@@ -2962,7 +2963,7 @@ BOOL EdgeIntersectsFace( D3DXVECTOR3* pEdges, D3DXVECTOR3* pFacePoints, D3DXPLAN
     if( fAbsA > fAbsB && fAbsA > fAbsC )
     {
         // Plane is mainly pointing along X axis, so use Y and Z
-        for( INT i = 0; i < 4; i++)
+        int i; for( i = 0; i < 4; i++)
         {
             facePoints[i].x = pFacePoints[i].y;
             facePoints[i].y = pFacePoints[i].z;
@@ -2973,7 +2974,7 @@ BOOL EdgeIntersectsFace( D3DXVECTOR3* pEdges, D3DXVECTOR3* pFacePoints, D3DXPLAN
     else if( fAbsB > fAbsA && fAbsB > fAbsC )
     {
         // Plane is mainly pointing along Y axis, so use X and Z
-        for( INT i = 0; i < 4; i++)
+        int i; for( i = 0; i < 4; i++)
         {
             facePoints[i].x = pFacePoints[i].x;
             facePoints[i].y = pFacePoints[i].z;
@@ -2984,7 +2985,7 @@ BOOL EdgeIntersectsFace( D3DXVECTOR3* pEdges, D3DXVECTOR3* pFacePoints, D3DXPLAN
     else
     {
         // Plane is mainly pointing along Z axis, so use X and Y
-        for( INT i = 0; i < 4; i++)
+        int i; for( i = 0; i < 4; i++)
         {
             facePoints[i].x = pFacePoints[i].x;
             facePoints[i].y = pFacePoints[i].y;
@@ -3021,7 +3022,7 @@ BOOL EdgeIntersectsFace( D3DXVECTOR3* pEdges, D3DXVECTOR3* pFacePoints, D3DXPLAN
         bClockwise = TRUE;
     x2 = point.x;
     y2 = point.y;
-    for( INT i = 0; i < 4; i++ )
+    int i; for( i = 0; i < 4; i++ )
     {
         x0 = facePoints[i].x;
         y0 = facePoints[i].y;

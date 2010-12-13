@@ -524,9 +524,9 @@ BOOL CWndGuideSystem::Process()
 				if(g_Option.m_nTutorialLv > 0)
 					m_pWndTutorialView->AddToList(g_Option.m_nTutorialLv - 1);
 				m_CurrentGuide.init();
-				m_CurrentIter = NULL;
+				m_CurrentIter = m_mapGuide.begin();
 			}
-			else if(m_CurrentIter == NULL)
+			else if(m_CurrentIter == m_mapGuide.begin())
 			{
 				// 이벤트성(일회성) 이벤트일 경우는 다음이 없다
 				m_wndGuideText->SetVisible(FALSE);
@@ -562,7 +562,7 @@ BOOL CWndGuideSystem::Process()
 					g_DPlay.SendTutorialState(g_Option.m_nTutorialLv);
 					if(g_Option.m_nTutorialLv > 0)
 						m_pWndTutorialView->AddToList(g_Option.m_nTutorialLv - 1);
-					m_CurrentIter = NULL;
+					m_CurrentIter = m_mapGuide.begin();
 					m_CurrentGuide.init();
 				}
 			}
@@ -589,10 +589,10 @@ BOOL CWndGuideSystem::PassToNext()
 			if(g_Option.m_nTutorialLv > 0)
 				m_pWndTutorialView->AddToList(g_Option.m_nTutorialLv - 1);
 			m_CurrentGuide.init();
-			m_CurrentIter = NULL;
+			m_CurrentIter = m_mapGuide.begin();
 			return FALSE;
 		}
-		else if(m_CurrentIter == NULL)
+		else if(m_CurrentIter == m_mapGuide.begin())
 		{
 			// 이벤트성(일회성) 이벤트일 경우는 다음이 없다
 			m_wndGuideText->SetVisible(FALSE);
@@ -627,7 +627,7 @@ BOOL CWndGuideSystem::PassToNext()
 				g_DPlay.SendTutorialState(g_Option.m_nTutorialLv);
 				if(g_Option.m_nTutorialLv > 0)
 					m_pWndTutorialView->AddToList(g_Option.m_nTutorialLv - 1);
-				m_CurrentIter = NULL;
+				m_CurrentIter = m_mapGuide.begin();
 				m_CurrentGuide.init();
 			}
 			return TRUE;
@@ -773,7 +773,7 @@ void CWndGuideSystem::GuideStart(BOOL ischart)
 				{
 					m_CurrentGuide = guidestruct;
 					m_wndGuideText->AddGuideText(m_CurrentGuide);
-					m_CurrentIter = NULL;
+					m_CurrentIter = m_mapGuide.begin();
 				}
 			}
 		}

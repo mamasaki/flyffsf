@@ -37,7 +37,7 @@ CWndDialog::CWndDialog()
 } 
 CWndDialog::~CWndDialog() 
 { 
-	for( int i = 0; i < m_strArray.GetSize(); i++ )
+	int i; for( i = 0; i < m_strArray.GetSize(); i++ )
 	{
 		CEditString* pEditString = (CEditString*) m_strArray.GetAt( i );
 		safe_delete( pEditString );
@@ -160,7 +160,7 @@ void CWndDialog::OnDraw( C2DRender* p2DRender )
 } 
 void CWndDialog::OnMouseWndSurface( CPoint point )
 {
-	for( int i = 0; i < m_nWordButtonNum; i++ )
+	int i; for( i = 0; i < m_nWordButtonNum; i++ )
 		m_aWordButton[ i ].bStatus = FALSE;
 	for( i = 0; i < m_nKeyButtonNum; i++ )
 		m_aKeyButton[ i ].bStatus = FALSE;
@@ -296,7 +296,7 @@ void CWndDialog::OnInitialUpdate()
 			PlayMusic( lpCharacter->m_dwMusicId, 1 );
 	}
 	m_nCurArray = 0;
-	for( int i = 0; i < m_strArray.GetSize(); i++ )
+	int i; for( i = 0; i < m_strArray.GetSize(); i++ )
 	{
 		CEditString* pEditString = (CEditString*) m_strArray.GetAt( i );
 		safe_delete( pEditString );
@@ -353,7 +353,7 @@ void CWndDialog::OnLButtonUp( UINT nFlags, CPoint point )
 	PLAYSND( SND_INF_CLICK );
 	if( m_bWordButtonEnable )
 	{
-		for( int i = 0; i < m_nWordButtonNum; i++ )
+		int i; for( i = 0; i < m_nWordButtonNum; i++ )
 		{
 			if( m_aWordButton[ i ].rect.PtInRect( point ) )
 			{			
@@ -364,7 +364,7 @@ void CWndDialog::OnLButtonUp( UINT nFlags, CPoint point )
 			}
 		}
 	}
-	for( int i = 0; i < m_nKeyButtonNum; i++ )
+	int i; for( i = 0; i < m_nKeyButtonNum; i++ )
 	{
 		if( m_aKeyButton[ i ].rect.PtInRect( point ) )
 		{
@@ -436,7 +436,7 @@ void CWndDialog::Say( LPCTSTR lpszString, DWORD dwQuest )
 		string += lpszString;
 
 	int nLength = string.GetLength();//_tcslen( szString );
-	for( int i = 0, j = 0; i < nLength; i++ )
+	int i,j; for( i = 0, j = 0; i < nLength; i++ )
 	{
 		if( string[ i ] == '\\' && string[ i + 1 ] == 'n' )
 		{
@@ -474,7 +474,7 @@ void CWndDialog::ParsingString( LPCTSTR lpszString )
 	int nLength = editString.GetLength();
 	
 	// 왼쪽이 strWord, 오른쪽이 strOrigital
-	for( int i = 0; i < nLength; i++ )
+	int i; for( i = 0; i < nLength; i++ )
 	{
 		if( editString[ i ] == '['  )
 		{
@@ -577,7 +577,7 @@ void CWndDialog::EndSay()
 }
 void CWndDialog::BeginText()
 {
-	for( int i = 0; i < m_strArray.GetSize(); i++ )
+	int i; for( i = 0; i < m_strArray.GetSize(); i++ )
 	{
 		CEditString* pEditString = (CEditString*) m_strArray.GetAt( i );
 		safe_delete( pEditString );
@@ -605,7 +605,7 @@ void CWndDialog::MakeContextButton()
 	DWORD dwMark = 0;
 	CString strKey, strWord;
 	BOOL bLinkWord = FALSE;
-	for( int i = 0; i < (int)( dwLineCount ); i++)
+	int i; for( i = 0; i < (int)( dwLineCount ); i++)
 	{
 		CString string = m_string.GetLine( i );
 		DWORD dwOffset = m_string.GetLineOffset( i );
@@ -614,7 +614,7 @@ void CWndDialog::MakeContextButton()
 		x = lpWndCtrl->rect.left;
 		strWord.Empty();
 		
-		for( int j = 0; j < nLength; j++ )
+		int j; for(  j = 0; j < nLength; j++ )
 		{
 			if( IsDBCSLeadByte( string[ j ] ) )
 			{
@@ -690,7 +690,7 @@ void CWndDialog::AddKeyButton( LPCTSTR lpszWord, LPCTSTR lpszKey, DWORD dwParam,
 {
 	WORDBUTTON* lpKeyButton;// = &m_aKeyButton[ m_nKeyButtonNum ];
 	// 같은 워드가 발견되면 무시한다. 키는 같아도 되지만 워드는 같으면 하나는 무시함.
-	for( int i = 0; i < m_nKeyButtonNum; i++ )
+	int i; for( i = 0; i < m_nKeyButtonNum; i++ )
 	{
 		lpKeyButton = &m_aKeyButton[ i ];
 		if( strcmp( lpKeyButton->szWord, lpszWord ) == 0 )
@@ -721,13 +721,13 @@ void CWndDialog::RemoveAllKeyButton()
 void CWndDialog::RemoveKeyButton( LPCTSTR lpszKey )
 {
 	WORDBUTTON* lpKeyButton;// = &m_aKeyButton[ m_nKeyButtonNum ];
-	for( int i = 0; i < m_nKeyButtonNum; i++ )
+	int i; for( i = 0; i < m_nKeyButtonNum; i++ )
 	{
 		lpKeyButton = &m_aKeyButton[ i ];
 		//if( strcmp( lpKeyButton->szWord, lpszWord ) == 0 )
 		if( strcmp( lpKeyButton->szKey, lpszKey ) == 0 )
 		{
-			for( int j = i; j < m_nKeyButtonNum - 1; j++ )
+			int j; for(  j = i; j < m_nKeyButtonNum - 1; j++ )
 			{
 				memcpy( &m_aKeyButton[ j ], &m_aKeyButton[ j + 1 ], sizeof( WORDBUTTON ) ) ;
 			}
@@ -761,7 +761,7 @@ void CWndDialog::MakeKeyButton()
 #if __VER >= 15 // __IMPROVE_QUEST_INTERFACE
 	BOOL bQuestButtonLinefeedSwitch = FALSE;
 #endif // __IMPROVE_QUEST_INTERFACE
-	for( int i = 0; i < m_nKeyButtonNum; i++ )
+	int i; for( i = 0; i < m_nKeyButtonNum; i++ )
 	{
 		WORDBUTTON* pWndButton = &m_aKeyButton[ i ];
 
@@ -816,7 +816,7 @@ void CWndDialog::MakeAnswerButton()
 		int yBegin = lpWndCtrl->rect.top + m_string.GetLineCount() * dwMaxHeight + dwMaxHeight;
 		int x = 0, y = 0;//
 		int nButtonNum = 0;
-		for( int i = 0; i < m_nWordButtonNum; i++ )
+		int i; for( i = 0; i < m_nWordButtonNum; i++ )
 		{
 			WORDBUTTON* pWordButton = &m_aWordButton[ i ];
 			if( strcmp( pWordButton->szWord, "__YES__" ) == 0 )
@@ -947,7 +947,7 @@ BOOL CWndDialog::OnChildNotify( UINT message, UINT nID, LRESULT* pLResult )
 		{
 			if( m_WndNewQuestListBox.IsVisible() == TRUE && m_WndCurrentQuestListBox.IsVisible() == FALSE )
 			{
-				for( int i = 0; i < m_nNewQuestListNumber; ++i )
+				int i; for( i = 0; i < m_nNewQuestListNumber; ++i )
 				{
 					CRect rect = m_WndNewQuestListBox.GetItemRect( i );
 					CPoint point = m_WndNewQuestListBox.GetMousePoint();
@@ -967,7 +967,7 @@ BOOL CWndDialog::OnChildNotify( UINT message, UINT nID, LRESULT* pLResult )
 			}
 			else if( m_WndNewQuestListBox.IsVisible() == FALSE && m_WndCurrentQuestListBox.IsVisible() == TRUE )
 			{
-				for( int i = 0; i < m_nCurrentQuestListNumber; ++i )
+				int i; for( i = 0; i < m_nCurrentQuestListNumber; ++i )
 				{
 					CRect rect = m_WndCurrentQuestListBox.GetItemRect( i );
 					CPoint point = m_WndCurrentQuestListBox.GetMousePoint();
@@ -1003,7 +1003,7 @@ void CWndDialog::AddCurrentQuestList( const LPCTSTR lpszWord, const LPCTSTR lpsz
 void CWndDialog::MakeQuestKeyButton( const CString& rstrKeyButton )
 {
 	WORDBUTTON* lpKeyButton = NULL;
-	for( int i = 0; i < m_nKeyButtonNum; i++ )
+	int i; for( i = 0; i < m_nKeyButtonNum; i++ )
 	{
 		lpKeyButton = &m_aKeyButton[ i ];
 		if( strcmp( lpKeyButton->szWord, rstrKeyButton ) == 0 )
@@ -1024,7 +1024,7 @@ void CWndDialog::RenderNewQuestListIcon( C2DRender* p2DRender )
 	if( lpWndCtrl == NULL || m_pNewQuestListIconTexture == NULL || m_pExpectedQuestListIconTexture == NULL )
 		return;
 	POINT pt = lpWndCtrl->rect.TopLeft();
-	for( int i = 0; i < m_WndNewQuestListBox.GetCount(); ++i )
+	int i; for( i = 0; i < m_WndNewQuestListBox.GetCount(); ++i )
 	{
 		CRect rectItem = m_WndNewQuestListBox.GetItemRect( i );
 		int nRenderPositionX = pt.x + rectItem.left;
@@ -1044,7 +1044,7 @@ void CWndDialog::RenderCurrentQuestListIcon( C2DRender* p2DRender )
 	if( lpWndCtrl == NULL || m_pCurrentQuestListIconTexture == NULL || m_pCompleteQuestListIconTexture == NULL )
 		return;
 	POINT pt = lpWndCtrl->rect.TopLeft();
-	for( int i = 0; i < m_WndCurrentQuestListBox.GetCount(); ++i )
+	int i; for( i = 0; i < m_WndCurrentQuestListBox.GetCount(); ++i )
 	{
 		CRect rectItem = m_WndCurrentQuestListBox.GetItemRect( i );
 		int nRenderPositionX = pt.x + rectItem.left;
@@ -1060,7 +1060,7 @@ void CWndDialog::RenderCurrentQuestListIcon( C2DRender* p2DRender )
 }
 void CWndDialog::AddQuestList( CWndListBox& pWndListBox, int& nQuestListNumber, const LPCTSTR lpszWord, const LPCTSTR lpszKey, const DWORD dwParam, const DWORD dwQuest )
 {
-	for( int i = 0; i < nQuestListNumber; ++i )
+	int i; for( i = 0; i < nQuestListNumber; ++i )
 	{
 		CString strQuestList = pWndListBox.GetString( i );
 		if( strcmp( strQuestList, lpszWord ) == 0 )

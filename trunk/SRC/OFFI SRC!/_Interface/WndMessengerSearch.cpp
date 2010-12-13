@@ -50,7 +50,7 @@ void CWndMessengerSearch::OnInitialUpdate()
 
 	// 서버별 리스트 넣기
 	pWndComboBox->AddString( "All Server" );
-	for( int i = 0 ; i < (int)( g_dpCertified.m_dwSizeofServerset ) ; ++i )
+	int i; for( i = 0 ; i < (int)( g_dpCertified.m_dwSizeofServerset ) ; ++i )
 	{
 		if( g_Neuz.m_dwSys == g_dpCertified.m_aServerset[i].dwParent )
 		{

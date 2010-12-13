@@ -3334,7 +3334,8 @@ void CUser::RefineAccessory( CItemElem* pTarget, CItemElem* pMaterial )
 #ifdef __SYS_TICKET
 CItemElem* CUser::FindActiveTicket( DWORD dwItemId )
 {
-	for( int i = 0; i < m_Inventory.GetMax(); i++ )
+	int i;
+	for(  i = 0; i < m_Inventory.GetMax(); i++ )
 	{
 		CItemElem* pItem	= m_Inventory.GetAtId( i );
 		if( pItem && pItem->IsActiveTicket( dwItemId ) )
@@ -5625,7 +5626,8 @@ void CUserMng::AddMonsterProp()
 	ar << NULL_ID << SNAPSHOTTYPE_MONSTERPROP;
 
 	ar << prj.m_nAddMonsterPropSize;
-	for( int i = 0 ; i < prj.m_nAddMonsterPropSize ; ++i )
+	int i;
+	for(  i = 0 ; i < prj.m_nAddMonsterPropSize ; ++i )
 	{
 		ar.WriteString( prj.m_aAddProp[ i ].szMonsterName );
 		ar << prj.m_aAddProp[ i ].nHitPoint;
@@ -5990,7 +5992,8 @@ void CUserMng::AddGCGuildStatus( u_long uidGuild, CUser* pSendUser )
 
 		CGuildCombat::__JOINPLAYER* pJoinPlayer;
 		// 대기자(들어갈수 잇음) 넣음
-		for( list<CGuildCombat::__JOINPLAYER*>::iterator i1 = pGCMember->lspFifo.begin(); i1 != pGCMember->lspFifo.end(); ++i1 )
+		list<CGuildCombat::__JOINPLAYER*>::iterator i1;
+		for(  i1 = pGCMember->lspFifo.begin(); i1 != pGCMember->lspFifo.end(); ++i1 )
 		{
 			pJoinPlayer = *i1;
 			lspPlyaerList.push_back( pJoinPlayer );
@@ -6489,7 +6492,8 @@ void CUser::AddMonsterProp()
 	m_Snapshot.ar << SNAPSHOTTYPE_MONSTERPROP;
 
 	m_Snapshot.ar << prj.m_nMonsterPropSize;
-	for( int i = 0 ; i < prj.m_nMonsterPropSize ; ++i )
+	int i;
+	for(  i = 0 ; i < prj.m_nMonsterPropSize ; ++i )
 	{
 		m_Snapshot.ar.WriteString( prj.m_aMonsterProp[ i ].szMonsterName );
 		m_Snapshot.ar << prj.m_aMonsterProp[ i ].nHitPoint;

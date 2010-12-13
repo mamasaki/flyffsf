@@ -110,7 +110,7 @@ void CWndFriendCtrl::OnDraw( C2DRender* p2DRender )
 	TEXTUREVERTEX2* pVertex = new TEXTUREVERTEX2[ 6 * 3 * nMax ];
 	TEXTUREVERTEX2* pVertices = pVertex;
 	
-//	for( int i = 0; i < m_wndScrollBar.GetScrollPos() && iter != g_WndMng.m_Messenger.m_aFriend.end(); i++, iter++, m_nDrawCount++ );
+//	int i; for( i = 0; i < m_wndScrollBar.GetScrollPos() && iter != g_WndMng.m_Messenger.m_aFriend.end(); i++, iter++, m_nDrawCount++ );
 	int i = 0;
 	m_nDrawCount = m_wndScrollBar.GetScrollPos();
 	// Draw Select
@@ -136,7 +136,7 @@ void CWndFriendCtrl::OnDraw( C2DRender* p2DRender )
 	// My Multi Draw
 	int nMyMuilti	= g_Neuz.m_uIdofMulti - 1;
 
-	for( int j = 0 ; j < m_nServerCount[nMyMuilti] && i < nMax; ++j, ++i )
+	int j; for(  j = 0 ; j < m_nServerCount[nMyMuilti] && i < nMax; ++j, ++i )
 	{
 		if( i < m_nDrawCount )
 			continue;
@@ -368,7 +368,7 @@ void CWndFriendCtrl::OnDraw( C2DRender* p2DRender )
 	TEXTUREVERTEX2* pVertices = pVertex;
 
 	C2FriendPtr::iterator iter = g_WndMng.m_Messenger.m_aFriend.begin();
-//	for( int i = 0; i < m_wndScrollBar.GetScrollPos() && iter != g_WndMng.m_Messenger.m_aFriend.end(); i++, iter++, m_nDrawCount++ );
+//	int i; for( i = 0; i < m_wndScrollBar.GetScrollPos() && iter != g_WndMng.m_Messenger.m_aFriend.end(); i++, iter++, m_nDrawCount++ );
 	int i = 0;
 	m_nDrawCount = m_wndScrollBar.GetScrollPos();
 	// Draw Select
@@ -392,7 +392,7 @@ void CWndFriendCtrl::OnDraw( C2DRender* p2DRender )
 	// My Multi Draw
 	int nMyMuilti	= g_Neuz.m_uIdofMulti - 1;
 
-	for( int j = 0 ; j < m_nServerCount[nMyMuilti] && i < nMax; ++j, ++i )
+	int j; for(  j = 0 ; j < m_nServerCount[nMyMuilti] && i < nMax; ++j, ++i )
 	{
 		if( i < m_nDrawCount )
 			continue;
@@ -649,7 +649,7 @@ void CWndFriendCtrl::OnLButtonUp( UINT nFlags, CPoint point )
 
 	int count = m_nDrawCount;	
 	
-	for( int j = 0 ; j < m_nServerCount[g_Neuz.m_uIdofMulti-1] ; ++j, ++count )
+	int j; for(  j = 0 ; j < m_nServerCount[g_Neuz.m_uIdofMulti-1] ; ++j, ++count )
 	{
 		rect.SetRect( pt.x, pt.y, pt.x + m_rectWindow.Width() - m_wndScrollBar.GetClientRect().Width(), pt.y + m_nFontHeight );
 		if( rect.PtInRect( point ) )
@@ -755,7 +755,7 @@ void CWndFriendCtrl::OnLButtonDblClk( UINT nFlags, CPoint point )
 void	CWndFriendCtrl::GetSelectFriend( int SelectCount, u_long & idPlayer, Friend** ppFriend )
 {
 	int count	= 0;
-	for( int j = 0 ; j < m_nServerCount[g_Neuz.m_uIdofMulti-1] ; ++j, ++count )
+	int j; for(  j = 0 ; j < m_nServerCount[g_Neuz.m_uIdofMulti-1] ; ++j, ++count )
 	{
 		if( count < m_nDrawCount )
 			continue;
@@ -803,7 +803,7 @@ void	CWndFriendCtrl::GetSelectFriend( int SelectCount, u_long & idPlayer, Friend
 void CWndFriendCtrl::GetSelectFriend( int SelectCount, LPFRIEND* lppFriend )
 {
 	int count = 0;
-	for( int j = 0 ; j < m_nServerCount[g_Neuz.m_uIdofMulti-1] ; ++j, ++count )
+	int j; for(  j = 0 ; j < m_nServerCount[g_Neuz.m_uIdofMulti-1] ; ++j, ++count )
 	{
 		if( count < m_nDrawCount )
 		{
@@ -856,7 +856,7 @@ void CWndFriendCtrl::GetSelectFriend( int SelectCount, LPFRIEND* lppFriend )
 u_long CWndFriendCtrl::GetSelectId( int SelectCount )
 {
 	int count = 0;
-	for( int j = 0 ; j < m_nServerCount[g_Neuz.m_uIdofMulti-1] ; ++j, ++count )
+	int j; for(  j = 0 ; j < m_nServerCount[g_Neuz.m_uIdofMulti-1] ; ++j, ++count )
 	{
 		if( count < m_nDrawCount )
 		{
@@ -916,7 +916,7 @@ int CWndFriendCtrl::GetSelect( CPoint point, LPFRIEND* lppFriend )
 	CPoint pt( 3, 3 );
 	CRect rect;
 	int count = 0;	
-	for( int j = 0 ; j < m_nServerCount[g_Neuz.m_uIdofMulti-1] ; ++j, ++count )
+	int j; for(  j = 0 ; j < m_nServerCount[g_Neuz.m_uIdofMulti-1] ; ++j, ++count )
 	{
 		if( count < m_nDrawCount )
 		{

@@ -538,7 +538,7 @@ void CTailEffectMng::Init( void )
 	m_bActive = TRUE;
 	m_nMaxType = 0;
 
-	for( int i = 0; i < MAX_TAILEFFECT; i ++ )
+	int i; for( i = 0; i < MAX_TAILEFFECT; i ++ )
 	{
 		SAFE_DELETE( m_TailEffects[i] );
 	}	

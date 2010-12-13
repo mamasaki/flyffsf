@@ -872,7 +872,7 @@ int		CActionMover::ProcessActMsg1( CMover* pMover,  OBJMSG dwMsg, int nParam1, i
 
 					if( pParty )
 					{
-						for( int i = 0; i < pParty->m_nSizeofMember; i ++ )
+						int i; for( i = 0; i < pParty->m_nSizeofMember; i ++ )
 						{
 							pMember = (CMover *)g_UserMng.GetUserByPlayerID( pParty->m_aMember[i].m_uPlayerId );
 							if( IsValidObj( pMember ) )
@@ -883,7 +883,7 @@ int		CActionMover::ProcessActMsg1( CMover* pMover,  OBJMSG dwMsg, int nParam1, i
 					CParty* pParty2		= g_PartyMng.GetParty( pMover->m_idDuelParty );
 					if( pParty2 )
 					{
-						for( int i = 0; i < pParty2->m_nSizeofMember; i ++ )
+						int i; for( i = 0; i < pParty2->m_nSizeofMember; i ++ )
 						{
 							pMember = (CMover *)g_UserMng.GetUserByPlayerID( pParty2->m_aMember[i].m_uPlayerId );
 							if( IsValidObj( pMember ) )

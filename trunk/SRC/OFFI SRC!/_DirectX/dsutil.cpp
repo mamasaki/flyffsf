@@ -282,7 +282,7 @@ BOOL CSoundManager::Play( LPTSTR pszFileName, D3DXVECTOR3* pvPosition, D3DXVECTO
 	if( pvPosition )
 	{
 		/*
-		for( int i = 0; i < m_world.m_arySelect.size(); i++)
+		int i; for( i = 0; i < m_world.m_arySelect.size(); i++)
 		{
 			CObj* pObj = (CObj*)m_world.m_arySelect.at( i );
 			CPoint pt = point - m_ptOrg;
@@ -1367,8 +1367,8 @@ DWORD CSound::GetFreeBufferIndex()
 {
     if( m_apDSBuffer == NULL )
         return FALSE; 
-
-    for( DWORD i=0; i<m_dwNumBuffers; i++ )
+	DWORD i;
+    for(  i=0; i<m_dwNumBuffers; i++ )
     {
         if( m_apDSBuffer[i] )
         {  
@@ -1441,7 +1441,7 @@ HRESULT CSound::Get3DBufferInterface()
   if( m_apDSBuffer == NULL )
       return CO_E_NOTINITIALIZED;
 
-	for( int i = 0; i < (int)m_dwNumBuffers ; i++ )
+	int i; for( i = 0; i < (int)m_dwNumBuffers ; i++ )
 	{
 		m_apDSBuffer[i]->QueryInterface( IID_IDirectSound3DBuffer, (VOID**)&m_apDS3DBuffer[i] );
 

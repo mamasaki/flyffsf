@@ -24,7 +24,7 @@ CWndRepairItem::CWndRepairItem()
 
 CWndRepairItem::~CWndRepairItem() 
 {
-	for( int i = 0; i < MAX_REPAIRINGITEM; i++ )
+	int i; for( i = 0; i < MAX_REPAIRINGITEM; i++ )
 	{
 		if( m_adwIdRepair[i] != NULL_ID )
 		{
@@ -189,7 +189,7 @@ BOOL CWndRepairItem::OnChildNotify( UINT message, UINT nID, LRESULT* pLResult )
 				}
 				else
 				{
-					for( int i = 0; i < SelectCount; i++ )
+					int i; for( i = 0; i < SelectCount; i++ )
 					{
 						int nItem = pWndItemCtrl->GetSelectedItem( i );
 						pWndItemCtrl->GetItem( nItem );
@@ -228,7 +228,7 @@ void CWndRepairItem::OnDestroy( void )
 
 void CWndRepairItem::OnInit( void )
 {
-	for( int i = 0; i < MAX_REPAIRINGITEM; i++ )
+	int i; for( i = 0; i < MAX_REPAIRINGITEM; i++ )
 	{
 		if( m_adwIdRepair[i] != NULL_ID )
 		{

@@ -147,81 +147,81 @@ CDPClient::CDPClient()
 	m_bEventTextColor = TRUE;
 
 	BEGIN_MSG;
-	ON_MSG( PACKETTYPE_JOIN, OnJoin );
-	ON_MSG( PACKETTYPE_SNAPSHOT, OnSnapshot );
-	ON_MSG( PACKETTYPE_REPLACE, OnReplace );
-	ON_MSG( PACKETTYPE_ERROR, OnError );
-	ON_MSG( PACKETTYPE_WHISPER, OnWhisper );
-	ON_MSG( PACKETTYPE_SAY, OnSay );
-	ON_MSG( PACKETTYPE_GMSAY, OnGMSay );
-	ON_MSG( PACKETTYPE_GETPLAYERADDR, OnGetPlayerAddr );
-	ON_MSG( PACKETTYPE_GETPLAYERCOUNT, OnGetPlayerCount );
-	ON_MSG( PACKETTYPE_GETCOREPLAYER, OnGetCorePlayer );
-	ON_MSG( PACKETTYPE_SYSTEM, OnSystem );
-	ON_MSG( PACKETTYPE_CAPTION, OnCaption );
+	ON_MSG( PACKETTYPE_JOIN,&CDPClient:: OnJoin );
+	ON_MSG( PACKETTYPE_SNAPSHOT, &CDPClient::OnSnapshot );
+	ON_MSG( PACKETTYPE_REPLACE,&CDPClient:: OnReplace );
+	ON_MSG( PACKETTYPE_ERROR, &CDPClient::OnError );
+	ON_MSG( PACKETTYPE_WHISPER, &CDPClient::OnWhisper );
+	ON_MSG( PACKETTYPE_SAY, &CDPClient::OnSay );
+	ON_MSG( PACKETTYPE_GMSAY,&CDPClient:: OnGMSay );
+	ON_MSG( PACKETTYPE_GETPLAYERADDR, &CDPClient::OnGetPlayerAddr );
+	ON_MSG( PACKETTYPE_GETPLAYERCOUNT, &CDPClient::OnGetPlayerCount );
+	ON_MSG( PACKETTYPE_GETCOREPLAYER, &CDPClient::OnGetCorePlayer );
+	ON_MSG( PACKETTYPE_SYSTEM, &CDPClient::OnSystem );
+	ON_MSG( PACKETTYPE_CAPTION, &CDPClient::OnCaption );
 	
-	ON_MSG( PACKETTYPE_DEFINEDTEXT, OnDefinedText );
-	ON_MSG( PACKETTYPE_GET_CLOCK, OnGetClock );
-	ON_MSG( PACKETTYPE_ADDFRIENDJOIN, OnFriendJoin );
-	ON_MSG( PACKETTYPE_ADDFRIENDLOGOUT, OnFriendLogOut );
-	ON_MSG( PACKETTYPE_FRIENDNOINTERCEPT, OnFriendNoIntercept );
-	ON_MSG( PACKETTYPE_FRIENDINTERCEPTSTATE, OnFriendIntercept );
-	ON_MSG( PACKETTYPE_GETFRIENDSTATE, OnGetFriendState );
-	ON_MSG( PACKETTYPE_SETFRIENDSTATE, OnSetFriendState );
-	ON_MSG( PACKETTYPE_ONEFRIEMDSTATE, OnOneFriendState );
-	ON_MSG( PACKETTYPE_GAMERATE, OnGameRate );
-	ON_MSG( PACKETTYPE_ERRORPARTY, OnErrorParty );
-	ON_MSG( PACKETTYPE_GUILD, OnGuild );
-	ON_MSG( PACKETTYPE_ADD_GUILD_MEMBER, OnAddGuildMember );
-	ON_MSG( PACKETTYPE_REMOVE_GUILD_MEMBER, OnRemoveGuildMember );
-	ON_MSG( PACKETTYPE_GUILD_CHAT, OnGuildChat );
-	ON_MSG( PACKETTYPE_GUILD_MEMBER_LEVEL, OnGuildMemberLv );
-	ON_MSG( PACKETTYPE_GUILD_CLASS, OnGuildClass );
-	ON_MSG( PACKETTYPE_GUILD_NICKNAME, OnGuildNickName );
-	ON_MSG( PACKETTYPE_CHG_MASTER, OnChgMaster );
-	ON_MSG( PACKETTYPE_GUILD_GAMELOGIN, OnGuildMemberLogin );
-	ON_MSG( PACKETTYPE_GUILD_GAMEJOIN, OnGuldMyGameJoin );
-	ON_MSG( PACKETTYPE_GUILD_SETNAME, OnGuildSetName );
-	ON_MSG( PACKETTYPE_GUILD_ERROR, OnGuildError );
-	ON_MSG( PACKETTYPE_DECL_GUILD_WAR, OnDeclWar );
-	ON_MSG( PACKETTYPE_ACPT_GUILD_WAR, OnAcptWar );
-	ON_MSG( PACKETTYPE_WAR_DEAD, OnWarDead );
-	ON_MSG( PACKETTYPE_WAR_END, OnWarEnd );
-	ON_MSG( PACKETTYPE_SURRENDER, OnSurrender );
-	ON_MSG( PACKETTYPE_QUERY_TRUCE, OnQueryTruce );	
+	ON_MSG( PACKETTYPE_DEFINEDTEXT, &CDPClient::OnDefinedText );
+	ON_MSG( PACKETTYPE_GET_CLOCK, &CDPClient::OnGetClock );
+	ON_MSG( PACKETTYPE_ADDFRIENDJOIN, &CDPClient::OnFriendJoin );
+	ON_MSG( PACKETTYPE_ADDFRIENDLOGOUT,&CDPClient:: OnFriendLogOut );
+	ON_MSG( PACKETTYPE_FRIENDNOINTERCEPT, &CDPClient::OnFriendNoIntercept );
+	ON_MSG( PACKETTYPE_FRIENDINTERCEPTSTATE, &CDPClient::OnFriendIntercept );
+	ON_MSG( PACKETTYPE_GETFRIENDSTATE, &CDPClient::OnGetFriendState );
+	ON_MSG( PACKETTYPE_SETFRIENDSTATE, &CDPClient::OnSetFriendState );
+	ON_MSG( PACKETTYPE_ONEFRIEMDSTATE,&CDPClient:: OnOneFriendState );
+	ON_MSG( PACKETTYPE_GAMERATE, &CDPClient::OnGameRate );
+	ON_MSG( PACKETTYPE_ERRORPARTY, &CDPClient::OnErrorParty );
+	ON_MSG( PACKETTYPE_GUILD, &CDPClient::OnGuild );
+	ON_MSG( PACKETTYPE_ADD_GUILD_MEMBER, &CDPClient::OnAddGuildMember );
+	ON_MSG( PACKETTYPE_REMOVE_GUILD_MEMBER,&CDPClient:: OnRemoveGuildMember );
+	ON_MSG( PACKETTYPE_GUILD_CHAT, &CDPClient::OnGuildChat );
+	ON_MSG( PACKETTYPE_GUILD_MEMBER_LEVEL, &CDPClient::OnGuildMemberLv );
+	ON_MSG( PACKETTYPE_GUILD_CLASS, &CDPClient::OnGuildClass );
+	ON_MSG( PACKETTYPE_GUILD_NICKNAME, &CDPClient::OnGuildNickName );
+	ON_MSG( PACKETTYPE_CHG_MASTER, &CDPClient::OnChgMaster );
+	ON_MSG( PACKETTYPE_GUILD_GAMELOGIN, &CDPClient::OnGuildMemberLogin );
+	ON_MSG( PACKETTYPE_GUILD_GAMEJOIN, &CDPClient::OnGuldMyGameJoin );
+	ON_MSG( PACKETTYPE_GUILD_SETNAME, &CDPClient::OnGuildSetName );
+	ON_MSG( PACKETTYPE_GUILD_ERROR, &CDPClient::OnGuildError );
+	ON_MSG( PACKETTYPE_DECL_GUILD_WAR, &CDPClient::OnDeclWar );
+	ON_MSG( PACKETTYPE_ACPT_GUILD_WAR, &CDPClient::OnAcptWar );
+	ON_MSG( PACKETTYPE_WAR_DEAD, &CDPClient::OnWarDead );
+	ON_MSG( PACKETTYPE_WAR_END, &CDPClient::OnWarEnd );
+	ON_MSG( PACKETTYPE_SURRENDER, &CDPClient::OnSurrender );
+	ON_MSG( PACKETTYPE_QUERY_TRUCE,&CDPClient:: OnQueryTruce );	
 /*
 #ifdef __S0114_RELOADPRO
-	ON_MSG( PACKETTYPE_RELOAD_PROJECT, OnReloadProject );
+	ON_MSG( PACKETTYPE_RELOAD_PROJECT, &CDPClient::OnReloadProject );
 #endif // __S0114_RELOADPRO
 */
-	ON_MSG( PACKETTYPE_REQUEST_GUILD_RANKING, OnGuildRank );
-	ON_MSG( PACKETTYPE_ADDFRIENDNAMEREQEST, OnAddFriendNameReqest );
-	ON_MSG( PACKETTYPE_ADDFRIENDNAMENOTFOUND, OnAddFriendNotConnect );
-	ON_MSG( PACKETTYPE_REMOVEFRIENDSTATE, OnRemoveFriendState );
-	ON_MSG( PACKETTYPE_BLOCK, OnBlock );
-	ON_MSG( PACKETTYPE_INSERTTAG_RESULT, OnTagResult );
-	ON_MSG( PACKETTYPE_KEEP_ALIVE, OnKeepAlive );
+	ON_MSG( PACKETTYPE_REQUEST_GUILD_RANKING,&CDPClient:: OnGuildRank );
+	ON_MSG( PACKETTYPE_ADDFRIENDNAMEREQEST,&CDPClient:: OnAddFriendNameReqest );
+	ON_MSG( PACKETTYPE_ADDFRIENDNAMENOTFOUND,&CDPClient:: OnAddFriendNotConnect );
+	ON_MSG( PACKETTYPE_REMOVEFRIENDSTATE, &CDPClient::OnRemoveFriendState );
+	ON_MSG( PACKETTYPE_BLOCK, &CDPClient::OnBlock );
+	ON_MSG( PACKETTYPE_INSERTTAG_RESULT, &CDPClient::OnTagResult );
+	ON_MSG( PACKETTYPE_KEEP_ALIVE, &CDPClient::OnKeepAlive );
 #ifdef __TRAFIC_1218
-	ON_MSG( PACKETTYPE_TRAFIC_LOG, OnTraficLog );
+	ON_MSG( PACKETTYPE_TRAFIC_LOG, &CDPClient::OnTraficLog );
 #endif	// __TRAFIC_1218
 
 #ifdef __EVE_NEWYEAR
-	ON_MSG( PACKETTYPE_NEWYEAR, OnNewYear );
+	ON_MSG( PACKETTYPE_NEWYEAR,&CDPClient:: OnNewYear );
 #endif	// __EVE_NEWYEAR
 
-	ON_MSG( PACKETTYPE_WN_WANTED_LIST, OnWantedList );
-	ON_MSG( PACKETTYPE_WN_WANTED_NAME, OnWantedName );
+	ON_MSG( PACKETTYPE_WN_WANTED_LIST,&CDPClient:: OnWantedList );
+	ON_MSG( PACKETTYPE_WN_WANTED_NAME, &CDPClient::OnWantedName );
 
-	ON_MSG( PACKETTYPE_QUERYSETPLAYERNAME, OnSetPlayerName );
-	ON_MSG( PACKETTYPE_SNOOP, OnSnoop );
+	ON_MSG( PACKETTYPE_QUERYSETPLAYERNAME, &CDPClient::OnSetPlayerName );
+	ON_MSG( PACKETTYPE_SNOOP, &CDPClient::OnSnoop );
 
 #if __VER >= 11 // __SYS_PLAYER_DATA
-	ON_MSG( PACKETTYPE_UPDATE_PLAYER_DATA, OnUpdatePlayerData );
-	ON_MSG( PACKETTYPE_LOGOUT, OnLogout );
+	ON_MSG( PACKETTYPE_UPDATE_PLAYER_DATA,&CDPClient:: OnUpdatePlayerData );
+	ON_MSG( PACKETTYPE_LOGOUT, &CDPClient::OnLogout );
 #endif	// __SYS_PLAYER_DATA
 
 #ifdef __QUIZ
-	ON_MSG( PACKETTYPE_QUIZ_NOTICE, OnQuizSystemMessage );
+	ON_MSG( PACKETTYPE_QUIZ_NOTICE, &CDPClient::OnQuizSystemMessage );
 #endif // __QUIZ
 
 	memset( (void*)&m_ss, 0, sizeof(SNAPSHOT) );
@@ -899,7 +899,7 @@ void CDPClient::OnJoin( CAr & ar )
 	if( pMover )
 	{
 		time_t	tNULL	= time_null();
-		for( int i = 0; i < pMover->m_Inventory.GetMax(); i++ )
+		int i; for( i = 0; i < pMover->m_Inventory.GetMax(); i++ )
 		{
 			CItemElem* pItemElem	= pMover->m_Inventory.GetAtId( i );
 			if( pItemElem && pItemElem->m_dwKeepTime )
@@ -1076,7 +1076,7 @@ void CDPClient::OnAddObj( OBJID objid, CAr & ar )
 			safe_delete( pObjtmp );
 
 			// cancel deletion
-			for( int i = 0; i < pWorld->m_nDeleteObjs; i++ )
+			int i; for( i = 0; i < pWorld->m_nDeleteObjs; i++ )
 			{
 				if( pObj == pWorld->m_apDeleteObjs[i] )
 				{
@@ -1703,7 +1703,7 @@ void CDPClient::OnRemoveObj( OBJID objid )
 			CWorld* pWorld = g_pPlayer->GetWorld( );
 
 			// cancel deletion
-			for( int i = 0; i < pWorld->m_nDeleteObjs; i++ )
+			int i; for( i = 0; i < pWorld->m_nDeleteObjs; i++ )
 			{
 				if( pCtrl == pWorld->m_apDeleteObjs[i] )
 				{
@@ -2082,12 +2082,12 @@ void CDPClient::UpdateQuestItemText( CMover* pMover, int nItemIdx, BOOL bRemove 
 	{
 		CString strTemp;
 		BOOL bResult = FALSE;
-		for( int i = 0; i < pMover->m_nQuestSize; i++ )
+		int i; for( i = 0; i < pMover->m_nQuestSize; i++ )
 		{
 			LPQUEST lpQuest = (LPQUEST) &pMover->m_aQuest[ i ];
 			QuestProp* pQuestProp = (QuestProp*)prj.m_aPropQuest.GetAt( lpQuest->m_wId );
 			// 아이템 갯수 
-			for( int j = 0; j < 4; j++ )
+			int j; for(  j = 0; j < 4; j++ )
 			{
 				if( pQuestProp->m_nEndCondItemIdx[ j ] == nItemIdx  )
 				{
@@ -2132,7 +2132,7 @@ void CDPClient::OnCreateItem( OBJID objid, CAr & ar )
 	{
 		D3DXVECTOR3 vPos = pMover->GetPos();
 		
-		for( int i = 0; i < nCount; i++ )
+		int i; for( i = 0; i < nCount; i++ )
 		{
 			itemElem.m_nItemNum		= pnNum[i];
 			pMover->m_Inventory.SetAtId( pnId[i], &itemElem );
@@ -2475,7 +2475,7 @@ void CDPClient::OnTrade( OBJID objid, CAr & ar )
 		pTrader->m_Inventory.Serialize( ar );
 
 		CItemBase* pItemBase;
-		for( int i = 0; i < MAX_INVENTORY; i++ )
+		int i; for( i = 0; i < MAX_INVENTORY; i++ )
 		{
 			pItemBase	= pTrader->m_Inventory.GetAtId( i );
 			if( pItemBase )
@@ -2808,7 +2808,7 @@ void CDPClient::OnOpenShopWnd( OBJID objid, CAr & ar )
 	CMover* pVendor	= prj.GetMover( objid );
 	if( IsValidObj( (CObj*)pVendor ) )
 	{
-		for( int i = 0; i < MAX_VENDOR_INVENTORY_TAB; i++ )
+		int i; for( i = 0; i < MAX_VENDOR_INVENTORY_TAB; i++ )
 			pVendor->m_ShopInventory[i]->Serialize( ar );
 
 		SAFE_DELETE( g_WndMng.m_pWndShop );
@@ -2823,7 +2823,7 @@ void CDPClient::OnOpenShopWnd( OBJID objid, CAr & ar )
 	{
 		CItemContainer<CItemElem> dump;
 		dump.SetItemContainer( ITYPE_ITEM, MAX_VENDOR_INVENTORY );
-		for( int i = 0; i < MAX_VENDOR_INVENTORY_TAB; i++ )
+		int i; for( i = 0; i < MAX_VENDOR_INVENTORY_TAB; i++ )
 			dump.Serialize( ar );	// waste
 	}
 }
@@ -3090,7 +3090,7 @@ void CDPClient::OnVendor( OBJID objid, CAr & ar )
 	CMover* pVendor	= prj.GetMover( objid );
 	if( IsValidObj( (CObj*)pVendor ) )
 	{
-		for( int i = 0; i < MAX_VENDOR_INVENTORY_TAB; i++ )
+		int i; for( i = 0; i < MAX_VENDOR_INVENTORY_TAB; i++ )
 			pVendor->m_ShopInventory[i]->Serialize( ar );
 		// release
 	}
@@ -3098,7 +3098,7 @@ void CDPClient::OnVendor( OBJID objid, CAr & ar )
 	{
 		CItemContainer<CItemElem> dump;
 		dump.SetItemContainer( ITYPE_ITEM, MAX_VENDOR_INVENTORY );
-		for( int i = 0; i < MAX_VENDOR_INVENTORY_TAB; i++ )
+		int i; for( i = 0; i < MAX_VENDOR_INVENTORY_TAB; i++ )
 			dump.Serialize( ar );	// waste
 	}
 }
@@ -3562,7 +3562,7 @@ void CDPClient::OnSetChangeJob( OBJID objid, CAr & ar )
 		ar >> nJob;
 		pMover->m_nJob = nJob;
 
-		for( int i = MAX_JOB_SKILL; i < MAX_SKILL_JOB; i++ )
+		int i; for( i = MAX_JOB_SKILL; i < MAX_SKILL_JOB; i++ )
 		{
 			pMover->m_aJobSkill[ i ].dwSkill = NULL_ID;
 			pMover->m_aJobSkill[ i ].dwLevel = 0;
@@ -4104,7 +4104,7 @@ void CDPClient::OnDefinedText( CAr & ar )
 		}
 	}
 
-	for( int i = 0; i < argc; i++ )
+	int i; for( i = 0; i < argc; i++ )
 	{
 		pargv[ i ] = argv[ i ];
 	}
@@ -4169,7 +4169,7 @@ void CDPClient::OnChatText( CAr & ar )
 		}
 	}
 	
-	for( int i = 0; i < argc; i++ )
+	int i; for( i = 0; i < argc; i++ )
 	{
 		pargv[ i ] = argv[ i ];
 	}
@@ -4201,7 +4201,7 @@ void CDPClient::OnGameTimer( CAr & ar )
 
 	g_GameTimer.SetCurrentTime( dCurrentTime );
 
-	for( int i = 0 ; i < MAX_SKILL ; i++ )
+	int i; for( i = 0 ; i < MAX_SKILL ; i++ )
 	{
 		g_WndMng.m_dwSkillTime[i] = 0;
 	}
@@ -4215,7 +4215,7 @@ void CDPClient::OnGameJoin( CAr & ar )
 	CString strMessage;
 //	strMessage.Format( prj.GetText( TID_GAME_TOOLTIP_PLAYTIME ), dwSavePlayerTime / 60, dwSavePlayerTime % 60 );
 //	g_WndMng.PutString( strMessage, NULL, 0xff0000 );
-	for( int i = 0; i < g_pPlayer->m_nQuestSize; i++ )
+	int i; for( i = 0; i < g_pPlayer->m_nQuestSize; i++ )
 	{
 		if( g_pPlayer->m_aQuest[ i ].m_wId != 0xffff && g_pPlayer->m_aQuest[ i ].m_wId != 0xff )
 		{
@@ -4401,7 +4401,7 @@ void CDPClient::OnAddPartyMember( CAr & ar )
 #endif	// __SYS_PLAYER_DATA
 			}
 #if __VER < 13 // __REMOVE_JOINPARTYMEMBER_ANI			// 파티맴버조인시,파티생성시,파티승격시 애니 빼기
-			for( int i = 0 ; i < g_Party.GetSizeofMember()-1 ; i++ )
+			int i; for( i = 0 ; i < g_Party.GetSizeofMember()-1 ; i++ )
 			{
 				u_long idPlayer = g_Party.GetPlayerId( i );
 				CMover* pMover  = prj.GetUserByID( idPlayer );
@@ -4430,7 +4430,7 @@ void CDPClient::OnAddPartyMember( CAr & ar )
 			sMessage.Format( prj.GetText(TID_GAME_PARTYJOIN1), lpszPlayer );
 #endif	// __SYS_PLAYER_DATA
 #if __VER < 13 // __REMOVE_JOINPARTYMEMBER_ANI			// 파티맴버조인시 애니 빼기
-			for( int i = 0 ; i < g_Party.GetSizeofMember()-1 ; i++ )
+			int i; for( i = 0 ; i < g_Party.GetSizeofMember()-1 ; i++ )
 			{
 				u_long idPlayer = g_Party.GetPlayerId( i );
 				CMover* pMover  = prj.GetUserByID( idPlayer );
@@ -4960,7 +4960,7 @@ void CDPClient::OnPartyChangeLeader( CAr  & ar )
 	pWndWorld->m_partySkillState.Init();
 #endif	// __BUFF_1107
 
-	for( int i = 0 ; i < MAX_SKILL ; i++ )
+	int i; for( i = 0 ; i < MAX_SKILL ; i++ )
 	{
 		g_WndMng.m_dwSkillTime[i] = 0;
 	}
@@ -5074,7 +5074,7 @@ void CDPClient::OnSetPartyMode( CAr & ar )
 			pItemProp = prj.GetPartySkill( ST_STRETCHING );
 			
 			// 단원들이 앉아있는 상태이면 SFX생성
-			for( int i = 0 ; i < g_Party.GetSizeofMember() ; i++ )
+			int i; for( i = 0 ; i < g_Party.GetSizeofMember() ; i++ )
 			{
 				u_long idPlayer = g_Party.GetPlayerId( i );
 				CMover* pPlayerMover = prj.GetUserByID( idPlayer );
@@ -5247,7 +5247,7 @@ void CDPClient::OnPartyChangeTroup( CAr & ar )
 	g_Party.m_nKindTroup = 1;
 	g_WndMng.PutString( prj.GetText(TID_GAME_PARTYCHANGE), NULL, prj.GetTextColor(TID_GAME_PARTYCHANGE)); //순회극단으로 변경되었습니다.
 #if __VER < 13 // __REMOVE_JOINPARTYMEMBER_ANI			// 파티맴버조인시,파티생성시,파티승격시 애니 빼기
-	for( int i = 0 ; i < g_Party.GetSizeofMember() ; i++ )
+	int i; for( i = 0 ; i < g_Party.GetSizeofMember() ; i++ )
 	{
 		u_long idPlayer = g_Party.GetPlayerId( i );
 		CMover* pMover  = prj.GetUserByID( idPlayer );
@@ -5273,7 +5273,7 @@ void CDPClient::OnPartyChangeTroup( CAr & ar )
 		strcpy( g_Party.m_sParty, sParty );
 	}
 
-	for( int j = 0 ; j < MAX_SKILL ; j++ )
+	int j; for(  j = 0 ; j < MAX_SKILL ; j++ )
 	{
 		g_WndMng.m_dwSkillTime[j] = 0;
 	}
@@ -5296,7 +5296,7 @@ void CDPClient::OnSetPartyMemberParam( CAr & ar )
 				if( nVal == 1 && i == 0 )
 				{
 					bool fRemoveParty	= true;
-					for( int j = 1; j < g_Party.m_nSizeofMember; j++ )
+					int j; for(  j = 1; j < g_Party.m_nSizeofMember; j++ )
 					{
 						if( g_Party.m_aMember[j].m_bRemove == FALSE )
 						{
@@ -5309,7 +5309,7 @@ void CDPClient::OnSetPartyMemberParam( CAr & ar )
 						#else	// __BUFF_1107
 							pWndWorld->m_partySkillState.Init();
 						#endif	// __BUFF_1107
-							for( int i = 0 ; i < MAX_SKILL ; i++ )
+							int i; for( i = 0 ; i < MAX_SKILL ; i++ )
 								g_WndMng.m_dwSkillTime[i] = 0;
 #endif // //12차 극단유료아이템
 							break;
@@ -5416,7 +5416,7 @@ void CDPClient::OnPartySkillRetreat( OBJID objid )
 
 	ItemProp* pItemProp = prj.GetPartySkill( ST_RETREAT );
 	
-	for( int i = 0 ; i < g_Party.GetSizeofMember() ; i++ )
+	int i; for( i = 0 ; i < g_Party.GetSizeofMember() ; i++ )
 	{
 		u_long idPlayer = g_Party.GetPlayerId( i );
 		CMover* pPlayerMover = prj.GetUserByID( idPlayer );
@@ -5470,7 +5470,7 @@ void CDPClient::OnEnvironmentSetting( CAr & ar )
 	if( CEnvironment::GetInstance()->GetSeason() == SEASON_SPRING || CEnvironment::GetInstance()->GetSeason() == SEASON_FALL )
 	{
 		CFixedArray< tagMODELELEM >* apModelElem = &(prj.m_modelMng.m_aaModelElem[OT_OBJ]);
-		for( int i = 0; i < apModelElem->GetSize(); ++i )
+		int i; for( i = 0; i < apModelElem->GetSize(); ++i )
 		{
 			LPMODELELEM pModelElem = (LPMODELELEM) apModelElem->GetAt( i );
 			if( pModelElem )
@@ -5916,7 +5916,7 @@ void CDPClient::OnSMModeAll( CAr & ar )
 
 	DWORD dwTime;
 	int	nType;
-	for( int i = 0 ; i < nCount; ++i )
+	int i; for( i = 0 ; i < nCount; ++i )
 	{
 		ar >> nType;
 		ar >> dwTime;
@@ -6130,7 +6130,7 @@ void CDPClient::OnFlyffEvent( CAr & ar )
 {
 	g_eLocal.Serialize( ar );
 
-	for( int i = 0; i < MAX_EVENT; i++ )
+	int i; for( i = 0; i < MAX_EVENT; i++ )
 	{
 		BYTE nState	= g_eLocal.GetState( i );
 		if( nState != 0 )
@@ -6595,7 +6595,7 @@ void CDPClient::OnMonsterProp( CAr & ar )
 	prj.m_nRemoveMonsterPropSize = 0;
 	
 	ar >> nMonsterPropSize;
-	for( int i = 0 ; i < nMonsterPropSize ; ++i )
+	int i; for( i = 0 ; i < nMonsterPropSize ; ++i )
 	{
 		ar.ReadString( szMonsterName, 32 );
 		ar >> nHitPoint;
@@ -6656,7 +6656,7 @@ void CDPClient::OnGMChat( CAr & ar )
 	char chMessage[256];
 	CString str;
 	ar >> nSize;
-	for( int i = 0 ; i < nSize ; ++i )
+	int i; for( i = 0 ; i < nSize ; ++i )
 	{
 		ar.ReadString( chMessage, 256 );
 		str.Format( prj.GetText(TID_ADMIN_ANNOUNCE), chMessage );
@@ -6873,7 +6873,7 @@ void CDPClient::OnGCRequestStatus( CAr& ar )
 		int nRate = -1;
 		CGuild* pGuild = g_pPlayer->GetGuild();
 
-		for( int i = 0 ; i < nSize ; ++i )
+		int i; for( i = 0 ; i < nSize ; ++i )
 		{
 			ar.ReadString( strGuildName, 128 );		// 길드명
 			vecRequestGuild.push_back( strGuildName );
@@ -6929,7 +6929,7 @@ void CDPClient::OnGCSelectPlayer( CAr& ar )
 				g_WndMng.m_pWndGuildCombatSelection->SetMemberSize(nMaxJoinMember, nMaxWarMember );
 			}
 			
-			for( int i = 0 ; i < nSize ; ++i )
+			int i; for( i = 0 ; i < nSize ; ++i )
 			{
 				ar >> uidPlayer;
 				vecSelectPlayer.push_back( uidPlayer );
@@ -6979,7 +6979,7 @@ void CDPClient::OnGCGuildStatus( CAr & ar )
 	if( pWndWorld )
 		pWndWorld->ClearGuildStatus();
 
-	for( int i = 0  ; i < nSize ; ++i )
+	int i; for( i = 0  ; i < nSize ; ++i )
 	{
 		ar >> uidPlayer;	
 		ar >> nLife;
@@ -7010,7 +7010,7 @@ void CDPClient::OnGCGuildPrecedence( CAr & ar )
 	if( pWndWorld )
 		pWndWorld->ClearGuildPrecedence();
 	
-	for( int i = 0 ; i < nSize ; ++i )
+	int i; for( i = 0 ; i < nSize ; ++i )
 	{
 		BOOL bRecive;
 		ar >> bRecive;
@@ -7042,10 +7042,10 @@ void CDPClient::OnGCPlayerPrecedence( CAr & ar )
 	if( pWndWorld )
 		pWndWorld->ClearPlayerPrecedence();
 
-	for( int i = 0 ; i < nGuildSize ; ++i )
+	int i; for( i = 0 ; i < nGuildSize ; ++i )
 	{
 		ar >> nPlayerSize;
-		for( int j = 0 ; j < nPlayerSize ; ++j )
+		int j; for(  j = 0 ; j < nPlayerSize ; ++j )
 		{
 			ar >> uidPlayer;
 			ar >> nPoint;
@@ -7207,12 +7207,12 @@ void CDPClient::OnGCWarPlayerList( CAr & ar )
 
 		ar >> nSizeGuild;
 
-		for( int i = 0 ; i < nSizeGuild ; ++i )
+		int i; for( i = 0 ; i < nSizeGuild ; ++i )
 		{
 			ar >> uidDefender;		// 디펜더
 			ar >> nSizeMember;
 
-			for( int j = 0 ; j < nSizeMember ; ++j )
+			int j; for(  j = 0 ; j < nSizeMember ; ++j )
 			{
 				ar >> uidPlayer;
 				ar >> nStatus;		// 전쟁 상태 == 1 ; 대기자 == 0
@@ -7590,7 +7590,7 @@ void CDPClient::OnGCPlayerPoint( CAr & ar )
 #endif	// __SYS_PLAYER_DATA
 		vecPlayer.clear();
 
-		for( int i = 0 ; i < (int)( uSize ) ; ++i )
+		int i; for( i = 0 ; i < (int)( uSize ) ; ++i )
 		{
 			CGuildCombat::__GCPLAYERPOINT GCPlayerPoint;
 			ar >> GCPlayerPoint.uidPlayer;	// 유저 아이디
@@ -8169,7 +8169,7 @@ void CDPClient::OnGetFriendState( CAr & ar )
 	DWORD dwState;
 	ar >> nCount;
 	ar >> nCountBlock;
-	for( int i = 0 ; i < nCount ; ++i )
+	int i; for( i = 0 ; i < nCount ; ++i )
 	{
 		ar >> uidPlayer;
 		ar >> dwState;
@@ -8443,7 +8443,7 @@ void CDPClient::OnSetQuest( OBJID objid, CAr & ar )
 				g_WndMng.PutString( strTemp );
 			}
 			// 사냥 갯수 
-			for( int i = 0; i < 2; i++ )
+			int i; for( i = 0; i < 2; i++ )
 			{
 				if( lpCurQuest->m_nKillNPCNum[ i ] != quest.m_nKillNPCNum[ i ] )
 				{
@@ -9131,7 +9131,7 @@ void CDPClient::SendGCSelectPlayer( vector<u_long> vecSelectPlayer, u_long uidDe
 	ar << uidDefender;
 	int nSize = vecSelectPlayer.size();
 	ar << nSize;
-	for( int i = 0 ; i < nSize ; ++i )
+	int i; for( i = 0 ; i < nSize ; ++i )
 	{
 		ar << vecSelectPlayer[i];
 	}
@@ -9655,7 +9655,7 @@ void CDPClient::SendDoUseSkillPoint( SKILL aJobSkill[] )
 {
 	BEFORESENDSOLE( ar, PACKETTYPE_DOUSESKILLPOINT, DPID_UNKNOWN );
 
-	for( int i = 0; i < MAX_SKILL_JOB; i++ ) 
+	int i; for( i = 0; i < MAX_SKILL_JOB; i++ ) 
 	{
 		LPSKILL lpSkill;
 		lpSkill = &aJobSkill[ i ];
@@ -10919,7 +10919,7 @@ void CDPClient::SendSkillTaskBar( void )
 	int nCount	= 0;
 	u_long uOffset	= ar.GetOffset();
 	ar << nCount;
-	for( int i = 0 ; i < MAX_SLOT_QUEUE ; i++ )
+	int i; for( i = 0 ; i < MAX_SLOT_QUEUE ; i++ )
 	{
 		ar << (BYTE)i << g_WndMng.m_pWndTaskBar->m_aSlotQueue[i].m_dwShortcut << g_WndMng.m_pWndTaskBar->m_aSlotQueue[i].m_dwId << g_WndMng.m_pWndTaskBar->m_aSlotQueue[i].m_dwType;
 		ar << g_WndMng.m_pWndTaskBar->m_aSlotQueue[i].m_dwIndex << g_WndMng.m_pWndTaskBar->m_aSlotQueue[i].m_dwUserId << g_WndMng.m_pWndTaskBar->m_aSlotQueue[i].m_dwData;
@@ -12184,7 +12184,7 @@ void CDPClient::OnDefinedCaption( CAr & ar )
 		}
 	}
 	
-	for( int i = 0; i < argc; i++ )
+	int i; for( i = 0; i < argc; i++ )
 	{
 		pargv[ i ] = argv[ i ];
 	}
@@ -12569,7 +12569,7 @@ void CDPClient::OnGuild( CAr & ar )
 	}
 
 	CGuildMember* pGuildMember;
-	for( int i = 0 ; i < m_nMaxLoginGuild ; ++i )
+	int i; for( i = 0 ; i < m_nMaxLoginGuild ; ++i )
 	{
 		pGuildMember = pGuild->GetMember( m_uLoginPlayerIdGuild[ i ] );
 		if( pGuildMember )
@@ -12997,7 +12997,7 @@ void CDPClient::OnGuldMyGameJoin( CAr & ar )
 		{
 			bGetInfo = TRUE;
 			CGuildMember* pGuildMember;
-			for( int i = 0 ; i < nMaxLoginGuild ; ++i )
+			int i; for( i = 0 ; i < nMaxLoginGuild ; ++i )
 			{
 				pGuildMember = pGuild->GetMember( uLoginPlayerIdGuild[ i ] );
 				if( pGuildMember )
@@ -13584,7 +13584,7 @@ void CDPClient::OnQueryPlayerString( CAr & ar )
 					pWndGuild->m_WndGuildTabMember.m_nMax = pGuild->m_mapPMember.size();
 			}
 
-			for( int i = 0; i < pWndGuild->m_WndGuildTabMember.m_nMax; i++ )
+			int i; for( i = 0; i < pWndGuild->m_WndGuildTabMember.m_nMax; i++ )
 				if( pWndGuild->m_WndGuildTabMember.m_aList[i].idPlayer == idPlayer )
 					lstrcpy( pWndGuild->m_WndGuildTabMember.m_aList[i].szName, lpszPlayer );
 		}
@@ -13617,7 +13617,7 @@ void CDPClient::OnGetFriendName( CAr & ar )
 	u_long uidPlayer;
 	char szName[65];
 	ar >> nCount;
-	for( int i = 0 ; i < nCount ; i++ )
+	int i; for( i = 0 ; i < nCount ; i++ )
 	{
 		memset( szName, 0, sizeof( szName ) );
 		ar >> uidPlayer;
@@ -13811,7 +13811,7 @@ void CDPClient::OnPVendorClose( OBJID objid, CAr & ar )
 			if( pMover->m_vtInfo.IsVendorOpen() )
 			{
 				bReSetVendor = TRUE;
-				for( int i = 0; i < MAX_VENDITEM; i++ )
+				int i; for( i = 0; i < MAX_VENDITEM; i++ )
 				{
 					CItemBase* pItemBase = pMover->m_vtInfo.GetItem(i);
 					if( pItemBase != NULL )
@@ -13840,7 +13840,7 @@ void CDPClient::OnPVendorClose( OBJID objid, CAr & ar )
 			#if __VER >= 11 //	__MOD_VENDOR
 				// 수정된 버젼에서는 개인상점 초기화시 일괄적으로 처리해준다
 			#else
-				for( int i = 0; i < MAX_VENDITEM; i++ )
+				int i; for( i = 0; i < MAX_VENDITEM; i++ )
 				{
 					if( apItem_VT[i].m_dwObjId != 0 )
 						SendRegisterPVendorItem( i, 0, apItem_VT[i].m_dwObjId, apItem_VT[i].m_nExtra, apItem_VT[i].m_nCost );
@@ -13948,7 +13948,7 @@ void CDPClient::OnPVendorItem( OBJID objid, CAr & ar )
 	int nExtra;
 
 	ar >> nVendorItem;
-	for( int i = 0; i < nVendorItem; i++ )
+	int i; for( i = 0; i < nVendorItem; i++ )
 	{
 		CItemElem* pItemElem = new CItemElem;
 		
@@ -13993,7 +13993,7 @@ void CDPClient::OnPVendorItem( OBJID objid, CAr & ar )
 	}
 	else
 	{
-		for( int i = 0; i < MAX_VENDITEM; i++ )
+		int i; for( i = 0; i < MAX_VENDITEM; i++ )
 			SAFE_DELETE( apItemVd[i] );
 	}
 }
@@ -14150,7 +14150,7 @@ void CDPClient::SendRepairItem( DWORD* pdwIdRepair )
 		BYTE c	= 0;
 		ar << c;
 
-		for( int i = 0; i < MAX_REPAIRINGITEM; i++ )
+		int i; for( i = 0; i < MAX_REPAIRINGITEM; i++ )
 		{
 //			if( pMover->m_adwIdRepair[i] != NULL_ID )
 			if( pdwIdRepair[i] != NULL_ID )
@@ -14191,7 +14191,7 @@ void CDPClient::OnTag( OBJID objid, CAr & ar )
 	g_Neuz.m_nTagCount = m_nCount;
 	g_Neuz.m_bCheckTag = FALSE;
 	
-	for( int i = 0 ; i < g_Neuz.m_nTagCount ; i++ )
+	int i; for( i = 0 ; i < g_Neuz.m_nTagCount ; i++ )
 	{
 		ar.ReadString( g_Neuz.m_strTagName[ i ], 65 );
 		ar >> g_Neuz.m_dwtegDate[ i ];
@@ -14537,7 +14537,7 @@ void CDPClient::OnSchoolReport( CAr & ar )
 	{
 		case SBS_END:
 			{
-				for( int i = 0; i < MAX_SCHOOL; i++ )
+				int i; for( i = 0; i < MAX_SCHOOL; i++ )
 				{
 					if( lstrlen( school[i].lpName ) > 0 && school[i].nSurvivor > 0 )
 					{
@@ -14552,7 +14552,7 @@ void CDPClient::OnSchoolReport( CAr & ar )
 			}
 		default:
 			{
-				for( int i = 0; i < MAX_SCHOOL; i++ )
+				int i; for( i = 0; i < MAX_SCHOOL; i++ )
 				{
 					if( school[i].nSurvivor )
 					{
@@ -14639,7 +14639,7 @@ void CDPClient::OnInitSkillPoint( CAr & ar )
 	}
 	g_pPlayer->m_nSkillPoint = nSkillPoint;
 
-	for( int i = 0 ; i < MAX_SKILL_JOB ; ++i )
+	int i; for( i = 0 ; i < MAX_SKILL_JOB ; ++i )
 	{
 		LPSKILL pSkill = (LPSKILL)&g_pPlayer->m_aJobSkill[ i ];
 		if( pSkill != NULL )
@@ -14674,7 +14674,7 @@ void CDPClient::OnInitSkillPoint( CAr & ar )
 void CDPClient::OnDoUseSkillPoint( CAr & ar )
 {
 	DWORD dwSkill, dwLevel;
-	for( int i = 0; i < MAX_SKILL_JOB; i++ )
+	int i; for( i = 0; i < MAX_SKILL_JOB; i++ )
 	{
 		ar >> dwSkill >> dwLevel;
 		LPSKILL pSkill	= g_pPlayer->GetSkill( dwSkill );
@@ -15004,7 +15004,7 @@ void CDPClient::OnChatting( OBJID objid, CAr & ar )
 			g_Chatting.m_nSizeofMember = 0;
 			int nSize;
 			ar >> nSize;
-			for( int i = 0 ; i < nSize ; ++i )
+			int i; for( i = 0 ; i < nSize ; ++i )
 			{
 				ar >> uidPlayer;
 				ar.ReadString( szName, MAX_NAME );
@@ -15022,7 +15022,7 @@ void CDPClient::OnChatting( OBJID objid, CAr & ar )
 			
 			if(pWndVendor)
 			{
-				for( int i = 0 ; i < g_Chatting.GetChattingMember() ; ++i )
+				int i; for( i = 0 ; i < g_Chatting.GetChattingMember() ; ++i )
 				{
 					if( uidPlayer == g_Chatting.m_idMember[i] )
 					{
@@ -15046,7 +15046,7 @@ void CDPClient::OnChatting( OBJID objid, CAr & ar )
 			
 			if(pWndVendor)
 			{
-				for( int i = 0 ; i < g_Chatting.GetChattingMember() ; ++i )
+				int i; for( i = 0 ; i < g_Chatting.GetChattingMember() ; ++i )
 				{
 					if( uidPlayer == g_Chatting.m_idMember[i] )
 					{
@@ -15070,7 +15070,7 @@ void CDPClient::OnChatting( OBJID objid, CAr & ar )
 
 			if(pWndVendor)
 			{
-				for( int i = 0 ; i < g_Chatting.GetChattingMember() ; ++i )
+				int i; for( i = 0 ; i < g_Chatting.GetChattingMember() ; ++i )
 				{
 					if( uidPlayer == g_Chatting.m_idMember[i] )
 					{
@@ -15681,7 +15681,7 @@ void CDPClient::OnQueryEquip( OBJID objid, CAr & ar )
 	ar >> cbEquip;
 
 	int nParts;
-	for( int i = 0; i < cbEquip; i++ )
+	int i; for( i = 0; i < cbEquip; i++ )
 	{
 		ar >> nParts;
 #if __VER >= 11 // __SYS_IDENTIFY
@@ -16124,7 +16124,7 @@ void CDPClient::OnAddRegion( CAr & ar )
 
 	int nSize	= 0;
 	ar >> nSize;
-	for( int i = 0; i < nSize; i++ )
+	int i; for( i = 0; i < nSize; i++ )
 	{
 		DPID objid;
 		ar >> objid;
@@ -17502,7 +17502,8 @@ void CDPClient::OnSecretRoomInfo( CAr & ar )
 				}
 	
 				ar >> nSize;
-				for( int i=0; i<nSize; i++ )
+				int i;
+				for(  i=0; i<nSize; i++ )
 				{
 					__SECRETROOM_TENDER srTender;
 					ar >> srTender.dwGuildId;
@@ -18750,7 +18751,7 @@ void CDPClient::OnQuizSystemMessage( CAr & ar )
 	if( nChannel )
 	{
 		CString strChannelName;
-		for( int i = 0; i < (int)( g_dpCertified.m_dwSizeofServerset ); i++ )
+		int i; for( i = 0; i < (int)( g_dpCertified.m_dwSizeofServerset ); i++ )
 		{
 			if( g_dpCertified.m_aServerset[i].dwParent == g_Neuz.m_dwSys && g_dpCertified.m_aServerset[i].dwID == nChannel )
 			{
@@ -19166,7 +19167,7 @@ void CDPClient::OnGuildHouseTenderMainWnd( CAr & ar )
 
 	int nSize;
 	ar >> nSize;
-	for( int i = 0; i < nSize; ++i )
+	int i; for( i = 0; i < nSize; ++i )
 	{
 		OBJID objGHId;
 		char szTitle[128] = {0, };
@@ -19197,7 +19198,7 @@ void CDPClient::OnGuildHouseTenderInfoWnd( CAr & ar )
 	int nTenderMinPenya = 0, nSize = 0;
 	__int64 nTenderPenya = 0;		//길드항목중 내길드가 있다면 이값이 내길드의 입찰금
 	ar >> objGHId >> nTenderMinPenya >> nTenderPenya >> nSize;
-	for( int i = 0; i < nSize; ++i )
+	int i; for( i = 0; i < nSize; ++i )
 	{
 		DWORD dwGuildId;
 		ar >> dwGuildId;

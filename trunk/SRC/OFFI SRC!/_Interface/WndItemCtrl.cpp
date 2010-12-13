@@ -73,7 +73,7 @@ void CWndItemCtrl::UpdateTooltip( void )
 	pt.y = 0;
 	pt.y += m_wndScrollBar.GetScrollPos() * nWidth;
 
-	for( int i = pt.y; i < m_pItemContainer->GetSize(); i++ ) 
+	int i; for( i = pt.y; i < m_pItemContainer->GetSize(); i++ ) 
 	{
 		if( i < 0 )
 			continue;
@@ -147,7 +147,7 @@ void CWndItemCtrl::OnMouseWndSurface( CPoint point )
 
 	if( nParent == APP_INVENTORY )
 	{
-		for( int i = pt.y; i < m_pItemContainer->GetSize(); i++ ) 
+		int i; for( i = pt.y; i < m_pItemContainer->GetSize(); i++ ) 
 		{
 			if( i < 0 ) continue;
 			int x = ( i - pt.y ) % nWidth;
@@ -188,7 +188,7 @@ void CWndItemCtrl::OnMouseWndSurface( CPoint point )
 #if __VER >= 11 // __SYS_POCKET
 	if( nParent == APP_BAG_EX )
 	{
-		for( int i = pt.y; i < m_pItemContainer->GetSize(); i++ ) 
+		int i; for( i = pt.y; i < m_pItemContainer->GetSize(); i++ ) 
 		{
 			if( i < 0 ) continue;
 			int x = ( i - pt.y ) % nWidth;
@@ -211,7 +211,7 @@ void CWndItemCtrl::OnMouseWndSurface( CPoint point )
 #endif
 	else
 	{
-		for( int i = 0; i < m_nArrayCount; i++ ) 
+		int i; for( i = 0; i < m_nArrayCount; i++ ) 
 		{
 			if( i < 0 ) continue;
 			int x = ( i - pt.y ) % nWidth;
@@ -405,7 +405,7 @@ void CWndItemCtrl::OnDraw(C2DRender* p2DRender)
 	{
 		m_nFontHeight = GetFontHeight( );
 		pt.y -= ( m_nFontHeight + 3 ) * m_wndScrollBar.GetScrollPos();
-		for( int i = 0; i < (int)( m_pItemContainer->m_dwIndexNum ); i++ ) 
+		int i; for( i = 0; i < (int)( m_pItemContainer->m_dwIndexNum ); i++ ) 
 		{
 			//LVITEM* pItems = (LVITEM*)m_aItems.GetAt( m_pItemContainer->m_apIndex[ i ] );
 			DWORD dwColor = 0xffffffff;
@@ -458,7 +458,7 @@ void CWndItemCtrl::OnDraw(C2DRender* p2DRender)
 	if( nParent == APP_INVENTORY )
 #endif
 		{
-			for( int i = pt.y; i < m_pItemContainer->GetSize(); i++ ) 
+			int i; for( i = pt.y; i < m_pItemContainer->GetSize(); i++ ) 
 			{
 				if( i < 0 ) continue;
 				int x = ( i - pt.y ) % nWidth;
@@ -576,7 +576,7 @@ void CWndItemCtrl::OnDraw(C2DRender* p2DRender)
 			if( nParent == APP_SHOP_ )
 			{
 				CWndShop* pWndBase = (CWndShop*)g_WndMng.GetWndBase( APP_SHOP_ );
-				for( int i = 0; i < m_pItemContainer->GetSize(); i++ ) 
+				int i; for( i = 0; i < m_pItemContainer->GetSize(); i++ ) 
 				{
 					CItemElem* pItemElem = GetItem( i );
 					if( pItemElem == NULL ) 
@@ -663,7 +663,7 @@ void CWndItemCtrl::OnDraw(C2DRender* p2DRender)
 			}
 			else
 			{
-				for( int i = 0; i < m_pItemContainer->GetSize(); i++ ) 
+				int i; for( i = 0; i < m_pItemContainer->GetSize(); i++ ) 
 				{
 					CItemElem* pItemElem = GetItem( i );	
 					if( pItemElem == NULL ) 
@@ -677,7 +677,7 @@ void CWndItemCtrl::OnDraw(C2DRender* p2DRender)
 				}
 			}
 
-			for( int i = 0; i < m_nArrayCount; i++ ) 
+			int i; for( i = 0; i < m_nArrayCount; i++ ) 
 			{
 				int x = ( i - pt.y ) % nWidth;
 				int y = ( i - pt.y ) / nWidth;
@@ -981,7 +981,7 @@ void CWndItemCtrl::OnLButtonUp( UINT nFlags, CPoint point )
 	{
 		if( (GetAsyncKeyState( VK_LCONTROL ) & 0x8000 ) )
 		{
-			for( int j = 0; j < m_dwSelectAry.GetSize(); j++ )
+			int j; for(  j = 0; j < m_dwSelectAry.GetSize(); j++ )
 			{
 				if( m_dwSelectAry.GetAt( j ) == nItem )
 					break;
@@ -1122,7 +1122,7 @@ int CWndItemCtrl::HitTest( CPoint point )
 	if( 0 ) //m_dwListCtrlStyle == WLVS_REPORT )
 	{
 		pt.y -= (m_nFontHeight + 3) * m_wndScrollBar.GetScrollPos();
-		for( int i = 0; i < (int)( m_pItemContainer->m_dwIndexNum ); i++ ) 
+		int i; for( i = 0; i < (int)( m_pItemContainer->m_dwIndexNum ); i++ ) 
 		{
 			CItemElem* pItemElem = &m_pItemContainer->m_apItem[ m_pItemContainer->m_apIndex[ i ] ] ;
 			rect.SetRect( pt.x, pt.y, pt.x + m_rectWindow.Width() - m_wndScrollBar.GetClientRect().Width(), pt.y + m_nFontHeight );
@@ -1169,7 +1169,7 @@ int CWndItemCtrl::HitTest( CPoint point )
 		if( nParent == APP_INVENTORY )
 	#endif
 		{
-			for( int i = pt.y; i < (int)( m_pItemContainer->m_dwIndexNum ); i++ ) 
+			int i; for( i = pt.y; i < (int)( m_pItemContainer->m_dwIndexNum ); i++ ) 
 			{
 				int x = ( i - pt.y ) % nWidth;
 				int y = ( i - pt.y ) / nWidth;
@@ -1183,7 +1183,7 @@ int CWndItemCtrl::HitTest( CPoint point )
 		}
 		else
 		{
-			for( int i = pt.y; i < m_nArrayCount; i++ ) 
+			int i; for( i = pt.y; i < m_nArrayCount; i++ ) 
 			{
 				int x = ( i - pt.y ) % nWidth;
 				int y = ( i - pt.y ) / nWidth;
@@ -1247,7 +1247,7 @@ void CWndItemCtrl::OnDropIcon( DWORD dwShorCutType, DWORD dwShortCutIndex, CPoin
 
 			pt.y = 0;
 			pt.y += m_wndScrollBar.GetScrollPos() * nWidth;
-			for( int i = pt.y; i < m_pItemContainer->m_dwIndexNum; i++ ) 
+			int i; for( i = pt.y; i < m_pItemContainer->m_dwIndexNum; i++ ) 
 			{
 				int x = ( i - pt.y ) % nWidth;
 				int y = ( i - pt.y ) / nWidth;
@@ -1255,7 +1255,7 @@ void CWndItemCtrl::OnDropIcon( DWORD dwShorCutType, DWORD dwShortCutIndex, CPoin
 				rect.SetRect( x * 32, y * 32, x * 32 + 32, y * 32 + 32 );
 				if( rect.PtInRect( point ) )
 				{
-					for( int j = m_pItemContainer->m_dwIndexNum; j > i; j-- )
+					int j; for(  j = m_pItemContainer->m_dwIndexNum; j > i; j-- )
 						m_pItemContainer->m_apIndex[ j ] = m_pItemContainer->m_apIndex[ j - 1 ];
 					m_pItemContainer->m_apIndex[ j ] = dwItemOld;
 					(m_pItemContainer->m_dwIndexNum)++;
@@ -1271,7 +1271,7 @@ void CWndItemCtrl::OnDropIcon( DWORD dwShorCutType, DWORD dwShortCutIndex, CPoin
 		_pItemContainer->Swap( CWndBase::m_GlobalShortcut.m_dwData, 
 		
 		CItemElem* pItemOld = &m_apItem[ CWndBase::m_GlobalShortcut.m_dwData ];
-		for( int i = 0; m_pItemContainer->m_dwIndexNum; i++ )
+		int i; for( i = 0; m_pItemContainer->m_dwIndexNum; i++ )
 		{
 			CItemElem* pItemElem = &m_apItem[ i ];
 			if( pItemElem->m_dwItemId )
@@ -1285,7 +1285,7 @@ void CWndItemCtrl::OnDropIcon( DWORD dwShorCutType, DWORD dwShortCutIndex, CPoin
 }*/
 BOOL CWndItemCtrl::IsSelectedItem( int iItem )
 {
-	for( int i = 0; i < m_dwSelectAry.GetSize(); i++ )
+	int i; for( i = 0; i < m_dwSelectAry.GetSize(); i++ )
 		if( m_dwSelectAry.GetAt( i ) == iItem )
 			return TRUE;
 	return FALSE;
@@ -1524,7 +1524,7 @@ void CWndItemCtrl::PaintFrame( C2DRender* p2DRender )
 	if( 0 ) //m_dwListCtrlStyle == WLVS_REPORT )
 	{
 		// 컬럼 출력 
-		for( int i = 0, x = 0; i < m_aColumns.GetSize(); i++ )
+		int i,x; for( i = 0, x = 0; i < m_aColumns.GetSize(); i++ )
 		{
 			LVCOLUMN* pColumn = (LVCOLUMN*)m_aColumns.GetAt( i );
 			p2DRender->TextOut( x + 4, 4, pColumn->pszText ); 

@@ -530,7 +530,7 @@ void CWndChat::SetChannel()
 	}
 	DWORD dwChatFilter = g_Option.m_dwChatFilterEtc | g_Option.m_dwChatFilter[ nChannel ];
 
-	for( int i = 0; i < g_WndMng.m_aChatString.GetSize(); i++ )
+	int i; for( i = 0; i < g_WndMng.m_aChatString.GetSize(); i++ )
 	{
 		if( g_WndMng.m_aChatStyle.GetAt( i ) & dwChatFilter ) 
 		{
@@ -953,7 +953,7 @@ void CWndChat::Parsing( CString string )
 {
 	/*
 	MotionProp* pProp;
-	for( int i = 0; i < prj.m_aMotionProp.GetSize(); i++ )
+	int i; for( i = 0; i < prj.m_aMotionProp.GetSize(); i++ )
 	{
 		pProp = prj.GetMotionProp( i );
 		if( pProp && pProp->dwRequireLv )
@@ -1171,7 +1171,7 @@ void CWndChat::OnRButtonDown(UINT nFlags, CPoint point)
 	int nLineCount = m_wndText.m_string.GetLineCount();
 	int nPos = m_wndText.IsWndStyle( WBS_VSCROLL ) ? m_wndText.m_wndScrollBar.GetScrollPos() : 0;
 	DWORD dwMaxHeight = m_wndText.GetFontHeight();
-	for( int i = nPos ; i < nLineCount ; ++i )
+	int i; for( i = nPos ; i < nLineCount ; ++i )
 	{
 		if( (int)( ((i-nPos) * dwMaxHeight) ) <= point.y && point.y < (int)( (dwMaxHeight * (i-nPos + 1)) ) )
 		{
@@ -1300,7 +1300,7 @@ void CWndChat::AdditionalSkinTexture( LPWORD pDest, CSize size, D3DFORMAT d3dFor
 	PaintTexture( pDest, &m_wndChatEdit[0], point, size );
 	int nWidth = ( rect.Width() - m_wndChatEdit[0].size.cx ) / m_wndChatEdit[1].size.cx;
 	point.x += m_wndChatEdit[0].size.cx;
-	for( int i = 0; i < nWidth; i++ )
+	int i; for( i = 0; i < nWidth; i++ )
 	{
 		if( i == nWidth - 2 )
 			PaintTexture( pDest, &m_wndChatEdit[2], point, size );

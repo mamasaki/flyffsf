@@ -290,7 +290,7 @@ template <class T> void CFixedArray<T>::Optimize()
 	{
 		LPBYTE pData = new BYTE[ m_nCurOffset ]; 
 		memcpy( pData, m_pData, m_nCurOffset ); 
-		for( int i = 0; i <= m_nEndIndex; i++ )
+		int i; for( i = 0; i <= m_nEndIndex; i++ )
 			if( m_apOffset[ i ] )
 				m_apOffset[ i ] = ( m_apOffset[ i ] - m_pData ) + pData; 
 		SAFE_DELETE_ARRAY( m_pData );
@@ -324,7 +324,7 @@ template <class T> void CFixedArray<T>::SetAtGrow( int nIndex, T* pData, int nSi
 		m_nMaxByte = m_nCurOffset * 2 + nSizeTemp;
 		LPBYTE pData2 = new BYTE[ m_nMaxByte ]; // 두배 확장 
 		memcpy( pData2, m_pData, m_nCurOffset ); // 복사 
-		for( int i = 0; i <= m_nEndIndex; i++ )
+		int i; for( i = 0; i <= m_nEndIndex; i++ )
 			if( m_apOffset[ i ] )
 				m_apOffset[ i ] = ( m_apOffset[ i ] - m_pData ) + pData2; 
 		SAFE_DELETE_ARRAY( m_pData );

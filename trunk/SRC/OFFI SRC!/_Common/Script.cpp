@@ -131,7 +131,8 @@ void CScript::SntxErr( LPCTSTR lpszHeader, int error)
 	BYTE str[80];
 	int nLen = strlen(m_pProg);
 	if(nLen > 79) nLen = 79;
-	for(int i = 0; i < nLen; i++)
+	int i;
+	for( i = 0; i < nLen; i++)
 		str[i] = m_pProg[i];
 	str[i] = 0; 
 	CString string; 
@@ -1219,7 +1220,8 @@ void CScript::FuncPush(FuncInfo fi)
 void CScript::AssignVar(char *varName, int value)
 {
 	// first, see if it's a loca variable 
-	for(int i = callStack[functos-1].var; i < lvartos; i++) {
+	int i;
+	for( i = callStack[functos-1].var; i < lvartos; i++) {
 		if(!strcmp(localVarStack[i].varName,varName)) {
 			localVarStack[i].value = value;	return;
 		}
@@ -1234,7 +1236,8 @@ void CScript::AssignVar(char *varName, int value)
 int* CScript::GetVarPtr(char *varName)
 {
 	// first, see if it's a loca variable 
-	for(int i = callStack[functos-1].var; i < lvartos; i++) 
+	int i;
+	for( i = callStack[functos-1].var; i < lvartos; i++) 
 	{
 		if(!strcmp(localVarStack[i].varName,varName)) 
 		{
@@ -1256,7 +1259,7 @@ int* CScript::GetVarPtr(char *varName)
 int CScript::FindVar(char *s)
 {
 	// first, see if it's a local variable 
-	for( int i = callStack[functos-1].var; i < lvartos; i++)
+	int i; for( i = callStack[functos-1].var; i < lvartos; i++)
 		if(!strcmp(localVarStack[i].varName,s))
 			return localVarStack[i].value;
 	// otherwise, try global vars 
@@ -1269,7 +1272,7 @@ int CScript::FindVar(char *s)
 int CScript::IsVar(char *s)
 {
 	// first, see if it's a local variable 
-	for( int i = callStack[functos-1].var; i < lvartos; i++)
+	int i; for( i = callStack[functos-1].var; i < lvartos; i++)
 		if(!strcmp(localVarStack[i].varName,s))
 			return 1;
 	// otherwise, try global bars 

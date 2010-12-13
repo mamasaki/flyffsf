@@ -68,7 +68,7 @@ enum
 // 공속 가중치를 구한다. n - 가중치를 구하기 위한 중간 계산값 
 float GetAttackSpeedPlusValue( int n )
 {
-	const MAX_ATTACK_SPEED_PLUSVALUE = 18;
+	const int MAX_ATTACK_SPEED_PLUSVALUE = 18;
 
 	int nIndex = n / 10;
 	nIndex = max( nIndex, 0 );
@@ -674,7 +674,7 @@ int CMover::CalcLinkAttackDamage( int nDamage )
 				}
 				else
 				{
-					for( int i = 0 ; i < pParty->m_nSizeofMember ; i++ )
+					int i; for( i = 0 ; i < pParty->m_nSizeofMember ; i++ )
 					{
 						pMemberUser = g_UserMng.GetUserByPlayerID( pParty->m_aMember[i].m_uPlayerId );
 						if( IsValidObj( (CObj*)pMemberUser )/* && pLeader->IsNearPC( pMemberUser ) && pMemberUser->IsOrigin()*/ )
@@ -691,7 +691,7 @@ int CMover::CalcLinkAttackDamage( int nDamage )
 					}
 				}
 #else	//__PARSKILL1001	//12차 파스킬 아이템 수정  world,core,neuz
-				for( int i = 0 ; i < pParty->m_nSizeofMember ; i++ )
+				int i; for( i = 0 ; i < pParty->m_nSizeofMember ; i++ )
 				{
 					pMemberUser = g_UserMng.GetUserByPlayerID( pParty->m_aMember[i].m_uPlayerId );
 					if( IsValidObj( (CObj*)pMemberUser )/* && pLeader->IsNearPC( pMemberUser ) && pMemberUser->IsOrigin()*/ )

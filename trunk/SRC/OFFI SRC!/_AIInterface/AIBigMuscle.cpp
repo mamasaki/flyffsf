@@ -36,10 +36,10 @@ enum
 };
 BEGIN_AISTATE_MAP( CAIBigMuscle, CAIInterface )
 
-	ON_STATE( STATE_INIT   , StateInit   )
-	ON_STATE( STATE_IDLE   , StateIdle   )
-	ON_STATE( STATE_RAGE   , StateRage   )
-	ON_STATE( STATE_SUPER_RAGE   , StateRage   )
+	ON_STATE( STATE_INIT   , &CAIBigMuscle::StateInit   )
+	ON_STATE( STATE_IDLE   , &CAIBigMuscle::StateIdle   )
+	ON_STATE( STATE_RAGE   , &CAIBigMuscle::StateRage   )
+	ON_STATE( STATE_SUPER_RAGE   , &CAIBigMuscle::StateRage   )
 //	ON_STATE( STATE_RUNAWAY, StateRunaway  )
 
 END_AISTATE_MAP()

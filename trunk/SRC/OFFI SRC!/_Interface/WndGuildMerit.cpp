@@ -264,7 +264,7 @@ void CWndGuildMeritCtrl::OnDraw( C2DRender* p2DRender )
 	pt.y = 0;
 	pt.y += m_wndScrollBar.GetScrollPos() * nWidth;
 
-	for( int i = pt.y; i < (int)( m_pItemContainer.size() ); i++ )
+	int i; for( i = pt.y; i < (int)( m_pItemContainer.size() ); i++ )
 	{
 		int x	= ( i - pt.x ) % 6;
 		int y	= ( i - pt.y ) / 6;
@@ -388,7 +388,7 @@ int CWndGuildMeritCtrl::HitTest( CPoint point )
 	pt.y = 0;
 	pt.y += m_wndScrollBar.GetScrollPos() * nWidth;
 	
-	for( int i = pt.y; i < 50; i++ )
+	int i; for( i = pt.y; i < 50; i++ )
 	{
 		int x	= ( i - pt.y ) % 6;
 		int y	= ( i - pt.y ) / 6;

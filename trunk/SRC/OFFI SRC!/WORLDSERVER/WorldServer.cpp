@@ -123,7 +123,7 @@ extern	CCreateMonster		g_CreateMonster;
 	#endif
 #endif
 
-
+/*
 
 //////////////////////////////////////////////////////////////////////////
 //	BEGINTEST100111	FFL_DUMP
@@ -136,7 +136,7 @@ extern	CCreateMonster		g_CreateMonster;
 #endif
 //	ENDTEST100111	FFL_DUMPk
 //////////////////////////////////////////////////////////////////////////
-
+*/
 
 
 void InitLanguageFromResource( HINSTANCE hInstance )
@@ -162,7 +162,7 @@ int APIENTRY WinMain(HINSTANCE hInstance,
 {
 	//////////////////////////////////////////////////////////////////////////
 	//	BEGINTEST100111	FFL_DUMP
- 	ffl_dump_unexception_filter::install( ffl_dump_level_heavy );
+ 	//ffl_dump_unexception_filter::install( ffl_dump_level_heavy );
 	//	ENDTEST100111	FFL_DUMP
 	//////////////////////////////////////////////////////////////////////////
 

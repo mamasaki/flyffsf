@@ -43,15 +43,15 @@ enum
 
 BEGIN_AISTATE_MAP( CAIMonster, CAIInterface )
 
-	ON_STATE( STATE_INIT   , StateInit   )
-	ON_STATE( STATE_IDLE   , StateIdle   )
-	ON_STATE( STATE_WANDER , StateWander )
-	ON_STATE( STATE_EVADE  , StateEvade  )
-	ON_STATE( STATE_RAGE   , StateRage   )
-	ON_STATE( STATE_RUNAWAY, StateRunaway  )
-	ON_STATE( STATE_STAND  , StateStand   )
-	ON_STATE( STATE_PATROL , StatePatrol  )
-	ON_STATE( STATE_RAGE_PATROL , StateRagePatrol  )
+	ON_STATE( STATE_INIT   , &CAIMonster::StateInit   )
+	ON_STATE( STATE_IDLE   , &CAIMonster::StateIdle   )
+	ON_STATE( STATE_WANDER , &CAIMonster::StateWander )
+	ON_STATE( STATE_EVADE  , &CAIMonster::StateEvade  )
+	ON_STATE( STATE_RAGE   , &CAIMonster::StateRage   )
+	ON_STATE( STATE_RUNAWAY, &CAIMonster::StateRunaway  )
+	ON_STATE( STATE_STAND  , &CAIMonster::StateStand   )
+	ON_STATE( STATE_PATROL ,&CAIMonster:: StatePatrol  )
+	ON_STATE( STATE_RAGE_PATROL ,&CAIMonster:: StateRagePatrol  )
 	
 END_AISTATE_MAP()
 
@@ -1114,7 +1114,8 @@ void CAIMonster::CallHelper( const MoverProp* pMoverProp )
 NEXT:
 	// 파티 가능 여부 
 	pTarget = prj.GetMover( m_dwIdTarget );
-	for( int i = 0; i < pMoverProp->m_nCallHelperMax; i++ )
+	int i;
+	for(  i = 0; i < pMoverProp->m_nCallHelperMax; i++ )
 		bParty |= pMoverProp->m_bCallHelperParty[ i ] ? TRUE : FALSE;
 
 	if( bParty && IsValidObj( (CObj*)pTarget ) )

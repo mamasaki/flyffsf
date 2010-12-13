@@ -33,7 +33,8 @@ void CUserTaskBar::InitTaskBar()
 
 void CUserTaskBar::InitTaskBarShorcutKind( DWORD dwShortcutKind )
 {
-	for( int i = 0; i < MAX_SLOT_APPLET; i++ )
+	int i;
+	for(  i = 0; i < MAX_SLOT_APPLET; i++ )
 	{
 		if( m_aSlotApplet[i].m_dwShortcut == dwShortcutKind )		// 값이 들어있는지 검사
 			memset( &m_aSlotApplet[i], 0, sizeof( SHORTCUT ) );
@@ -65,7 +66,8 @@ void CUserTaskBar::Serialize( CAr &ar )
 		int nCount	= 0;
 		u_long uOffset	= ar.GetOffset();
 		ar << nCount;
-		for( int i = 0; i < MAX_SLOT_APPLET; i++ )
+		int i;
+		for(  i = 0; i < MAX_SLOT_APPLET; i++ )
 		{
 			if( m_aSlotApplet[i].m_dwShortcut != SHORTCUT_NONE )		// 값이 들어있는지 검사
 			{
@@ -136,7 +138,8 @@ void CUserTaskBar::Serialize( CAr &ar )
 
 		int nCount, nIndex;
 		ar >> nCount;	// applet count
-		for( int i = 0; i < nCount; i++ )
+		int i;
+		for(  i = 0; i < nCount; i++ )
 		{
 			ar >> nIndex;
 			ar >> m_aSlotApplet[nIndex].m_dwShortcut >>	m_aSlotApplet[nIndex].m_dwId >> m_aSlotApplet[nIndex].m_dwType;

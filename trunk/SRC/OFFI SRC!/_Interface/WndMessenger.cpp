@@ -528,7 +528,7 @@ void CWndMessengerEx::OnDraw( C2DRender* p2DRender )
 		//채널 정보
 		LPSERVER_DESC pServerDesc = NULL;
 		int nCount = 0;
-		for( int j = 0; j < (int)( g_dpCertified.m_dwSizeofServerset ); ++j )
+		int j; for(  j = 0; j < (int)( g_dpCertified.m_dwSizeofServerset ); ++j )
 		{
 			if( g_dpCertified.m_aServerset[ j ].dwParent == NULL_ID )
 			{
@@ -584,7 +584,7 @@ void CWndMessengerEx::OnDraw( C2DRender* p2DRender )
 	//채널 정보
 	LPSERVER_DESC pServerDesc = NULL;
 	int nCount = 0;
-	for( int j = 0; j < g_dpCertified.m_dwSizeofServerset; j++ )
+	int j; for(  j = 0; j < g_dpCertified.m_dwSizeofServerset; j++ )
 	{
 		if(g_dpCertified.m_aServerset[j].dwParent == NULL_ID)
 		{
@@ -1375,7 +1375,7 @@ void CWndMessengerNote::OnInitialUpdate()
 	CWndNeuz::OnInitialUpdate(); 
 	// 여기에 코딩하세요
 	
-	for( int i = 0 ; i < g_Neuz.m_nTagCount ; i++ )
+	int i; for( i = 0 ; i < g_Neuz.m_nTagCount ; i++ )
 	{
 		CWndText * pWndText = (CWndText*)GetDlgItem( WIDC_TEXT1 );
 		pWndText->AddWndStyle( EBS_WANTRETURN );

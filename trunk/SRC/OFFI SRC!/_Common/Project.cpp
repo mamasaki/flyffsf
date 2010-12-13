@@ -377,7 +377,8 @@ void CProject::LoadSkill()
 	LoadPropItem( "propSkill.txt", &m_aPropSkill );
 	ZeroMemory( m_aJobSkillNum, sizeof( m_aJobSkillNum ) );
 	// 각각의 스킬을 정렬해서 배열에 담자 
-	for( int i = 1; i < m_aPropSkill.GetSize(); i++ )
+	int i;
+	for(  i = 1; i < m_aPropSkill.GetSize(); i++ )
 	{
 		ItemProp* pItemProp = (ItemProp*)m_aPropSkill.GetAt( i );
 		if( pItemProp )
@@ -1122,7 +1123,7 @@ BOOL CProject::LoadFilter( LPCTSTR lpszFileName )
 #ifdef __FILTER_0705
 		BOOL bAlpha		= TRUE;
 		int nLen	= lstrlen( scanner.token );
-		for( int i = 0; i < nLen; i++ )
+		int i; for( i = 0; i < nLen; i++ )
 		{
 #ifdef __VS2003
 			if( !iswalpha( scanner.token[i] ) )
@@ -2460,7 +2461,7 @@ BOOL CProject::LoadPropQuest( LPCTSTR lpszFileName, BOOL bOptimize )
 			{
 				propQuest.m_lpszEndCondMultiCharacter = new CHAR[ 64 * 10 ];
 				ZeroMemory( propQuest.m_lpszEndCondMultiCharacter, 64 * 10 );
-				for( int i = 0; i < szLinkCharNum; i++ )
+				int i; for( i = 0; i < szLinkCharNum; i++ )
 				{
 					strcpy( &propQuest.m_lpszEndCondMultiCharacter[ i * 64 ], szLinkChar[ 0 ] );
 					LPCHARACTER lpCharacter = GetCharacter( szLinkChar[ i ] );
@@ -3595,7 +3596,7 @@ void CProject::RemoveMonsterProp( char* lpszMonsterName )
 {
 	BOOL bFind = FALSE;
 	int nFindIndex = 0;
-	for( int i = 0 ; i < m_nMonsterPropSize ; ++i )
+	int i; for( i = 0 ; i < m_nMonsterPropSize ; ++i )
 	{
 		if( strcmp( m_aMonsterProp[ i ].szMonsterName, lpszMonsterName ) == 0 )
 		{
@@ -3607,7 +3608,7 @@ void CProject::RemoveMonsterProp( char* lpszMonsterName )
 	
 	if( bFind )
 	{
-		for( int i = 0 ; i < m_nMonsterPropSize - 1; ++ i )
+		int i; for( i = 0 ; i < m_nMonsterPropSize - 1; ++ i )
 		{
 			m_aMonsterProp[i] = m_aMonsterProp[i + 1];					
 		}
@@ -3656,7 +3657,7 @@ BOOL CProject::LoadDropEvent( LPCTSTR lpszFileName )
 					di.dwProbability	= (DWORD)( di.dwProbability	* 0.5 );
 			}
 
-			for( int i = 0; i < m_nMoverPropSize; i++ )
+			int i; for( i = 0; i < m_nMoverPropSize; i++ )
 			{
 				MoverProp* pProp	= m_pPropMover + i;
 				if( pProp->dwID && pProp->dwLevel >= dwMinLevel && pProp->dwLevel <= dwMaxLevel	)
@@ -3671,16 +3672,16 @@ BOOL CProject::LoadDropEvent( LPCTSTR lpszFileName )
 BOOL CProject::SortDropItem( void )
 {
 	// DROPITEM의 dwProbability 내림차순으로 Sortting 
-	for( int i = 0; i < m_nMoverPropSize; i++ )
+	int i; for( i = 0; i < m_nMoverPropSize; i++ )
 	{
 		MoverProp* pProp	= m_pPropMover + i;
 		int nDropItemCount = pProp->m_DropItemGenerator.GetSize();
 
 		DROPITEM *pDropItem0, *pDropItem1, *pDropItemTemp;		
-		for( int i = 0 ; i < nDropItemCount - 1 ; ++i )
+		int i; for( i = 0 ; i < nDropItemCount - 1 ; ++i )
 		{
 			pDropItem0 = pProp->m_DropItemGenerator.GetAt( i, FALSE, 0.0f );
-			for( int j = i + 1 ; j < nDropItemCount ; ++j )
+			int j; for(  j = i + 1 ; j < nDropItemCount ; ++j )
 			{
 				pDropItem1 = pProp->m_DropItemGenerator.GetAt( j, FALSE, 0.0f );
 				if( pDropItem0->dwProbability > pDropItem1->dwProbability )
@@ -3802,7 +3803,7 @@ BOOL CGiftboxMan::Open( DWORD dwGiftbox, PGIFTBOXRESULT pGiftboxResult )
 #endif // __STL_GIFTBOX_VECTOR
 
 	int low	= 0;
-	for( int j = 0; j < pBox->nSize; j++ )
+	int j; for(  j = 0; j < pBox->nSize; j++ )
 	{
 		if( dwRand >= (DWORD)( low ) && dwRand < pBox->adwProbability[j] )
 		{
@@ -3859,7 +3860,7 @@ void CGiftboxMan::Verify( void )
 		m_vGiftBox[i].adwProbability[m_vGiftBox[i].nSize-1]	+= ( 1000000 - m_vGiftBox[i].nSum );
 	}	
 #else // __STL_GIFTBOX_VECTOR
-	for( int i = 0; i < m_nSize; i++ )
+	int i; for( i = 0; i < m_nSize; i++ )
 	{
 		TRACE( "GIFTBOX : %d, %d\n", m_giftbox[i].dwGiftbox, m_giftbox[i].nSum );
 		m_giftbox[i].adwProbability[m_giftbox[i].nSize-1]	+= ( 1000000 - m_giftbox[i].nSum );
@@ -3997,13 +3998,13 @@ void CGiftboxMan::Upload( CDPMng* pdp )
 	u_long uOffset	= ar.GetOffset();
 	int nSize	= 0;
 	ar << nSize;
-	for( int i = 0; i < m_nSize; i++ )
+	int i; for( i = 0; i < m_nSize; i++ )
 	{
 		if( m_giftbox[i].bGlobal )
 		{
 			ar << m_giftbox[i].dwGiftbox;
 			ar << m_giftbox[i].nSize;
-			for( int j = 0; j < m_giftbox[i].nSize; j++ )
+			int j; for(  j = 0; j < m_giftbox[i].nSize; j++ )
 			{
 				ar << m_giftbox[i].adwItem[j];
 				ar << m_giftbox[i].anTotal[j];
@@ -4313,7 +4314,7 @@ BOOL CSetItem::AddSetItemElem( DWORD dwItemId, int nParts )
 		return FALSE;
 	}
 #ifdef _DEBUG
-	for( int i = 0; i < m_nElemSize; i++ )
+	int i; for( i = 0; i < m_nElemSize; i++ )
 	{
 		if( m_anParts[i] == nParts )
 		{
@@ -4344,9 +4345,9 @@ BOOL CSetItem::AddItemAvail( int nDstParam, int nAdjParam, int nEquiped )
 
 void CSetItem::SortItemAvail( void )
 {
-	for( int i = 0; i < m_avail.nSize-1; i++ )
+	int i; for( i = 0; i < m_avail.nSize-1; i++ )
 	{
-		for( int j = i+1; j < m_avail.nSize; j++ )
+		int j; for(  j = i+1; j < m_avail.nSize; j++ )
 		{
 			if( m_avail.anEquiped[i] > m_avail.anEquiped[j] )
 			{
@@ -4368,7 +4369,7 @@ void CSetItem::SortItemAvail( void )
 
 void CSetItem::GetItemAvail( PITEMAVAIL pItemAvail, int nEquiped, BOOL bAll )
 {
-	for( int i = 0; i < m_avail.nSize; i++ )
+	int i; for( i = 0; i < m_avail.nSize; i++ )
 	{
 		if( m_avail.anEquiped[i] > nEquiped )
 			return;
@@ -4377,7 +4378,7 @@ void CSetItem::GetItemAvail( PITEMAVAIL pItemAvail, int nEquiped, BOOL bAll )
 			continue;
 
 		int nFind	= -1;
-		for( int j = 0; j < pItemAvail->nSize; j++ )
+		int j; for(  j = 0; j < pItemAvail->nSize; j++ )
 		{
 			if( pItemAvail->anDstParam[j] == m_avail.anDstParam[i] )
 			{
@@ -4416,7 +4417,7 @@ void CSetItemFinder::AddSetItem( CSetItem* pSetItem )
 	{
 		TRACE( "adding setitem failed\t// 0\n" );
 	}
-	for( int i = 0; i < pSetItem->m_nElemSize; i++ )
+	int i; for( i = 0; i < pSetItem->m_nElemSize; i++ )
 	{
 		bResult	= m_mapItemId.insert( map<DWORD, CSetItem*>::value_type( pSetItem->m_adwItemId[i], pSetItem ) ).second;
 		if( !bResult )
@@ -4475,9 +4476,9 @@ CRandomOptItemGen* CRandomOptItemGen::GetInstance( void )
 void CRandomOptItemGen::Arrange( void )
 {
 	// sort
-	for( int i = 0; i < m_nSize-1; i++ )
+	int i; for( i = 0; i < m_nSize-1; i++ )
 	{
-		for( int j = i + 1; j < m_nSize; j++ )
+		int j; for(  j = i + 1; j < m_nSize; j++ )
 		{
 			if( m_aRandomOptItem[i].nLevel > m_aRandomOptItem[j].nLevel )
 			{
@@ -4500,7 +4501,7 @@ void CRandomOptItemGen::Arrange( void )
 		
 		if( m_aRandomOptItem[i].nLevel > nLevel )
 		{
-			for( int j = nLevel; j < m_aRandomOptItem[i].nLevel; j++ )
+			int j; for(  j = nLevel; j < m_aRandomOptItem[i].nLevel; j++ )
 				m_anIndex[j-1]	= nPrevious;
 			nLevel	= m_aRandomOptItem[i].nLevel;
 		}
@@ -4572,7 +4573,7 @@ BOOL CProject::IsGuildQuestRegion( const D3DXVECTOR3 & vPos )
 {
 	CRect rect;
 	POINT point;
-	for( int i = 0; i < m_aPropGuildQuest.GetSize(); i++ )
+	int i; for( i = 0; i < m_aPropGuildQuest.GetSize(); i++ )
 	{
 		GUILDQUESTPROP* pProp	= m_aPropGuildQuest.GetAt( i );
 		if( pProp == NULL )
@@ -4591,7 +4592,7 @@ BOOL CProject::IsGuildQuestRegion( const D3DXVECTOR3 & vPos )
 //LoadPropItem를 호출하고 후처리를 한다.
 void CProject::OnAfterLoadPropItem()
 {
-	for( int i = 0; i < m_aPropItem.GetSize(); i++ )
+	int i; for( i = 0; i < m_aPropItem.GetSize(); i++ )
 	{
 		ItemProp* pItemProp = (ItemProp*)m_aPropItem.GetAt( i );
 		if( pItemProp && pItemProp->dwFlag == NULL_ID )
@@ -4616,7 +4617,7 @@ void CProject::OnAfterLoadPropItem()
 	for( i = 0; i < MAX_ITEM_KIND3; i++ )
 	{
 		// sort
-		for( int j = 0; j < m_itemKindAry[i].GetSize() - 1; j++ )
+		int j; for(  j = 0; j < m_itemKindAry[i].GetSize() - 1; j++ )
 		{
 			for( int k = j + 1; k < m_itemKindAry[i].GetSize(); k++ )
 			{
@@ -5324,7 +5325,7 @@ BOOL	CProject::LoadServerScript( const char* sFile )
 			{
 //				ptr1[nLevel][0]	= dwProbability;
 				ptr1[nLevel*MAX_PET_AVAIL_LEVEL]	= dwProbability;
-				for( int i = 1; i < MAX_PET_AVAIL_LEVEL; i++ )
+				int i; for( i = 1; i < MAX_PET_AVAIL_LEVEL; i++ )
 				{
 //					ptr1[nLevel][i]	= s.GetNumber();
 					ptr1[nLevel*MAX_PET_AVAIL_LEVEL+i]	= s.GetNumber();
@@ -5365,9 +5366,9 @@ CPartsItem::CPartsItem()
 
 CPartsItem::~CPartsItem()
 {
-	for( int i = 0; i < 3; i++ )
+	int i; for( i = 0; i < 3; i++ )
 	{
-		for( int j = 0; j < MAX_HUMAN_PARTS; j++ )
+		int j; for(  j = 0; j < MAX_HUMAN_PARTS; j++ )
 			m_items[i][j].clear();
 	}
 }
@@ -5376,7 +5377,7 @@ void	CPartsItem::Init( CProject* pProject )
 {
 	m_pProject	= pProject;
 	int nSize	= pProject->m_aPropItem.GetSize();
-	for( int i = 0; i < nSize; i++ )
+	int i; for( i = 0; i < nSize; i++ )
 	{
 		ItemProp* pProp	= pProject->GetItemProp( i );
 		if( pProp && pProp->dwParts >= 0 && pProp->dwParts < MAX_HUMAN_PARTS )
@@ -5404,11 +5405,11 @@ CPartsItem*	CPartsItem::GetInstance( void )
 
 void CProject::OutputDropItem( void )
 {
-	const	DROP_COUNT	= 1;
+	const int	DROP_COUNT	= 1;
 	CString sLog[100];
 	int nCount	= 0;
 	int nWrite	= 0;
-	for( int i = 0; i < m_nMoverPropSize; i++ )
+	int i; for( i = 0; i < m_nMoverPropSize; i++ )
 	{
 		
 		if( (++nCount % 10) == 0 )
@@ -5431,7 +5432,7 @@ void CProject::OutputDropItem( void )
 				int cbDropItem	= pMoverProp->m_DropItemGenerator.GetSize();
 				int nNumber	= 0;
 				DROPITEM* lpDropItem;
-				for( int i = 0; i < cbDropItem; i++ )
+				int i; for( i = 0; i < cbDropItem; i++ )
 				{
 					if( lpDropItem = pMoverProp->m_DropItemGenerator.GetAt( i, FALSE, 0.0f ) )
 					{
@@ -5470,12 +5471,12 @@ void CProject::OutputDropItem( void )
 				int nSize	= pMoverProp->m_DropKindGenerator.GetSize();
 				DROPKIND* pDropKind;
 				CPtrArray* pItemKindAry;
-				for( int i = 0; i < nSize; i++ )
+				int i; for( i = 0; i < nSize; i++ )
 				{
 					pDropKind	= pMoverProp->m_DropKindGenerator.GetAt( i );
 					pItemKindAry	= prj.GetItemKindAry( pDropKind->dwIK3 );
 					int nMinIdx	= -1,	nMaxIdx		= -1;
-					for( int j = pDropKind->nMinUniq; j <= pDropKind->nMaxUniq; j++ )
+					int j; for(  j = pDropKind->nMinUniq; j <= pDropKind->nMaxUniq; j++ )
 					{
 						nMinIdx		= prj.GetMinIdx( pDropKind->dwIK3, j );
 						if( nMinIdx != -1 )

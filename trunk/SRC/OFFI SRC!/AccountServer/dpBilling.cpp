@@ -44,8 +44,8 @@ CDPBilling::CDPBilling()
 	m_bConnected	= FALSE;
 
 	BEGIN_MSG;
-	ON_MSG( KEEP_ALIVE_RECEIVE, OnKeepAliveReceive );
-	ON_MSG( GAME_START_RECEIVE, OnGameStartReceive );
+	ON_MSG( KEEP_ALIVE_RECEIVE, &CDPBilling::OnKeepAliveReceive );
+	ON_MSG( GAME_START_RECEIVE, &CDPBilling::OnGameStartReceive );
 }
 
 CDPBilling::~CDPBilling()
@@ -134,8 +134,9 @@ void CDPBilling::OnGameStartReceive( CAr & ar, DPID dpid )
 	lResult		= ntohl( lResult );		// 호스트 바이 오더로 변환한다.
 	lRemainDays = ntohl( lRemainDays );
 
-	// @flyff.jp가 붙은 유저 문자열에서 @flyff.jp를 제거한다.
-	for( int i=0; i<MAX_ID_LENGTH; ++i )
+	// @flyff.jp가 붙은 유저 문자열에서 @flyff.jp를 제거한다
+	int i;
+	for(  i=0; i<MAX_ID_LENGTH; ++i )
 	{
 		if( szAccount[i] == 0x20 )
 			break;

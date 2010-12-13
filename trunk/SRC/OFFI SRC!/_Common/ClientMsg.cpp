@@ -34,7 +34,7 @@ void CClientMsg::SetClientMessage( int nSize, int nLineSpace )
 void CClientMsg::ClearAllMessage()
 {
 	LPCLIENTMSG lpClientMsg;
-	for( int i = 0; i < m_textArray.GetSize(); i++ )
+	int i; for( i = 0; i < m_textArray.GetSize(); i++ )
 	{
 		lpClientMsg = (LPCLIENTMSG)m_textArray.GetAt(i);
 		//if(pImage->m_pDibBitmap)
@@ -52,7 +52,7 @@ void CClientMsg::Render( CPoint point, C2DRender* p2DRender )
 	m_nLineSpace = -3;
 	LPCLIENTMSG lpClientMsg;
 	int nLine = 0;//(p2DRender->m_clipRect.bottom - 30) - p2DRender->m_clipRect.top; 
-	for( int i = m_textArray.GetSize() - 1; i >= 0 ; i-- )
+	int i; for( i = m_textArray.GetSize() - 1; i >= 0 ; i-- )
 	{
 		lpClientMsg = (LPCLIENTMSG) m_textArray.GetAt( i );
 		if(lpClientMsg)

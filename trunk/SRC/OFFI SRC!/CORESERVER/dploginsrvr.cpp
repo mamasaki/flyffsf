@@ -12,9 +12,9 @@ extern	CPlayerMng	g_PlayerMng;
 CDPLoginSrvr::CDPLoginSrvr() 
 {
 	BEGIN_MSG;
-	ON_MSG( PACKETTYPE_QUERYTICKCOUNT, OnQueryTickCount );
-	ON_MSG( PACKETTYPE_PRE_JOIN, OnPreJoin );
-	ON_MSG( PACKETTYPE_LEAVE, OnLeave );
+	ON_MSG( PACKETTYPE_QUERYTICKCOUNT, &CDPLoginSrvr::OnQueryTickCount );
+	ON_MSG( PACKETTYPE_PRE_JOIN,& CDPLoginSrvr::OnPreJoin );
+	ON_MSG( PACKETTYPE_LEAVE,&CDPLoginSrvr:: OnLeave );
 }
 
 CDPLoginSrvr::~CDPLoginSrvr()

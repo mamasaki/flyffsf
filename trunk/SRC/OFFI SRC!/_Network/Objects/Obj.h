@@ -831,7 +831,8 @@ template <class T> void CItemContainer<T>::Serialize( CAr & ar )
 	{
 		ar.Read( m_apIndex, sizeof(DWORD) * m_dwItemMax );
 		// Clear
-		for( u_int i = 0; i < m_dwItemMax; i++ )
+		u_int i;
+		for(  i = 0; i < m_dwItemMax; i++ )
 			m_apItem[i].Empty();
 
 		ar >> chSize;

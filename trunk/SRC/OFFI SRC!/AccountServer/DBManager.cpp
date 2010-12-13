@@ -53,7 +53,8 @@ void CDbManager::CreateDbWorkers( void )
 
 void CDbManager::CloseDbWorkers( void )
 {
-	for( int i = 0; i < DEFAULT_DB_WORKER_THREAD_NUM; i++ )
+	int i;
+	for(  i = 0; i < DEFAULT_DB_WORKER_THREAD_NUM; i++ )
 		PostQueuedCompletionStatus( m_hDbCompletionPort, 0, NULL, NULL );
 	
 	WaitForMultipleObjects( DEFAULT_DB_WORKER_THREAD_NUM, m_hDbWorkerThreadTerminate, TRUE, INFINITE );

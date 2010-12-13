@@ -2350,14 +2350,15 @@ BOOL CWndRRMiniGameLadder::OnSetCursor(CWndBase* pWndBase, UINT nHitTest, UINT m
 void CWndRRMiniGameLadder::OnDraw(C2DRender* p2DRender)
 {
 	// Draw Choice Box
-	for(int i=0; i<30; i++)
+	int j;
+	for( j=0; j<30; j++)
 	{
 		if(m_pTexChoice)
 		{
-			if(i<15)
-				m_pTexChoice->Render( p2DRender, CPoint( GetWndCtrl( m_nStartCustomID[i] )->rect.left, GetWndCtrl( m_nStartCustomID[i] )->rect.top ) );
+			if(j<15)
+				m_pTexChoice->Render( p2DRender, CPoint( GetWndCtrl( m_nStartCustomID[j] )->rect.left, GetWndCtrl( m_nStartCustomID[j] )->rect.top ) );
 			else
-				m_pTexChoice->Render( p2DRender, CPoint( GetWndCtrl( m_nStartCustomID[i-15] )->rect.left, GetWndCtrl( m_nStartCustomID[i-15] )->rect.top + 327 ) );
+				m_pTexChoice->Render( p2DRender, CPoint( GetWndCtrl( m_nStartCustomID[j-15] )->rect.left, GetWndCtrl( m_nStartCustomID[j-15] )->rect.top + 327 ) );
 		}
 	}
 
@@ -2370,7 +2371,8 @@ void CWndRRMiniGameLadder::OnDraw(C2DRender* p2DRender)
 			int nStartGap = GetWndCtrl( WIDC_CUSTOM_BG )->rect.top + 32;
 			
 			// Draw Random Horizon Line
-			for(int i=0; i<15; i++)
+			int i;
+			for( i=0; i<15; i++)
 			{
 				for(int j=0; j<10; j++)
 				{
@@ -2400,8 +2402,8 @@ void CWndRRMiniGameLadder::OnDraw(C2DRender* p2DRender)
 
 	// Draw Line
 	SetFillRectValue();
-	for(i=0; i<m_nLineCount; i++)
-		FillRect( p2DRender, m_rectLine[i], 0x00ff0000, 0xbbff0000 );
+	for(j=0; j<m_nLineCount; j++)
+		FillRect( p2DRender, m_rectLine[j], 0x00ff0000, 0xbbff0000 );
 
 	FillRect( p2DRender, m_rectPointLine, 0x00ff0000, 0xbbff0000 );
 
@@ -2618,7 +2620,8 @@ void CWndRRMiniGameLadder::ReceiveResult(int nResult)
 
 BOOL CWndRRMiniGameLadder::MakeLadder()
 {
-	for(int i=0; i<15; i++)
+	int i;
+	for( i=0; i<15; i++)
 	{
 //		CString strtemp;
 //		for(int k=0; k<10; k++)

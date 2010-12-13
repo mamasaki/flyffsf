@@ -142,7 +142,7 @@ void	CGraphic3D :: RenderAABB( D3DXVECTOR3 &vMin, D3DXVECTOR3 &vMax, DWORD dwCol
 	aList[22].vPos = vAABB[3];
 	aList[23].vPos = vAABB[7];
 
-	for( int i = 0; i < 24; i ++ )
+	int i; for( i = 0; i < 24; i ++ )
 		aList[i].dwColor = dwColor;
 
 	m_pd3dDevice->SetFVF( D3DFVF_3DVERTEX );

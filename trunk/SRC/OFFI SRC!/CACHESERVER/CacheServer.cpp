@@ -43,7 +43,7 @@ void				ExitInstance( void );
 BOOL				Script( LPCSTR lpszFileName );
 
 
-
+/*
 //////////////////////////////////////////////////////////////////////////
 //	BEGINTEST100111	FFL_DUMP
 #include "../__ffl_dump/include/ffl_dump_unexception_filter.h"
@@ -56,7 +56,7 @@ BOOL				Script( LPCSTR lpszFileName );
 //	ENDTEST100111	FFL_DUMP
 //////////////////////////////////////////////////////////////////////////
 
-
+*/
 
 void InitLanguageFromResource( HINSTANCE hInstance )
 {
@@ -80,7 +80,7 @@ int APIENTRY WinMain(HINSTANCE hInstance,
 
 	//////////////////////////////////////////////////////////////////////////
 	//	BEGINTEST100111	FFL_DUMP
- 	ffl_dump_unexception_filter::install( ffl_dump_level_heavy );
+ 	//ffl_dump_unexception_filter::install( ffl_dump_level_heavy );
 	//	ENDTEST100111	FFL_DUMP
 	//////////////////////////////////////////////////////////////////////////
 

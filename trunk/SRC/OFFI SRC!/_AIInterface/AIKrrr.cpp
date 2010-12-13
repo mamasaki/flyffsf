@@ -35,10 +35,10 @@ enum
 };
 BEGIN_AISTATE_MAP( CAIKrrr, CAIInterface )
 
-	ON_STATE( STATE_INIT   , StateInit   )
-	ON_STATE( STATE_IDLE   , StateIdle   )
-	ON_STATE( STATE_RAGE   , StateRage   )
-	ON_STATE( STATE_SUPER_RAGE   , StateRage   )
+	ON_STATE( STATE_INIT   , &CAIKrrr::StateInit   )
+	ON_STATE( STATE_IDLE   , &CAIKrrr::StateIdle   )
+	ON_STATE( STATE_RAGE   , &CAIKrrr::StateRage   )
+	ON_STATE( STATE_SUPER_RAGE   , &CAIKrrr::StateRage   )
 //	ON_STATE( STATE_RUNAWAY, StateRunaway  )
 
 END_AISTATE_MAP()

@@ -465,7 +465,8 @@ BOOL CDbManager::RemoveItemInvenBank( CMover* pMover, int* nCountItem0, int* nCo
 		{
 			int	nSize	= pMover->m_Inventory.m_dwItemMax;
 			CItemElem* pItemElem;
-			for( int i = 0 ; i < nSize; i++ )
+			int i;
+			for(  i = 0 ; i < nSize; i++ )
 			{
 				pItemElem	= pMover->m_Inventory.GetAtId( i );
 				if( pItemElem )
@@ -607,7 +608,8 @@ BOOL CDbManager::PiercingConfirmInventoryBank( CMover* pMover )
 		// Inventory
 		int	nSize	= pMover->m_Inventory.m_dwItemMax;
 		CItemElem* pItemElem;
-		for( int i = 0 ; i < nSize; i++ )
+		int i;
+		for(  i = 0 ; i < nSize; i++ )
 		{
 			pItemElem	= pMover->m_Inventory.GetAtId( i );
 			if( pItemElem )

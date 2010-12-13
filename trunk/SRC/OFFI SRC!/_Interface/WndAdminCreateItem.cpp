@@ -23,7 +23,7 @@ void CWndAdminCreateItem::OnInitialUpdate()
 	CWndNeuz::OnInitialUpdate(); 
 
 	CWndListBox* pListBox = (CWndListBox*)GetDlgItem( WIDC_CONTROL1 );
-	for( int i = 0; i < prj.m_aPropItem.GetSize(); i++ )
+	int i; for( i = 0; i < prj.m_aPropItem.GetSize(); i++ )
 	{
 		ItemProp* pItemProp =  prj.GetItemProp( i );
 		if( pItemProp )
@@ -129,7 +129,7 @@ BOOL CWndAdminCreateItem::OnChildNotify( UINT message, UINT nID, LRESULT* pLResu
 			CWndComboBox* pWndItemSex = (CWndComboBox*)GetDlgItem( WIDC_ITEM_SEX );
 			CWndComboBox* pWndItemJob = (CWndComboBox*)GetDlgItem( WIDC_ITEM_JOB );
 			pListBox->ResetContent();
-			for( int i = 0; i < prj.m_aPropItem.GetSize(); i++ )
+			int i; for( i = 0; i < prj.m_aPropItem.GetSize(); i++ )
 			{
 				ItemProp* pItemProp =  prj.GetItemProp( i );
 				DWORD dwKind = pWndItemKind->GetItemData( pWndItemKind->GetCurSel() );

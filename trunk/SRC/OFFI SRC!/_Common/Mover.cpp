@@ -190,7 +190,7 @@ CMover::~CMover()
 
 	SAFE_DELETE( m_pActMover );
 
-	for( int i = 0; i < MAX_VENDOR_INVENTORY_TAB; i++ )
+	int i; for( i = 0; i < MAX_VENDOR_INVENTORY_TAB; i++ )
 		SAFE_DELETE( m_ShopInventory[ i ] );
 
 	if( GetWorld() )
@@ -429,7 +429,7 @@ void CMover::Init()
 	m_bActiveAttack		= FALSE;
 	m_dwGold			= 0;		// 0으로 할것.  -xuzhu-
 
-	for( int i = 0; i < MAX_VENDOR_INVENTORY_TAB; i++ )
+	int i; for( i = 0; i < MAX_VENDOR_INVENTORY_TAB; i++ )
 		m_ShopInventory[ i ] = 0;
 	
 #if __VER >= 8     // 8차 듀얼존에 관계없이 PVP가능하게함   Neuz, World
@@ -696,7 +696,7 @@ int	CMover::GetHairCost( CMover* pMover, BYTE nR, BYTE nG, BYTE nB, BYTE nHair )
 void CMover::SubSMMode()
 {
 	time_t tmCur = (time_t)( CTime::GetCurrentTime().GetTime() );
-	for( int i = 0 ; i < SM_MAX ; ++i )
+	int i; for( i = 0 ; i < SM_MAX ; ++i )
 	{
 		if( m_dwSMTime[i] > 0 )
 		{
@@ -825,7 +825,7 @@ void CMover::SubSMMode()
 void CMover::ClearAllSMMode()
 {
 	time_t tmCur = (time_t)( CTime::GetCurrentTime().GetTime() );
-	for( int i = 0 ; i < SM_MAX ; ++i )
+	int i; for( i = 0 ; i < SM_MAX ; ++i )
 	{
 		if( m_dwSMTime[i] > 0 )
 		{
@@ -989,7 +989,7 @@ void CMover::InitCharacter( LPCHARACTER lpCharacter )
 			m_Inventory.SetItemContainer( ITYPE_ITEM, MAX_INVENTORY, MAX_HUMAN_PARTS );
 #endif	// __OPT_MEM_0811
 		strcpy( m_szName, lpCharacter->m_strName );
-		for( int i = 0; i < lpCharacter->m_nEquipNum; i++ )
+		int i; for( i = 0; i < lpCharacter->m_nEquipNum; i++ )
 		{
 			BYTE nId, nCount;
 			short nNum;
@@ -1040,7 +1040,7 @@ void CMover::ProcessQuest()
 		m_timerQuestLimitTime.Reset();
 		bTimer = TRUE;
 	}
-	for( int i = 0; i < m_nQuestSize; i++ )
+	int i; for( i = 0; i < m_nQuestSize; i++ )
 	{
 		LPQUEST lpQuest = (LPQUEST) &m_aQuest[ i ];
 		if( lpQuest )
@@ -1097,7 +1097,7 @@ void CMover::ProcessQuest()
 		m_nQuestEmoticonIndex = -1;
 #if __VER >= 15 // __IMPROVE_QUEST_INTERFACE
 		// NPC 퀘스트 이모티콘 우선순위 변경 - 완료 > 신규 > 진행 > 근레벨
-		for( int i = 0; i < lpCharacter->m_awSrcQuest.GetSize() ; i++ )
+		int i; for( i = 0; i < lpCharacter->m_awSrcQuest.GetSize() ; i++ )
 		{
 			int nQuest = lpCharacter->m_awSrcQuest.GetAt( i );
 			int nItem = lpCharacter->m_anSrcQuestItem.GetAt( i );
@@ -1138,7 +1138,7 @@ void CMover::ProcessQuest()
 			}
 		}
 #else // __IMPROVE_QUEST_INTERFACE
-		for( int i = 0; i < lpCharacter->m_awSrcQuest.GetSize() ; i++ )
+		int i; for( i = 0; i < lpCharacter->m_awSrcQuest.GetSize() ; i++ )
 		{
 			int nQuest = lpCharacter->m_awSrcQuest.GetAt( i );
 			int nItem = lpCharacter->m_anSrcQuestItem.GetAt( i );
@@ -1342,7 +1342,7 @@ void CMover::ProcessRegenItem()
 				return;
 
 			LPVENDOR_ITEM pVendor;
-			for( int i = 0; i < MAX_VENDOR_INVENTORY_TAB; i ++ )
+			int i; for( i = 0; i < MAX_VENDOR_INVENTORY_TAB; i ++ )
 			{
 #if __VER >= 11 // __CSC_VER11_3
 				if(pCharacter->m_nVenderType == 1) // 칩으로 거래하는 vender일 경우
@@ -1351,7 +1351,7 @@ void CMover::ProcessRegenItem()
 					{
 						fShop	= TRUE;
 						m_ShopInventory[i]->Clear();		// m_pack을 다 없앤다.
-						for( int j = 0; j < pCharacter->m_venderItemAry2[i].GetSize(); j++ )
+						int j; for(  j = 0; j < pCharacter->m_venderItemAry2[i].GetSize(); j++ )
 						{
 							pVendor	= (LPVENDOR_ITEM)pCharacter->m_venderItemAry2[i].GetAt(j);
 							CItemElem itemElem;
@@ -1377,7 +1377,7 @@ void CMover::ProcessRegenItem()
 							ItemProp* apItemProp[MAX_VENDOR_INVENTORY];
 							int cbSize	= 0;
 							// generate
-							for( int j = 0; j < pCharacter->m_venderItemAry[i].GetSize(); j++ )
+							int j; for(  j = 0; j < pCharacter->m_venderItemAry[i].GetSize(); j++ )
 							{
 								pVendor		= (LPVENDOR_ITEM)pCharacter->m_venderItemAry[i].GetAt(j);
 								GenerateVendorItem( apItemProp, &cbSize, MAX_VENDOR_INVENTORY, pVendor );
@@ -1479,7 +1479,7 @@ void CMover::InitProp( BOOL bInitAI )
 	ZeroMemory( m_tmReUseDelay, sizeof( m_tmReUseDelay ) );
 
 	// 잡스킬 초기화 
-	for( int i = 0; i < MAX_SKILL_JOB; i++ )
+	int i; for( i = 0; i < MAX_SKILL_JOB; i++ )
 	{
 		m_aJobSkill[ i ].dwSkill = NULL_ID;
 	}
@@ -1562,7 +1562,7 @@ void CMover::InitLevel( int nJob, LONG nLevel, BOOL bGamma )
 		// 방랑자 스킬 값 가지고 있기.
 		int nJobSkillBuf[MAX_JOB_SKILL];
 		int nJobSkillLevelBuf[MAX_JOB_SKILL];
-		for( int i = 0 ; i < MAX_JOB_SKILL ; ++i )
+		int i; for( i = 0 ; i < MAX_JOB_SKILL ; ++i )
 		{
 			nJobSkillBuf[ i ] = m_aJobSkill[ i ].dwSkill;
 			nJobSkillLevelBuf[ i ] = m_aJobSkill[ i ].dwLevel;
@@ -1854,7 +1854,7 @@ int   CMover::AddGPPoint( int nAddGPPoint )
 
 BOOL CMover::InitSkillExp()
 {
-	for( int i = 0 ; i < MAX_SKILL_JOB ; ++i )
+	int i; for( i = 0 ; i < MAX_SKILL_JOB ; ++i )
 	{
 		LPSKILL pSkill = &m_aJobSkill[ i ];
 		if( pSkill != NULL && pSkill->dwSkill != NULL_ID )
@@ -1903,7 +1903,7 @@ BOOL CMover::InitSkillExp()
 int CMover::GetCurrentMaxSkillPoint()
 {
 	int nCurrentMaxSkillPoint = m_nSkillPoint;
-	for( int i = 0 ; i < MAX_SKILL_JOB ; ++i )
+	int i; for( i = 0 ; i < MAX_SKILL_JOB ; ++i )
 	{
 		LPSKILL pSkill = &m_aJobSkill[ i ];
 		if( pSkill != NULL && pSkill->dwSkill != NULL_ID )
@@ -1959,7 +1959,7 @@ void CMover::ReState()
 	if( m_nLevel < m_nDeathLevel )
 		nLevelFor = m_nDeathLevel;
 #if __VER >= 10 // __LEGEND	//	9차 전승시스템	Neuz, World, Trans
-	for( int i = 1 ; i < nLevelFor ; i++ )
+	int i; for( i = 1 ; i < nLevelFor ; i++ )
 	{
 		m_nRemainGP += prj.m_aExpCharacter[ i + 1 ].dwLPPoint;
 		if( ( IsMaster() || IsHero() ) && i > 59 )
@@ -1968,7 +1968,7 @@ void CMover::ReState()
 			m_nRemainGP+=12;
 	}
 #else //__LEGEND	//	9차 전승시스템	Neuz, World, Trans
-	for( int i = 1 ; i < nLevelFor ; i++ )
+	int i; for( i = 1 ; i < nLevelFor ; i++ )
 		m_nRemainGP += prj.m_aExpCharacter[ i + 1 ].dwLPPoint;
 #endif	//__LEGEND	//	9차 전승시스템	Neuz, World, Trans
 	
@@ -2243,7 +2243,7 @@ BOOL CMover::Replace( u_long uIdofMulti, DWORD dwWorldID, D3DXVECTOR3 & vPos, RE
 
 	LPREPLACEOBJ lpReplaceObj	= NULL;
 
-	for( int i = 0; i < pWorld->m_cbModifyLink; i++ )
+	int i; for( i = 0; i < pWorld->m_cbModifyLink; i++ )
 	{
 		if( pWorld->m_apModifyLink[i] == this )
 		{
@@ -2326,7 +2326,7 @@ BOOL CMover::CreateItem( CItemBase* pItemBase, BYTE* pnId, short* pnNum, BYTE nC
 		CItemElem* pItemElem	= (CItemElem*)pItemBase;
 		CItemElem itemElem;
 		itemElem	= *pItemElem;
-		for( int i = 0; i < nCount; i++ )
+		int i; for( i = 0; i < nCount; i++ )
 		{
 			itemElem.m_nItemNum		= pnNum[i];
 			m_Inventory.SetAtId( pnId[i], &itemElem );
@@ -2349,7 +2349,7 @@ void CMover::RemoveItem( BYTE nId, short nNum )
 void CMover::RemoveItemIK3( DWORD dwItemKind3 )
 {
 	int	nSize = m_Inventory.GetMax();
-	for( int i = 0 ; i < nSize; i++ )
+	int i; for( i = 0 ; i < nSize; i++ )
 	{
 		CItemElem* pItemElem = m_Inventory.GetAtId( i );
 		if( IsUsableItem( pItemElem ) && pItemElem->GetProp()->dwItemKind3 == dwItemKind3 )
@@ -2505,7 +2505,7 @@ int	CMover::DoDropItemRandom( BOOL bExcludeEquip, CMover* pAttacker, BOOL bOnlyE
 		}
 
 		// drop에 실패한 아이템이라도 리스트에서 빼주자.
-		for( int j = nIdx; j < nRealMax-1; j ++ )		// 앞으로 한칸씩 땡김.
+		int j; for(  j = nIdx; j < nRealMax-1; j ++ )		// 앞으로 한칸씩 땡김.
 			pElemBuff[j] = pElemBuff[j+1];
 		nRealMax --;	// 하나를 떨어트렸으니 버퍼의 크기를 하나 줄임
 	}		
@@ -2675,7 +2675,7 @@ REGIONELEM* CMover::UpdateRegionAttr()
 	LPREGIONELEM lpRegionElem;
 	int nSize = GetWorld()->m_aRegion.GetSize();
 	DWORD	dwRegionAttr	= 0;
-	for( int i = 0; i < nSize; i++ )
+	int i; for( i = 0; i < nSize; i++ )
 	{
 		lpRegionElem = GetWorld()->m_aRegion.GetAt( i );
 		if( lpRegionElem->m_rect.PtInRect( pt ) )
@@ -2976,7 +2976,7 @@ ItemProp* CMover::GetTransyItem( ItemProp* pItemProp, BOOL bCheck, LPCTSTR lpszF
 	if( pItemProp && ( pItemProp->dwItemKind2 == IK2_ARMOR || pItemProp->dwItemKind2 == IK2_ARMORETC ) 
 		&& ( pItemProp->dwItemSex == SEX_MALE || pItemProp->dwItemSex == SEX_FEMALE ) )
 	{
-		for( int j = 0; j < prj.m_aPropItem.GetSize(); j++ )
+		int j; for(  j = 0; j < prj.m_aPropItem.GetSize(); j++ )
 		{
 			BOOL bSetIteSecond = FALSE;
 			
@@ -3811,7 +3811,7 @@ void CMover::Process()
 		PROFILE( sw, r5 );
 
 	#ifdef __X15
-		for( int i = 0; i < 4; ++i )
+		int i; for( i = 0; i < 4; ++i )
 	#endif
 		{
 			ProcessMovePattern();
@@ -4602,7 +4602,7 @@ void CMover::GenerateVendorItem( ItemProp** apItemProp, int* pcbSize, int nMax, 
 
 	int nMinIdx	= -1, nMaxIdx	= -1;
 
-	for( int j = pVendor->m_nUniqueMin; j <= pVendor->m_nUniqueMax; j++ )
+	int j; for(  j = pVendor->m_nUniqueMin; j <= pVendor->m_nUniqueMax; j++ )
 	{
 		nMinIdx		= prj.GetMinIdx( pVendor->m_nItemkind3, j );
 		if( nMinIdx != -1 )
@@ -4771,7 +4771,7 @@ void CMover::RemoveItemId( DWORD dwId )
 void CMover::SetKeeptimeInven( DWORD dwItemId, DWORD dwTime )
 {
 	int	nSize = m_Inventory.GetMax();
-	for( int i = 0 ; i < nSize; i++ )
+	int i; for( i = 0 ; i < nSize; i++ )
 	{
 		CItemElem* pItemElem = m_Inventory.GetAtId( i );
 		if( pItemElem->GetProp()->dwID == dwItemId )
@@ -4783,7 +4783,7 @@ void CMover::SetKeeptimeInven( DWORD dwItemId, DWORD dwTime )
 void CMover::SetKeeptimeBank( DWORD dwItemId, DWORD dwTime )
 {
 	int	nSize = m_Bank[m_nSlot].GetMax();
-	for( int i = 0 ; i < nSize; i++ )
+	int i; for( i = 0 ; i < nSize; i++ )
 	{
 		CItemElem* pItemElem = m_Bank[m_nSlot].GetAtId( i );
 		if( pItemElem->GetProp()->dwID == dwItemId )
@@ -5116,7 +5116,7 @@ void CMover::RemoveAllEnemies()
 	m_idEnemies.clear();
 
 	CMover* pEnemy;
-	for( int j = 0; j < nSizeofEnemies; j++ )
+	int j; for(  j = 0; j < nSizeofEnemies; j++ )
 	{
 		pEnemy	= prj.GetMover( idEnemies[j] );
 		if( IsValidObj( (CObj*)pEnemy ) )
@@ -5288,14 +5288,14 @@ int CMover::DoDie( CCtrl *pAttackCtrl, DWORD dwMsg )
 #if __VER >= 15 // __IMPROVE_QUEST_INTERFACE
 	if( IsPlayer() == FALSE && pAttacker && pAttacker->IsPlayer() )
 	{
-		for( int i = 0; i < pAttacker->m_nQuestSize; i++ )
+		int i; for( i = 0; i < pAttacker->m_nQuestSize; i++ )
 		{
 			LPQUEST lpQuest = (LPQUEST) &pAttacker->m_aQuest[ i ]; 
 			if( !lpQuest )	continue;
 			QuestProp* pQuestProp = prj.m_aPropQuest.GetAt( lpQuest->m_wId );
 			if( !pQuestProp )	continue;
 			
-			for( int j = 0; j < 2; ++j )
+			int j; for(  j = 0; j < 2; ++j )
 			{
 				// 진행 중인 퀘스트의 종료 조건과 같은 NPC인가?
 				if( pQuestProp->m_nEndCondKillNPCIdx[ j ] != GetIndex() )	continue;
@@ -5335,7 +5335,7 @@ int CMover::DoDie( CCtrl *pAttackCtrl, DWORD dwMsg )
 #else // __IMPROVE_QUEST_INTERFACE
 	if( IsPlayer() == FALSE && pAttacker && pAttacker->IsPlayer() )
 	{
-		for( int i = 0; i < pAttacker->m_nQuestSize; i++ )
+		int i; for( i = 0; i < pAttacker->m_nQuestSize; i++ )
 		{
 			LPQUEST lpQuest = (LPQUEST) &pAttacker->m_aQuest[ i ]; 
 			if( lpQuest )
@@ -5343,7 +5343,7 @@ int CMover::DoDie( CCtrl *pAttackCtrl, DWORD dwMsg )
 				QuestProp* pQuestProp = prj.m_aPropQuest.GetAt( lpQuest->m_wId );
 				if( pQuestProp )
 				{
-					for( int i = 0; i < 2; i++ )
+					int i; for( i = 0; i < 2; i++ )
 					{
 						// 진행 중인 퀘스트의 종료 조건과 같은 NPC인가?
 						if( pQuestProp->m_nEndCondKillNPCIdx[ i ] == GetIndex() )
@@ -5579,7 +5579,8 @@ int	CMover::SubPK( CMover *pAttacker, int nReflect )
 				// - 인벤 드롭( 장착부터 드롭하면 안됨 - 인벤공간이 부족하여 드롭할수 없음 )
 				CHAO_PROPENSITY Propensity = prj.GetPropensityPenalty( GetPKPropensity() );
 				int nInvenDrop = xRandom( Propensity.nInvenDorpMin, Propensity.nInvenDorpMax + 1 );
-				for( int i=0; i < nInvenDrop; ++i )
+				int i;
+				for(  i=0; i < nInvenDrop; ++i )
 				{
 					if( DoDropItemRandom( TRUE, pAttacker ) == 0 )	
 						break;
@@ -6051,7 +6052,7 @@ BOOL CMover::GetPartyMemberFind( CParty* pParty, CUser* apMember[], int* nTotalL
 	CUser* pUsertmp = NULL;
 	D3DXVECTOR3	vDist;
 
-	for( int i = 0 ; i < pParty->m_nSizeofMember ; i++ )	
+	int i; for( i = 0 ; i < pParty->m_nSizeofMember ; i++ )	
 	{
 		pUsertmp	= g_UserMng.GetUserByPlayerID( pParty->m_aMember[i].m_uPlayerId );
 		if( IsValidArea( (CMover*)pUsertmp, 64.0f ) )
@@ -6301,7 +6302,7 @@ void CMover::AddExperiencePartyContribution( CMover *pDead, CUser* apMember[], C
 	EXPINTEGER	nMemberExp;
 	int nAttackMember = 0;
 	float fMaxMemberLevel = 0.0f;
-	for( int i = 0 ; i < nMemberSize ; i++ )
+	int i; for( i = 0 ; i < nMemberSize ; i++ )
 	{
 		float fContribution = 0;
 		int nHit = pDead->GetEnemyHit( apMember[i]->GetId() );
@@ -6397,7 +6398,7 @@ void CMover::AddExperiencePartyLevel( CUser* apMember[], CParty* pParty, EXPFLOA
 	EXPINTEGER nMemberExp;
 //	int	  nMemberFxp;
 	float fMaxMemberLevel = 0.0f;
-	for( int i = 0 ; i < nMemberSize ; i++ )
+	int i; for( i = 0 ; i < nMemberSize ; i++ )
 	{
 		fMaxMemberLevel += ((float)apMember[i]->GetLevel() * (float)apMember[i]->GetLevel());
 	}
@@ -6786,7 +6787,7 @@ BOOL CMover::IsPVPInspection( CMover* pMover, int nFlag )
 					DWORD dwTick	= GetTickCount();
 					u_long anPlayer[MAX_PTMEMBER_SIZE*2];
 					int	nSize	= 0;
-					for( int i = 0; i < pSrc->GetSizeofMember(); i++ )
+					int i; for( i = 0; i < pSrc->GetSizeofMember(); i++ )
 						anPlayer[nSize++]	= pSrc->GetPlayerId( i );
 					for( i = 0; i < pDest->GetSizeofMember(); i++ )
 						anPlayer[nSize++]	= pDest->GetPlayerId( i );
@@ -7443,7 +7444,7 @@ BOOL CMover::DropItem( CMover* pAttacker )
 					CParty* pParty	= g_PartyMng.GetParty( pAttacker->m_idparty );
 					if( pParty && pParty->IsMember( pAttacker->m_idPlayer ) )	// party
 					{
-						for( int j = 0; j < pParty->GetSizeofMember(); ++j )
+						int j; for(  j = 0; j < pParty->GetSizeofMember(); ++j )
 						{
 							PartyMember* pPartyMember	= &pParty->m_aMember[j];
 							CMover* pMember		= prj.GetUserByID( pPartyMember->m_uPlayerId );
@@ -7550,7 +7551,7 @@ BOOL CMover::DropItem( CMover* pAttacker )
 					if( pParty && pParty->IsMember( pAttacker->m_idPlayer ) )
 					{
 						int nPartyMemberSize	= pParty->GetSizeofMember();
-						for( int j = 0; j < nPartyMemberSize; j++ )
+						int j; for(  j = 0; j < nPartyMemberSize; j++ )
 						{
 							PartyMember* pPartyMember	= &pParty->m_aMember[j];
 							pMember		= prj.GetUserByID( pPartyMember->m_uPlayerId );
@@ -7741,7 +7742,7 @@ BOOL CMover::DropItem( CMover* pAttacker )
 				int nNumber	= 0;
 				DROPITEM* lpDropItem;
 		
-				for( int i = 0; i < nSize; i++ )
+				int i; for( i = 0; i < nSize; i++ )
 				{
 					if( ( lpDropItem = lpMoverProp->m_DropItemGenerator.GetAt( i, bUnique, GetPieceItemDropRateFactor( pAttacker ) ) ) != NULL )
 					{
@@ -7948,7 +7949,7 @@ BOOL CMover::DropItem( CMover* pAttacker )
 					pDropKind	= lpMoverProp->m_DropKindGenerator.GetAt( i );
 					pItemKindAry	= prj.GetItemKindAry( pDropKind->dwIK3 );
 					int nMinIdx	= -1,	nMaxIdx		= -1;
-					for( int j = pDropKind->nMinUniq; j <= pDropKind->nMaxUniq; j++ )
+					int j; for(  j = pDropKind->nMinUniq; j <= pDropKind->nMaxUniq; j++ )
 					{
 						nMinIdx		= prj.GetMinIdx( pDropKind->dwIK3, j );
 						if( nMinIdx != -1 )
@@ -8424,14 +8425,14 @@ BOOL CMover::IsVendorNPC()
 	LPCHARACTER pCharacter	= GetCharacter();
 	if( !pCharacter )
 		return FALSE;
-	for( int i = 0; i < MAX_VENDOR_INVENTORY_TAB; i++ )
+	int i; for( i = 0; i < MAX_VENDOR_INVENTORY_TAB; i++ )
 	{
 		if( pCharacter->m_venderItemAry[i].GetSize() )
 			return TRUE;
 	}
 #if __VER >= 11 // __CSC_VER11_3
 	if(pCharacter->m_nVenderType == 1)
-	for( int i = 0; i < MAX_VENDOR_INVENTORY_TAB; i++ )
+	 for( i = 0; i < MAX_VENDOR_INVENTORY_TAB; i++ )
 	{
 		if( pCharacter->m_venderItemAry2[i].GetSize() )
 			return TRUE;
@@ -8511,7 +8512,7 @@ void CMover::ArrowDown( int nCount )
 		// 인벤토리에서 같은 화살이 있으면 그것을 사용하게 해줌
 		DWORD dwItemId = pItemElem->m_dwItemId;
 		BOOL bDoEquip = FALSE;
-		for( int i = 0 ; i < 100 && 0 < nCount ; i++ )	// 혹 100번은 안나오겠지?
+		int i; for( i = 0 ; i < 100 && 0 < nCount ; i++ )	// 혹 100번은 안나오겠지?
 		{	// 아이템 사용이 4개인데 아이템 1개짜리가 4개일때 루프가 돌음
 			BOOL bGetItem = FALSE;
 			if( pItemElem->m_nItemNum <= nCount )
@@ -8687,7 +8688,7 @@ int CMover::GetSetItem( CItemElem* pItemElem )
 	int nAbilityOption	= pItemElem->GetAbilityOption();
 	DWORD dwParts	= pItemElem->GetProp()->dwParts;
 
-	for( int i = 0; i < 4; i++ )
+	int i; for( i = 0; i < 4; i++ )
 	{
 		if( dwParts != adwParts[i] )
 		{
@@ -8732,7 +8733,7 @@ int CMover::GetSetItemClient()
 
 	int nAbilityOption	= 10;
 	
-	for( int i = 0; i < 4; i++ )
+	int i; for( i = 0; i < 4; i++ )
 	{
 		int nValue	= GetSetItemParts( adwParts[i] );
 		if( nValue == 0 )
@@ -8825,7 +8826,7 @@ void CMover::DestParamPiercingAvail( CItemElem* pItemElem, BOOL bSET )
 	
 	pItemElem->GetPiercingAvail( &piercingAvail );
 	
-	for( int i = 0; i < piercingAvail.nSize; i++ )
+	int i; for( i = 0; i < piercingAvail.nSize; i++ )
 	{
 		if( bSET )
 			SetDestParam( piercingAvail.anDstParam[i], piercingAvail.anAdjParam[i], NULL_CHGPARAM );
@@ -8836,7 +8837,7 @@ void CMover::DestParamPiercingAvail( CItemElem* pItemElem, BOOL bSET )
 
 BOOL CMover::Pierce( CItemElem *pSuit, DWORD dwItemId )
 {
-	for( int i = 0; i < pSuit->GetPiercingSize(); i++ )
+	int i; for( i = 0; i < pSuit->GetPiercingSize(); i++ )
 	{
 		if( pSuit->GetPiercingItem( i ) == 0 )
 		{
@@ -8996,7 +8997,7 @@ void CMover::SetDestParamSetItem( CItemElem* pItemElem )
 		}
 	}
 		
-	for( int i = 0; i < itemAvail.nSize; i++ )
+	int i; for( i = 0; i < itemAvail.nSize; i++ )
 		SetDestParam( itemAvail.anDstParam[i], itemAvail.anAdjParam[i], NULL_CHGPARAM );
 }
 
@@ -9011,7 +9012,7 @@ void CMover::ResetDestParamSetItem( CItemElem* pItemElem )
 			memset( &itemAvail, 0, sizeof(itemAvail) );
 			int nEquiped	= GetEquipedSetItemNumber( pSetItem );
 			pSetItem->GetItemAvail( &itemAvail, nEquiped + 1, FALSE );
-			for( int i = 0; i < itemAvail.nSize; i++ )
+			int i; for( i = 0; i < itemAvail.nSize; i++ )
 				ResetDestParam( itemAvail.anDstParam[i], itemAvail.anAdjParam[i], TRUE );				
 		}
 	}
@@ -9020,7 +9021,7 @@ void CMover::ResetDestParamSetItem( CItemElem* pItemElem )
 int CMover::GetEquipedSetItemNumber( CSetItem* pSetItem )
 {
 	int nEquiped	= 0;
-	for( int i = 0; i < pSetItem->m_nElemSize; i++ )
+	int i; for( i = 0; i < pSetItem->m_nElemSize; i++ )
 	{
 		CItemElem* pItemElem	= GetEquipItem( pSetItem->m_anParts[i] );
 		if( pItemElem && pItemElem->m_dwItemId == pSetItem->m_adwItemId[i] && !pItemElem->IsFlag( CItemElem::expired ) )
@@ -9036,7 +9037,7 @@ void CMover::GetEquipedSetItem( int nSetItemId, BOOL* pbEquiped, int* pnEquip )
 	CSetItem* pSetItem	= CSetItemFinder::GetInstance()->GetSetItem( nSetItemId );
 	if( pSetItem )
 	{
-		for( int i = 0; i < pSetItem->m_nElemSize; i++ )
+		int i; for( i = 0; i < pSetItem->m_nElemSize; i++ )
 		{
 			CItemElem* pItemElem	= GetEquipItem( pSetItem->m_anParts[i] );
 			if( pItemElem && pItemElem->m_dwItemId == pSetItem->m_adwItemId[i] && !pItemElem->IsFlag( CItemElem::expired ) )
@@ -9055,7 +9056,7 @@ void CMover::SetDestParamRandomOptOrigin( CItemElem* pItemElem )
 		PRANDOMOPTITEM pRandomOptItem	= CRandomOptItemGen::GetInstance()->GetRandomOptItem( pItemElem->GetRandomOpt() );
 		if( pRandomOptItem )
 		{
-			for( int i = 0; i < pRandomOptItem->ia.nSize; i++ )
+			int i; for( i = 0; i < pRandomOptItem->ia.nSize; i++ )
 				SetDestParam( pRandomOptItem->ia.anDstParam[i], pRandomOptItem->ia.anAdjParam[i], NULL_CHGPARAM );
 		}
 	}
@@ -9065,7 +9066,7 @@ void CMover::SetDestParamRandomOptExtension( CItemElem* pItemElem )
 {
 #if __VER >= 11 // __SYS_IDENTIFY
 	int cbOption	= g_xRandomOptionProperty->GetRandomOptionSize( pItemElem->GetRandomOptItemId() );
-	for( int i = 0; i < cbOption; i++ )
+	int i; for( i = 0; i < cbOption; i++ )
 	{
 		int nDst, nAdj;
 		if( g_xRandomOptionProperty->GetParam( pItemElem->GetRandomOptItemId(), i, &nDst, &nAdj ) )
@@ -9087,7 +9088,7 @@ void CMover::ResetDestParamRandomOptOrigin( CItemElem* pItemElem )
 		PRANDOMOPTITEM pRandomOptItem	= CRandomOptItemGen::GetInstance()->GetRandomOptItem( pItemElem->GetRandomOpt() );
 		if( pRandomOptItem )
 		{
-			for( int i = 0; i < pRandomOptItem->ia.nSize; i++ )
+			int i; for( i = 0; i < pRandomOptItem->ia.nSize; i++ )
 				ResetDestParam( pRandomOptItem->ia.anDstParam[i], pRandomOptItem->ia.anAdjParam[i], TRUE );
 		}
 	}
@@ -9097,7 +9098,7 @@ void CMover::ResetDestParamRandomOptExtension( CItemElem* pItemElem )
 {
 #if __VER >= 11 // __SYS_IDENTIFY
 	int cbOption	= g_xRandomOptionProperty->GetRandomOptionSize( pItemElem->GetRandomOptItemId() );
-	for( int i = 0; i < cbOption; i++ )
+	int i; for( i = 0; i < cbOption; i++ )
 	{
 		int nDst, nAdj;
 		if( g_xRandomOptionProperty->GetParam( pItemElem->GetRandomOptItemId(), i, &nDst, &nAdj ) )
@@ -9289,7 +9290,7 @@ int __IsEndQuestCondition( CMover* pMover, int nQuestId )
 		if( pQuestProp->m_dwEndCondPatrolWorld == 0 || pCurQuest->m_bPatrol )
 			nResult++;
 		// NPC 퇴치 갯수  3,4
-		for( int i = 0; i < 2; i++ )
+		int i; for( i = 0; i < 2; i++ )
 		{
 			if( pQuestProp->m_nEndCondKillNPCIdx[ i ] == 0 || pCurQuest->m_nKillNPCNum[ i ] >= pQuestProp->m_nEndCondKillNPCNum[ i ] ) 
 				nResult++;
@@ -9681,7 +9682,7 @@ int __IsBeginQuestCondition( CMover* pMover, int nQuestId )
 		// 시작 아이템이 존재할 때 인벤토리에 빈칸이 있는지 검사_END
 #endif // __WORLDSERVER
 		// 이전 퀘스트 1,2,3,4,5,6
-		for( int i = 0; i < 6; i++ )
+		int i; for( i = 0; i < 6; i++ )
 		{
 			if( pQuestProp->m_anBeginCondPreviousQuest[ i ] == 0 ) 
 				nResult++;
@@ -9725,7 +9726,7 @@ int __IsBeginQuestCondition( CMover* pMover, int nQuestId )
 		if( pQuestProp->m_nBeginCondJobNum == 0 )
 			nResult++;
 		else
-		for( int i = 0; i < pQuestProp->m_nBeginCondJobNum; i++ )
+		 for( int i = 0; i < pQuestProp->m_nBeginCondJobNum; i++ )
 		{
 			if( pQuestProp->m_nBeginCondJob[ i ] == pMover->GetJob() )
 			{
@@ -9867,7 +9868,7 @@ int __IsBeginQuestCondition( CMover* pMover, int nQuestId )
 		if( pQuestProp->m_nBeginCondNotItemNum == 0 )
 			nResult += MAX_QUESTCONDITEM;
 		else
-		for( int i = 0; i < MAX_QUESTCONDITEM; i++ )
+		for(int  i = 0; i < MAX_QUESTCONDITEM; i++ )
 		{
 			if( i < pQuestProp->m_nBeginCondNotItemNum )
 			{
@@ -9976,7 +9977,7 @@ int __IsBeginQuestCondition( CMover* pMover, int nQuestId )
 		if( pQuestProp->m_nBeginCondItemNum == 0 )
 			nResult += MAX_QUESTCONDITEM;
 		else
-		for( int i = 0; i < MAX_QUESTCONDITEM; i++ )
+		for(int  i = 0; i < MAX_QUESTCONDITEM; i++ )
 		{
 			if( i < pQuestProp->m_nBeginCondItemNum )
 			{
@@ -10048,7 +10049,7 @@ int __IsNextLevelQuest( CMover* pMover, int nQuestId )
 			return 0;
 
 		// 이전 퀘스트 1,2,3,4,5,6
-		for( int i = 0; i < 6; i++ )
+		int i; for( i = 0; i < 6; i++ )
 		{
 			if( pQuestProp->m_anBeginCondPreviousQuest[ i ] == 0 ) 
 				nResult++;
@@ -10343,7 +10344,7 @@ int __IsNextLevelQuest( CMover* pMover, int nQuestId )
 		if( pQuestProp->m_nBeginCondItemNum == 0 )
 			nResult += MAX_QUESTCONDITEM;
 		else
-		for( int i = 0; i < MAX_QUESTCONDITEM; i++ )
+		for(int i = 0; i < MAX_QUESTCONDITEM; i++ )
 		{
 			if( i < pQuestProp->m_nBeginCondItemNum )
 			{
@@ -10769,7 +10770,7 @@ void CMover::CreateAngelParticle( D3DXVECTOR3 vPos )
 	
 	vPos.y += 1.1f;
 
-	for( int j = 0; j < 2; j ++ )
+	int j; for(  j = 0; j < 2; j ++ )
 	{
 		vPos.y -= 0.03f;
 
@@ -10804,7 +10805,7 @@ void CMover::CreatePetParticle( D3DXVECTOR3 vPos )
 	fAngXZ += 180.0f; 
 	fAngXZ = D3DXToRadian( fAngXZ );
 	
-	for( int j = 0; j < 4; j ++ )
+	int j; for(  j = 0; j < 4; j ++ )
 	{
 		vPos.y -= 0.03f;
 		
@@ -11058,7 +11059,7 @@ void CMover::ProcessPetEnergy( void )
 		// 먹이를 검색해서 개수를 감소시킨다.
 		CItemElem* ptr;
 		int nMax	= m_Inventory.GetMax();
-		for( int i = 0 ; i < nMax; i++ )
+		int i; for( i = 0 ; i < nMax; i++ )
 		{
 			ptr	= m_Inventory.GetAtId( i );
 			if( IsUsableItem( ptr ) && ptr->m_dwItemId == II_SYS_SYS_FEED_01 )	// 사용 가능한 먹이면
@@ -11751,7 +11752,7 @@ BOOL CMover::SetDataMTE( const char* alphaTex, const char* eff2ndTex )
 int CMover::GetPerinNum( void )
 {
 	int nPerin	= 0;
-	for( int i = 0; i < m_Inventory.GetMax(); i++ )
+	int i; for( i = 0; i < m_Inventory.GetMax(); i++ )
 	{
 		CItemElem* pItem	= static_cast<CItemElem*>( GetItemId( i ) );
 		if( pItem && pItem->IsPerin() && ::IsUsableItem( pItem ) )
@@ -11770,7 +11771,7 @@ __int64 CMover::GetTotalGold( void )
 int CMover::RemovePerin( int nPerin )
 {
 	int nRest	= nPerin;
-	for( int i = 0; i < m_Inventory.GetMax() && nRest > 0; i++ )
+	int i; for( i = 0; i < m_Inventory.GetMax() && nRest > 0; i++ )
 	{
 		CItemElem* pItem	= static_cast<CItemElem*>( GetItemId( i ) );
 		if( pItem && pItem->IsPerin() && ::IsUsableItem( pItem ) )

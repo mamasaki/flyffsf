@@ -126,7 +126,7 @@ BOOL CEveSchool::Report( void )
 		iIndex++;
 	}
 	// sort
-	for( int j = 0; j < MAX_SCHOOL-1; j++ )
+	int j; for(  j = 0; j < MAX_SCHOOL-1; j++ )
 	{
 		for( int k = j + 1; k < MAX_SCHOOL; k++ )
 		{
@@ -201,7 +201,7 @@ BOOL CEveSchool::End( void )
 	}
 
 	// sort
-	for( int j = 0; j < MAX_SCHOOL-1; j++ )
+	int j; for(  j = 0; j < MAX_SCHOOL-1; j++ )
 	{
 		for( int k = j + 1; k < MAX_SCHOOL; k++ )
 		{
@@ -1401,14 +1401,14 @@ void CGuildCombat::GuildCombatResult( BOOL nResult, u_long idGuildWin )
 				{
 					u_long idGuild	= i1->first;
 					__GuildCombatMember* pGCMember	= i1->second;
-					for( int i = 0; i < pGCMember->vecGCSelectMember.size(); ++i )
+					int i; for( i = 0; i < pGCMember->vecGCSelectMember.size(); ++i )
 					{
 						__JOINPLAYER* pJoinPlayer	= pGCMember->vecGCSelectMember[i];
 						itemElem1.SetSerialNumber();
 						g_dpDBClient.SendQueryPostMail( pJoinPlayer->uidPlayer, 0, itemElem1, 0, itemElem1.GetProp()->szName, (char*)GETTEXT( TID_GAME_GUILDCOMBAT_EVENT_MAIL ) );
 						if( idGuild == m_uWinGuildId )
 						{
-							for( int i = 0; i < nItemSize; i++ )
+							int i; for( i = 0; i < nItemSize; i++ )
 							{
 								aItemElem[i].SetSerialNumber();
 								g_dpDBClient.SendQueryPostMail( pJoinPlayer->uidPlayer, 0, aItemElem[i], 0, aItemElem[i].GetProp()->szName, "" );
@@ -1643,7 +1643,7 @@ void CGuildCombat::GuildCombatCloseTeleport()
 #endif	// __LAYER_1015
 
 #if __VER >= 8 // __GUILDCOMBAT_85
-	for( int i = 0 ; i < (int)( m_vecstrGuildMsg.size() ) ; ++i )
+	int i; for( i = 0 ; i < (int)( m_vecstrGuildMsg.size() ) ; ++i )
 		g_UserMng.AddGuildMsg( m_uWinGuildId, m_vecstrGuildMsg[i] );
 #endif // __VER >= 8
 
@@ -2123,7 +2123,7 @@ CTime CGuildCombat::GetNextGuildCobmatTime()
 CGuildCombat::__GuildCombatMember* CGuildCombat::FindGuildCombatMember( u_long GuildId )
 {
 	__GuildCombatMember* pGCMem = NULL;
-	for( int i = 0 ; i < (int)( m_vecGuildCombatMem.size() ) ; ++i )
+	int i; for( i = 0 ; i < (int)( m_vecGuildCombatMem.size() ) ; ++i )
 	{
 		if( GuildId == m_vecGuildCombatMem[i]->uGuildId )
 		{
@@ -2234,7 +2234,7 @@ void CGuildCombat::SetMaintenance()
 				pGCMember->nWarCount = 0;
 				BOOL bMaxWarCount = FALSE;
 
-				for( int i = 0; i < (int)( pGCMember->vecGCSelectMember.size() ) ; ++i )
+				int i; for( i = 0; i < (int)( pGCMember->vecGCSelectMember.size() ) ; ++i )
 				{
 					__JOINPLAYER* pJoinPlayer	= pGCMember->vecGCSelectMember[i];
 					if( 0 < pJoinPlayer->nlife )
@@ -2325,7 +2325,7 @@ void CGuildCombat::SetMaintenance()
 				pGCMember->nWarCount = 0;
 				BOOL bMaxWarCount = FALSE;
 
-				for( int i = 0; i < pGCMember->vecGCSelectMember.size() ; ++i )
+				int i; for( i = 0; i < pGCMember->vecGCSelectMember.size() ; ++i )
 				{
 					__JOINPLAYER* pJoinPlayer	= pGCMember->vecGCSelectMember[i];
 					if( 0 < pJoinPlayer->nlife )
@@ -3292,7 +3292,7 @@ void CGuildCombat::SetPlayerChange( CUser* pUser, CUser* pLeader )
 	__GuildCombatMember* pGCMember = FindGuildCombatMember( pUser->m_idGuild );
 	if( pGCMember != NULL )
 	{
-		for( int i = 0; i < (int)( pGCMember->vecGCSelectMember.size() ) ; ++i )
+		int i; for( i = 0; i < (int)( pGCMember->vecGCSelectMember.size() ) ; ++i )
 		{
 			__JOINPLAYER* pJoinPlayer	= pGCMember->vecGCSelectMember[i];
 			if( pJoinPlayer->uidPlayer == pUser->m_idPlayer )
@@ -3347,7 +3347,7 @@ void CGuildCombat::SetPlayerChange( CUser* pUser, CUser* pLeader )
 	if( it != m_GuildCombatMem.end() )
 	{
 		__GuildCombatMember* pGCMember	= it->second;
-		for( int i = 0; i < pGCMember->vecGCSelectMember.size() ; ++i )
+		int i; for( i = 0; i < pGCMember->vecGCSelectMember.size() ; ++i )
 		{
 			__JOINPLAYER* pJoinPlayer	= pGCMember->vecGCSelectMember[i];
 			if( pJoinPlayer->uidPlayer == pUser->m_idPlayer )

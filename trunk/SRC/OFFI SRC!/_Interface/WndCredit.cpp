@@ -233,12 +233,12 @@ HRESULT CWndCredit::DeleteDeviceObjects()
 
 	if( ::GetLanguage() == LANG_JAP )
 	{
-		for( int i = 0; i < MAX_SCREENSHOT_JAP; i++ )
+		int i; for( i = 0; i < MAX_SCREENSHOT_JAP; i++ )
 			m_aTexScreenShot[ i ].DeleteDeviceObjects();
 	}
 	else
 	{
-		for( int i = 0; i < MAX_SCREENSHOT; i++ )
+		int i; for( i = 0; i < MAX_SCREENSHOT; i++ )
 			m_aTexScreenShot[ i ].DeleteDeviceObjects();
 	}
 	
@@ -254,7 +254,7 @@ void CWndCredit::OnDraw( C2DRender* p2DRender )
 	CRect rect = GetClientRect();
 	CD3DFont* pOldFold = p2DRender->GetFont();
 	p2DRender->SetFont( m_pFont );
-	for( int i = 0; i < m_strArray.GetSize(); i++ )
+	int i; for( i = 0; i < m_strArray.GetSize(); i++ )
 	{
 		CString string = m_strArray.GetAt( i ) ;
 		CSize size = m_pFont->GetTextExtent( string );
@@ -337,7 +337,7 @@ void CWndCredit::OnInitialUpdate()
 
 	if( ::GetLanguage() == LANG_JAP )
 	{
-		for( int i = 0; i < MAX_SCREENSHOT_JAP; i++ )
+		int i; for( i = 0; i < MAX_SCREENSHOT_JAP; i++ )
 		{
 			CString string;
 			string.Format( "shotCredit%02d.dds", i );
@@ -350,7 +350,7 @@ void CWndCredit::OnInitialUpdate()
 	}
 	else
 	{
-		for( int i = 0; i < MAX_SCREENSHOT; i++ )
+		int i; for( i = 0; i < MAX_SCREENSHOT; i++ )
 		{
 			CString string;
 			string.Format( "shotCredit%02d.dds", i );

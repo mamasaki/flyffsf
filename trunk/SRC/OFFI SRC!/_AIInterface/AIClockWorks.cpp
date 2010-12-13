@@ -32,10 +32,10 @@ enum
 };
 BEGIN_AISTATE_MAP( CAIClockWorks, CAIInterface )
 
-	ON_STATE( STATE_INIT   , StateInit   )
-	ON_STATE( STATE_IDLE   , StateIdle   )
-	ON_STATE( STATE_RAGE   , StateRage   )
-	ON_STATE( STATE_SUPER_RAGE   , StateRage   )
+	ON_STATE( STATE_INIT   ,&CAIClockWorks:: StateInit   )
+	ON_STATE( STATE_IDLE   , &CAIClockWorks::StateIdle   )
+	ON_STATE( STATE_RAGE   , &CAIClockWorks::StateRage   )
+	ON_STATE( STATE_SUPER_RAGE   , &CAIClockWorks::StateRage   )
 
 END_AISTATE_MAP()
 

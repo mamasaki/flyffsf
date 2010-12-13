@@ -391,7 +391,7 @@ void CWnd2ndPassword::ResetNumberpad( u_long idNumberPad )
 		WIDC_BUTTON_1, WIDC_BUTTON_2, WIDC_BUTTON_3, WIDC_BUTTON_4, WIDC_BUTTON_5, WIDC_BUTTON_6, WIDC_BUTTON_7, WIDC_BUTTON_8, WIDC_BUTTON_9, WIDC_BUTTON_10
 	};
 	CString strKeyNumber[ TABLE_NUMBER_X ] = { _T( "" ), };
-	for( int i = 0; i < TABLE_NUMBER_X; ++i )
+	int i; for( i = 0; i < TABLE_NUMBER_X; ++i )
 	{
 		strKeyNumber[ i ].Format( _T( "ButtNum%d.bmp" ), byNumberTable[ idNumberPad ][ i ] );
 		CWndButton* pWndButton = ( CWndButton* )GetDlgItem( m_dwButtonID[ i ] );

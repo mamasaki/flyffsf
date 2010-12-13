@@ -356,7 +356,7 @@ void CWndItemTransy::Init( CItemElem* pItemElem )
 #ifdef __SYS_ITEMTRANSY
 	m_bMenu = bMenu;
 #endif // __SYS_ITEMTRANSY
-	for( int i = 0 ; i < 2 ; ++i )
+	int i; for( i = 0 ; i < 2 ; ++i )
 		m_pItemElem[i] = NULL;
 	 	
 	LPWNDCTRL pWndCtrl = NULL;

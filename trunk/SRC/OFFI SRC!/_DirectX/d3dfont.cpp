@@ -407,7 +407,7 @@ HRESULT CD3DFontAPI::DrawText( FLOAT sx, FLOAT sy, FLOAT fXScale, FLOAT fYScale,
 	sy = _fsy;
 	
 	
-	for( int i = nPos; i < nMax; i++ )
+	int i; for( i = nPos; i < nMax; i++ )
 	{
 		CString string = strEditString.GetLine( i );
 		DWORD dwOffset = strEditString.GetLineOffset( i );
@@ -678,7 +678,7 @@ LPDIRECT3DTEXTURE9 CD3DFont::CreateTexture()
 	lpTexture->LockRect( 0, &d3dlr, NULL, 0 );
 	WORD* pDstRow = (WORD*)d3dlr.pBits;
 	int nLength = m_dwTexWidth * m_dwTexHeight;
-	for( int i = 0; i < nLength; i++ )
+	int i; for( i = 0; i < nLength; i++ )
 		*pDstRow++ = (WORD)m_dwBgColor;			//gmpbigsun : 이미 변환이 되어있음 DWORD->WORD (::InitDeviceObjects)
 	lpTexture->UnlockRect( 0 );
 	return lpTexture;
@@ -824,7 +824,7 @@ HRESULT CD3DFont::DeleteDeviceObjects()
 	m_fontMap.clear();
 	
 	LPDIRECT3DTEXTURE9 pTex;
-	for( int i = 0 ; i < m_apTexture.GetSize(); i++ ) 
+	int i; for( i = 0 ; i < m_apTexture.GetSize(); i++ ) 
 	{
 		pTex = (LPDIRECT3DTEXTURE9)m_apTexture.GetAt( i );
 		SAFE_RELEASE( pTex );
@@ -1102,7 +1102,7 @@ HFONT CD3DFont::GetFont(WORD wCodePage)
 
 				return hFont;
 #else	// __LANG_1013
-			for( int i = 0; i < sizeof(g_fontData)/sizeof(FONT_DATA); ++i )
+			int i; for( i = 0; i < sizeof(g_fontData)/sizeof(FONT_DATA); ++i )
 			{
 				if(g_fontData[i].wCodePage == wCodePage)
 				{
@@ -1305,8 +1305,8 @@ HRESULT CD3DFont::DrawText( FLOAT sx, FLOAT sy, FLOAT fXScale, FLOAT fYScale, DW
 		FLOAT fStartX = sx;
 		sx = _fsx;
 		sy = _fsy;
-		//for( int i = nPos; i < nPos + nLine; i++ )
-		for( int i = nPos; i < nMax; i++ )
+		//int i; for( i = nPos; i < nPos + nLine; i++ )
+		int i; for( i = nPos; i < nMax; i++ )
 		{
 			CString string = strEditString.GetLine( i );
 			DWORD dwOffset = strEditString.GetLineOffset( i );
@@ -1404,7 +1404,7 @@ HRESULT CD3DFont::GetTextExtent_EditString( CEditString& editString, SIZE* pSize
 	if( nLineBegin + nLineCount > (int)( editString.GetLineCount() ) )
 		nLineCount = editString.GetLineCount() - nLineBegin;
 
-	for( int i = nLineBegin; i < nLineBegin + nLineCount; i++ )
+	int i; for( i = nLineBegin; i < nLineBegin + nLineCount; i++ )
 	{
 		editString.GetLine( i, szBuff );
 		iter = szBuff;

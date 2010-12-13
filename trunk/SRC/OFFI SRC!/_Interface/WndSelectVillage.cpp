@@ -114,7 +114,8 @@ BOOL CWndSelectVillage::OnChildNotify( UINT message, UINT nID, LRESULT* pLResult
 	if( nID == WIDC_BUTTON_OK )
 	{
 		UINT nRadios[3] = { WIDC_RADIO_FLARIS, WIDC_RADIO_SAINTM, WIDC_RADIO_DARKON };
-		for( int i=0; i<3; ++i )
+		int i;
+		for(  i=0; i<3; ++i )
 		{
 			CWndButton* pButton = (CWndButton* )GetDlgItem( nRadios[i] );
 			if( pButton->GetCheck() )

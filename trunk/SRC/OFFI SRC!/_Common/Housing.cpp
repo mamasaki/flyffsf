@@ -86,7 +86,8 @@ void CHousing::Serialize( CAr & ar )
 		m_vecHousingInfo.clear();
 		int nSize = 0;
 		ar >> nSize;
-		for( int i=0; i<nSize; i++ )
+		int i;
+		for(  i=0; i<nSize; i++ )
 		{
 			HOUSINGINFO housingInfo;
 			housingInfo.Serialize( ar );

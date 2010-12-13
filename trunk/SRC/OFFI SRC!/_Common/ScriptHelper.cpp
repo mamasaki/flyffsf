@@ -255,7 +255,8 @@ int __EndQuest( int nPcId, int nQuestId, BOOL IsEndQuestCondition )
 		}
 		// 보상 아이템 갯수 만큼, 인벤토리 여유가 있는가?
 		int nItemNum = 0;
-		for( int i = 0; i < pQuestProp->m_nEndRewardItemNum; i++ )
+		int i;
+		for(  i = 0; i < pQuestProp->m_nEndRewardItemNum; i++ )
 		{
 			QuestPropItem* pEndRewardItem = &pQuestProp->m_paEndRewardItem[ i ];
 			if( pEndRewardItem->m_nSex == -1 || pEndRewardItem->m_nSex == pUser->GetSex() )

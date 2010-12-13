@@ -9,9 +9,9 @@ extern	CDPLoginSrvr	g_dpLoginSrvr;
 CDPCoreClient::CDPCoreClient()
 {
 	BEGIN_MSG;
-	ON_MSG( PACKETTYPE_QUERYTICKCOUNT, OnQueryTickCount );
-	ON_MSG( PACKETTYPE_PRE_JOIN, OnPreJoin );
-	ON_MSG( PACKETTYPE_DESTROY_PLAYER, OnQueryRemovePlayer );
+	ON_MSG( PACKETTYPE_QUERYTICKCOUNT,&CDPCoreClient:: OnQueryTickCount );
+	ON_MSG( PACKETTYPE_PRE_JOIN, &CDPCoreClient::OnPreJoin );
+	ON_MSG( PACKETTYPE_DESTROY_PLAYER, &CDPCoreClient::OnQueryRemovePlayer );
 }
 
 CDPCoreClient::~CDPCoreClient()

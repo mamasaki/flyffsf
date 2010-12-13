@@ -20,12 +20,12 @@ extern	CUserMng	g_UserMng;
 CDPDatabaseClient::CDPDatabaseClient()
 {
 	BEGIN_MSG;
-	ON_MSG( PACKETTYPE_CLOSE_EXISTING_CONNECTION, OnCloseExistingConnection );
-	ON_MSG( PACKETTYPE_ONE_HOUR_NOTIFY, OnOneHourNotify );
-	ON_MSG( PACKETTYPE_PLAYER_LIST, OnPlayerList );
-	ON_MSG( PACKETTYPE_FAIL, OnFail );
+	ON_MSG( PACKETTYPE_CLOSE_EXISTING_CONNECTION,&CDPDatabaseClient:: OnCloseExistingConnection );
+	ON_MSG( PACKETTYPE_ONE_HOUR_NOTIFY, &CDPDatabaseClient:: OnOneHourNotify );
+	ON_MSG( PACKETTYPE_PLAYER_LIST, &CDPDatabaseClient:: OnPlayerList );
+	ON_MSG( PACKETTYPE_FAIL, &CDPDatabaseClient:: OnFail );
 #if __VER >= 15 // __2ND_PASSWORD_SYSTEM
-	ON_MSG( PACKETTYPE_LOGIN_PROTECT_CERT, OnLoginProtect );
+	ON_MSG( PACKETTYPE_LOGIN_PROTECT_CERT,&CDPDatabaseClient::  OnLoginProtect );
 #endif // __2ND_PASSWORD_SYSTEM
 }
 

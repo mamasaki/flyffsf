@@ -1655,7 +1655,7 @@ void CTheme::RenderWndTaskBar( C2DRender* p2DRender, CRect* pRect )
 	rect.DeflateRect( 1, 1);
 
 //	rect = *pRect;//GetWindowRect();
-	for( int i = 0; i < rect.Width() / 32; i++ )
+	int i; for( i = 0; i < rect.Width() / 32; i++ )
 		;//p2DRender->RenderTriangle( CPoint( rect.left+ 16 + i * 32, 3 ), CPoint( rect.left + 3 + i * 32, 32 - 3 ), CPoint( rect.left + 32 - 3 + i * 32, 32 - 3 ), D3DCOLOR_ARGB( 100, 200, 170, 170 ) );
 
 	//GradationRect( p2DRender, &rect, dwColor3 ,dwColor2, dwColor1, 80 );
@@ -1714,7 +1714,7 @@ BOOL CTheme::MakeGaugeVertex( LPDIRECT3DDEVICE9 pd3dDevice, CRect* pRect, DWORD 
 		size.cx /= 3;
 		
 		pVertices = pVertices_;
-		for( int i = 0; i < nVertexNum; i++ )
+		int i; for( i = 0; i < nVertexNum; i++ )
 		{
 			pVertices->vec.z = 0;
 			pVertices->rhw = 1.0f;
@@ -1940,7 +1940,7 @@ void CTheme::RenderGauge( C2DRender* p2DRender, CRect* pRect, DWORD dwColor, LPD
 		size.cx /= 3;
 		
 		pVertices = pVertices_;
-		for( int i = 0; i < nVertexNum; i++ )
+		int i; for( i = 0; i < nVertexNum; i++ )
 		{
 			pVertices->vec.z = 0;
 			pVertices->rhw = 1.0f;

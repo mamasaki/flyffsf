@@ -43,7 +43,7 @@ CServerSock::CServerSock( BUFFER_TYPE nBufferType )
 #ifdef __NEWDPMNG
 	m_hIocpAcpt		= (HANDLE)NULL;
 	m_hAcptThread	= (HANDLE)NULL;
-	for( int i = 0; i < MAX_IO_PEND; i++ )
+	int i; for( i = 0; i < MAX_IO_PEND; i++ )
 		m_socklist[i].sock	= INVALID_SOCKET;		
 #else	// __NEWDPMNG
 	m_hListenThread		= (HANDLE)NULL;
@@ -95,7 +95,7 @@ BOOL CServerSock::Listen( void )
 	m_hIocpAcpt		= CreateIoCompletionPort( INVALID_HANDLE_VALUE, NULL, 0, 0 );
 	ASSERT( m_hIocpAcpt != NULL );
 	CreateIoCompletionPort( (HANDLE)m_hSocket, m_hIocpAcpt, 0, 0 );
-	for( int i = 0; i < MAX_IO_PEND; i++ )
+	int i; for( i = 0; i < MAX_IO_PEND; i++ )
 		AcptRequest( i );
 	ResumeThread( m_hAcptThread );
 #endif	// __NEWDPMNG
@@ -185,7 +185,7 @@ void CServerSock::Close( void )
 		CloseHandle( m_hAcptThread );
 		m_hIocpAcpt		= m_hAcptThread		= (HANDLE)NULL;
 	}
-	for( int i = 0; i < MAX_IO_PEND; i++ )
+	int i; for( i = 0; i < MAX_IO_PEND; i++ )
 	{
 		if( m_socklist[i].sock != INVALID_SOCKET )
 		{

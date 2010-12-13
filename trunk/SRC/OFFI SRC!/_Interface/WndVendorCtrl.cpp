@@ -164,9 +164,9 @@ void CWndVendorCtrl::OnDraw( C2DRender* p2DRender )
 	int nHeight		= rect.Height() / 32;
 
 #if __VER >= 8 //__S8_VENDOR_REVISION
-	for( int i = 0; i < MAX_VENDOR_REVISION; i++ )
+	int i; for( i = 0; i < MAX_VENDOR_REVISION; i++ )
 #else //__S8_VENDOR_REVISION
-	for( int i = 0; i < MAX_VENDITEM; i++ )
+	int i; for( i = 0; i < MAX_VENDITEM; i++ )
 #endif //__S8_VENDOR_REVISION
 	{
 		int x	= i % 2;
@@ -241,7 +241,7 @@ void CWndVendorCtrl::OnDraw( C2DRender* p2DRender )
 	int nWidth	= rect.Width() / 32;
 	int nHeight		= rect.Height() / 32;
 
-	for( int i = 0; i < MAX_VENDITEM; i++ )
+	int i; for( i = 0; i < MAX_VENDITEM; i++ )
 	{
 		int x	= i % 6;
 		int y	= i / 6;
@@ -316,9 +316,9 @@ BOOL CWndVendorCtrl::OnDropIcon( LPSHORTCUT pShortcut, CPoint point )
 		if( pItemBase )
 		{
 #if __VER >= 8 //__S8_VENDOR_REVISION
-			for( int i = 0; i < MAX_VENDOR_REVISION; i++ )
+			int i; for( i = 0; i < MAX_VENDOR_REVISION; i++ )
 #else //__S8_VENDOR_REVISION
-			for( int i = 0; i < MAX_VENDITEM; i++ )
+			int i; for( i = 0; i < MAX_VENDITEM; i++ )
 #endif //__S8_VENDOR_REVISION
 			{
 #if __VER >= 8 // __S8_VENDOR_REVISION
@@ -512,9 +512,9 @@ int CWndVendorCtrl::HitTest( CPoint point )
 	int nHeight		= rect.Height() / 32;
 
 #if __VER >= 8 //__S8_VENDOR_REVISION
-	for( int i = 0; i < MAX_VENDOR_REVISION; i++ )
+	int i; for( i = 0; i < MAX_VENDOR_REVISION; i++ )
 #else //__S8_VENDOR_REVISION
-	for( int i = 0; i < MAX_VENDITEM; i++ )
+	int i; for( i = 0; i < MAX_VENDITEM; i++ )
 #endif //__S8_VENDOR_REVISION
 	{
 #if __VER >= 8 // __S8_VENDOR_REVISION

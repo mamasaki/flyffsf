@@ -192,7 +192,7 @@ void CMover::Serialize( CAr & ar )
 			}
 			ar << m_nGuildCombatState;
 			
-			for( int j = 0 ; j < SM_MAX ; ++j )
+			int j; for(  j = 0 ; j < SM_MAX ; ++j )
 				ar << m_dwSMTime[j];
 
 			if( CObj::GetMethod() == METHOD_NONE )
@@ -231,7 +231,7 @@ void CMover::Serialize( CAr & ar )
 				ar << (short)m_nRemainGP;
 				ar << (short)0;
 				{
-					for( int i = 0; i < MAX_HUMAN_PARTS; i++ )
+					int i; for( i = 0; i < MAX_HUMAN_PARTS; i++ )
 						ar << m_aEquipInfo[i].dwId;
 				}
 				ar.Write( (void*)m_aJobSkill, sizeof(SKILL) *  ( MAX_SKILL_JOB ) );
@@ -239,7 +239,8 @@ void CMover::Serialize( CAr & ar )
 				ar << (BYTE)m_nCheerPoint << m_dwTickCheer - GetTickCount();
 
 				ar << m_nSlot;
-				for( int k = 0 ; k < 3 ; ++k )
+				int k;
+				for(  k = 0 ; k < 3 ; ++k )
 					ar << m_dwGoldBank[k];
 				for( k = 0 ; k < 3 ; ++k )
 					ar << m_idPlayerBank[k];
@@ -264,7 +265,7 @@ void CMover::Serialize( CAr & ar )
 				ar << m_dwMute;
 #endif	// __JEFF_9_20
 #if __VER >= 13 // __HONORABLE_TITLE			// 달인
-				for( int i = 0 ; i < MAX_HONOR_TITLE ; ++i )
+				int i; for( i = 0 ; i < MAX_HONOR_TITLE ; ++i )
 				{
 					ar << m_aHonorTitle[i];
 
@@ -495,14 +496,14 @@ void CMover::Serialize( CAr & ar )
 #endif	// __CLIENT
 #endif	// __HONORABLE_TITLE			// 달인
 			{
-				for( int i = 0; i < MAX_HUMAN_PARTS; i ++ )
+				int i; for( i = 0; i < MAX_HUMAN_PARTS; i ++ )
 				{
 					ar >> m_aEquipInfo[i].nOption;
 				}
 			}
 			ar >> m_nGuildCombatState;
 			
-			for( int j = 0 ; j < SM_MAX ; ++j )
+			int j; for(  j = 0 ; j < SM_MAX ; ++j )
 				ar >> m_dwSMTime[j];
 			// 장어구이, 신속의 두루마리 등의 예외처리는 m_nPlusMaxHitPoint등이 세트되고 OnApplySM() 실행한다.
 
@@ -554,12 +555,12 @@ void CMover::Serialize( CAr & ar )
 				ar >> n1 >> n2;		
 				m_nRemainGP	= n1;
 				{
-					for( int i = 0; i < MAX_HUMAN_PARTS; i++ )
+					int i; for( i = 0; i < MAX_HUMAN_PARTS; i++ )
 						ar >> m_aEquipInfo[i].dwId;
 				}
 #ifdef __SKILL_0205
 				ar.Read( (void*)m_aJobSkill, sizeof(SKILL) *  ( MAX_SKILL_JOB ) );
-				for( int i = 0 ; i < MAX_SKILL_JOB; i++)
+				int i; for( i = 0 ; i < MAX_SKILL_JOB; i++)
 					m_abUpdateSkill[i]	= (BOOL)( memcmp( &m_aJobSkill[i], &aJobSkill[i], sizeof(SKILL) ) != 0 );
 #else	// __SKILL_0205
 				ar.Read( (void*)m_aJobSkill, sizeof(SKILL) *  ( MAX_SKILL_JOB ) );
@@ -569,7 +570,8 @@ void CMover::Serialize( CAr & ar )
 				ar >> (BYTE&)m_nCheerPoint >> m_dwTickCheer;
 				m_dwTickCheer	+= GetTickCount();
 				ar >> m_nSlot;
-				for( int k = 0 ; k < 3 ; ++k )
+				int k;
+				for(  k = 0 ; k < 3 ; ++k )
 					ar >> m_dwGoldBank[k];
 				for( k = 0 ; k < 3 ; ++k )
 					ar >> m_idPlayerBank[k];
@@ -645,7 +647,7 @@ void CMover::Serialize( CAr & ar )
 				ar.ReadString( szPVendor, MAX_VENDORNAME );
 				m_vtInfo.SetTitle( szPVendor );
 			#endif
-				for( int i = 0; i < MAX_HUMAN_PARTS; i++ )
+				int i; for( i = 0; i < MAX_HUMAN_PARTS; i++ )
 					m_aEquipInfo[i].dwId	= NULL_ID;
 
 				u_char uSize;
@@ -694,7 +696,7 @@ void CMover::Serialize( CAr & ar )
 			SetHairColor( m_dwHairColor );
 		#endif	// __WORLDSERVER	//__CLIENT
 			{
-				for( int i = 0; i < MAX_HUMAN_PARTS; i++ )
+				int i; for( i = 0; i < MAX_HUMAN_PARTS; i++ )
 					m_aEquipInfo[i].dwId	= NULL_ID;
 			}
 			u_char uSize;

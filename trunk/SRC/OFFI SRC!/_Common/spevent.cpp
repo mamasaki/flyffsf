@@ -52,7 +52,7 @@ BOOL CXMasEvent::LoadScript( LPCTSTR lpFilename )
 	
 	int nMax	= s.GetNumber();	// drop num a day
 
-	for( int i = 0; i < 24; i++ )
+	int i; for( i = 0; i < 24; i++ )
 	{
 		an[i]	= s.GetNumber();
 		nTotal	+= an[i];
@@ -98,7 +98,7 @@ CEventItem::CEventItem( DWORD dwItemId, int nMax, int nNum )
 			790, 789, 754, 849, 936, 940, 919, 720	};
 	int nTotal	= 0;
 
-	for( int i = 0; i < 24; i++ )
+	int i; for( i = 0; i < 24; i++ )
 		nTotal	+= s_anHour[i];
 	for( i = 0; i < 24; i++ )
 		m_adwInterval[i]	= (DWORD)( (float)MIN( 60 ) / ( nMax * (float)s_anHour[i] / (float)nTotal ) );
@@ -434,7 +434,7 @@ void CEventGeneric::Serialize( CAr & ar )
 		Clear( FALSE );
 		int nEventSize;
 		ar >> nEventSize;
-		for( int i = 0; i < nEventSize; i++ )
+		int i; for( i = 0; i < nEventSize; i++ )
 		{
 			PEVENT_GENERIC pEvent	= new EVENT_GENERIC;
 			ar.Read( (void*)pEvent, sizeof(EVENT_GENERIC) );
@@ -454,7 +454,7 @@ void CEventGeneric::Serialize( CAr & ar )
 			}
 			int nEventItemSize;
 			ar >> nEventItemSize;
-			for( int j = 0; j < nEventItemSize; j++ )
+			int j; for(  j = 0; j < nEventItemSize; j++ )
 			{
 				CEventItem* pEventItem	= new CEventItem;
 				pEventItem->Serialize( ar );

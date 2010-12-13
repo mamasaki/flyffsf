@@ -27,12 +27,12 @@ enum
 };
 BEGIN_AISTATE_MAP( CAIGuard, CAIInterface )
 
-	ON_STATE( STATE_INIT   , StateInit   )
-	ON_STATE( STATE_IDLE   , StateIdle   )
-	ON_STATE( STATE_WANDER , StateWander )
-	ON_STATE( STATE_EVADE  , StateEvade  )
-	ON_STATE( STATE_RAGE   , StateRage   )
-	ON_STATE( STATE_RUNAWAY, StateRunaway  )
+	ON_STATE( STATE_INIT   , &CAIGuard::StateInit   )
+	ON_STATE( STATE_IDLE   , &CAIGuard::StateIdle   )
+	ON_STATE( STATE_WANDER , &CAIGuard::StateWander )
+	ON_STATE( STATE_EVADE  , &CAIGuard::StateEvade  )
+	ON_STATE( STATE_RAGE   , &CAIGuard::StateRage   )
+	ON_STATE( STATE_RUNAWAY, &CAIGuard::StateRunaway  )
 
 END_AISTATE_MAP()
 

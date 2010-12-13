@@ -20,7 +20,7 @@ CRandomOptionProperty* CRandomOptionProperty::GetInstance()
 void CRandomOptionProperty::LoadScriptBlock( CScript & s, int nRandomOptionKind )
 {
 	int nTotalProb1		= 0;
-	for( int i = 0; i < MAX_RANDOM_OPTION; i++ )	// 3	// 랜덤 옵션이 몇개 부여될 것인가에 대한 확률
+	int i; for( i = 0; i < MAX_RANDOM_OPTION; i++ )	// 3	// 랜덤 옵션이 몇개 부여될 것인가에 대한 확률
 	{
 		m_anRandomOptionProb[nRandomOptionKind][i]	= s.GetNumber() + nTotalProb1;
 		nTotalProb1	= m_anRandomOptionProb[nRandomOptionKind][i];
@@ -182,7 +182,7 @@ int CRandomOptionProperty::GetRandomOptionSize( __int64 nRandomOptItemId )
 	//	mulcom	END100405	각성 보호의 두루마리
 
 	__int64 i	= 0x3FFFF << 8;
-	for( int j = 0; j < MAX_RANDOM_OPTION; j++ )
+	int j; for(  j = 0; j < MAX_RANDOM_OPTION; j++ )
 	{
 		if( nRandomOptItemId & i )
 			nSize++;
@@ -202,7 +202,7 @@ int		CRandomOptionProperty::GetViewRandomOptionSize( __int64 n64RandomOptItemId 
 	int nSize	= 0;
 
 	__int64 i	= 0x3FFFF << 8;
-	for( int j = 0; j < MAX_RANDOM_OPTION; j++ )
+	int j; for(  j = 0; j < MAX_RANDOM_OPTION; j++ )
 	{
 		if( n64RandomOptItemId & i )
 			nSize++;
@@ -270,7 +270,7 @@ int	CRandomOptionProperty::DetermineRandomOptionSize( int nRandomOptionKind )
 {
 	int nUpper	= m_anRandomOptionProb[nRandomOptionKind][MAX_RANDOM_OPTION - 1];
 	DWORD dwRand	= xRandom( nUpper );
-	for( int i = 0; i < MAX_RANDOM_OPTION; i++ )
+	int i; for( i = 0; i < MAX_RANDOM_OPTION; i++ )
 	{
 		if( (int)( dwRand ) < m_anRandomOptionProb[nRandomOptionKind][i] )
 			return i + 1;
@@ -426,7 +426,7 @@ void CRandomOptionProperty::AwakeningExtension( void )
 			m_aRandomOption[eAwakening][i].nProb:
 			m_aRandomOption[eAwakening][i].nProb - m_aRandomOption[eAwakening][i-1].nProb );
 
-		for( int j = 0; j < eAwakeningExtension; j++ )
+		int j; for(  j = 0; j < eAwakeningExtension; j++ )
 		{
 			int iRandomOptionKindIndex	= GetRandomOptionKindIndex( eAwakening, PARTS_HAND + j );
 			for( int k = 0; k < 6; k++ )

@@ -36,10 +36,10 @@ CDPSrvr::CDPSrvr()
 	strcpy( m_szVer, "20040706" );	// default value
 
 	BEGIN_MSG;
-	ON_MSG( PACKETTYPE_ADD_ACCOUNT, OnAddAccount );
-	ON_MSG( PACKETTYPE_REMOVE_ACCOUNT, OnRemoveAccount );
-	ON_MSG( PACKETTYPE_PING, OnPing );
-	ON_MSG( PACKETTYPE_CLOSE_EXISTING_CONNECTION, OnCloseExistingConnection );
+	ON_MSG( PACKETTYPE_ADD_ACCOUNT,&CDPSrvr:: OnAddAccount );
+	ON_MSG( PACKETTYPE_REMOVE_ACCOUNT, &CDPSrvr::OnRemoveAccount );
+	ON_MSG( PACKETTYPE_PING,&CDPSrvr:: OnPing );
+	ON_MSG( PACKETTYPE_CLOSE_EXISTING_CONNECTION,& CDPSrvr::OnCloseExistingConnection );
 }
 
 CDPSrvr::~CDPSrvr()
@@ -135,7 +135,8 @@ void CDPSrvr::OnAddAccount( CAr & ar, DPID dpid1, DPID dpid2 )
 	if( m_bCheckAddr )							
 	{
 		CMclAutoLock	Lock( m_csAddrPmttd );
-		for( int i = 0; i < m_nSizeofAddrPmttd; i++ )
+		int i;
+		for(  i = 0; i < m_nSizeofAddrPmttd; i++ )
 		{
 			if( strstr( lpAddr, m_sAddrPmttd[i] ) )
 				break;		// 검사 통과 
