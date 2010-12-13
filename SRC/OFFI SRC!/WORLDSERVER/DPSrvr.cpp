@@ -11153,7 +11153,9 @@ void	CDPSrvr::OnNPCBuff( CAr & ar, DPID dpidCache, DPID dpidUser, LPBYTE lpBuf, 
 						if(	( pSkillProp->dwID == SI_GEN_EVE_QUICKSTEP && pUser->HasBuff(BUFF_SKILL, SI_ASS_CHEER_QUICKSTEP) )
 							|| ( pSkillProp->dwID == SI_GEN_EVE_HASTE && pUser->HasBuff(BUFF_SKILL, SI_ASS_CHEER_HASTE) )
 							|| ( pSkillProp->dwID == SI_GEN_EVE_HEAPUP && pUser->HasBuff(BUFF_SKILL, SI_ASS_CHEER_HEAPUP) )
-	  						/*|| ( pSkillProp->dwID == SI_GEN_EVE_ACCURACY && pUser->HasBuff(BUFF_SKILL, SI_ASS_CHEER_ACCURACY) )*/ )
+	  						|| ( pSkillProp->dwID == SI_GEN_EVE_ACCURACY && pUser->HasBuff(BUFF_SKILL, SI_ASS_CHEER_ACCURACY) )
+							|| ( pSkillProp->dwID == SI_GEN_ADDEXP_LV01 && pUser->HasBuff(BUFF_SKILL, SI_GEN_ADDEXP_LV02) )
+							|| ( pSkillProp->dwID == SI_GEN_ADDDROP_LV01 && pUser->HasBuff(BUFF_SKILL, SI_GEN_ADDDROP_LV02) ))
 						{
 							pUser->AddDefinedText( TID_GAME_NPCBUFF_FAILED, "\"%s\"", pSkillProp->szName );
 							continue;
