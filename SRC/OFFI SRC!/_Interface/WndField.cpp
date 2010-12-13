@@ -18729,7 +18729,10 @@ void CWndBuffStatus::RenderBuffIcon( C2DRender *p2DRender, SKILLINFLUENCE* pSkil
 	WORD wID = pBuff->GetId();
 	if( pBuff->GetType() == BUFF_SKILL )
 	{
-		iter = ((CWndWorld*)g_WndMng.m_pWndWorld)->m_pBuffTexture[0].find( pBuff->GetId() );
+		WORD id = pBuff->GetId();
+		if(id >= 321 && id <= 324)
+			id = SI_GEN_EVE_ACCURACY;
+		iter = ((CWndWorld*)g_WndMng.m_pWndWorld)->m_pBuffTexture[0].find( id );
 
 		if( iter == ((CWndWorld*)g_WndMng.m_pWndWorld)->m_pBuffTexture[0].end() )
 			return;
