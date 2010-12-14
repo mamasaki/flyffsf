@@ -228,7 +228,7 @@ void CIMEMgr::Composition(HWND hWnd, WPARAM wParam, LPARAM lParam)
 			
 			m_composition.resize( compSize/sizeof(wchar_t) );
 
-			ImmGetCompositionStringW(hIMC, GCS_COMPSTR, &*m_composition.begin(), compSize);
+			//ImmGetCompositionStringW(hIMC, GCS_COMPSTR, &*m_composition.begin(), compSize);
 		}
 		if(lParam&GCS_RESULTSTR) {
 
