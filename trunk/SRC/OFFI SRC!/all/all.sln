@@ -67,6 +67,7 @@ Global
 		{5B8B5D21-B3B4-4141-9233-C9A235C46E13}.Release|Win32.Build.0 = Release|Win32
 		{D7B22D20-658B-4083-9C78-89C6DD0874B8}.Debug|Win32.ActiveCfg = Debug|Win32
 		{D7B22D20-658B-4083-9C78-89C6DD0874B8}.NoGameguard|Win32.ActiveCfg = Release|Win32
+		{D7B22D20-658B-4083-9C78-89C6DD0874B8}.NoGameguard|Win32.Build.0 = Release|Win32
 		{D7B22D20-658B-4083-9C78-89C6DD0874B8}.Release|Win32.ActiveCfg = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution

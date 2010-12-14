@@ -16,6 +16,10 @@ public:
 	virtual void OnSize( UINT nType, int cx, int cy ); 
 	virtual void OnLButtonUp( UINT nFlags, CPoint point ); 
 	virtual void OnLButtonDown( UINT nFlags, CPoint point ); 
+
+	void SetVar(TCHAR * key);
+public:
+	TCHAR	m_szCharacterKey[32];
 }; 
 #endif
 #endif // __HOUSING

@@ -3489,6 +3489,14 @@
 						>
 					</File>
 					<File
+						RelativePath="..\_Interface\WndGetBuff.cpp"
+						>
+					</File>
+					<File
+						RelativePath="..\_Interface\WndGetBuff.h"
+						>
+					</File>
+					<File
 						RelativePath="..\_Interface\WndHelp.cpp"
 						>
 						<FileConfiguration
@@ -11429,6 +11437,74 @@
 								BrowseInformation="1"
 							/>
 						</FileConfiguration>
+					</File>
+				</Filter>
+				<Filter
+					Name="CommonDefine"
+					>
+					<File
+						RelativePath="..\_Common\define.h"
+						>
+					</File>
+					<File
+						RelativePath="..\_Common\defineAttribute.h"
+						>
+					</File>
+					<File
+						RelativePath="..\_Common\defineEvent.h"
+						>
+					</File>
+					<File
+						RelativePath="..\_Common\defineHonor.h"
+						>
+					</File>
+					<File
+						RelativePath="..\_Common\defineItem.h"
+						>
+					</File>
+					<File
+						RelativePath="..\_Common\defineItemkind.h"
+						>
+					</File>
+					<File
+						RelativePath="..\_Common\defineJob.h"
+						>
+					</File>
+					<File
+						RelativePath="..\_Common\definelordskill.h"
+						>
+					</File>
+					<File
+						RelativePath="..\_Common\defineMapComboBoxData.h"
+						>
+					</File>
+					<File
+						RelativePath="..\_Common\defineNeuz.h"
+						>
+					</File>
+					<File
+						RelativePath="..\_Common\defineObj.h"
+						>
+					</File>
+					<File
+						RelativePath="..\_Common\definequest.h"
+						>
+					</File>
+					<File
+						RelativePath="..\_Common\defineSkill.h"
+						>
+					</File>
+					<File
+						RelativePath="..\_Common\defineSound.h"
+						>
+					</File>
+					<File
+						RelativePath="..\_Common\defineText.h"
+						>
+					</File>
+					<File
+						RelativePath="..\_Common\defineWorld.h"
+						>
 					</File>
 				</Filter>
 			</Filter>

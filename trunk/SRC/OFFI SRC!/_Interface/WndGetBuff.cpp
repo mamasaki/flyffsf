@@ -44,7 +44,7 @@ void CWndGetBuff::OnInitialUpdate()
 } 
 // 처음 이 함수를 부르면 윈도가 열린다.
 BOOL CWndGetBuff::Initialize( CWndBase* pWndParent, DWORD /*dwWndId*/ ) 
-{ 
+{
 	// Daisy에서 설정한 리소스로 윈도를 연다.
 	return CWndNeuz::InitDialog( g_Neuz.GetSafeHwnd(), APP_QUIT_ROOM, 0, CPoint( 0, 0 ), pWndParent );
 } 
@@ -77,9 +77,22 @@ BOOL CWndGetBuff::OnChildNotify( UINT message, UINT nID, LRESULT* pLResult )
 	switch(nID)
 	{
 		case WIDC_BUTTON1:// ok 버튼
-			//g_DPlay.SendHousingGoOut();
-			Destroy();
-			break;
+			{
+				if(!_tcscmp(m_szCharacterKey,"MaFl_Helper_ver12"))
+				{
+					if(g_pPlayer->GetGold() >= 100000)
+						g_DPlay.SendNPCBuff(m_szCharacterKey);
+				}
+				if(!_tcscmp(m_szCharacterKey,"MaFl_Helper_ver12.1"))
+				{
+
+					if(g_pPlayer->GetGold() >= 350000)
+						g_DPlay.SendNPCBuff(m_szCharacterKey);
+				}
+				Destroy();
+				break;
+			}
+			
 
 		case WIDC_BUTTON2:// cancel 버튼
 			Destroy();
@@ -87,5 +100,10 @@ BOOL CWndGetBuff::OnChildNotify( UINT message, UINT nID, LRESULT* pLResult )
 	};
 	return CWndNeuz::OnChildNotify( message, nID, pLResult ); 
 } 
+
+void CWndGetBuff::SetVar(TCHAR * key)
+{
+	_tcscpy_s(m_szCharacterKey, sizeof(m_szCharacterKey), key);
+}
 
 #endif // __HOUSING

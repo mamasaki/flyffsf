@@ -5130,7 +5130,10 @@ BOOL CWndWorld::OnCommand( UINT nID, DWORD dwMessage, CWndBase* pWndBase )
 #endif //__HEAVEN_TOWER
 #ifdef __NPC_BUFF
 			case MMI_NPC_BUFF:
-			{
+			{				
+				g_WndMng.m_pWndGBuff = new CWndGetBuff;	
+				g_WndMng.m_pWndGBuff->SetVar(pFocusMover->m_szCharacterKey);
+				g_WndMng.m_pWndGBuff->Initialize();				
 				g_DPlay.SendNPCBuff(pFocusMover->m_szCharacterKey);
 			}
 			break;

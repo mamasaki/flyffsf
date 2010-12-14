@@ -88,6 +88,12 @@
 #ifdef __GUILD_HOUSE_MIDDLE
 #include "WndHousing.h"
 #endif //__GUILD_HOUSE_MIDDLE
+
+#if 1
+//syj add npc buff confirm box
+#include "WndGetBuff.h"
+#endif
+
 typedef CMap<DWORD, DWORD, void *, void *> CMapDWordToPtr;
 
 
@@ -593,6 +599,11 @@ public:
 #ifdef __GUILD_HOUSE_MIDDLE
 	CWndGuildHouseBid* m_pWndGHBid;
 #endif //__GUILD_HOUSE_MIDDLE
+
+#if 1
+	//syj add npc buff confirm box
+	CWndGetBuff* m_pWndGBuff;
+#endif
 
 
 	// 인터페이스 텍스춰
