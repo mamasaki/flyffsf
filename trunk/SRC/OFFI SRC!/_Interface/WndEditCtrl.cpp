@@ -228,7 +228,8 @@ void CIMEMgr::Composition(HWND hWnd, WPARAM wParam, LPARAM lParam)
 			
 			m_composition.resize( compSize/sizeof(wchar_t) );
 
-			//ImmGetCompositionStringW(hIMC, GCS_COMPSTR, &*m_composition.begin(), compSize);
+			if(compSize > 0)
+				ImmGetCompositionStringW(hIMC, GCS_COMPSTR, &*m_composition.begin(), compSize);
 		}
 		if(lParam&GCS_RESULTSTR) {
 
@@ -236,7 +237,8 @@ void CIMEMgr::Composition(HWND hWnd, WPARAM wParam, LPARAM lParam)
 
 			m_result.resize( resultSize/sizeof(wchar_t) );
 
-			ImmGetCompositionStringW(hIMC, GCS_RESULTSTR, &*m_result.begin(), resultSize);
+			if(resultSize > 0)
+				ImmGetCompositionStringW(hIMC, GCS_RESULTSTR, &*m_result.begin(), resultSize);
 		}
 		if(lParam&GCS_COMPATTR) {
 
@@ -244,7 +246,8 @@ void CIMEMgr::Composition(HWND hWnd, WPARAM wParam, LPARAM lParam)
 
 			m_attr.resize( attrSize );
 
-			ImmGetCompositionStringW(hIMC, GCS_COMPATTR, &*m_attr.begin(), attrSize);
+			if(attrSize > 0)
+				ImmGetCompositionStringW(hIMC, GCS_COMPATTR, &*m_attr.begin(), attrSize);
 		}
 		if(lParam&GCS_CURSORPOS) {
 
