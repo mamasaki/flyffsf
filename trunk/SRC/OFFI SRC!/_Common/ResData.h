@@ -857,6 +857,13 @@
 #define APP_SEAL_CHAR_SELECT                                            2019
 #define APP_SEAL_CHAR_SEND                                              2020
 #define APP_SEAL_CHAR_SET                                               2021
+#define APP_CASHSHOP													2022
+#define APP_CONSIGNMENT													2023
+#define APP_CONSIGNMENT_SELL											2024
+#define APP_REGISTER													2025
+#define APP_MODIFYPASSWORD												2026
+#define APP_ONLINEEXPCONFIRM1											2027
+#define APP_ONLINEEXPCONFIRM2											2028
 
 // Control Id
 #define WIDC_STATIC_2ND_PASSWORD_CONFIRM866000000000000000000000000000000000000000000000000
