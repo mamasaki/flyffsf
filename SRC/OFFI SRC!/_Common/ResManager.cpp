@@ -1,5 +1,6 @@
 #include "stdafx.h"
 #include "ResManager.h"
+#include "ResData.h"
 
 LPWNDCTRL WNDAPPLET::GetAt( DWORD dwWndId )
 {
@@ -72,7 +73,23 @@ CString CResManager::GetLangCtrl( CScript& scanner, LPWNDCTRL lpWndCtrl, BOOL bT
 
 	return string;
 }
+struct SAppRes
+{
+	DWORD dwWndId;
+	char strTitle[128];
+	char subStrTitle[128];
+};
 
+SAppRes tempRes[] =
+{
+	{
+		APP_ONLINEEXPCONFIRM1, "领取状态", "领取高级状态需要消耗100000金币确认领取吗？"
+	},
+
+	{
+		APP_ONLINEEXPCONFIRM2, "领取状态", "领取高级状态需要消耗350000金币确认领取吗？"
+	}
+};
 BOOL CResManager::Load( LPCTSTR lpszName )
 {
 	CScript scanner;
@@ -103,8 +120,11 @@ BOOL CResManager::Load( LPCTSTR lpszName )
 		// 芹橇 虐 
 		pWndApplet->strToolTip = GetLangApplet( scanner, pWndApplet, TRUE );
 
-		
 		// HelpKey
+		if(pWndApplet->dwWndId == 822)
+		{
+			int a = 1;
+		}
 		m_mapWndApplet.SetAt( (void*)pWndApplet->dwWndId, pWndApplet );
 		scanner.GetToken(); // skip {
 		dwWndType = scanner.GetNumber(); 
@@ -149,6 +169,22 @@ BOOL CResManager::Load( LPCTSTR lpszName )
 		} 
 		scanner.GetToken_NoDef();
 	} 
+
+	LPWNDAPPLET lpWndApplet;
+	m_mapWndApplet.Lookup((void*)APP_QUIT_ROOM, (void*&)lpWndApplet);
+	for(int i = 0; i < sizeof(tempRes) / sizeof(SAppRes); i++)
+	{
+		LPWNDAPPLET AddWndApplet = new WNDAPPLET;
+		memcpy_s(AddWndApplet, sizeof(tagWndApplet), lpWndApplet, sizeof(tagWndApplet));
+
+
+		AddWndApplet->dwWndId = tempRes[i].dwWndId;
+		AddWndApplet->strTitle = tempRes[i].strTitle;
+		((WNDCTRL*)AddWndApplet->ptrCtrlArray[0])->strTitle = tempRes[i].subStrTitle;
+
+		m_mapWndApplet.SetAt( (void*)AddWndApplet->dwWndId, AddWndApplet );
+	}
+	
 
 	return TRUE;
 }

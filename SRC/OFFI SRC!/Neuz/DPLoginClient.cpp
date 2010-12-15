@@ -451,7 +451,8 @@ void CDPLoginClient::OnPlayerList( CAr & ar )
 		g_Neuz.m_apPlayer[slot]->m_bPlayer	= TRUE;
 		g_Neuz.m_apPlayer[slot]->InitProp();
 
-		ar.ReadString(  (char*)g_Neuz.m_apPlayer[slot]->GetName(), MAX_NAME );
+		char * p = (char*)g_Neuz.m_apPlayer[slot]->GetName();
+		ar.ReadString( p , MAX_NAME );
 		D3DXVECTOR3 Pos;
 		ar >> Pos;
 		g_Neuz.m_apPlayer[slot]->SetPos(Pos);

@@ -860,7 +860,8 @@
 #define APP_CONSIGNMENT_SELL											2024
 #define APP_REGISTER													2025
 #define APP_MODIFYPASSWORD												2026
-#define APP_ONLINEEXPCONFIRM											2027
+#define APP_ONLINEEXPCONFIRM1											2027
+#define APP_ONLINEEXPCONFIRM2											2028
 // Control Id
 #define WIDC_STATIC_2ND_PASSWORD_CONFIRM86600000000000000
 #define WIDC_OK_YOU                     100
