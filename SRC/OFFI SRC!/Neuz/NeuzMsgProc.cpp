@@ -449,7 +449,7 @@ int APIENTRY WinMain( HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdL
 #endif //__CLIENT	
 #endif //__CSC_VER9_4
 
-
+	//lpCmdLine = "sunkist";
 	SkipPatch();
 	InitGlobalVars( hInstance );
 	DisableTaskSwitching( hInstance );	
