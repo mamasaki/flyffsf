@@ -114,6 +114,14 @@ void CScript::LoadString( void )
 		}
 		GetLastFull();
 		
+		std::string tmp = Token;
+		int pos = tmp.find("µÚÒ»·É·É");
+
+		if(pos >= 0)
+		{
+			int a = 1;
+		}
+
 		bool bResult = m_mapString.insert( map<string, string>::value_type( (LPCTSTR)str, (LPCTSTR)Token ) ).second;
 		if( !bResult )
 			Error( "string error: %s", str );

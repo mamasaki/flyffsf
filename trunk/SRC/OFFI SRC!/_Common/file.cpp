@@ -105,7 +105,10 @@ BOOL CResFile::Close( void )
 
 void CResFile::AddResource( TCHAR* lpszResName )
 {
+#if 0
+	//output res detail
 	OutputDebugStr(lpszResName);OutputDebugStr("\n");
+#endif
 	//m_mapResource.Add( )
 	int nFileHeaderSize = 0;
 	int nFileNumber = 0;
@@ -187,6 +190,10 @@ void CResFile::AddResource( TCHAR* lpszResName )
 #endif	// __SECURITY_0628
 #endif	// __CLIENT
 		m_mapResource.SetAt( szFullFileName, lpRes );
+#if 0
+		//output res detail
+		OutputDebugStr("		"); OutputDebugStr(szFullFileName);OutputDebugStr("\n");
+#endif
 
 		/*
 		// 찾았다면
