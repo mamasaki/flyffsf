@@ -534,6 +534,7 @@
 #define	TID_MMI_EVENT_HAPPY_USA2010		7172	// «ÿ««∏”¥œ ¿Ã∫•∆Æ 2010 πÃ±π
 #define	TID_MMI_MAKE_TREASURE		7193 //øÛ Ø∂“ªª
 #define	TID_MMI_NPC_BUFF2						7194 
+#define	TID_MMI_NPC_BUFF3						7195
 
 #define TID_GAME_TROUPESKILLUSE        800
 #define TID_GAME_TROUPESKILLSTOP       801
