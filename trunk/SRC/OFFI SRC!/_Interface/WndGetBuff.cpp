@@ -48,11 +48,11 @@ BOOL CWndGetBuff::Initialize( CWndBase* pWndParent, DWORD /*dwWndId*/ )
 	// Daisy에서 설정한 리소스로 윈도를 연다.
 	if(!_tcscmp(m_szCharacterKey,"MaFl_Helper_ver12"))
 	{
-		return CWndNeuz::InitDialog( g_Neuz.GetSafeHwnd(), APP_ONLINEEXPCONFIRM1, 0, CPoint( 0, 0 ), pWndParent );
+		return CWndNeuz::InitDialog( g_Neuz.GetSafeHwnd(), APP_ADDBUFF_ROOM, 0, CPoint( 0, 0 ), pWndParent );
 	}
 	if(!_tcscmp(m_szCharacterKey,"MaFl_Helper_ver12.1"))
 	{
-		return CWndNeuz::InitDialog( g_Neuz.GetSafeHwnd(), APP_ONLINEEXPCONFIRM2, 0, CPoint( 0, 0 ), pWndParent );
+		return CWndNeuz::InitDialog( g_Neuz.GetSafeHwnd(), APP_ADDBUFF2_ROOM, 0, CPoint( 0, 0 ), pWndParent );
 	}
 	
 } 
