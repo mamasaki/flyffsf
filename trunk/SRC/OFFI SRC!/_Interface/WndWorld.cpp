@@ -5137,6 +5137,14 @@ BOOL CWndWorld::OnCommand( UINT nID, DWORD dwMessage, CWndBase* pWndBase )
 				//g_DPlay.SendNPCBuff(pFocusMover->m_szCharacterKey);
 			}
 			break;
+			case MMI_NPC_BUFF2:
+			{				
+				g_WndMng.m_pWndGBuff = new CWndGetBuff;	
+				g_WndMng.m_pWndGBuff->SetVar(pFocusMover->m_szCharacterKey);
+				g_WndMng.m_pWndGBuff->Initialize();				
+				//g_DPlay.SendNPCBuff(pFocusMover->m_szCharacterKey);
+			}
+			break;
 #endif //__NPC_BUFF
 		case MMI_MESSAGE:
 			g_WndMng.OpenMessage( pFocusMover->GetName() );
