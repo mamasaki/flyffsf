@@ -586,6 +586,10 @@ BOOL CWorld::ReadRespawn( CScript& s )
 	
 	pInfo->m_dwIndex     = dwIndex;
 	pInfo->m_dwType	= dwType;
+	if(pInfo->m_dwIndex == 965)
+	{
+		pInfo->m_dwIndex     = dwIndex;
+	}
 
 #ifdef __S1108_BACK_END_SYSTEM
 	pInfo->m_nMaxcb		 = s.GetNumber();

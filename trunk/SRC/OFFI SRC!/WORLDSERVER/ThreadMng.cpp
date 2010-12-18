@@ -405,7 +405,7 @@ void CRunObject::Run( void )
 			if( timeout.TimeoutReset( g_tmCurrent ) )
 			{
 				_PROFILE( "1SEC_Process" );
-				g_GameTimer.Compute();
+				g_GameTimer.Compute(); //lq
 				CGuildQuestProcessor::GetInstance()->Process();
 				CPartyQuestProcessor::GetInstance()->Process();
 

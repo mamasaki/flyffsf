@@ -404,7 +404,10 @@ u_long CRespawner::Spawn( CWorld* pWorld )
 
 			if( pi->m_dwIndex == 0 )
 				continue;
-
+			if( pi->m_dwIndex == 965 /*&& !memcmp(pWorld->m_szWorldName,"WdMadrigal",sizeof(pWorld->m_szWorldName))*/)
+			{
+				pi->m_dwIndex = 965;
+			}
 			// 삭제 명령이 내려졌고, 리스폰된 오브젝트가 없다면?
 			if( pi->m_bRemove )
 			{
@@ -422,7 +425,7 @@ u_long CRespawner::Spawn( CWorld* pWorld )
 			int nDay  = g_GameTimer.m_nDay ;
 			int nHour = g_GameTimer.m_nHour;
 
-			if( pi->m_nDayMin < pi->m_nDayMax )
+			if( pi->m_nDayMin <= pi->m_nDayMax )
 			{
 				if( nDay < pi->m_nDayMin || nDay > pi->m_nDayMax )
 					continue;
@@ -432,7 +435,7 @@ u_long CRespawner::Spawn( CWorld* pWorld )
 				if( nDay < pi->m_nDayMin && nDay > pi->m_nDayMax )
 					continue;
 			}
-			if( pi->m_nHourMin < pi->m_nHourMax )
+			if( pi->m_nHourMin <= pi->m_nHourMax )
 			{
 				if( nHour < pi->m_nHourMin || nHour > pi->m_nHourMax )
 					continue;

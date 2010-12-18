@@ -369,10 +369,9 @@ BOOL InitInstance(HINSTANCE hInstance, int nCmdShow)
 
 	SetTimer( g_hMainWnd, 0, SEC( 60 ), NULL );	// 60
 	SetTimer( g_hMainWnd, 1, MIN( 60 ), NULL );	// 3600
-
 	CTime time = CTime::GetCurrentTime();
 	SetLogInfo( LOGTYPE_TIME, "%s", time.Format( "%Y/%m/%d %H:%M:%S" ) );
-
+	g_GameTimer.SetTime(time.GetDay(),time.GetHour(),time.GetMinute(),time.GetSecond());
 	ShowWindow(hWnd, nCmdShow);
 	UpdateWindow(hWnd);
 
