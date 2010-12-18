@@ -784,13 +784,6 @@
 #define APP_AWAKE_SELECTCASE                                            879
 #define APP_APPLET384                                                   880
 #define APP_CHATTING_BLOCKING_LIST                                      881
-#define APP_APPLET385                                                   882
-#define APP_GH_BID                                                      883
-#define APP_APPLET386                                                   884
-#define APP_GH_BIDLIST                                                  885
-#define APP_APPLET387                                                   886
-#define APP_MAP_EX                                                      887
-#define APP_APPLET388                                                   888
 #define APP_APPLET389                                                   889
 #define APP_REQUESTING_POST                                             890
 #define APP_NAVIGATOR                                                   1000
@@ -860,8 +853,9 @@
 #define APP_CONSIGNMENT_SELL											2024
 #define APP_REGISTER													2025
 #define APP_MODIFYPASSWORD												2026
-#define APP_ONLINEEXPCONFIRM1											2027
-#define APP_ONLINEEXPCONFIRM2											2028
+#define APP_ONLINEEXPCONFIRM											2027
+#define APP_ADDBUFF_ROOM                         2028
+#define APP_ADDBUFF2_ROOM                         2029
 // Control Id
 #define WIDC_STATIC_2ND_PASSWORD_CONFIRM86600000000000000
 #define WIDC_OK_YOU                     100

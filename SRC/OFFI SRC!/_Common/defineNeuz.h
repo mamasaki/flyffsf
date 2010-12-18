@@ -312,7 +312,7 @@
 #define	MMI_EVENT_WORLDCUP10_FOR	174
 
 #define MAX_MOVER_MENU				175 // MMI를 추가시킬 일이 있다면 이 수치를 상승시켜야 한다.
-
+#define MMI_NPC_BUFF2				176
 
 
 #define MGI_APPELL_UP		0	// 호칭 업

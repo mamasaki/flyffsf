@@ -11127,16 +11127,19 @@ void	CDPSrvr::OnNPCBuff( CAr & ar, DPID dpidCache, DPID dpidUser, LPBYTE lpBuf, 
 		
 		if( lpChar )
 		{
-			if( !CNpcChecker::GetInstance()->IsCloseNpc(MMI_NPC_BUFF, pUser->GetWorld(), pUser->GetPos() ) )
-				return;
+			
 			if(!_tcscmp(m_szKey,"MaFl_Helper_ver12"))
 			{
+				if( !CNpcChecker::GetInstance()->IsCloseNpc(MMI_NPC_BUFF, pUser->GetWorld(), pUser->GetPos() ) )
+					return;
 				 if(pUser->GetGold() < 100000)
 					 return;
 				 pUser->AddGold( -100000 );
 			}
 			if(!_tcscmp(m_szKey,"MaFl_Helper_ver12.1"))
 			{
+				if( !CNpcChecker::GetInstance()->IsCloseNpc(MMI_NPC_BUFF2, pUser->GetWorld(), pUser->GetPos() ) )
+					return;
 				 if(pUser->GetGold() < 350000)
 					 return;
 				 pUser->AddGold( -350000 );
