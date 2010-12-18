@@ -23408,8 +23408,10 @@ void CWndCoupleTabSkill::OnDraw(C2DRender* p2DRender)
 	// Draw Active SKill
 	int nLevel = 0;
 	CCouple* pCouple = CCoupleHelper::Instance()->GetCouple();
-	if(pCouple)
-		nLevel = pCouple->GetLevel();
+	if(pCouple == NULL)
+		return;
+
+	nLevel = pCouple->GetLevel();
 
 	VS& vSkills	= CCoupleProperty::Instance()->GetSkill( nLevel );
 	VSK& vSkillKinds = CCoupleProperty::Instance()->GetSKillKinds();
