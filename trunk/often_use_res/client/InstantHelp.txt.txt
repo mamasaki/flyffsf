@@ -1,0 +1,21 @@
+IDS_CLIENT_INSTANTHELP_INC_000000	"角色卡住无法移动时：开启表情动作视窗(按""O"")，点选""移动至最近的村庄"""
+IDS_CLIENT_INSTANTHELP_INC_000001	"移动：用滑鼠左键点按想要移动地方，或是使用键盘的『W,S,A,D』键。"
+IDS_CLIENT_INSTANTHELP_INC_000002	走动：按X键一次即可转换成跑步或走步。
+IDS_CLIENT_INSTANTHELP_INC_000003	跳跃：按空白键即可跳跃。
+IDS_CLIENT_INSTANTHELP_INC_000004	视角：新版本的介面可按住滑鼠右键转换视角。旧版本的介面可按住滑鼠滚轮的按钮转换视角。
+IDS_CLIENT_INSTANTHELP_INC_000005	视角初始化：新版本的介面可双击滑鼠右键。旧版本的介面可双击滑鼠滚轮按钮即可。
+IDS_CLIENT_INSTANTHELP_INC_000006	如何聊天？：在键盘上按Enter键或是直接用滑鼠单击对话栏位后输入文字即可。
+IDS_CLIENT_INSTANTHELP_INC_000007	如何战斗？：选择要攻击的目标后，点击滑鼠左键一次或是按住即可。
+IDS_CLIENT_INSTANTHELP_INC_000008	如何使用物品?：在物品栏的物品上双击滑鼠左键即可。
+IDS_CLIENT_INSTANTHELP_INC_000009	复活：玩家死亡以后，将会在邻近的城镇复活。
+IDS_CLIENT_INSTANTHELP_INC_000010	购买物品：物品可透过商店的商人选择交易后购买。
+IDS_CLIENT_INSTANTHELP_INC_000011	玩家之间的交易：按住『ALT』键选择要交易的对象即可进行交易。若要交易金币，请将物品栏下方的金币图示拖曳到交易栏位中。
+IDS_CLIENT_INSTANTHELP_INC_000012	BUG回报：请利用官方网站『 http://www.omg.com.tw 』的客服中心回报BUG。
+IDS_CLIENT_INSTANTHELP_INC_000013	基本能力值提升：等级上升时所得到的GP点数，可提升角色栏的基本能力值。您可点下想要提升的能力值后，按下确定即可。
+IDS_CLIENT_INSTANTHELP_INC_000014	按滑鼠左键即可攻击怪物。
+IDS_CLIENT_INSTANTHELP_INC_000015	休息：在动作栏『热键 O』选择坐下即可休息，以便恢复各种状态的数值。
+IDS_CLIENT_INSTANTHELP_INC_000016	捡取：在动作栏『热键 O』选择检起的动作，即可检起掉落在玩家周围的物品。
+IDS_CLIENT_INSTANTHELP_INC_000017	视角旋转：新版本介面是按住滑鼠右键移动滑鼠。旧版本介面是按住滑鼠滚轮按钮后移动滑鼠。
+IDS_CLIENT_INSTANTHELP_INC_000018	地图卡住或有其他问题时，请回报GM处理
+IDS_CLIENT_INSTANTHELP_INC_000019	若还有其他的问题，也可以到www.omg.com.tw进行线上回报
+

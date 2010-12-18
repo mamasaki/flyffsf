@@ -1,0 +1,32 @@
+IDS_CLIENT_TUTORIAL_TITLE_000001	移动方法
+IDS_CLIENT_TUTORIAL_CONTENT_000001	#b#cff0000ff■ 滑鼠移动#nb#nc\n在想移动的地方上，点击滑鼠左键。\n\n#b#cff0000ff■ 键盘移动#nb#nc\n使用下面的快捷键，可以做移动。\n前进 : W\n后退 : S\n左转 : A\n右转 : D\n\n#b#cff0000ff■ 走路的方法#nb#nc\n按下X键。如果想要跑步，就再按一次X键。\n\n#b#cff0000ff■ 跳跃的方法#nb#nc\n想做跳跃的时候，按下空白键。
+IDS_CLIENT_TUTORIAL_TITLE_000002	镜头操作方法
+IDS_CLIENT_TUTORIAL_CONTENT_000002	#b#cff0000ff■ 滑鼠镜头变更#nb#nc\n在点击滑鼠右键的状态下，将滑鼠移动到想要的方向后，镜头就会回转。\n\n#b#cff0000ff■ 键盘镜头变更#nb#nc\n按住下面的快捷键就可以变更。\n上 : ↑\n下 : ↓\n左边 : ←\n右边 : →\n\n#b#cff0000ff■ 镜头远近#nb#nc\n透过滑鼠滚轮可以调整远近。同时利用 Page Up, Page Down 键，可以阶段性的调整。在设定选单上，确定镜头视角扩张功能，可以扩张更多的视角。
+IDS_CLIENT_TUTORIAL_TITLE_000003	地图
+IDS_CLIENT_TUTORIAL_CONTENT_000003	#b#cff0000ff■ 全地图#nb#nc\n如果按下M键，就可以查看玛德利贾大陆。\n\n#b#cff0000ff■ 迷你地图#nb#nc\n如果按下N键，就可以隐藏为在右上方的导行装置。如果想要再看，就再按下N键。
+IDS_CLIENT_TUTORIAL_TITLE_000004	聊天方法
+IDS_CLIENT_TUTORIAL_CONTENT_000004	#b#cff0000ff■ 一般聊天#nb#nc\n可以传达给自己周边的玩家。使用的方法点击聊天视窗的Chat钮后，就可以了。\n\n#b#cff0000ff■ 大喊聊天#nb#nc\n可以传达比一般聊天更广的范围的玩家。使用的方法在自己想要说的话前面，贴上 #cffff0000/s #nc 后就可以。\n点击聊天视窗的Shout钮就可以了。\n\n#b#cff0000ff■ 剧团聊天#nb#nc\n只有参加剧团的时候，才能使用，使用方法在自己想要说的话前面，贴上#cffff0000/p #nc 后就可以。\n点击聊天视窗的Troupe钮就可以了\n\n#b#cff0000ff■ 密语聊天#nb#nc\n只对特学玩家发送讯息的方法。使用方法在自己想说的话前面，贴上#cffff0000/w 对方角色名称 #nc就可以了。\n点击聊天视窗的 Whisper钮就也可以。\n\n#b#cff0000ff■ 公会聊天#nb#nc\n只有参加公会才可以使用。使用方法在自己想说的话前面，贴上 #cffff0000/g #nc就可以了。\n点击聊天视窗的Guild钮就可以了。\n\n#b#cff0000ff■ 系统讯息#nb#nc\n聊天讯息以外所有的讯息都是在系统视窗上，另外输出的。确定方法点击聊天视窗的SYSTEM钮就可以了。\n\n#b#cff0000ff■ 过滤功能#nb#nc\n在聊天频道上，选择标记的聊天种类，就能够只看到自己想要看到的内容。使用方法在选择各种类，点击Filter钮就可以了。
+IDS_CLIENT_TUTORIAL_TITLE_000005	属性视窗
+IDS_CLIENT_TUTORIAL_CONTENT_000005	#b#cff0000ff■ 属性视窗#nb#nc\n可以查看自己的 HP, MP, FP, Exp 等的情报。\n快键捷为 T 
+IDS_CLIENT_TUTORIAL_TITLE_000006	角色视窗
+IDS_CLIENT_TUTORIAL_CONTENT_000006	#b#cff0000ff■ 角色视窗#nb#nc\n可以看到自己角色情报的视窗。可以查看角色的所有情报，而且如果升级后，可以在这个视窗上，确认所支付的GP点数，使各种能力值做提升。\n快捷键为 H 
+IDS_CLIENT_TUTORIAL_TITLE_000007	物品栏位
+IDS_CLIENT_TUTORIAL_CONTENT_000007	#b#cff0000ff■ 物品栏#nb#nc\n在上端可以确认自己所装备的道具。在下端可以看到所持有的道具和金钱。在想要装备的道具做一个双点击或拖曳到装备位置上，就可以了。\n快捷键为 I
+IDS_CLIENT_TUTORIAL_TITLE_000008	技能栏
+IDS_CLIENT_TUTORIAL_CONTENT_000008	#b#cff0000ff■ 技能栏#nb#nc\n放入想要快速使用的道具或动作的空间，F1~F9都可以做使用，1~8是扩充栏位。
+IDS_CLIENT_TUTORIAL_TITLE_000009	任务视窗
+IDS_CLIENT_TUTORIAL_CONTENT_000009	#b#cff0000ff■ 任务视窗#nb#nc\n可以提醒自己目前已完成任务和进行中任务的情报视窗。\n快捷键为 Q 
+IDS_CLIENT_TUTORIAL_TITLE_000010	剧团
+IDS_CLIENT_TUTORIAL_CONTENT_000010	#b#cff0000ff■ 剧团#nb#nc\n这是在飞飞世界里特有的系统，和组队的概念类似的新互动。一般组队分为临时剧团和能够设定分配经验值方式及使用各种技能的巡回剧团。\n要邀请对方加入剧团 #cffff0000/用剧团邀请对方角色名称#nc可以邀请。\n\n#b#cff0000ff■ 剧团视窗#nb#nc\n剧团团员的情报或剧团的种类，等级可以一目了然。\n快捷键为P
+IDS_CLIENT_TUTORIAL_TITLE_000011	角色选单
+IDS_CLIENT_TUTORIAL_CONTENT_000011	#b#cff0000ff■ 角色选单#nb#nc\n对其它的玩家 #cffff0000Alt + 滑鼠左键#nc 以后，会出现能够对玩家做出互动的许多选项。交易，新增讯息，组队邀请，公会邀请，跟随，察看，加油等，需要的时候可以使用。 
+IDS_CLIENT_TUTORIAL_TITLE_000012	交易
+IDS_CLIENT_TUTORIAL_CONTENT_000012	#b#cff0000ff■ 1:1交易#nb#nc\n与对方交换道具或金币时，使用的交易方法。给对方#cffff0000Alt + 滑鼠左键#nc 后, 请点击交易选单。在自动询问对方是否要交易后，才能够进行交易。\n\n#b#cff0000ff■ 个人商店#nb#nc\n可以将你自己持有的道具贩卖给其它的玩家。按下Start键，在出现的开始选单中，如果点击个人商店选单，就会出现个人商店视窗。登录商店的名字和要贩卖的道具后，点击OK钮就完成了。但在NPC的周边无法开设商店。
+IDS_CLIENT_TUTORIAL_TITLE_000013	保管方法
+IDS_CLIENT_TUTORIAL_CONTENT_000013	#b#cff0000ff■ 银行#nb#nc\n去找在各城镇里的[城镇服务处]NPC就可以利用银行。只要点击他的选单就可以。
+IDS_CLIENT_TUTORIAL_TITLE_000014	讯息
+IDS_CLIENT_TUTORIAL_CONTENT_000014	#b#cff0000ff■ 通讯#nb#nc\n登录的玩家的连线状态或频道还有对话等，都能够很方便的进行。登录的方法点击在通讯视窗上的+钮后，在填入玩家的角色名称就可以了。\n快捷键为E
+IDS_CLIENT_TUTORIAL_TITLE_000015	感情表现
+IDS_CLIENT_TUTORIAL_CONTENT_000015	#b#cff0000ff■ 感情表现#nb#nc\n无法用对话表现自己的感情，以动作表现给其它的玩家。因为有许多的感情表现和情绪脸谱，所以可以对应状况使用。\n快捷键为O
+IDS_CLIENT_TUTORIAL_TITLE_000016	应援
+IDS_CLIENT_TUTORIAL_CONTENT_000016	#b#cff0000ff■ 鼓励#nb#nc\n每次持续游戏1个小时，角色可以得到鼓励点数。选择其它的角色，透过在动作视窗(快捷键为O)的鼓励图示或Alt +滑鼠左键所出现的鼓励选项，就能给予对方鼓励。得到应援的角色在10分内，经验值会加5%
