@@ -169,7 +169,7 @@ BOOL CResManager::Load( LPCTSTR lpszName )
 		} 
 		scanner.GetToken_NoDef();
 	} 
-
+#if 0
 	LPWNDAPPLET WndAppletType1;
 	m_mapWndApplet.Lookup((void*)APP_QUIT_ROOM, (void*&)WndAppletType1);
 	for(int i = 0; i < sizeof(tempRes) / sizeof(SAppRes); i++)
@@ -186,7 +186,7 @@ BOOL CResManager::Load( LPCTSTR lpszName )
 
 		m_mapWndApplet.SetAt( (void*)AddWndApplet->dwWndId, AddWndApplet );
 	}
-	
+#endif
 
 	return TRUE;
 }
