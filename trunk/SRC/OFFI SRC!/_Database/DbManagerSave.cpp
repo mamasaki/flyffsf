@@ -103,7 +103,7 @@ void CDbManager::SavePlayer( CQuery *qry, CQuery* pQueryLog, CMover* pMover, cha
 	PutExpLog( pQueryLog, pMover, ( pMover->m_dwPeriodicTick == 0 ? 'O': 'P' ) );
 
 	//	mulcom	100218	유럽 페냐 관련 CHARACTER_STR U1 변경 ( U1 -> C1 )
-	sprintf( szQuery, "{call CHARACTER_STR('C1','%07d','%02d','',"
+	sprintf( szQuery, "{call CHARACTER_STR('U1','%07d','%02d','%s',"
 					  "?,?,?,?,?,?,?,?,?,?,?,"		// 1
 					  "?,?,?,?,?,?,?,?,?,?,?,"		// 2
 					  "?,?,?,?,?,?,?,?,?,?,?,"		// 3
@@ -146,7 +146,7 @@ void CDbManager::SavePlayer( CQuery *qry, CQuery* pQueryLog, CMover* pMover, cha
 #endif // __CAMPUS
 
 //					  ")}", pMover->m_idPlayer, g_appInfo.dwSys );		// +3
-					  ")}", pMover->m_idPlayer, g_appInfo.dwSys, pMover->m_vReturnPos.x, pMover->m_vReturnPos.y, pMover->m_vReturnPos.z );		// +3
+					  ")}", pMover->m_idPlayer, g_appInfo.dwSys,pMover->m_szAccount, pMover->m_vReturnPos.x, pMover->m_vReturnPos.y, pMover->m_vReturnPos.z );		// +3
 
 	char szAuthority[2] = "F";
 	int nSlot = 0;

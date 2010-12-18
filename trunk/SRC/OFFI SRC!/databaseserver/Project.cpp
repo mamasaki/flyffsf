@@ -464,10 +464,10 @@ BOOL CProject::LoadExpTable( LPCTSTR lpszFileName )
 			DWORD dwVal = s.GetNumber();
 			while( *s.token != '}' )
 			{
-				m_aExpCharacter[i].dwExp1 = dwVal;
-				m_aExpCharacter[i].dwExp2 = s.GetNumber();
+				m_aExpCharacter[i].nExp1 = dwVal;
+				m_aExpCharacter[i].nExp2 = s.GetNumber();
 				m_aExpCharacter[i].dwLPPoint = s.GetNumber();
-				m_aExpCharacter[i++].dwLimitExp = s.GetNumber();
+				m_aExpCharacter[i++].nLimitExp = s.GetNumber();
 				dwVal	= s.GetNumber();
 			}
 		}
