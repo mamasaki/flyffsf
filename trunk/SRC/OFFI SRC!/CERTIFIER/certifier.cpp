@@ -50,7 +50,7 @@ BOOL	Script( LPCTSTR lpszFileName );
 LRESULT	CALLBACK	WndProc(HWND, UINT, WPARAM, LPARAM);
 
 
-/*
+
 //////////////////////////////////////////////////////////////////////////
 //	BEGINTEST100111	DUMP
 #include "../__ffl_dump/include/ffl_dump_unexception_filter.h"
@@ -63,7 +63,7 @@ LRESULT	CALLBACK	WndProc(HWND, UINT, WPARAM, LPARAM);
 #endif
 //	ENDTEST100111	DUMP
 //////////////////////////////////////////////////////////////////////////
-*/
+
 
 
 void InitLanguageFromResource( HINSTANCE hInstance )
