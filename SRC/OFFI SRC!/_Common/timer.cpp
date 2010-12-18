@@ -184,21 +184,9 @@ void CGameTimer::Compute()
 	if( m_bFixed )
 		return;
 	long lCurTime = (long)( GetCurrentTime() );
-	int nSec, nMin, nHour, nDay;
+	CTime time = CTime::GetCurrentTime();
+	SetTime(time.GetDay(),time.GetHour(),time.GetMinute(),time.GetSecond());
 	lCurTime /= TIMESPEED;
-
-	nSec    = lCurTime / 60;
-	m_nSec  = lCurTime % 60;
-	nMin    = nSec  / 60; // 60초로 나눈다.
-	m_nMin  = nSec  % 60; // 60초로 나눈다.
-	nHour   = nMin  / 24; // 24시간으로 나눈다.
-	m_nHour = nMin  % 24; // 24시간으로 나눈다.
-	nDay    = nHour / 30; // 30일로 나눈다.
-	m_nDay  = nHour % 30; // 30일로나눈다.
-	
-	m_nHour++; // 1 based
-	m_nDay++; // 1 based
-	//m_nHour = 19;
 	
 #ifdef __XUZHU
 //#ifdef _DEBUG
