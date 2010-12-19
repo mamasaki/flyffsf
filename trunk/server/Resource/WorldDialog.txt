@@ -1,0 +1,1185 @@
+#auto
+#init
+#addKey
+#yesQuest
+#noQuest
+#questBegin
+#questBeginYes
+#questBeginNo
+#questEndComplete
+Introduction
+Farewell
+CARGO
+Recent Condition
+Exit
+Flying Control
+Flying Combat
+IDCARD
+Dekanes
+Move
+For Honor
+For Fun
+Just because
+Yes_Enter
+No_Enter
+Key_Original
+Achaben
+Place
+Your job is
+Are you the daughter of a Magician?
+Who are you?
+I just felt it
+Somebody told me
+YES
+NO
+Here it is
+No I do not have it
+Place appointment
+Finalize Stat selection
+Dekane Mine
+Cell
+Flying operation guide
+Flying combat guide
+Purchase
+Death
+"Welcome to Keakoon! Oh kind human, could you do me a favor?"
+Fathers Package
+Hrrmph How strange How did a human like you manage to get here?
+"Thank you for saving my father By the way, what brings you here?"
+Please save my father He is imprisoned on the east side of town
+"Hrrmph I do not know how you found this place, but you are not the one I am looking for Leave now This place is too dangerous for your kind"
+"Hrrmph I am Drian - son of Nevil, the patriarch of Keakoon Your people look down on us but it is you humans who are the inferior ones"
+Hrrmph  This place is too dangerous for the likes of you Go home
+Here is the package my father left me Hrrmph
+Sigh this might take a while
+What the a human? Here? You are either brave or just plain crazy
+Humph! A human Your kind is not welcome here You had better leave
+Humph! I do not have to introduce myself to a human like you
+Go home Humans are not welcome here
+","
+",,"
+Garr I have not seen a human in years I am Nevil - honorable patriarch of Keakoon
+"Grrrr A human eh? I have not seen one of your kind in ages Grrrr, See you again"
+Feel free to come see me whenever you are in need of magical goods
+Nice to meet you Have you also come to research the magical fields surrounding the islands?
+My name is Ciel and I am doing research on the various magical phenomena in the area
+Good Bye
+Come to me if you seek absolution
+Are you here for confession?
+Your  aura shines brightly May it never again lose its brilliance
+I am a shepherd who helps sinners find their way back to the path of righteousness Come to me if you wish to be cleansed
+Get the key from one of the criminal Masquerpets Once you get the key you can enter the Warp Zone in the mountains
+Good luck and be careful not get caught again
+You simply cannot survive here without a shield
+Huh? Do you want something from me?
+My name is Rocbin and I came here for a number of reasons none of which I would like to discuss with you at this time
+"Take care,"
+Need to arm yourself? Sure! Let me lend you a hand
+"Hahaha, You look like the rest of them felons What brings you here?"
+"Haha I am Shun --- your, ever righteous, arms dealer next door I do not care who you are or why you are here to me a customer is a customer Come right over and purchase whatever you want"
+Hahaha Alright I hope we can hang out together someday
+I sell supplies to the weary adventurer
+Do you have something to tell me?
+"My name is Yuna I believe you will find my food and medicine reasonably priced,"
+Welcome to the General Shop of Achaben! *cough*
+May I help you?
+"I am happy to have a customer *cough* If you need it, we have it *cough*"
+"My name is Achaben, and I run the General Shop here in Darken city"
+Take care! Please come by come and visit sometime!
+#b#cff0001ffFlying Information#nc#nb is available here!
+What do you want to do?
+"Flying in the sky is one the oldest dreams of the human race I would be flying as well, if I could pull myself away from the problems in my family"
+"My name is Almani, and I run the Station here in Darken city"
+1 You need to buy a broom or a board to fly\n 2 Drag or double click your broom or board into your inventory
+3Press the SPACEBAR to start flying
+"4 You can change your direction by holding the right mouse button down and moving the mouse the direction you want to go \n You can also move while flying by pressing the W, S, A, D keys on the keyboard"
+"5Tip: If you double click the right mouse button, you can change your direction without holding  the button down Click the right mouse button once to cancel the action"
+6 Anyone can fly regardless of their job
+I hope you were able to learn something from me You are on your own now Hmmmm just like me Happy flying
+ 1 You can see boxes around the flying Masquerpets when you fly close to them
+ 2 You can target them with the Tab key or the left mouse button
+" 3 You can attack a targeted monster by getting close and clicking the left mouse button or pressing the Insert key\n 4 In order to follow the targeted monster automatically, you press the Z key"
+ 5 Items dropped by flying Masquerpets go into your inventory automatically
+ 6 If your inventory is full you will not be able to pick up items dropped by flying Masquerpets
+ 7 Mercenaries and Assists can only attack flying enemies with melee attacks Magicians can use ranged attacks when using a wand
+ I hope you enjoy your flying!
+Good bye Please come and ask if you have any questions
+No one will threaten this place as long as I am here!
+
+"Greetings there, you are welcome to visit as long as I, Amadolka, am here But it is dangerous here Go back as soon as possible"
+My name is Amadolka Liviehindekinas and I am in charge of security here at Erons Factory
+No one can stop from seeking the adventure you crave Go on I will stand guard here
+Boohoo am such a coward
+"Do not speak to me, otherwise, you will be cursed"
+Why do you want to know the names of those who were freed from curses in the past?
+Yes It is for your own good
+ID Card
+Hello! Hello! How are you?
+Huh? Do you have a question for me? There is not much I can tell you
+Why do you care about my condition? Thank you for your concern but I do not want you doing me such a dangerous favor
+Alright I hope I will see you again soon
+Ah! Are you talking about the ID Card that allows into the Trillipy room? You should look for Andre I heard he spends most of his time in a forest filled with many ancient trees
+"Welcome, welcome My name is Bolpor and I am a food merchant"
+"So, what do you want?"
+"You do not know what food is? You eat food everyday! Man, are you serious?"
+My name is Bolpor Centaurn and the most important food vendor in Darken You got that?
+Good bye!
+"You, who want to follow the in the footsteps of the Knight hero Billeien! Are you ready to bear a heavy burden and begin down the path of a hero?"
+"They will be forgotten in the next age of this world, but they will disappear"
+My name is Boneper Guardian and I am protecting the will of Billeien the Knight hero
+I hope the courage of Billeien will be with you forever
+"You, who want to follow the will of a hero! Are you ready to do honor to that will?"
+The ones who follow the Clowns too closely will be destroyed by them in end So follow those that stood against the three Clown Goddesses
+My name is Capafe Guardian and I am protecting the will of Roentel the Billposter hero
+I hope the power of Roentel protects you forever
+You can find various metals and minerals inside the mines
+You are looking for adventure? Why not figure out the Hidden curse of Darkon?
+Why are you being courteous? Nobody ever respects me so stop it! Just tell me what you want me to do
+"Leave if you want to, I do not need your help Nobody cares about me and I do not care for anybody,"
+"Have you ever heard the name Neverant? It no longer exists, but long ago it was the top-ranking mining guild in the continent I used to be a member of that guild,"
+Neverant is no more it was destroyed by a powerful curse Pity
+"Check around the mines of Darkon 1 for Dekane, if you like I do not need your company,"
+Welcome to the shield shop of Chenbing! Here is where the best shields of the Nomads are made!
+What are you going to do for me?
+"We are just nomad-sellers, but we, the Khan union, are well known throughout Madrigal for our high quality products"
+My name is Chenbing Khan and I am selling shields
+I hope you have fun flying!
+"Did you attain your goal? Do you want to move now, then?"
+What do you want?
+"Do not lower your guard here, or you will not survive Always keep that in mind"
+There is nothing special about me I am just defending this place
+I hope you can achieve what you want!
+Hey! Help me! Let me out!
+"Hey, what are you thinking over there? If you have time can you let me out please?"
+"Me? I am the best actor, Coar Devoka, in Pepoview Troupe Well, I was, but now I am stuck here,"
+"Hey! Are you just leaving without doing anything? Let me out of here! Hey, you fool !!!"
+"Lillip, your wisdom is Phew, it is not easy to shout the same thing all the time"
+"Whatever happens, please do not lose hope"
+"My name is Condram Griters, and I am one the 9 priests of Lillip, the Elementor hero I am teaching the  wisdom of Lillip to his successor"
+"I hope you keep the wisdom of Lillip Well, it is not my business really,"
+"Heren, your wish is finally realized in this world"
+The 8 shields stand up against the evil bearing down on this world
+"My name is Corel Anduril, and I am the current Blade Master I was well known as a Blade dancer before"
+Pray to Heren for protection
+"Offerep, Psykeeper hero, I am very pleased to honor your spirit"
+It will be great It will be grand Their last battle will resonate through eternity
+"My name is Cylor Mesmor and I am the Psykeeper Master I committed many sins in the past, and through the grace of Offerep, I have been forgiven"
+I hope you to learn the strength of a Psykeeper
+"The ecosystem of Madrigal is the essence of mystery itself See, how beautiful it is!"
+The creatures here were once the machines used in the Erons Factory But the magical nature of madrigal and exposure to waste coming from the factory turned them in the Masquerpets they are today
+I am Dr. Est I am studying the ecosystem of Madrigal with my two brothers
+"Please be careful, the Masquerpets here are very very dangerous"
+"Oh Ranger, The will of Hainan will lead you"
+"This is what you have to do,"
+Once they reach the next paradise they will reborn as heroes once again
+"I am a master Ranger, and I can show you the ways of a hero"
+May the will of Hainan be with you always
+"Eiene, the Ringmaster hero, your blessing on this world will be remembered forever"
+"When the world is reduced to a chaotic state, there will be will be what was it? Oh, yes! There will be a savior who looks after the world"
+My name is Ellend Eledyo and I am the Ringmaster master Nice to meet you
+Pray to Eiene for protection
+The great creature is sleeping here waiting for your challenge
+Why do you want to hunt the monster?\n1[For Honor][] \n2[For Fun][] \n4[Just because][]
+You failed Do you want to try again?\n[Yes][Yes_Enter] / [No][No_Enter]
+Did you defeat the monster? Congratulations!
+You are qualified to challenge Do you want to enter?\n[Yes][Yes_Enter] / [No][No_Enter]
+"You fool, this is not the place to have fun Remember that, or you will regret it"
+",,,,,"
+It seems like other challengers are fighting him You cannot enter now
+"You should definitely be prepared, or you will not overcome the creature"
+Are you giving up? Fine
+"Roentel, please bless everyone"
+Nothing will ever change if we forget the blessings of those who sacrificed themselves to protect all of this
+"My name is Fera Jeen Condram Griters, and I am one the 9 priests of Roentel the Billlposter hero I am teaching the strength of Roentel to his future successor"
+I hope you learn the strength of Roentel
+The Misty Season has begun 
+Have you had Beaujolais? It is the best wine in the world! It tastes just like spring sunshine
+I am Enologist Furan I am in charge of the Madrigal Wine Society
+"Here, this mysterious wine is call the Blood of the Gods Remember that "
+#b#cff0000ffEverything you need for the Guild Siege is here Come on over and buy#nc#nb
+Please make sure that you have everything you need for the Guild Siege
+I am here to sell materials for the Guild Siege
+Let me know if you have any good news
+"I need to gain more details,Hmm Is there anyone who can help me?"
+"There are so many secrets in Madrigal, but some of them should not be uncovered Funny"
+I am Hachal Gedvas I was kicked out from the Madrigal History Society
+I hope you enjoy your trip Ha ha ha
+You can purchase many magical and wonderful things in my shop
+Key Scenario 5
+May I help you? You seem like you have a question for me What is it?\n [What do you do][]? \n [Are you the daughter of a Magician][]? \n [Who are you][]?
+We have everything you need Ho ho What magical item do you seek?
+Hello Welcome to the magic shop of Darkon Take your time and look around I am sure my shop carries the items you need
+I am Haven the magician of Darkon I am originally from  Saint Morning but I moved here because I have fallen in love with this place
+
+But anyway I am happy that I can see him every day He has been ill for some time now so I have been nursing him every day
+He is a strong man mentally even though he is physically weak I am quite sure you will agree with me once you have met him yourself
+"I am not telling you this because I love him Oh, never mind You will soon understand what I mean once you meet him"
+"Magical products are very much in demand here in Darkon, and it is for that reason that I have set up this shop"
+I look shining because Darkon is so dark just like its name Ho ho
+If you wish to travel this land safely you will need my magical supplies
+Farewell for now I look forward to seeing you again
+I manage a small magic shop There is really not much to say about it
+"Oh? Yes, you are right, but how do you know that?\n [I just had that feeling][] \n [I heard from someone][]"
+???\nI am the owner of this magic shop My name is Haven Have I not already told you?
+Really? You are truly discerning  Though I suppose it should be obvious I AM managing a magic shop after all
+"Somebody?? Ahthe triplets told you! Mm They really should know when to keep their mouths shut Then again, I suppose it was not easy for you to meet them"
+"If you met the brothers, I think they asked you to deliver their request to me Am I right?\n [Yes][]\n [No][]"
+
+Really? They sent you here without a favor to ask of me? Mmm I think you are hiding something from me Come back if you ever need my help
+"The latter part of this booklet me see Al areca,um,this is,Ah Got it! Al Areca De Rebuish Eqaudorer"
+"The first part of the ancient language means, Do not try to find me,do not even try to know me, but,"
+"The second part is,De Rebuish La Pador Eshlopeiya Raradoru It means, If you really want to know me,come to my prison Break the seal free me "
+The last part is Sorarador De Riapedo Le Panendisi Ronrondosi Purekerakapo De Rasip miaru Warnuaus
+"It means, If you see me after the door opens,you should erase my figure from your mind  If you cannot erase it,I will disappear This is all I can understand"
+"These sentences are not easy for me I am so sorry This is all that I can do for you right now Ah You said these are codes,but they are actually spells"
+OK Let me try again I wonder what will happen\n Al Areca De Rebuish Eqaudoreure De Rebuish La Pador Eshlopeiya Raradoru Soraradoru De Riapedo Le Panendish Ronrondosi Purekerakapo De Rasip Ru miaru Warnuaus!!!
+"Aha! It was a spell to create a charm that breaks the seal of the prison Here it is,the charm It is up to you to defeat the monster"
+Everything is ready Now all you have to do is to find the prison I suggest you take as many of your guild members as you can along with you when you go there Take care
+What is this? A magic book of Mule? Everything about the wand?
+Maybe you do not intend to show me the book You definitely do not trust me Come see me again when you feel can trust me
+"Aenn, your teardrops delivered peace in this world"
+They will leave us all all behind but the things saved by their sacrfice will be worth the cost
+"My name is Heedan Joe, and I am one the 9 priests of Aenn the Ringmaster hero I am delivering the blessing of Aenn to his future successor"
+"Aenn will bless you wherever you are, whatever you do"
+You! You want to be the successor of the Jester hero Curenen? Are you ready to become a hero?
+Whatever you do from here on is up to you Whether or not I will help you is also up to you
+Some people admire them Some criticize them But they saved the lives of so many people
+"I am the Jester protector Heingard, who protects the will of the Jester hero Curenen"
+May the blessing of Curenen be with you always
+"Gentlemen! Be ambitious! If you sincerely desire it, then it will come true!"
+It is your duty
+Take a look at the brand new 17th archery discipline!
+I am a proud training instructor for Acrobats I am in charge of leading vagrants to the great way of the Acrobat
+Goodbye gentlemen!
+"Curenen, I wish to follow your great will"
+There is something you need to do
+The sky will weep and the earth will tremble when the heroes begin the final battle
+"I, as one of the 8 Priests of Alta, honor the Jester hero Curenen I am in charge of delivering the spirit of the Jester to you"
+May the blessing of Curenen be with you always
+Lillip! Elementer hero! Please protect this world with your wisdom
+"8 stars will be gathered in one place, and they will shine as one at the last moment "
+"My name is Horison Keloan, the Elememtor Master I am a descendant of the first Elementor Master"
+I hope you will overcome every difficulty with the wisdom of an Elementor
+"Heren, please spread your heroic prescence throughout the world"
+Tears will flow from the sky when the heroes wake The tears will bless them
+"My name is Jeperdy Soce, and I am one the 9 priests of Heren, the Blade hero I am delivering the will of Heren to his future successor"
+May the grace of Heren shine on you
+Welcome to Jinitte Restaurant! We have the best nomad food around
+"We are just nomad-sellers, but we, the Khan union, are well known in Madrigal for our high quality foods"
+My name is Jinitte Khan and I am selling food
+Welcome to the Kablloc Weapon Shop! Here are the best weapons made by nomads
+My name is Kaballoc Khan and I am selling weapons
+Do you wish to follow the Ranger hero Hainan? Are you ready to undergo the harsh trials to become a hero?
+New life springs forth wherever the seeds are cast The way to new life has been opened the life of a hero
+"I am the Ranger protector Kailreard, protector of the will of the Ranger hero Hainan"
+May the glory of Hainan be with you always
+Billeie! The honor you left this place with will spread throughout the world
+"When the 3 flames blow out completely, peace will return to this world"
+My name is Karandur Eope from the Eope family I am a Knight master and in charge of leading you to the way of the hero
+The sword of Billeien  will protect you
+I am selling armor Please take a look around
+I sell the most powerful armor you can find anywhere If you are looking for armoryou have come to the right place
+My name is Krinton I am following in the footsteps of Luckythe original proprietor of this store
+Come again But do not expect any discounts
+"Ho ho ho, there are so many flowers today Ho ho ho"
+I am sorry but I am at least 200 years older than you You should not judge a person by their looks
+My name is Laola You have heard people say that I am the Great Magician hmmm there is never a rumor without a glimmer of truth
+"Be careful, there are many dangerous things in your way"
+"Yo, I am the lucky adventurer I live for adventure!"
+"Hey, you! Do this! Why? No reason! Just do it already! Hahaha"
+The arrows of the Goddesses will fall from the sky and dye the world red
+"We, High-Dwarpets, are very different from normal Dwarpets I mean, we are of a higher class Wait? You think humans are above us? What a fool! You would not last a second against any of us!"
+Bye
+"Billeien, our hero, I will follow your spirit"
+"He will smile, then the world smile back"
+"My name is Lobiet Lee, and I am one the 8 priests of Billeien, the Knight hero I am delivering the will of Billeien to his future successor"
+Billeien will be watching over you always
+"Oh, I am so sleepy Do you have a question? Then you should ask me, Pang"
+Choose what you want to do
+Hello this is the place where silly humans visit
+"Hello I am Darkon Pang, the youngest of the Pang brothers We manage the Lodelights"
+"Choose the Lodelight where you want to revive\nIf you want to revive somewhere else, just designate the place Got it?"
+Bye! See you soon after you die that is
+"Hello I am Darkon Pang, the youngest of the Pang brothers We are technically twins but I am still the youngest We manage the Lodelights"
+"The soul of Jester hero, Curenen, will protect them"
+They may disappearbut they will be victorious And thenthe world will be saved
+I am the Jester Master It is my duty to lead you to the way of the hero
+May the blessing of Curenen be with you always
+"Any adventurer may partake in these quests  You must be at least level 51, though These quests are sponsored by the local merchants and citizens"
+Welcome The local citizens have issued the following quests Select the quest you wish to take from the list below
+My apologiesthere are no quests available at this time Please come again
+My name is Luriff and I am in charge of the quest center in Darkon These quests came from the local citizens and we list them here for you
+To throw my life into the fire of the red lotus blossom would bespectacular!
+Hmm Do you have anything to ask of me?
+I apologizebut this heat is just too oppressive I need to lie down for a while Please see me again when it is cooler
+My name is Nein and refining metal is what I love to do
+Good bye Be careful not to succumb to the oppressive heat
+"Do you have anything to ask at #b#cffff0000Office#nc#nb?Then you should visit me, Olien"
+Is there anything you can do? Ho ho ho
+Is there something you want to know? I will probably give you the most simple answer so you may just want to think about it on your own Okay?
+My name is Olien Hengart I am in charge of managing the Office here in Darken city
+Good bye
+"Offerep, please strengthen this world with your strong spirit"
+They will lose everything they love They will get angry And they will stand up
+"My name is Pereb Endrile, and I am one the 8 priests of Offerep the Psykeeper hero I am delivering the spirit of Offerep to his future successor"
+The spirit of Offerep will strengthen you
+Hey! Hey! I have something good Just take a look!
+"So, what are you going to do for me?"
+The world has become so dangerous It was not like this when I was young Damn! Thisis why we need shield Why not buy one?
+"Actually I have sold lots of different things in my life, but now I am selling the shields here in Erons Factory Nice to meet you, my name is Phacham Dudury"
+Bye! Visit me when you come here again! Ha ha ha
+Arise nowfrom the darkness You now bear the shining name - the title of Acrobat!
+Here you are Time to fulfill your duty
+Everything is the Acrobat The Acrobat is everything Take a moment to ponder what I have said
+"My name is Pyre and I am the Acrobat Master Nice to meet you Ha ha ha I am in charge of helping the vagrants, who want to, ebecome an Acrobat"
+Good bye Never forget the way of the Acrobat Ha ha ha
+"No one can stop you from jumping into it,even though you know that it is extremely hot"
+Cell
+What? What do you want?
+I know youyou were here before I believe you have the ability to overcome the dangers
+Speaking to me is already dangerous as it is What do you want?
+Everything is the same Or is there something special about you? Ha ha Everything is the same
+You MUST be crazy if you want to know about the mine behind me! If you really wish to enter the minetalk to Cell He is somewhere in the Darken
+","
+Oh Cell! He is really a bother I have written this message for him Please deliver it to him
+"Do you want to get the best weapon in Madrigal? Then come here, you will not regret it"
+"Come on, choose one Which one do you want?"
+Even though I am very younrg many peopple say that I an the best weapon manufacturer in all of Madrigal
+"My name is Remine Crowd, and I run the Weapon Shop here in Darken"
+Please visit me again!
+"Roentel, the seed you sowed in this world will be harvested soundly"
+Everything began with them and everything will end with them
+"My name is Ride Ropeaedilo, and I am the Billposter Master"
+I hope the courage of Roentel will be delivered to you
+"You, who wants to follow the Ringmaster hero Eiene> do you believe in the will of hero?"
+The world will be divided into thwo factions Those who follow the heroes and those that follow the ones that the heroes will face
+"My name is Romvoette Guardian I am protecting the will of Eiene, theRingmaster hero"
+The teardrops of Eiene will protect you
+The best shields are here I am Rocky the Armor artist
+Hey! Can you do anything about ths?
+You have a good eye for great shields And these are the best
+My name is Rocky Forward Rocky the Armor Artist runs this Shield shop! Ha ha ha!
+Hope to see you soon alive! Ha ha ha!
+"Oh hero,Hainan,I will follow your great will"
+"When night falls and daylight disappears,the heroes will come"
+I am honoring the Ranger hero Hainan as one of the 8 Priests of Alta I am in charge of passing on the will of the Ranger to you
+May the blessing of Hainan be with you always
+"You, who want to follow the Blade hero Heren, are you ready to follow the hero?"
+The Clowns will have their amusement And their amusement will destroy the world
+"My name is Sencyrit Guardian I am protecting the will of Heren, who is the Blade hero"
+Heren will bless you forever
+"You, who want to follow the Psykeeper hero Offerep, do you honor the will of hero?"
+Everything will end like it began
+"My name is Shyniff Guardian I am protecting the will of Offerep, the Psykeeper hero"
+The spirit of Offerep will strengthen your soul
+Everything you want is here in the Weapon Shop of Stima!
+What would you do for me?
+Being a travelling salesman was too hard so I settled here My shop It is still small yet but I have a good feeling about this place
+My name is Stima Ogonel I travel from place to place selling weapons Nice to meet you
+It was very nice to meet you I hope I can see you again
+ Are you ready?
+It is your duty
+I am a proud training instructor of Madrigal!
+I am here to show vagrants the way
+Attention! Salute!
+Take a look at the best blinkwings and posters that a nomadic merchant can provide My name is Tandy
+"We, the Khan merchants are famous for selling the best goods in all of Madrigal Take a look and see for yourself"
+The Khan Merchant Association was a huge organization before the Clowns resurfaced After that we became nothing more than a Nomadic tribe
+We are dealing goods in Darkon 3 right now since there are no monsters around We might just stay here for a good long time Ha!
+Please visit again I will do my best to keep you happy
+"You, who want to become the successor of the Elementor hero Lillip, do you believe in the will of the hero?"
+You will be one of the 8 that watch the stars for a sign of their arrival 
+"My name is Wendien Guardian I am protecting the will of Lillip, the Elementor hero"
+You will be enlightened with the wisdom of Lillip
+"Welcome, to anyone who wants to become a Mercenary! You are headed for a life full of adventure!"
+Nothing ever comes for free Remember this always
+I am Andy Kimu one of the Job Master I am kind of new so I do not know everything but I am doing my best and I can help to do the same
+The sword of the Mercenary will protect you
+Hmm Aha! Why not ask the vagrants? Maybe they can handle this
+Merry Christmas! I hope everything goes well this time!
+My name is Saint Aramy and I am one of the Santas in the Madrigal Christmas Society Nice to meet you
+Hey! Merry Christmas!
+Hmm It is very hard to track Noie planet in Amedos galaxy Maybe I have to use the chaos theory
+"He will awake A hero will revive, woken by the sounds of machines"
+"My name is Ata Milleniut I am learning astronomy from Noie, my teacher Could you analyze this fractal curve?"
+"Sorry, I am busy now So this curve is Hmm"
+Brothers! What should I do? Huh? Christmas Christmas will be Ruined!
+I hope you have a wonderful Christmas
+My name is Saint Atto and I am one of the Santas in the Madrigal Christmas Society Nice to meet you
+Merry Christmas! Merry Christmas!
+The perfect shields of the Bobo family are only here in the Shield Shop of Boboku!
+What should I ask you to do?
+The mysteries of making shields? I cannot tell you because it is a secret of the Bobo family
+My name is Boboku Bobo I run the Shield Shop and my older brother runs the Weapon Shop in Flarine city
+Only a perfect shield can protect you fully! Remember this
+The weapons which are sealed within the mysteries of the Bobo family are here in the Weapon Shop of Boboku!
+Here you are Please solve them as soon as possible
+"I am the oldest son in the Bobo family, so it is time for me to get married Ha ha To be honest, I love Julia She is so adorable, right?"
+"My name is Boboku Bobo I run the Weapons Shop here in Flarine city Oh, have you visited the Shield Shop? It is run by my little brother"
+Do not forget that the Bobo family is always beside you!
+"Do not worry, there will be a way There is always a way"
+Have you been a very good boy this year? Then you should be rewarded with a big present Ha ha ha
+My name is Saint Buruto and I am one of the Santas in the Madrigal Christmas Society Nice to meet you
+Ha ha ha! Merry Christmas!
+"Mommy, I am hungry"
+"I moved here with my father I do not have citizenship yet, but I will very soon"
+"My name is ChiChi Horis, and this is my father Paul Horis"
+Good bye
+The new year has come!
+"How strange, I cannot remember the Happy New Year song"
+Happy new year!
+New year has come!
+You will be happy with the leader of the chorus That is me! My name is Monaco
+New year has come!
+How strange I do not remember the Happy New Year song
+New year has come!
+"How strange, I do not remember the Happy New Year song"
+"Really? Maybe you think so because you are a writer, but I do not want to make any noise about this"
+The 8 shield of destiny will be gathered in one place The last days are coming 
+"My name is Clamb Cobonet I am the Ringmaster Wise-man I have been recording the life of Eiene, the Ringmaster hero"
+"Whatever people say, they are the heroes that saved us all Do you agrees?"
+Please enjoy your adventure! Ha ha ha!
+They have always gone their separate ways but their ways always lead back to each other
+"My name is Cuarine Coexar I am the Psykeeper Wise-man I am recording the life of Offerep, the Psykeeper hero"
+A strong spirit is the pride of a Psykeeper Keep that in mind
+Same Exactly the same You are really amazing Ha ha ha
+"They will awake in their sanctuaries, and then become heroes once more"
+"My name is Cuzrill Rembright I am the Elementor Wise-man I am recording the life of Lillip, the Elementor hero Ha ha ha"
+Only the one who is full of wisdom can honor the will of Lillip May you be full of wisdom
+Welcome to Dior Station You can find flying information here
+Please help me in any way you can Please?
+Our family has managed this station for generations They were very great I would like to be like one of them
+My name is Dior Christin I  manage the best station in Flarine city
+ 1 Purchase a flying broom or board in the station\n2 Double-click the broom or board into your inventory
+ 3 Press the Space Bar to start flying
+" 4 Hold the right mouse button down and move the mouse to change directions\nOr you can use the W, S, A and D keys"
+" 5 Tip: If you double-click the right mouse buttom, you can change the direction of the your broom or board just by moving the mouse"
+ 6 Every broom and board can be used regardless of what job the rider has
+That is the basic guide to flying Enjoy!
+ 1 You can see boxes around enemies that you encounter as you fly
+ 2 You can target them in by pressing the Tab key or clicking the left-mouse button
+" 3 By clicking the left-mouse button or pressing the Insert key, you can attack a targeted masquerpet\n4 By pressing the Z key when the monster is targeted, you can follow it automatically"
+" 5 After defeating the monster, the dropped items will float in the air You can pick them up by clicking the left-mouse button on the items or using the auto pick-up action"
+6 If your inventory is full floating items will not be picked up
+"7 Mercenaries and Assists can perform melee attacks while flying, Magicians can perform ranged attacks with their wands"
+Ejoying flying!
+Will you remember what I told you? I hope so Enjoy!
+Ha ha ha It seems like I fit in here very well Do you agree? Ha ha ha~\
+"Every life will disappear, one by one They will be destroyed for the sick amusement of the three Clown Goddesses"
+"My name is Domek Ilujian I am the Billposter Wise-man I am also recording the life of Roentel, the Billposter hero"
+There is hope in a single chance I am sure that they can see they might be defeated
+#b#cff0000ffDo you want to know the result of the latest Guild Siege? I will let you know#nc#nb
+Your courage and wisdom will lead your Guild to victory
+"I am the reward manager of the Guild Siege center I am in charge of supplying reward money, returning application fees, ranking, etc"
+Good luck to everyone with your Guild Siege!
+"The ecology of Madrigal is truly the masterpiece of a God The more you know, the greater the mystery"
+Abnormal Masquerpets like Clockworks are always a pain in the neck They make my research more difficult
+My name is DrEstly I am studying the ecology of Madrigal with my 2 brothers
+Please visit me whenever you want to know about the Masquerpets
+You do not need to help others Help yourself first! How can you help others if you cannot help yourself?
+"I had to endure so many difficulties in order to become an Assist I hope you do too, because it is the only way to become a true Assist"
+"I am captain Elic Eward of the Madrigal Job Training Center If you want to become the best Assist, I will help you"
+Help yourself first! Then help those around you!
+I am so happy!
+My metho poll is so powerful that people never believe it until they actually see it ((metho poll??))
+My name is Eoners Archer I am one of the hired soldiers of Kyon No one can catch me if I do not want them to! Hohoho!
+Love to Kyon!!
+"Everyone in Flarine, it will be okay The heroes will return!"
+Flarine is the capital city of Madrigal It may be a small city but it is certainly the most beautiful
+I am the mayor of Flarine The well-being of the citizens is my highest priority
+#b#cffff0000We have Guild competitions every Saturday!#nc#nb\nPlease ask me if you need more information
+"Hello We have guild competitions every Saturday We are searching for the most powerful guild in Madrigal To apply, please go to the Master of Guild Sieges in Flarine Good luck"
+"Hello We have guild competitions every Saturday We are searching for the most powerful guild in Madrigal To apply, please go to the Master of Guild Sieges in Flarine Good luck"
+Good luck! May the best guild win!
+This will be good material for my novel But I do not know how I should start it Hmmm
+I am making this novel for everyone to enjoy Oh! But what if noone does
+My name is Gergantes Hambert I am a famous novelist as well as the chairman of the Publication Society
+You should be waiting anxiously for my next novel Hahaha!
+"We, the soldiers of Kyon, are family!"
+"I will revive the Shadow Avatar first, because it is the strongest of the sealing wards of Roentel"
+My name is Ghalade Elore and I am one of the Kyon hired soldiers I am a legend in the world of martial arts
+Victory to Kyon!!
+The breath of Rhsis will protect your body and soul The tears of Rhsis will raise you from death
+"Human beings look down us because we used to do there work But as smart as humans may be, we are far stronger We are, by no means, inferior Understand?"
+"No, thank you! I do not want to even talk to human beings Get out of here!"
+"Never talk to me again, okay? Never!"
+"We are waiting for your next adventure Come, brave souls!"
+It is your turn The test is not over yet
+"If you are not brave, do not even dream of going there"
+It is rash to fight them by yourself I cannot let you in
+You want to challenge me? You are not yet qualified to do so Go to North-Fl in Flarine
+You will find the one who can guard you He is a novelist
+Not yet You are not qualified to challenge yet
+Do you want to know who I am? I exist and yet I do not exist That is all you need to know
+"Goodbye, brave one"
+"Haha, do not lament so much What we do is not vain, right?"
+"One large star sinks beyond the red sky, and the remaining stars shine brighter"
+"Hahaha My name is Guabrill Elldoradin I am the Blade Wise-man I am also recording the life of Heren, the Blade hero"
+"They will be never forgotten, even by the future generations, because they are the heroes"
+"#b#cff0000ffIf You are brave and wise, please come together!\nThe Guild Sieges are waiting for you!#nc#nb"
+You should pit the courage of your guild against that of another guild You can do it right here
+"I am the Master of Guild Sieges here at the Guild Siege Center, and I am in charge of applications and entry into the Guild Sieges"
+For the honor of the Guild!
+"Our will, anger, and curses shall make everything in this world disappear"
+We are superior to humans Of course we are! We have been in this land since humans were an idle daydream of Rhisis Do you you understand?
+I do not talk to humans that show too much interest in me Understand?
+I am annoyed and want to quit
+You do not want to know who I am I exist and I do not exist That is all
+Hmm Decades have been passed since I worked there Darn!
+"The world will be enveloped in evil, and then there will be 8 shrines built to stand against it We will wait for them"
+My name is Hormes Kudo I am the strongest in all of Madrigal!
+"Recording the history of heroes is such a great job Yes, you can say that again"
+"aaa bbb Draw your weapon and cut down everything that stands in your way! Go forward, Mercenary!"
+"The 3 most important things for a Mercenary are instinct, courage, and level headedness If you have all 3, you can be called a Mercenary"
+My name is Hyuit Jenive and I am a sergeant of the Madrigal Job Training Center I will help you to become a real Mercenary
+"Keep your pride, courage and hope!"
+"May I help you? If you have any questions, please feel free to ask me"
+vocNpcIs-open1wav
+vocNpcIs-open2wav
+vocNpcIs-open3wav
+
+Hello How can I help you?
+"My name is Is Tritney, and I am in charge of guidance in Flarine"
+Have you met other helpers that look just like me?
+Did we confuse you? Hahaha We confuse ourselves sometimes
+"It is always spring in Flarine But be careful, there are a lot of Masquerpets outside of the city"
+"Before leaving the city, gather as much information as you can"
+"There are various shops in the city Wherever there is a special building, you can find people who want to sell products that they have made"
+"Every shop sells different products, so check them all"
+"Please make sure you buy enough food before you leave the city, especially if you are going to leave for a long time"
+"If your HP reaches zero, you will die Make sure you keep an eye on your HP at all times"
+If you die you can be revived by the Lodestar and returned to town
+If you choose to recover at the Lodelite you will be revived and moved there
+vocNpcIs-close1wav
+vocNpcIs-close2wav
+I hope you enjoy your adventures
+vocNpcIske-open1wav
+vocNpcIske-open2wav
+vocNpcIske-open3wav
+My name is Iske Trinity I am in charge of guiding the citizens of Flarine
+vocNpcIske-close1wav
+vocNpcIske-close2wav
+vocNpcIsmeralda-open1wav
+vocNpcIsmeralda-open2wav
+vocNpcIsmeralda-open3wav
+My name is Ismerelda Trinity I am in charge of guiding the citizens of Flarine
+vocNpcIsmeralda-close1wav
+vocNpcIsmeralda-close2wav
+vocNpcIspim-open1wav
+vocNpcIspim-open2wav
+vocNpcIspim-open3wav
+My name is Ispim Trinity I am in charge of guiding the citizens of Flarine
+vocNpcIspim-close1wav
+vocNpcIspim-close2wav
+VocNpcIsruel-open1WAV
+VocNpcIsruel-open2WAV
+VocNpcIsruel-open3WAV
+My name is Isruel Trinity I am in charge of guiding the citizens of Flarine
+VocNpcIsruel-close1WAV
+VocNpcIsruel-close2WAV
+*sigh* It is hard to focus on work when I miss Kimberley so much
+"Would you do me a favor, please?"
+"These days, I get so many complains about the machines I sold in  Saint Morning and Darken I should have built them with more care"
+"My name is Jeff Prosis and I am the Machine Developer of Flarine Kimbereley, my wife, is a guide in  Saint Morning"
+Please tell me all about what happens outside the city when you return See you again!
+"Iblis above! Ddukguk has disappeared! Oh, what should I do now Please, somebody help me!!!"
+"I have wanted to be a cook since I was a child and now, in my old age, I can finally live my dream I have never been more happy"
+My name is Juglin Girliart and I am helping Losha cook
+Happy New Year!
+All the information you need is here in the #b#cffff0000Office#nc#nb Please visit if you need help
+What can you do for me?
+"Boboku He is so manly, strong and kind But his belly is too big"
+My name is Julia Trinity and I am the Manager of the Office in Flarine city I hope I can help you
+"Spread the blessing of Rhsis all over the world! Sprinkle tears of Rhsis all over the ground, you who have become an Assist!"
+An Assist should have a giving spirit What is the point otherwise
+My name is Kidmen Nicore and I am a Sergeant at the Madrigal Job Training Center I will help you to become a true Assist
+A giving spirit! Remember that!
+Ha ha ha It is up to us to lead them to the right path
+There is something I need you to do Will you help me?
+They saved the world and now they command universal admiration
+"I am one of the 8 wise men, and it is my duty to record the history of the heroes, according to the will of the great wise man Radion"
+The heroes live forever in our hearts
+Hello there. Local legend states that this area, The Plain of Bubble, was created by one of the 3 Clown Goddesses. 
+The Earth trembles in fear as the great sword of the Goddesses clashes with the shield of the Heroes.
+Welcome, my name is Kurmin Hersan and I watch over the Plain of Bubble.
+"Thesword shakes the sky, and the giant axe cuts the earth Everything may end in ruin and silence"
+You want me to say hello to you? Never! I may live like you humans but I am nothing like you! Remember that!
+Me? You are curious to know me? Hahaha! Shame that the feeling is not mutual I am the High-Dwarpet Langdrong Clo I am in charge of keeping the Book of Technique (Mercenary)
+Steer clear of other Dwarpets They may not be as nice as me
+My name is Flaris Pang I am the oldest son of the Pang family We have managed the Lodelights for generations
+"Here are the best foods in Flarine! Please come here,  to the Lalaen Food Shop!"
+Can you do anything for me? Anything at all?
+"At the moment, my younger sister Loyah, apprentice Ssotta and I are living together Living with the people I am closest to makes me so happy"
+"My name is Losha Encline and I am run the Lalaen Food Shop I am still young, but I am the best cook in Madrigal"
+Please visit again Delicious food will always be here for you
+"Here is food prepared by the most brilliant cook in Madrigal, Loyah!"
+I make all things delicious and all things I make are delicious! Hehehe!
+My name is Loyah Encline I am a cook and I run a Food Shop with my elder sister Losha
+Bye bye!
+You can purchase shields for vagrants here
+Hello! You can choose from a variety of goods here 
+"My name is Luda and I run this Vagrant Store I opened the shop after Boboku and Boboko stopped selling shields and started selling Acrobat armor instead Hahaha, that showed them"
+Enjoy your adventuring
+I have everything you need here! My name is Lui and this is my General Shop!
+Here is what I need you to do
+I could not believe that my younger brother Roony was connected to the incident He left and said he will never come back
+"Hey! I am Lui Keraldine, Handsome Lui to my friends I run the General Shop here in Flarine city"
+"Visit me again, I will give you a discount next time! Hmmm maybe not actually"
+"Everyone who wants to be an Assist, Bubble smiles on you"
+"Training keeps you away from sin, so keep training!"
+"My name is Maki Ah of the Job Masters, and I am in charge of helping Vagrants to become an Assist"
+The blessing of the Assists will be always with you
+"Hey it is me, Marche! Ever dream of a fantastic magical world? Come to my Magic Shop to make those dreams come true"
+Please solve this as soon as possible
+"My teacher Mule fell into trouble He was connected to a bad incident, so he is on the run now I may never see him again"
+My name is Marche Hordin and I run the Magic Shop here in Flarine
+Thank you for visiting me See you next time!
+Oh The history of Madrigal This is really weird There is definitely something Definitely
+Hello Do you know about the history of Madrigal? No? Hmm I do not know it so well either But I have a strong feeling about it
+My name is Martinyc Tictraibet and I am a historian Sorry my name is kind of difficult to say
+Good bye and see you again soon Hohoho!
+A world of adventure awaits you here Come here if you are level 7 or greater
+My name is Mikyel and I offer quests posted by the citizens of Flaris We offer quests to anyone level 7 or higher
+Being a Mercenary is not a job for everyone If you are not a Mercenary you are useless You heard me Useless!
+"Nobody can be a Mercenary without knowing the great Mustang And Whether you are a Mercenary or not, you have to know me!"
+I am Captain Mustang Loid of the Madrigal Job Training Center I am in charge of selecting people to be Mercenaries You should be honored to be trained by me
+"Good bye, you greenhorn Ha ha ha!"
+"Cheer up, my children Good boy, good boy"
+"We want to move to Flarine with my husband We have not received our citizenship yet, but we will soon"
+"I am Nina Horis, Paul is my husband"
+Good luck to you wherever you go Thank you
+The weather today is Hmm
+What can you do for me?
+"Forecasting the weather has become possible since this observatory was built I must say, I am quite happy I built even though it took so long"
+My name is Noie Hedltern I buit and now manage this observatory
+Good bye Your future will be bright Ha ha ha
+Hello Welcome to the Office of Flarine
+"There is a library on the left side of the office, and there is a reception desk on the right side of it"
+We public officials work with the Mayor to better Flarine Do not forget that we are always with you
+For Flarine!
+Anywhere that I can relax is my home
+Look at how fast I peel these apples! You cannot even see my hands moving!
+"My name is Phoho Andere I am one of the hired soldiers of Kyon,  and the best there is with a sword Bwahaha!"
+Blessing to Kyon!
+"Mammy, it is cold"
+We are moving here to be with my father I do not like it here But 
+"My name is Pipi Horis, Paul is my father,"
+Hmm It seems more and more people wish to become a hero I never thought I would see the day Ha ha ha!
+"It is said that 8 meteors will fall from the sky, just before the world comes to an end It is a sign will the world be saved or will it fall into ruin? I am still waiting for that day"
+"As one of the 8 wise men, I am in charge of recording the history of heroes This is according to the will of the great wise man Radion"
+"Just as water is ever flowing, so must be the history of heroes Their story will never end"
+"Ha ha ha Nothing is easier than making money, right? Does everyone agree with me? Ha ha ha"
+"Well, well Get away! I have no desire to talk with the poor!"
+"Ha ha ha I am Rudvilhil Tailerz My hobby is collecting, most of all I love to collect money and extremely rare objects"
+You have to really want the money and then it will come to you! Okay? Okay!
+Soldiers! Raise the blue flag of Jung Hwa! We exist for the people! We fight for the people!
+"The dark will be weakened wherever they step, and then new light shall shine!"
+My name is Ryupang Silog I am Managing the House of Offerep and I lead the Blue Flag of Jung Hwa soldiers
+Faith and trust will always lead us
+How about conquering that mountain peak today? Hahaha I am just kidding!
+The sky will turn dark and there will be a big storm Then 8 lights will illuminate the ground and whoever sees this will be saved
+My name is Segho Pesin the Climber I manage the Drill Hall of Roentel My dream is to conquer every mountain in Madrigal!
+Each day has a new target! Hah!
+Hmm There is something in that cave
+"Here, pick one that you can do"
+I am recording the history of heros here with my 8 pupils Their history must be remembered at all costs
+"My name is Radion Angamel Some people call me a wise-man, but I am just an old man who has lived too long "
+You Hmm Nevermind Good bye
+"Okay Slice some raw fish, and boil some rice! We are making sushi!"
+"See, slice some raw fish appropriately, gather some rice, and then apply some mustard Huhuhu"
+"Hey there My name is Ssotta Ssegakku and I am the best sushi cook in Madrigal! Well not yet, but I will be! Just you watch! Yeah!"
+"Yo, you are talking to the best sushi chef here Yeah!"
+"Soldiers of Kyon, gather around! Move! Move!"
+There are eyes that are looking at the 8 heros They are the eyes of the creatures of this world
+My name is Teshar Testarotsa I am the leader of the Soldiers of Kyon and I manage the house of Eiene
+What the ? You are a fool!
+"Okay, lets call it a day!"
+There is no one who can carry my hammer No one!
+My name is Tomba Hammer I am a soldier of Kyon and the best with a hammer
+Glory to Kyon!
+Have you ever seen arrows falling from the sky? It is called a rain of arrows
+"Here you are It is your duty to be here, not an option Hmph"
+"We, the High Dwarpets, are different from the common Dwarpets Do not try to compare us with them"
+"Me? You want to know about me? Okay, listen up then I am a Dwarpet that has been kicked and hated by humans since I was born Understand?"
+Bye
+Want to play with me?
+Pick something you can do Something you can really do
+Want to play with me? Ok!
+"I am the noble, elegant, and sophisticated Ancimys"
+My name is Ann Peltrot I am in charge of guiding  Saint Morning and managing the Garden of Rhsis
+"This is  Saint Morning, the holy morning city\n Is it not peaceful? I am really proud to live here\n As happy as I am to be here, there are still a lot of Masquerpets out of the walls"
+Feel free to wander around and gather as muh information as you can \n It is a good time to meet all of the merchants and prepare for your travels
+Hi I am Bill Come get everything you need in my General Shop
+What can you do for me?
+"Karin and I love each other very much But we are seeing each other secretly because Karin and Bulrox, my mentor, do not get along Man "
+My name is Bill Bergenass and I run the General Shop in Saint Morning
+Good bye! Please come again!
+Do you want something special? This is a very special bowl
+"What kind of bowl are you looking for? I made all the bowls here, so they are very special"
+Hahaha My name is <Bowler Clo> and I am running a small bowl shop
+Please visit whenever you need a special bowl
+Shields that have both strength and beauty can be found here in my Shield Shop!
+What can you do for me?
+"It seems like Bulrox does not like me Is it that bad making shields beautiful? I think there is nothing wrong with beauty, am I right?"
+My name is Bozman Hangteiler and I run the Shield Shop in Saint Morning
+Thank you for visiting me See you next time!
+"I will let you watch the best play, performed by Pepoview"
+"I really like stories about heroes So, I am collecting books about them Do you know the Book of Hero Combat?  The book is really great"
+"Pepoview is the best known troupe in Madrigal! I am Brodeay, one of the leaders Nice to meet you"
+"Our troupe is always the best! If you come to one of our shows, I will let you watch for free"
+Come and see what superior weapon crafting is like at Weapon Shop of Bulrox!
+What can you do for me?
+"Bill? It seems like he is seeing Tina secretly Well, it does not matter to me because I like her She is such a kind and polite girl! The real problem is that fat and obstinate woman Darn!"
+"My name is Bulrox Shainante and I run the Weapon Shop in Saint Morning Bill is my best pupil He is very, very smart Hahaha"
+Good bye There is nothing you cannot defeat with my weapons
+Shields for sale! Please form a single line
+You are in the right place if you are looking for a good shield We only sell the highest quality ones
+My name is Colack I opened this shop when Bozman started selling armor for Acrobats
+Please visit me again!
+" Saint Morning, the most beautiful place in Madrigal! The ecology here is the blessing of God itself!!"
+Please solve these as soon as possible
+"There are various Masquerpets here in Saint Morning, so I always have lots to do Ha ha ha"
+My name is DrEstern I am studing the ecology of Madrigal with my 2 brothers
+Please enjoy the beauty and mystery of nature
+Ha ha ha The history of Madrigal is really mysterious Do you agree? Ha ha ha
+"History should not be hidden at all, whether it is unpleasant or not"
+My name is Gothante Destratin and I am the chairman of the Madrigal Historical Society You can just call me Gothante
+"You have to know the history no matter what, right? Ha ha ha"
+"Everyone who wants to be a Magician, please come to me! My name is Hee and I will show you how to be the best Magician"
+"Being a Magician is the greatest job ever Magicians are always smarter and more powerful You agree with me, right?"
+"I am Master Hee Lyu, and I am a Job Master I am in charge of finding new Magicians, but this job is very boring"
+The light of the Magicians will protect you for all time
+Saint Hall is the greates structure in Madrigal *sigh* How many times must I say the same thing?
+"Congratulations, now you have your guild! Good job!"
+"Hmm It seems like you are not the party leader, or you have less than 3 party members You may also have to wait 2 days after leaving your previous guild"
+Saint Hall is a very important structure It is the main office and the symbol of  Saint Morning
+"You do not have 3,000,000 Penya Please bring me that amount, or I cannot let you create a new guild"
+My name is Helena Obette and I am the assistant manager of the Office of  Saint Morning
+Please let me know if you need help
+Did you get something rare and precious?
+Do you have something rare and precious? Could I take a look? What? You do not? I am sorry to hear that
+I am a connoisseur of rare and precious items But now I am just giving the information to the high class people for their collections
+Have a nice day!
+","
+"The Madrigal Laboratory is in Saint Hall, and it is the biggest institute in Madrigal The flying boards and brooms we all use were developed there"
+My name is Heltung Mondugane and I am the chief researcher of Project 2 here at the Madrigal Laboratory
+I hope we can see each other again very soon Bye
+My name is Herth Emaldhan and I am a guide in SainCity
+My name is Janne Orgriman and I am a guide in SainCity
+"Please find my child! Please, Please,"
+My baby was so cute I can still hear here voice 
+My name is JeongHwa Song I moved here to  Saint Morning a few years ago
+The name of my daughter is Jingyoung Please let me know if you find her
+Healthy body for healthy mind! Here are some delicious foods made by Karin! They are good for your health!
+What can you do for me?
+"I do not like Bulrox, and I do not like Bill How could my daughter like that kind of  Ugh! It is making me crazy!"
+"My name is Karin Sharafobhan and I run the Food Shop here in Saint Morning And my daughter, Tina, is the beauty of  Saint Morning"
+Good bye! Enjoy healthy food all the time!
+My name is Kimberley Prosis and I am a guide here in SainCity And Jeff in Flarine is my husband Maybe you have met him
+We offer quests put out by the citizens of  Saint Morning These quests are for anyone whose level is 27 or higher
+Welcome My name is Lancomi and I am the head of the quest center in Saint Morning We collect quests from the citizens and then list them here for you
+My name is Leann Hentte and I am a guide here in Saint Morning
+My name is Saint Pang I am the second child of the Pang family We have been managing the Lodelight for generations
+Honor the will of Rhsis! Show the anger of Rhsis! Be the curse of Rhsis!
+Being a Magician requires strong spirit You cannot be a real Magician if you do not train your spirit well
+I am Sergeant Lopaze Jenip of the Madrigal Job Training Center I will help you to become the best Magician
+Strong spirit! This is the symbol of the Magician Please do not forget that
+"Do you want to use great and powerful magic? Then you should visit me, Martin!"
+"Here, there are lots of things to ask you Ha ha ha"
+"I heard that Mule got into trouble In terms of magic skill, Mule was much better than me, what a pity I think Marche is having a hard time because of the incident"
+My name is Martin Scornsiege and I run the Magic Shop in Saint Morning I am also the chairman of the Society for the Study of Magic Ha ha ha
+Good bye I hope your path will be lit by magical power
+"Oh, cool! Wow! I really want to have one!"
+"Hehehe I like special things that nobody hasand pretty girls, too! Hehehe"
+"Hey, there! I am Mayun Song People are always saying I am impolite but this is just my style, man Whatever"
+See ya!
+Welcome to the Saint Morning Station! We provide detailed and safe flying services!
+"Our blood will soak the ground, and our shouts will echo across the skies Then everything shall fall to their will"
+"My name is Parine Hoavent and I am the scion of Lillip At the moment, I am learning how to manage the Station from Tina"
+We offer special services for our customers here at Saint Morning Station!
+It is strange It is weird Hmm
+"Oh! I was thinking so deeply that I did not know you were there Yes, it is nice to meet you"
+My name is Porgo Berldent and I am the mayor of the Society for Studying Disappearances in Saint Morning Ha ha ha
+Would you work for our society? It is okay if you do not want to
+Hello! Hehehe
+There are so many rare and precious things in the world I will never die until I collect all of them Never!
+I am collecting everything rare and precious in the world Some people call me the Strange Collector
+Good bye! Please find me if you have anything rare and precious!
+"Oh! Please be careful, this is a very important one! It is an ancient document!!"
+"The ancient documents should be treated very carefully, because they are very old and fragile"
+My name is Rovanett Ganelis I am in charge of keeping the ancient documents here at the public library in Saint Morning
+Please visit again whenever you need to see any of the documents
+"Everyone in Saint Morning, are you happy? I am doing the best I can"
+I am making a tour to hear the opinions of people in Saint Morning May I help you?
+I am the mayor of Saint Morning I am in charge of pretty much everything here
+For Saint Morning!
+All the information you need about flying is here at the Station
+I would like to ask you to do something for me
+"Bill and I love each other very much, but my mother is not getting along with him So we are seeing each other secretly"
+My name is Tina Sharafobhan and I manage the Station in Saint Morning The woman who runs the Food Shop is my mother
+I hope you enjoy your flying
+This is a shield not a shovel
+"Goodness,you are so mean"
+Do you believe in me?
+I am rehearsing for our play Gone in the Rain What do you think of my acting? Is it good?
+"Our troupe, Pepoview, is one of the best troupes I will talk to you later I have rehearsing to do!"
+Pepoview will always have your back
+"Oh, Juliat Now, I want to break up with you Please leave me alone"
+"Juliat, please close your windows I do not want to see you"
+"There is nothing I can do for you now  Bye now, Juliat"
+What can you do for me?
+I am rehearsing Gone in the Rain What do you think about my acting? Is it good?
+"Iblis above, this is the ring that belongs to the character Charlotte Do you like it? I do"
+My windows will be open for you forever
+"Romao, I will always love you Please come back"
+
+
+Are you going to stay here forever? Let us get back to our place
+You! How cannot have made up your mind yet?
+What can you do for me?
+Uh ah uh ah 
+Where is my daughter? Has anyone seen her?
+My daughteroh my godher husband is such a shabby fellow Is there anything I can do for her?
+Would you do me a favor?
+The whole world has been plunged into confusion and the only thing we can hear is groaning
+Are you ready to carry this burden for your whole life? Do you have the confidence to be a Magician?
+It depends on you whatever you choose But there will be less of a struggle if you go with your feelings
+I am Major Wingyei Spero of the Madrigal Job Training Center You are in the right place if you want to feel the strong magic power of a Magician
+Believe in your own will!
+"Do you want to use splendid magic? Then you should visit the Magic Shop that I, Haven, own!"
+"Whatever you choose, you should follow through with"
+"To be honest I like Achaben But I am not sure if he will accept me, because,I am older than him,"
+My name is Haven Bgeoner I run the Magic Shop here in Darken
+Take care
+Here are various goods crafted by nomads! Come to the General Shop!
+What will you do for me?
+"We are just nomad merchants, but we, the Khan Union, are well known for our various products in Madrigal"
+My name is Tandy Khan and I am selling various goods
+Enjoy your flight
+I will do my best for the happiness of the people in Darkon Please trust me
+What can you do for me?
+I am making the rounds in order to hear the opinions of people in Darken May I help you?
+I am the Mayor of Darken City
+For Darken!
+"Hmm It seems like you are not the party leader, or you have less than 3 party members Also, maybe it has not been more than 2 days since you broke or left your old guild"
+"Are you ready to create your new guild? If you are not, please go I am very busy right now"
+Create Guild
+Keep Going
+
+Get out of here if you lack of training!!
+Complete what you have to do first!
+You cannot do anything by yourself!
+Wait a little bit more before you challenge
+"Bring me all the Rubies of Joy, Anger and Sorrow Then you can go somewhere special"
+"I cannot do anything for you until you bring me the Rubies of Joy, Anger and Sorrow"
+I will guide you to the special place if you bring me all the Rubies
+Are you not curious about the special place?
+"Do not try to get to know me Just bring me the rubies, then I will guide you to the special place"
+"Good bye, you are shining with hope"
+Collect all the Rubies A great challenge is waiting for you
+Darn! I am bored! Booored!! Is there nothing fun to do? I am REALLY bored!!!
+What do you want to do? Huh? Pick something quickly!
+Do you know something funny? No? Get out of here!
+What is it? Is it funny? Hmm Introduction I do not think it is funny
+"Thanks to you, I had so much fun You must come again next time, okay?"
+I will give you a bead if you bring me the rice cakes
+"I will give you a Red Bead if you bring me 1,000 rice cakes"
+"I am Evil Tobby, the oldest of the Ivillis brothers"
+Happy new year Hmmm maybe not so happy 
+I told you I will give you a bead if you bring me rice cakes
+I will give you an Orange Bead if you bring me 600 rice cakes
+"I am Evil Dorry, the second oldest of the Ivillis brothers"
+Happy new year Yeah right
+I told you I will give you a bead if you bring me rice cakes
+I will give you a Yellow Bead if you bring me 300 rice cakes
+"I am Evil Nana, the third oldest of the Ivillis brothers"
+Happy new year Maybe 
+I told you I will give you a bead if you bring me rice cakes
+I will give you a Green Bead if you bring me 100 rice cakes
+"I am Evil Tubby, the fourth oldest of the Ivillis brothers"
+Happy new year No not really
+I told you I will give you a bead if you bring me rice cakes
+I will give you a Blue Bead if you bring me 50 rice cakes
+"I am Evil Pho, the youngest of the Ivillis brothers"
+Happy new year Not at all! Hahaha
+I will give you a seedling if you bring me leaves
+I will give you a Fir Seedling if you bring me 100 leaves
+My name is Firdryad
+I hope everything goes well with you
+I will give you a seedling if you bring me leaves
+I will give you a Persimmon Seedling if you bring me 300 leaves
+My name is Persdryad
+I hope everything goes well with you
+I will give you a seedling if you bring me leaves
+I will give you a Pear Seedling if you bring me 600 leaves
+My name is Peardryad
+I hope everything goes well with you
+I will give you a seedling if you bring me leaves
+"I will give you a Pine Tree if you bring me 1,000 leaves"
+My name is Pinedryad
+I hope everything goes well with you
+"Anyone who wants to confess, please come to me"
+"If you summon the Angel, and bring the Exp Of the Angel to full, it will increase your Karma points The better the dice you use, the stronger the Angel you summon You need at least 3 dice to summon an Angel"
+"I am the Priest of Confession Bring the Exp Of the Angel to full and pay me 1,000,000 Penya Then I will return the Angel to Heaven, and your Karma points will be increased"
+You have to pay for your crime
+Please  Somebody help me 
+*sniffle**sniffle* Did you happen to see my lost stationary? I wanted to present them to my students for the new school year
+"I am a new teacher in Madrigal Magic School I am kind of careless, but my skill with magic is strong and I love my students more than anyone"
+Please let me know if you see my lost stationary
+What the  Where the heck is the stationary?
+The MONSTERS! They stole the stationery?!
+"Hey there, I am a teacher at thr Madrigal Magic School Just get away from me if you are not going to help me Go!"
+I said get away 
+Have you seen my stationary?
+"Well, I am very sure that monsters out there somewhere have my stationary"
+"Nice to meet you, I am a teacher in the Madrigal Magic School Do you want to enter my school and become more powerful?"
+Please think carefully about my suggestion and come back again
+Present Valentine Chocolate to your Valentine
+I will give you 1 Valentine Chocolate Set if you bring me Chocolate(Event) and Milk
+Hello! Hi! I am an assistant cook? Huh? Of course I am a girl! I just dress like this so I do not get my nice clothes dirty
+See you again soon!
+Oh my God  What should I do  
+I deeply apologize for the mistake my assistant made 
+Welcome! I make the best chocalate in Madrigal but boy does it make me sweaty Whew
+Do you not want to taste the greatest chocalate ever?
+"Spring has come, help gather seedlings!"
+"This spring, mysterious seedlings have been seen which transform into a gift or Young Seedling (Double-click on the seedling)"
+Hello everyone! I am the Seedling Custodian I am the one in charge of taking care of the seedlings
+Please help find our seedlings!
+Seedlings are the beginning of life!
+"This spring, mysterious seedlings have been seen which transform into a gift or Young Seedling (Double-click on the seedling)"
+"Hi, hi I am the Forest Keeper!"
+You do not want to help? Then there is nothing more I have to say to you
+Please help to renew the forest!
+"This spring, mysterious seedlings have been seen which transform into a gift or Young Seedling (Double-click on the seedling)"
+We can help make Madirigal more beautiful!
+Do you love the forest? Then prove it!
+"Hey, why not go visit the National Park?"
+"This spring, mysterious seedlings have been seen which transform into a gift or Young Seedling (Double-click on the seedling)"
+I want to make Madrigal National Park the most famous park around!
+Good bye!
+I know how to make a delicious and invigorating drink Ask me if you want some!
+Hello I am Pang
+"Keep looking for the ingredients I mentioned, and come back to me when you find them Enjoy!"
+You get to have fun and get a present at the same time How can you beat that?
+I will give you something good if you win!
+Good luck!
+It is hard to survive the journey into Volkane
+Only a select few may enter that place
+Do not expect me to answer
+Do have a question for me?
+Do you want to become more powerful?
+May Rhsis always keep her eye on you
+Hahaha It is kind of hard to explain myself Hmmm Actually really hard now that I think about it
+Am I pretty?
+A Pet can become your most valued partner here in Madrigal
+The people in my family are the best Pet Tamers in Madrigal We know what it takes to make a Pet you partner
+My family is a group of the best Pet Tamers and I am the best amonf them Visit me whenever you need my help
+How would you like to have a fantastic pet?
+Do not even talk to me!
+You cannot pass her and I do not know when you will ever be able to pass here
+Believe it or not I am very handsome
+Goodbye!
+Show your sweetheart how you feel Please
+"If you want to show your true feelings to someone, why not show them at the Star Festival?"
+I am delivering love all over the world
+Love is the greatest thing in the world
+I wish I was loved 
+Sometimes it is better to give than to receive 
+I hope everyone in the world falls in love 
+See you soon!
+You cannot strengthen your weapon if you do not upgrade it
+"What kind of weapon do you have? If you are not satisfied with it, bring it to me I will help you make it stronger"
+Making stronger weapons is what I live for
+You can be more powerful with a more powerful weapon
+"Hey, pssst! Wanna get a new board? C'mere and I'll tell you how!"
+Buy more to get more sticks! You can do it!
+Hiya! I'm Pang
+"We are introducing this new state-of-the art NESCAFE 3in1 Ultimate Hoverbike, employing the latest in turbo propulsion Do you want to hear about it?"
+"Good luck with your quest! Rest assured, it's going to be one cool ride when you obtain the requirements for the NESCAFE 3in1 Ultimate Hoverbike!"
+"Good day, I am from the NESCAFE Flight Academy!"
+Madirigal is under attack from mosquitoes!
+Please catch the mosquitoes all throughout Madrigal!
+Hello We are the Mosquito-Control Committee that protects Madrigal
+Let's have a cool summer with the help of you and the Mosquito-Control Committee!
+Can you feel the wind on your face?
+Hrrr. Everything I gathered suddenly disappeared. I don't think I can find them again.
+I'm gathering the pieces of an ancient Flying Ship. When I finish putting it together I will explore the skies in it!
+All I want is to soar through the air in a Flying Ship!
+#b#cff0000ffAre the members of your Guild the strongest around? Join the 1vs1 Guild Siege to prove it!#nc#nb
+A strong Guild is made of strong members! Find out if your Guild is truly strong in the 1vs1 Guild Siege!
+I am in charge of Rewards, Applications, and Entering for the 1vs1 Guild Siege.
+Let's see who really is the strongest in Madrigal.
+#b#cff0000ffPlease visit me if you have any question about 1vs1 Guild Siege.#nc#nb
+There is truly a sense of accomplishment that comes from battling 1 on 1 with someone!
+I work for the Guild Siege as a Reward manager. I am also in charge of return Application fees and showing rankings. 
+You want to apply for the 1vs1 Guild Siege? Nice!
+You can get some really rare things here!
+Bring me Red Chips to buy from me. You can get Red Chips by winning in Guild Sieges.
+I am Waforu the Battle Merchant! Everything I sell can be purchased with Red Chips!
+Come and see what I am selling! You'll never find the things I sell anywhere else!
+Merry Christmas and Happy Holidays!
+The Holiday Season is here!  The festive spirits of the holidays smile down upon Madrigal!
+I am the Santa of Madrigal and I've been very busy as of late delivering these gifts, ho ho ho!
+I hope you have a splendid holiday season!
+Only strong one can survive here!
+Do you think you are strong enough? You'd better think again here.
+My name is Harold and I am in charge of this arena. Just visit me when you want to go back to Madrigal. Ha ha ha!
+Think how to be stronger all the time!
+Why don't you prepare yourself before you have some battle?
+Hey, be careful once you come into this arena, okay? You can be attacked everywhere by everyone!
+My name is Deek and I am selling stuffs in need for the battle. Man, you need stuffs in order to win the battle.
+It is not easy to get stuff from Madrigal all the way to here¡¦¡¦
+Beginners, please come here!!
+I am giving some buff for the beginners by 31 level.
+Hello~ I am the Beginner's guide! Please let me know if you need some help.
+Enjoy FLYFF!
+VocNpclui-open1.wav
+VocNpclui-open2.wav
+VocNpclui-open3.wav
+VocNpclui-close1.wav
+VocNpclui-close2.wav
+VocNpcbulrox-open1.wav
+VocNpcbulrox-open2.wav
+VocNpcbulrox-open3.wav
+VocNpcbulrox-close1.wav
+VocNpcbulrox-close2.wav
+Do you think you are strong enough? Then why don't you go to the PvP arena?
+You can battle freely without any panalty, so just try it! But only characters completed 1st job trasfer can enter.
+My name is Ray and I am in charge of PvP arena. Hey, you look kind of stong!
+Just be confident and do not afraid of trying it!
+It's Tree Planting time!
+Wanna help plant some trees in Darkon?
+Oh, I've been taking care of the trees throughout Madrigal forever! It's our home so let's try to keep it beautiful and clean!
+Do ya' love trees? Haha! So do I!
+Need a Collector? I can help with that!
+You've never used a Collector before? Go to the Collector Area and give it a shot!
+I've been working on Collectors for almost as long as I've worked with trees. I make some of the best!
+Put away your weapons and go do some collecting for a bit!
+Could you help me find some pumpkins?
+I don't know why. I just love making Pumpkin Stew this time of year.
+Just help me out a bit and I¡¯ll reward you for your troubles.
+Hey! A little help please?
+¸ó½ºÅÍµéÀÌ ÈÉÃÄ°£ È£¹ÚÀ» Ã£¾ÆÁÖ¼¼¿ä~!
+È£¹ÚÁ×À» ²÷¿© ¸¶À» »ç¶÷µé°ú ³ª´² ¸ÔÀ¸·Á°í Çß´Âµ¥... ¸ó½ºÅÍµéÀÌ È£¹ÚÀ» ¸ù¶¥ ÈÉÃÄ°¬Áö ¹¹¿¡¿ä.. È£¹ÚÀ» µÇÃ£¾Æ ÁÖ¼¼¿ä.
+Á¦ È£¹ÚÁ× ¸ÀÀ» ÇÑ¹ø º¸°ÔµÇ¸é, ±× ¸ÀÀ» ÀØÁö ¸øÇÏ°í ´Ù½Ã Àý Ã£¾Æ¿À°Ô µÉ°Ì´Ï´Ù.
+¸Àµµ ÁÁ°í °Ç°­¿¡µµ ÁÁÀº È£¹ÚÁ× ¸¹ÀÌ µå¼¼¿ä~
+°­ÇØÁö°í ½ÍÀº ÀÚµéÀÌ¿©~³ª¿¡°Ô ¿À¶ó
+¾î¶§ ÀÚ³×µµ °­ÇØÁö°í ½ÍÀº°¡? ±×·¸´Ù¸é ³»°¡ ºÎÅ¹ÇÏ´Â °ÍµéÀ» ¸ð¾Æ¿À°Ô³ª~ ¸®½Ã½ºÀÇ Ãàº¹ÀÌ ±êµç ÀÌ »óÀÚ¸¦ ¼±¹°·Î ÁÖÁö.
+³ª´Â ¿©½Å ¸®½Ã½º¸¦ ¸ð½Ã´Â »çÁ¦¶ó³×. ÇÁ¸®ÇÁ ¼¼°èÀÇ ¸ðÇè°¡µé¿¡°Ô Äù½ºÆ®¸¦ ÅëÇØ ´õ °­ÇÑ ÈûÀ» ÀÌ²ø¾î³»·Á°í ³ë·Â ÁßÀÌ¶ó³×.
+º¸¹° »óÀÚ¸¦ ¾ò°í ½ÍÁö ¾ÊÀº°¡?
+I am the Hostess who is running the Prepaid Card event.\nTo celebrate the opening of our prepaid cards in Target and Staples, we are running an event!
+Here is how the event works :\nBuy a gPotato prepaid card at Target or Staples.  Go to our website and redeem the prepaid card for gPotatoes. At the end of the redemption process, choose a bonus item.  A special gift box will be delivered to your inventory!\nOnce you get the gift box, come back to me, and tell me you wish to ¡°Redeem Gift¡±.  I will then help you open your gift box, giving you a special bonus item!
+ÀÛº°½Ã ¸»Ç³¼±
+Á÷³à¸¦ À§ÇØ¼­ ³­ ¹«¾ùÀ» ÇØÁÙ¼öÀÖÀ»±î...
+ÃÖ±Ù¿¡ Á÷³à¿Í ÃàÁ¦¿¡ °¬¾ú¾î¿ä. ¿©·¯ À½½ÄµéÀ» ÆÈ°í ÀÖ°í ÇØ¼­ Áñ°Å¿ü¾î¿ä. ±Ùµ¥ Áñ°Å¿î ½Ã°£À» Ã¤ Áñ±â±âµµ Àü¿¡ ½½ÇÂÀÏÀÌ ÀÏ¾î³ª ¹ö·È¾î¿ä¡¦
+Á÷³àÀÇ Çàº¹Àº ÀúÀÇ Çàº¹ÀÌ¿¹¿ä. »ç¶ûÇÏ´Â Á÷³àÀÇ ¹Ì¼Ò¸¦ ÁöÅ°±â À§ÇØ¼­ ÇÒ ¼ö ÀÖ´Â µ¥±îÁö ¸ðµçÁö ÇØÁÖ°í ½Í¾î¿ä.
+¼ÒÁßÇÑ »ç¶÷À» ¹è·ÁÇÏ´Â ±âºÐÀº ÀØÀ¸¸é ¾ÈµÇ¿ä.
+¾î¶±ÇØ¿ä. Áß¿äÇÑ ºñ´ÜÀÌ ¾ø¾îÁ®¼­..
+ÀÌ¹ø Ä¥¼®Àº ¿¹»Û º°¶Ëº°ÀÌ ¶³¾îÁø´Ù°í Çß¾ú´Âµ¥ ¾ÈÅ¸±õ°Ôµµ ¾È¶³¾î Áö³×¿ä..ÃÖ±Ù¿¡ °ß¿ì¿Í ÃàÁ¦¿¡ °¬¾ú¾î¿ä. Áñ°Å¿üÁö¸¸ »ý°¢ÇÏ¸é ½½ÆÛ¿ä.
+°ß¿ì¸¦ ¸¸³ª°í ³ª¼­ ¾Æ¹«°Íµµ ¾ÈÇØµµ ±×³É °°ÀÌ ÀÖ´Â°Í¸¸À¸·Îµµ Çàº¹ÇØ¿ä. Á¶¸¸°£ °ß¿ì¿¡°Ô ¼±¹°ÇÒ °Çµ¥ ±â»µÇßÀ¸¸é ÁÁ°Ú¾î¿ä.
+Ä¥¼®ÀÌ ¿©·¯ºÐ¿¡°Ô Çàº¹À» ÁÖ±â¸¦ ±âµµÇÒ²²¿ä.
+	
+Players with the courage to ask yourself the challenge of the Secret Room.
+Want the East Region (Flaris, Saint Morning, Garden by Rhisis) win? The vacant guild gets taxes from the region and of the admission of the abandoned tower.
+I'm in charge of the Secret Room of the eastern region. You can add me everything about the Secret Room ask. I can give you also the duty of the eastern region.
+Spread the blessings of Rhisis around the world!
+If your guild is not strong enough, you should not even register.
+Want the West Region (Darkon conquer)? The vacant guild gets taxes from the western region and the entrance fee to the hunting grounds.
+I'm in charge of the Secret Room of the West Region. You can add me everything about the Secret Room ask. I can give you also the duty of the western region.
+May Rhisis exist forever!
+Have fun in Flyff. 
+	
+If you believe that low-ranking base maps are useless, come to me. I can convert your 10 cards into a card.
+I am the master card. I felt bad when I saw that players throw away the low-ranking cards. Therefore I have decided to exchange them.
+There are no useless base maps.
+I can not imagine a world without maps.
+Only Jewels can give you strength. Come to me and I will create a new jewel.
+I'm Peach and help Bobochan. I'm working on subjects that are dealing with high-quality jewels. I sell items and Scrolls of Pet Awakening for Pets.
+I love this jewelry! You are so beautiful!
+Let us collect the Small Toothed Wheel!
+Please bring me these useless Small Toothed Wheel and I'll make something useful from it.
+I'm an inventor who produces something useful from worthless things.
+Come on! Bring me your Small Toothed Wheel!
+I love marbles!
+I've gathered each glass bead in Madrigal, but there is one that is available only by monsters. I want them unconditionally.
+I am a pretty girl and I love beads!
+Would you like youe very one house?
+hello there im charlie and im the housing manager here in Madrigal. 
+My story is now over. Please tell others!
+Hello. Today I will tell you a fantastic spooky story!
+Why do not you stay for a while and she hears you on?
+Happy Halloween. Want to hear a scary story?
+Want to have your own room?
+You can now have your own room! Upload a few friends over or organize an exclusive meeting with your guild members!
+I manufacture high quality furniture and other household items, so that you can decorate your room. I'm the best carpenter far and wide!
+If you have a nice home, can be rested and strengthened in the struggle to attract Madrigal.
+Help me! The winter snow melts in Madrigal! Please save the winter!
+Happy new year
+I madrigal winter god.
+Happy new year
+Happy new year
+Happy new year
+I madrigal winter god.
+Happy new year
+Think of someone you like ... nice?
+Think of someone you love ... nice?
+Hi! My name is Grahoo, I follow the legendary Knight. The legendary Knight always comes on Valentine's Day.
+Valentine's Day is my favorite holiday!
+How to be good looking, is almost a crime ...
+Even a legendary warrior should not intimidate others.
+I am Aberu, the legendary warrior. I get a lot of pretty girls chocolate sent. Always tell me.
+All the girls find me staggering.
+Hi! I am Aberu, the legendary warrior. The king is always at my side. Not bad to be the right hand of the king.
+Hey, if you're not busy now, can I help you.
+I've got a problem. I need some ingredients for a special court.
+I am the best cook madrigal.
+Lot going on, the new Lord will soon be here ... We've got no time.
+Heads up, people!
+May Rhisis protect you ...
+I'm Alice, who is responsible for the area Azria.
+Nut courage, men!
+Today is day hiking!
+Come along on a trip!
+I am Oasis, your supervisor for the Madrigal hiking.
+The sports festival started!
+If you want to do quests in Khaldera, please to me!
+Hi! I am Jano I Manage all the quests in Khaldera. In recent days, many stores were looted by the Masquerpets. On the Masquerpets a reward is suspended.
+At the moment I have no quests for you, sorry. Check back soon.
+My name is Jano. I manage all the quests in Khaldera.
+There are many quests, come back later.
+Welcome! Here you'll find plenty of adventure gear.
+Hi! Pick something out, I'll make you a good price.
+I actually wanted to be adventurous, but had not then what it takes. So I grab you by the arms and equipment to offer favorable.
+My name is Luka. I represent the shopkeepers Khalderas. I sell it by yourself in Montaru base camp.
+Well, check back soon.
+Welcome! Experience the beauty Khalderas.
+The beauty Khalderas
+
+My name is Despoo, I run the Expedtion.
+Well, let us move on and discover the wonders Khalderas.
+The beauty Khalderas
+Hachja, I was once as young as you, the good old days.
+Beauty Khalderas
+I think the jungle much nicer than the gray cities.
+You say the name ESCOP something? I am ESCOP the fourth, descendant of the great Esop.
+Be careful on your return journey. Here lurk everywhere nasty Masquerpets.
+Hello! Welcome to Khaldera!
+The beauty Khalderas
+Hehe ... Everyone wants to now Khaldera. I'm glad so!
+I'm Ryan, a historian of Khaldera. I can answer your every question!
+Goodbye! And do not forget, in the history of the future lies.
+Hey ... Khaldera is still breathtakingly beautiful, right?
+The beauty Khalderas
+It was a good decision to emigrate to Khaldera, do not you think?
+I am Rhasa, the flower Khaldera
+You are certainly busy. Do not forget to pass on the occasion of times.
+Can someone do me a favor?
+The beauty Khalderas
+The blue ocean ... white beaches ... Ah, I can hardly wait ...
+I am Melon, the holder of the Melonbäckerei.
+I hope you can help me, if you feel better.
+¸ó½ºÅÍµéÀÌ ¿ø·áµéÀ» ÈÉÃÄ°¬¾î¿ä. ´©±º°¡ °èÈ¹ÇÑ °ÍÀÌ ºÐ¸íÇØ¿ä!
+¾îÁ¦ ¸ó½ºÅÍµéÀÌ ÁýÀ» Ä§ÀÔÇØ¼­ ¾çÁ¶±â¸¦ ÈÉÃÄ°¬¾î¿ä..\nÃàÁ¦ÀüÀÎµ¥..¾Æ
+Àú´Â ¾î°Å½ºÆ¾ÀÌ¶ó°í ÇÕ´Ï´Ù. µµ¿ÍÁÖ¼¼¿ä. Á¦ ¾çÁ¶½Ç·ÂÀº ¸¶µå¸®°¥¿¡¼­µµ À¯¸íÇØ¿ä. ³Ê¹« ¹Ùºü ÀÚ¸®¸¦ ºñ¿ï ¼ö ¾ø¾î¿ä.
+¸¶À½À» ¹Ù²Ù½Ã±æ ¹Ù·¡¿ä. ¿ø·á·á¿Í ¹Ù²ã ÁÙ ¼ö ÀÖ´Â º¸»óÀÌ ÀÖ¾î¿ä. »¡¸® ÇÊ¿äÇØ¿ä.
