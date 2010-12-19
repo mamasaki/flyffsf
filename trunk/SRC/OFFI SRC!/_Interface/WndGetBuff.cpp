@@ -46,14 +46,16 @@ void CWndGetBuff::OnInitialUpdate()
 BOOL CWndGetBuff::Initialize( CWndBase* pWndParent, DWORD /*dwWndId*/ ) 
 {
 	// Daisy에서 설정한 리소스로 윈도를 연다.
-	if(!_tcscmp(m_szCharacterKey,"MaFl_Helper_ver12"))
-	{
-		return CWndNeuz::InitDialog( g_Neuz.GetSafeHwnd(), APP_ADDBUFF_ROOM, 0, CPoint( 0, 0 ), pWndParent );
-	}
-	if(!_tcscmp(m_szCharacterKey,"MaFl_Helper_ver12.1"))
-	{
-		return CWndNeuz::InitDialog( g_Neuz.GetSafeHwnd(), APP_ADDBUFF2_ROOM, 0, CPoint( 0, 0 ), pWndParent );
-	}
+	//if(!_tcscmp(m_szCharacterKey,"MaFl_Helper_ver12"))
+	//{
+	//	return CWndNeuz::InitDialog( g_Neuz.GetSafeHwnd(), APP_ADDBUFF_ROOM, 0, CPoint( 0, 0 ), pWndParent );
+	//}
+	//if(!_tcscmp(m_szCharacterKey,"MaFl_Helper_ver12.1"))
+	//{
+	//	return CWndNeuz::InitDialog( g_Neuz.GetSafeHwnd(), APP_ADDBUFF2_ROOM, 0, CPoint( 0, 0 ), pWndParent );
+	//}
+
+	return CWndNeuz::InitDialog( g_Neuz.GetSafeHwnd(), APP_ADDBUFF_ROOM, 0, CPoint( 0, 0 ), pWndParent );
 	
 } 
 /*
@@ -68,6 +70,12 @@ BOOL CWndQuitRoom::Initialize( CWndBase* pWndParent, DWORD dwWndId )
 */
 BOOL CWndGetBuff::OnCommand( UINT nID, DWORD dwMessage, CWndBase* pWndBase ) 
 { 
+	if(nID == 933)
+	{
+		CCtrl* pFocusObj = (CCtrl*)g_WorldMng()->GetObjFocus();
+		CMover* pFocusMover = (CMover*)pFocusObj;
+		g_DPlay.SendNPCBuff(pFocusMover->m_szCharacterKey);
+	}
 	return CWndNeuz::OnCommand( nID, dwMessage, pWndBase ); 
 } 
 void CWndGetBuff::OnSize( UINT nType, int cx, int cy ) 
@@ -114,4 +122,22 @@ void CWndGetBuff::SetVar(TCHAR * key)
 	_tcscpy_s(m_szCharacterKey, sizeof(m_szCharacterKey), key);
 }
 
+
+
+
+BOOL CWndGetBuff2::Initialize( CWndBase* pWndParent, DWORD /*dwWndId*/ ) 
+{
+	// Daisy에서 설정한 리소스로 윈도를 연다.
+	//if(!_tcscmp(m_szCharacterKey,"MaFl_Helper_ver12"))
+	//{
+	//	return CWndNeuz::InitDialog( g_Neuz.GetSafeHwnd(), APP_ADDBUFF_ROOM, 0, CPoint( 0, 0 ), pWndParent );
+	//}
+	//if(!_tcscmp(m_szCharacterKey,"MaFl_Helper_ver12.1"))
+	//{
+	//	return CWndNeuz::InitDialog( g_Neuz.GetSafeHwnd(), APP_ADDBUFF2_ROOM, 0, CPoint( 0, 0 ), pWndParent );
+	//}
+
+	return CWndNeuz::InitDialog( g_Neuz.GetSafeHwnd(), APP_ADDBUFF2_ROOM, 0, CPoint( 0, 0 ), pWndParent );
+	
+} 
 #endif // __HOUSING

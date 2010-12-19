@@ -170,19 +170,16 @@ BOOL CResManager::Load( LPCTSTR lpszName )
 		scanner.GetToken_NoDef();
 	} 
 #if 0
-	LPWNDAPPLET WndAppletType1;
-	m_mapWndApplet.Lookup((void*)APP_QUIT_ROOM, (void*&)WndAppletType1);
+	LPWNDAPPLET lpWndApplet;
+	m_mapWndApplet.Lookup((void*)APP_QUIT_ROOM, (void*&)lpWndApplet);
 	for(int i = 0; i < sizeof(tempRes) / sizeof(SAppRes); i++)
 	{
-		LPWNDAPPLET AddWndApplet = new WNDAPPLET();
-		memcpy_s(AddWndApplet, sizeof(WNDAPPLET), WndAppletType1, sizeof(WNDAPPLET));
+		LPWNDAPPLET AddWndApplet = new WNDAPPLET;
+		memcpy_s(AddWndApplet, sizeof(tagWndApplet), lpWndApplet, sizeof(tagWndApplet));
+
 
 		AddWndApplet->dwWndId = tempRes[i].dwWndId;
-		AddWndApplet->strTitle = CString(tempRes[i].strTitle);
-		LPWNDCTRL pWndCtrl = new WNDCTRL;
-		memcpy_s(pWndCtrl, sizeof(WNDCTRL), AddWndApplet->ptrCtrlArray[0], sizeof(WNDCTRL));
-		pWndCtrl->strTitle = CString(tempRes[i].subStrTitle);
-		AddWndApplet->ptrCtrlArray[0] = pWndCtrl;
+		AddWndApplet->strTitle = tempRes[i].strTitle;
 
 		m_mapWndApplet.SetAt( (void*)AddWndApplet->dwWndId, AddWndApplet );
 	}

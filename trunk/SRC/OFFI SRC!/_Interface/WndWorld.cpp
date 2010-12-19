@@ -5129,17 +5129,43 @@ BOOL CWndWorld::OnCommand( UINT nID, DWORD dwMessage, CWndBase* pWndBase )
 			break;
 #endif //__HEAVEN_TOWER
 #ifdef __NPC_BUFF
-			case MMI_NPC_BUFF:
+			case MMI_NPC_BUFF3:
 			{				
 				g_DPlay.SendNPCBuff(pFocusMover->m_szCharacterKey);
 			}
 			break;
 			case MMI_NPC_BUFF2:
-			case MMI_NPC_BUFF3:
 			{				
-				g_WndMng.m_pWndGBuff = new CWndGetBuff;	
-				g_WndMng.m_pWndGBuff->SetVar(pFocusMover->m_szCharacterKey);
-				g_WndMng.m_pWndGBuff->Initialize();				
+				CWndBase* pWndBaseBuf = g_WndMng.GetWndBase( APP_ADDBUFF2_ROOM );
+				if( pWndBaseBuf )
+				{
+					g_WndMng.PutString( prj.GetText(TID_MMI_NPC_BUFF2), NULL, prj.GetTextColor(TID_MMI_NPC_BUFF2) );
+					break;
+				}
+
+				g_WndMng.CreateApplet( APP_ADDBUFF2_ROOM );
+				
+				SAFE_DELETE( g_WndMng.m_pWndGBuff2 );
+				g_WndMng.m_pWndGBuff2 = new CWndGetBuff2;
+				g_WndMng.m_pWndGBuff2->Initialize();				
+				
+			}
+			break;
+			case MMI_NPC_BUFF:
+			{				
+				
+				CWndBase* pWndBaseBuf = g_WndMng.GetWndBase( APP_ADDBUFF2_ROOM );
+				if( pWndBaseBuf )
+				{
+					g_WndMng.PutString( prj.GetText(TID_MMI_NPC_BUFF), NULL, prj.GetTextColor(TID_MMI_NPC_BUFF) );
+					break;
+				}
+
+				g_WndMng.CreateApplet( APP_ADDBUFF_ROOM );
+				
+				SAFE_DELETE( g_WndMng.m_pWndGBuff );
+				g_WndMng.m_pWndGBuff = new CWndGetBuff;
+				g_WndMng.m_pWndGBuff->Initialize();			
 				
 			}
 			break;

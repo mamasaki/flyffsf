@@ -2909,7 +2909,7 @@ BOOL CProject::LoadCharacter( LPCTSTR szFileName )
 		// 보관해두는 것이다.
 		_tcscpy( lpCharacter->m_szKey, strName );
 		int a ;
-		if(!_tcscmp(strName,"MaFl_Helper_ver12"))
+		if(!_tcscmp(strName,"MaFl_Helper_ver12.1"))
 		{
 			 a = 0;
 		}
@@ -3045,6 +3045,10 @@ BOOL CProject::LoadCharacter( LPCTSTR szFileName )
 			else
 			if(script.Token == "AddMenu" )
 			{
+				if(lpCharacter->m_strName == "MaFl_Helper_ver12.1")
+				{
+					lpCharacter->m_strName == "MaFl_Helper_ver12.1";
+				}
 				script.GetToken(); // (
 				int nMMI = script.GetNumber(); 
 				script.GetToken(); // ) 
