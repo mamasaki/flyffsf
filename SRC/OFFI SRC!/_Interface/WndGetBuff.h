@@ -6,7 +6,7 @@ class CWndGetBuff : public CWndNeuz
 { 
 public: 
 	CWndGetBuff(); 
-	~CWndGetBuff(); 
+	virtual ~CWndGetBuff(); 
 
 	virtual BOOL Initialize( CWndBase* pWndParent = NULL, DWORD nType = MB_OK ); 
 	virtual BOOL OnChildNotify( UINT message, UINT nID, LRESULT* pLResult ); 
@@ -21,5 +21,12 @@ public:
 public:
 	TCHAR	m_szCharacterKey[32];
 }; 
+
+class CWndGetBuff2 : public CWndGetBuff 
+{ 
+public: 
+	virtual BOOL Initialize( CWndBase* pWndParent = NULL, DWORD nType = MB_OK ); 
+}; 
+
 #endif
 #endif // __HOUSING

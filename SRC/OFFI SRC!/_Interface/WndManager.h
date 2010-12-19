@@ -603,6 +603,7 @@ public:
 #if 1
 	//syj add npc buff confirm box
 	CWndGetBuff* m_pWndGBuff;
+	CWndGetBuff* m_pWndGBuff2;
 #endif
 
 
