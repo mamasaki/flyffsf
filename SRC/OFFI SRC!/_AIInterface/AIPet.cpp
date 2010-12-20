@@ -427,6 +427,8 @@ BOOL CAIPet::NotOwnedPetInactivated( void )
 	else if( !pOwner->IsValidArea( pEatPet, 32 ) )
 	{
 		CItemElem* pItemElem = pOwner->GetVisPetItem();
+		if(pItemElem == NULL)
+			return TRUE;
 		pOwner->InactivateEatPet();
 		pOwner->ActivateEatPet(pItemElem);
 		return TRUE;
