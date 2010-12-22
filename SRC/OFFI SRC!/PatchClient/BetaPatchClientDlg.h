@@ -92,7 +92,7 @@ protected:
 	afx_msg void OnDestroy();
 	afx_msg void OnExit();
 	afx_msg void OnOption();
-	afx_msg UINT OnNcHitTest(CPoint point);
+	afx_msg LRESULT OnNcHitTest(CPoint point);
 	afx_msg	LRESULT OnHttpDownloadThreadFinished( WPARAM wParam, LPARAM lParam );
 	afx_msg	LRESULT OnHttpDownloadFail( WPARAM wParam, LPARAM lParam );
 	afx_msg void OnButtonStart();

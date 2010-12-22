@@ -263,7 +263,7 @@ void CBetaPatchClientDlg::OnExit()
 	PostQuitMessage( 0 );
 }
 
-UINT CBetaPatchClientDlg::OnNcHitTest( CPoint point )
+LRESULT CBetaPatchClientDlg::OnNcHitTest( CPoint point )
 {
 	// 캡션바를 누른것 처럼 해주는 것이다.
 	return HTCAPTION;

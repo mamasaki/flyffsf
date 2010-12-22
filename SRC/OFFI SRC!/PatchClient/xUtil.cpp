@@ -266,7 +266,8 @@ void	GetFilePath( LPCTSTR szSrc, LPTSTR szFilePath )
 {
 	int len	= strlen( szSrc );	// 풀네임 길이구함
 	// 마지막 \찾음
-	for( int i = len-1; i >= 0; i -- )
+	int i;
+	for(  i = len-1; i >= 0; i -- )
 	{
 		if( szSrc[i] == '\\' )
 			break;
@@ -350,7 +351,7 @@ LPCTSTR GetCPUInfo( void )
 
 int StringFind( const char* string, int c )
 {
-	char* pdest;
+	const char* pdest;
 	return ( pdest = strchr( string, c ) ) ? pdest - string : -1;
 }
 
