@@ -370,7 +370,7 @@ void CWndFriendCtrlEx::OnDraw( C2DRender* p2DRender )
 	
 	vector < __MESSENGER_PLAYER >::iterator iter = m_vPlayerList.begin();
 	
-	for(int i=0; iter<m_vPlayerList.end(); i++, iter++)
+	for(int i=0; iter != m_vPlayerList.end(); i++, iter++)
 	{
 		CString strFormat;
 
@@ -379,7 +379,7 @@ void CWndFriendCtrlEx::OnDraw( C2DRender* p2DRender )
 		if( i >= nMax )
 		{
 			iter = m_vPlayerList.end();
-			continue;
+			break;
 		}
 		
 		__MESSENGER_PLAYER stPlayer = *(iter);
