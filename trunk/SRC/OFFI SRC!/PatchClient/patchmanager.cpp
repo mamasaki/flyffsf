@@ -87,7 +87,7 @@ bool CPatchManager::IsSameFile( FILE_INFO& info )
 				              (int)stClient.wHour, (int)stClient.wMinute, (int)stClient.wSecond );
 
 			time_t nTimeGap = static_cast< time_t >( timeServer.GetTime() - timeClient.GetTime() );
-			if( abs(nTimeGap) <= 60*3 )	// 3분 이하의 차이는 무시 
+			if( abs((long)nTimeGap) <= 60*3 )	// 3분 이하의 차이는 무시 
 				return true;
 		}
 	}
