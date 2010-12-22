@@ -4262,7 +4262,7 @@ float CMover::GetExpFactor( void )
 
 #ifdef __EVENTLUA_RAIN
 	if( g_Environment.m_bRain )
-		fFactor *= prj.m_EventLua.GetRainEventExpFactor();
+		fFactor *= 2.0f;// prj.m_EventLua.GetRainEventExpFactor();
 #else // __EVENTLUA_RAIN
 #ifdef __RAIN_EVENT
 	if( g_Environment.m_bRain )
@@ -4271,7 +4271,7 @@ float CMover::GetExpFactor( void )
 #endif // __EVENTLUA_RAIN
 #ifdef __EVENTLUA_SNOW
 	if( g_Environment.m_bSnow )
-		fFactor *= prj.m_EventLua.GetSnowEventExpFactor();
+		fFactor *=2.0f;// prj.m_EventLua.GetSnowEventExpFactor();
 #endif // __EVENTLUA_SNOW
 
 #endif // __ENVIRONMENT_EFFECT
