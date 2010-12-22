@@ -5779,6 +5779,7 @@
 #define II_SYS_SYS_EVE_COMMERGIFTBOX68		30343
 #define II_CHP_GREEN		             30344
 #define II_CHP_BLUE		                 30345
+
 /////////////////////////////////////////////////////////////////////////
 //OVERSEAS ITEMs( over 30000 ) + exception( 20001, 20002, 20011, 20012 )
 #define II_SYS_SYS_EVE_SERVERGIFTBOX1    20001
