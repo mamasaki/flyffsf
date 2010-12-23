@@ -5,7 +5,7 @@ class CWndIndirectTalk : public CWndNeuz
 { 
 public: 
 	CWndIndirectTalk(); 
-	~CWndIndirectTalk(); 
+	virtual ~CWndIndirectTalk(); 
 
 	virtual BOOL Initialize( CWndBase* pWndParent = NULL, DWORD nType = MB_OK ); 
 	virtual BOOL OnChildNotify( UINT message, UINT nID, LRESULT* pLResult ); 
@@ -16,4 +16,12 @@ public:
 	virtual void OnLButtonUp( UINT nFlags, CPoint point ); 
 	virtual void OnLButtonDown( UINT nFlags, CPoint point ); 
 }; 
+
+class CWndCoupleTalk:public CWndIndirectTalk
+{
+public: 
+	virtual BOOL Initialize( CWndBase* pWndParent = NULL, DWORD nType = MB_OK ); 
+	virtual BOOL OnChildNotify( UINT message, UINT nID, LRESULT* pLResult ); 
+	virtual void OnDraw( C2DRender* p2DRender ); 
+};
 #endif
