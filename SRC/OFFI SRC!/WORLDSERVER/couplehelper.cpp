@@ -111,7 +111,7 @@ void CCoupleHelper::OnProposeResult( CAr & ar )
 		}
 		const char* pszTarget	= CPlayerDataCenter::GetInstance()->GetPlayerString( idTarget );	
 		if( !pszTarget )
-			pszTarget	= "";
+			pszTarget	= "123";
 		pProposer->AddDefinedText( TID_GAME_COUPLE_S01, "%s", pszTarget );	// %s님에게 프러포즈 하였습니다.
 	}
 	else

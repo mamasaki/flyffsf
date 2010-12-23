@@ -409,6 +409,7 @@ CWndMgr::CWndMgr()
 #endif //__RAINBOW_RACE
 #if __VER >= 13 // __CSC_VER13_2
 	m_pWndCoupleMessage = NULL;
+	m_pWndCoupleTalk = NULL;
 #endif //__CSC_VER13_2
 #if __VER >= 13 // __EXT_ENCHANT
 	m_pWndChangeAttribute = NULL;

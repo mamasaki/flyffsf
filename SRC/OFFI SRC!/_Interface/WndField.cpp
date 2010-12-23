@@ -23095,7 +23095,26 @@ BOOL CWndCoupleMessage::OnChildNotify( UINT message, UINT nID, LRESULT* pLResult
 				if(nID == IDOK)
 				{
 					if(m_pTargetObj)
-						g_DPlay.SendPropose(((CMover*)m_pTargetObj)->GetName());
+					{
+						if(g_pPlayer->GetGold()<3000000)
+							g_WndMng.PutString( "对不起，您的游戏币不足，无法发起告白。", NULL, prj.GetTextColor( TID_GAME_NOTCOUPLETARGET ) );
+						else
+						{
+							
+									
+							if(g_WndMng.m_pWndCoupleTalk)
+								SAFE_DELETE(g_WndMng.m_pWndCoupleTalk);
+
+							g_WndMng.m_pWndCoupleTalk = new CWndCoupleTalk;
+							if(g_WndMng.m_pWndCoupleTalk)
+							{
+								/*CString strText;
+								strText.Format(prj.GetText(TID_GAME_PROPOSETO), ((CMover*)pFocus)->GetName());
+								g_WndMng.m_pWndCoupleMessage->SetMessageMod(strText, CWndCoupleMessage::CM_SENDPROPOSE, pFocus);*/
+								g_WndMng.m_pWndCoupleTalk->Initialize(NULL);
+							}
+						}
+					}
 					Destroy();
 				}
 				else if(nID == IDCANCEL)

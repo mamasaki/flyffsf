@@ -106,3 +106,61 @@ BOOL CWndIndirectTalk::OnChildNotify( UINT message, UINT nID, LRESULT* pLResult 
 	return CWndNeuz::OnChildNotify( message, nID, pLResult ); 
 } 
 
+
+
+
+
+void CWndCoupleTalk::OnDraw( C2DRender* p2DRender ) 
+{ 
+	/*CWorld* pWorld = g_WorldMng();
+	CMover* pMover = (CMover*)pWorld->GetObjFocus();
+	CWndEdit* pWndEdit = (CWndEdit*)GetDlgItem( WIDC_EDIT1 );
+	TCHAR szNum[ 32 ];
+	if( pMover && pMover->GetType() == OT_MOVER )
+		itoa( pMover->GetId(), szNum, 10 );
+	else
+		itoa( 0, szNum, 10 );
+	pWndEdit->SetString( szNum );*/
+	return;
+}
+
+BOOL CWndCoupleTalk::Initialize( CWndBase* pWndParent, DWORD /*dwWndId*/ ) 
+{ 
+	// Daisy에서 설정한 리소스로 윈도를 연다.
+	return CWndNeuz::InitDialog( g_Neuz.GetSafeHwnd(), APP_COUPLE_TALK, 0, CPoint( 0, 0 ), pWndParent );
+} 
+
+BOOL CWndCoupleTalk::OnChildNotify( UINT message, UINT nID, LRESULT* pLResult ) 
+{ 
+	CWorld* pWorld = g_WorldMng();
+	CObj* pObj = pWorld->GetObjFocus();
+	if( pObj && pObj->GetType() == OT_MOVER )
+	{
+		switch( nID )
+		{
+		case WIDC_EDIT2: // 본문 
+			if( message != EN_RETURN )
+				break;
+		case WIDC_BUTTON1:
+			{
+				CWndEdit* pWndEdit2 = (CWndEdit*)GetDlgItem( WIDC_EDIT2 );
+				LPCTSTR lpText = pWndEdit2->m_string;
+				CString string;
+				string.Format( "/id  %s", lpText );
+				//警속랙箇句口
+				g_DPlay.SendPropose(((CMover*)pObj)->GetName());
+				string.UnlockBuffer();
+				pWndEdit2->Empty();
+			}
+			break;
+		}
+	}
+	if( nID == WTBID_CLOSE )
+	{
+		Destroy( TRUE );
+		return TRUE;
+	}
+	return CWndNeuz::OnChildNotify( message, nID, pLResult ); 
+} 
+
+

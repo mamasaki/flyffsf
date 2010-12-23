@@ -80,7 +80,7 @@
 #include "WndQuestQuickInfo.h"
 #include "WndQuest.h"
 #endif // __IMPROVE_QUEST_INTERFACE
-
+#include "WndIndirectTalk.h"
 #ifdef __YS_CHATTING_BLOCKING_SYSTEM
 #include "WndChattingBlockingList.h"
 #endif // __YS_CHATTING_BLOCKING_SYSTEM
@@ -506,6 +506,7 @@ public:
 #endif //__RAINBOW_RACE
 #if __VER >= 13 // __CSC_VER13_2
 	CWndCoupleMessage*				m_pWndCoupleMessage;
+	CWndCoupleTalk*					m_pWndCoupleTalk;
 #endif //__CSC_VER13_2
 #if __VER >= 13 // __EXT_ENCHANT
 	CWndChangeAttribute*			m_pWndChangeAttribute;
