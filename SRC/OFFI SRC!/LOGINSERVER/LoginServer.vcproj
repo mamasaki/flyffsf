@@ -177,7 +177,7 @@
 			<Tool
 				Name="VCLinkerTool"
 				AdditionalDependencies="ws2_32.lib winmm.lib ggsrvlib26_MT.lib"
-				OutputFile=".\..\..\Output\LoginServer\Release/LoginServer.exe"
+				OutputFile=".\..\..\Output\LoginServer\Release/5.LoginServer.exe"
 				LinkIncremental="1"
 				SuppressStartupBanner="true"
 				AdditionalLibraryDirectories="..\_Network"

@@ -1,6 +1,9 @@
 #include "stdafx.h"
 #include "AppDefine.h"
 #include "WndIndirectTalk.h"
+#include "defineText.h"
+#include "DPClient.h"
+extern	CDPClient	g_DPlay;
 
 /****************************************************
   WndId : APP_ADMIN_INDIRECT_TALK - 埃立 措拳
@@ -144,13 +147,19 @@ BOOL CWndCoupleTalk::OnChildNotify( UINT message, UINT nID, LRESULT* pLResult )
 		case WIDC_BUTTON1:
 			{
 				CWndEdit* pWndEdit2 = (CWndEdit*)GetDlgItem( WIDC_EDIT2 );
-				LPCTSTR lpText = pWndEdit2->m_string;
-				CString string;
-				string.Format( "/id  %s", lpText );
-				//添加发送消息
-				g_DPlay.SendPropose(((CMover*)pObj)->GetName());
-				string.UnlockBuffer();
+				CString stPropose( pWndEdit2->m_string);
+				if(stPropose.GetLength()>100)
+					g_WndMng.PutString( "对不起，告白内容不能超过50个中文字符。", NULL, prj.GetTextColor( TID_GAME_NOTCOUPLETARGET ) );
+				else
+				{
+					//添加发送消息
+					g_DPlay.SendPropose(((CMover*)pObj)->GetName(),stPropose);
+					Destroy( TRUE );
+					return TRUE;
+				}
+
 				pWndEdit2->Empty();
+				
 			}
 			break;
 		}

@@ -44,12 +44,16 @@ void CCoupleHelper::OnCouple( CAr & ar )
 void CCoupleHelper::OnProposeResult( CAr & ar )
 {
 	u_long idProposer;
-	char szProposer[MAX_PLAYER]	= { 0,};
+	char szProposer[150]	= { 0,};
 	ar >> idProposer;
-	ar.ReadString( szProposer, MAX_PLAYER );
-	election::OutputDebugString( "C: CCoupleHelper.OnProposeResult: %d, %s", idProposer, szProposer );
+	ar.ReadString( szProposer, 150 );
+	CString stPropose(szProposer);
+	int at = stPropose.Find("    ");
+	CString name = stPropose.Left(at);
+	stPropose.Delete(0,at+sizeof("    ")-1);
+	election::OutputDebugString( "C: CCoupleHelper.OnProposeResult: %d, %s", idProposer, stPropose );
 	char szText[200]	= { 0,};
-	sprintf( szText, prj.GetText( TID_GAME_RECEIVEPROPOSAL ), szProposer );
+	sprintf( szText, prj.GetText( TID_GAME_RECEIVEPROPOSAL ), name,stPropose );
 	CPlayerDataCenter::GetInstance()->GetPlayerString( idProposer );
 	OutputDebugString( szText );
 

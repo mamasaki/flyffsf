@@ -47,10 +47,14 @@ BOOL CCoupleHelper::Initialize( CDPDatabaseClient* pdpClient, CDPSrvr* pdpServer
 void CCoupleHelper::OnPropose( CUser* pUser, const char* szPlayer )
 {
 	election::OutputDebugString( "S: CCoupleHelper.OnPropose: %s", szPlayer );
-	u_long idPlayer	= CPlayerDataCenter::GetInstance()->GetPlayerId( const_cast<char*>( szPlayer )  );
+	CString stPropose(szPlayer);
+	int at = stPropose.Find("    ");
+	CString name = stPropose.Left(at);
+	stPropose.Delete(0,at+sizeof("    ")-1);
+	u_long idPlayer	= CPlayerDataCenter::GetInstance()->GetPlayerId(  const_cast<char*>(name.GetString())  );
 	if( idPlayer == 0 )
 	{
-		pUser->AddDefinedText( TID_GAME_COUPLE_E00, "%s", szPlayer );	//%s님을 찾을 수 없습니다.
+		pUser->AddDefinedText( TID_GAME_COUPLE_E00, "%s", name );	//%s님을 찾을 수 없습니다.
 		return;
 	}
 	CUser* pTarget	= static_cast<CUser*>( prj.GetUserByID( idPlayer ) );
@@ -71,7 +75,11 @@ void CCoupleHelper::OnPropose( CUser* pUser, const char* szPlayer )
 		return;
 	}
 	*/
+	if(pUser->GetGold()<3000000)
+		return;
+	pUser->AddGold(-3000000);
 	m_pdpClient->SendPropose( pUser->m_idPlayer, pTarget->m_idPlayer );
+	m_Propose[pUser->m_idPlayer] = stPropose;
 }
 
 void CCoupleHelper::PlayProposeAnimation( CUser* pProposer, CUser* pTarget )
@@ -106,12 +114,14 @@ void CCoupleHelper::OnProposeResult( CAr & ar )
 		if( IsValidObj( pTarget ) )
 		{
 			pTarget->SetProposer( idProposer );
-			pTarget->AddProposeResult( idProposer, pProposer->GetName() );
+			CString propose = m_Propose[pProposer->m_idPlayer];
+			pTarget->AddProposeResult( idProposer, pProposer->GetName(), propose);
+			m_Propose.erase(pProposer->m_idPlayer);
 			PlayProposeAnimation( pProposer, pTarget );
 		}
 		const char* pszTarget	= CPlayerDataCenter::GetInstance()->GetPlayerString( idTarget );	
 		if( !pszTarget )
-			pszTarget	= "123";
+			pszTarget	= "";
 		pProposer->AddDefinedText( TID_GAME_COUPLE_S01, "%s", pszTarget );	// %s님에게 프러포즈 하였습니다.
 	}
 	else

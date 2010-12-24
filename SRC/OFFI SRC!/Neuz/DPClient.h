@@ -1130,7 +1130,7 @@ public:
 #endif // __HOUSING
 
 #if __VER >= 13 // __COUPLE_1117
-	void	SendPropose( const char* pszTarget );
+	void	SendPropose( const char* pszTarget,const char* pszPropose );
 	void	SendRefuse();
 	void	SendCouple();
 	void	SendDecouple();
