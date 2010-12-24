@@ -1182,7 +1182,7 @@ void CWndGuildCtrlEx::OnDraw( C2DRender* p2DRender )
 	
 	vector < __MESSENGER_PLAYER >::iterator iter = m_vPlayerList.begin();
 	
-	for(int i=0; iter<m_vPlayerList.end(); i++, iter++)
+	for(int i=0; iter!=m_vPlayerList.end(); i++, iter++)
 	{
 		CString strFormat;
 
@@ -1191,7 +1191,7 @@ void CWndGuildCtrlEx::OnDraw( C2DRender* p2DRender )
 		if( i >= nMax )
 		{
 			iter = m_vPlayerList.end();
-			continue;
+			break;
 		}
 		
 		__MESSENGER_PLAYER stPlayer = *(iter);
@@ -1757,13 +1757,13 @@ void CWndCampus::OnDraw( C2DRender* p2DRender )
 		pt.y = DISCIPLE_RENDERING_POSITION;
 		int nDiscipleMax = GetDiscipleDrawCount();
 		vector < __MESSENGER_PLAYER >::iterator iter = m_vDisciplePlayer.begin();
-		int i; for( i = 0; iter < m_vDisciplePlayer.end(); ++i, ++iter )
+		int i; for( i = 0; iter != m_vDisciplePlayer.end(); ++i, ++iter )
 		{
 			CString strFormat = _T( "" );
 			if( i >= nDiscipleMax )
 			{
 				iter = m_vDisciplePlayer.end();
-				continue;
+				break;
 			}
 
 			__MESSENGER_PLAYER stPlayer = *iter;
