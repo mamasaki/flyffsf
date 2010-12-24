@@ -12044,8 +12044,8 @@ void CDPSrvr::OnPropose( CAr & ar, DPID dpidCache, DPID dpidUser, LPBYTE, u_long
 	CUser* pUser	=	g_UserMng.GetUser( dpidCache, dpidUser );
 	if( IsValidObj( pUser ) ) 
 	{
-		char szPlayer[MAX_PLAYER]	= { 0,};
-		ar.ReadString( szPlayer, MAX_PLAYER );
+		char szPlayer[150]	= { 0,};
+		ar.ReadString( szPlayer, 150 );
 		CCoupleHelper::Instance()->OnPropose( pUser, szPlayer );
 	}
 }

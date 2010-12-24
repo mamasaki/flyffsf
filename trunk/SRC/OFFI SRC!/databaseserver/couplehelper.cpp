@@ -352,9 +352,9 @@ time_t CCoupleHelper::GetPropose( u_long idPlayer )
 
 BOOL CCoupleHelper::SetPropose( u_long idPlayer, time_t t )
 {
-	if( !m_pController->Propose( idPlayer, t ) )
-		return FALSE;
-	AddPropose( idPlayer, t );
+	//if( !m_pController->Propose( idPlayer, t ) )
+	//	return FALSE;
+	//AddPropose( idPlayer, t );
 	return TRUE;
 }
 

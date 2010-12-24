@@ -3725,14 +3725,17 @@ void CUser::AddCouple()
 	}
 }
 
-void CUser::AddProposeResult( u_long idProposer, const char* pszProposer )
+void CUser::AddProposeResult( u_long idProposer, const char* pszProposer,const char* propose )
 {
 	if( IsDelete() )	return;
 	m_Snapshot.cb++;
 	m_Snapshot.ar << GetId();
 	m_Snapshot.ar << SNAPSHOTTYPE_PROPOSE_RESULT;
+	CString stPro(pszProposer);
+	stPro.Append("    ");
+	stPro.Append(propose);
 	m_Snapshot.ar << idProposer;
-	m_Snapshot.ar.WriteString( pszProposer );
+	m_Snapshot.ar.WriteString( stPro );
 }
 
 void CUser::AddCoupleResult( u_long idPartner, const char* pszPartner )

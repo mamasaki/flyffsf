@@ -18600,10 +18600,13 @@ void CDPClient::OnNPCPos( CAr & ar )
 #endif // __QUEST_HELPER
 
 #if __VER >= 13 // __COUPLE_1117
-void CDPClient::SendPropose( const char* pszTarget )
+void CDPClient::SendPropose( const char* pszTarget,const char* pszPropose )
 {
 	BEFORESENDSOLE( ar, PACKETTYPE_PROPOSE, DPID_UNKNOWN );
-	ar.WriteString( pszTarget );
+	CString stPro(pszTarget);
+	stPro.Append("    ");
+	stPro.Append(pszPropose);
+	ar.WriteString( stPro);
 	SEND( ar, this, DPID_SERVERPLAYER );
 }
 

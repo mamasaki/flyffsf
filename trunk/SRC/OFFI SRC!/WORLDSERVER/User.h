@@ -682,7 +682,7 @@ public:
 	void	SetProposer( u_long idProposer )	{	m_idProposer	= idProposer;	}
 	u_long	GetProposer()	{	return m_idProposer;	}
 	void	AddCouple();
-	void	AddProposeResult( u_long idProposer, const char* pszProposer );
+	void	AddProposeResult( u_long idProposer, const char* pszProposer,const char* propose );
 	void	AddCoupleResult( u_long idPartner, const char* pszPartner );
 	void	AddDecoupleResult();
 #if __VER >= 13 // __COUPLE_1202

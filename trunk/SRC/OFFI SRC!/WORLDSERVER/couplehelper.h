@@ -36,6 +36,7 @@ private:
 	CCoupleMgr*	m_pMgr;
 	CDPDatabaseClient*	m_pdpClient;
 	CDPSrvr*	m_pdpServer;
+	std::map<u_long,CString> m_Propose;
 };
 
 #endif	// __COUPLEHELPER_H
