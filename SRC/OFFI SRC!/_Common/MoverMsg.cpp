@@ -453,7 +453,6 @@ void	CMover::CMD_SetMeleeAttack( OBJID idTarget, FLOAT fRange )
 #endif // WORLDSERVER
 }
 
-/*
 void	CMover::CMD_SetCollect( CObj *pObj )
 {
 	if( IsInvalidObj( pObj ) )	return;
@@ -462,13 +461,15 @@ void	CMover::CMD_SetCollect( CObj *pObj )
 	if( m_pActMover->IsActJump() )		return;
 	if( m_pActMover->IsActDamage() )		return;
 	if( IsDie() )	return;		// 죽었을때 사용금지.
-	
-	CMover *pTarget = (CMover *)pObj;
-	ClearActParam();
-	SetDestObj( pTarget->GetId(), 3.0f );		// 이동할 목표물을 idTarget으로 설정.
-	SetCmd( OBJACT_COLLECT, pTarget->GetId() );		// 사정거리가 되었을때 실행할 명령 셋팅.
+	// 
+	if( GetCollector()) 
+	{
+		CMover *pTarget = (CMover *)pObj;
+		ClearActParam();
+		SetDestObj( pTarget->GetId(), 3.0f );		// 이동할 목표물을 idTarget으로 설정.
+		SetCmd( OBJACT_COLLECT, pTarget->GetId() );		// 사정거리가 되었을때 실행할 명령 셋팅.
+	}
 }
-*/
 //
 //
 //

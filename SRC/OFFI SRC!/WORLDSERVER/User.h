@@ -125,9 +125,9 @@ public:
 	DWORD			m_dwSendFlyTime;					/// 비행시간 계산용 
 #endif	// __JEFF_9_20
 
-//	OBJID			m_idTargetCollect;					/// 자원몬스터 채집대상 - 채집중에 타겟을 바꿀 수도 있기때문
-//	int				m_nCollect;							/// 현재 자원 채집량
-//	DWORD			m_tmCollect;						/// 자원채집 타이머 - 1초에 한번씩
+	OBJID			m_idTargetCollect;					/// 자원몬스터 채집대상 - 채집중에 타겟을 바꿀 수도 있기때문
+	int				m_nCollect;							/// 현재 자원 채집량
+	DWORD			m_tmCollect;						/// 자원채집 타이머 - 1초에 한번씩
 
 #ifdef __EVENT_1101
 #ifdef __EVENT_1101_2
@@ -430,8 +430,8 @@ public:
 #endif // __EVENTLUA
 	void			AddQueryGetDestObj( OBJID objid );
 	void			AddGetDestObj( OBJID objid, OBJID objidDest, FLOAT fRange );
-//	BOOL			DoCollect( CMover *pTarget );		// 채집시작.
-//	int				OnActCollecting();					// 채집중 계속 호출.
+	BOOL			DoCollect( CMover *pTarget );		// 채집시작.
+	int				OnActCollecting();					// 채집중 계속 호출.
 	void			AddCommonSkill( DWORD dwSkill, DWORD dwLevel );
 	void			AddExpBoxCoolTime( OBJID objid, DWORD dwTime );
 	void			AddPlaySound2( const char* szSound );
@@ -882,7 +882,7 @@ public:
 #endif	// __MOD_VENDOR
 	void			AddSetHair( CUser* pUser, BYTE nHair, BYTE r, BYTE g, BYTE b );
 
-//	void			AddDoCollect( CUser* pUser, OBJID idTarget );
+	void			AddDoCollect( CUser* pUser, OBJID idTarget );
 	void			AddCreateSkillEffect( CMover *pAttacker, OBJID idTarget, DWORD dwSkill, DWORD dwLevel );
 	void			AddSetStun( CMover *pMover, int nMaxTime );
 	void			AddSendActMsg( CMover *pMover, OBJMSG dwMsg, int nParam1 = 0, int nParam2 = 0, int nParam3 = 0 );

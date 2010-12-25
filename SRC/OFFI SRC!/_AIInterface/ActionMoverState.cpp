@@ -306,7 +306,7 @@ void	CActionMover::ProcessState1( CMover* pMover,  DWORD dwState, float fSpeed )
 		}
 		break;
 	case OBJSTA_COLLECT:
-		/*
+		
 		if( pMover->IsNPC() )
 		{
 			Error( "OBJSTA_COLLECT : 웬 몬스터가 채집으로 들어왔다 %s", pMover->GetName() );
@@ -321,7 +321,7 @@ void	CActionMover::ProcessState1( CMover* pMover,  DWORD dwState, float fSpeed )
  #elif defined(__CLIENT)
 		pMover->OnActCollecting();
  #endif
-		*/
+		
 		// 모션은 조건이 끝날때까지 계속 반복됨.
 		break;
 	case OBJSTA_STUN:

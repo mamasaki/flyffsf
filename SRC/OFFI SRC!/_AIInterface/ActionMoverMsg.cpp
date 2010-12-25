@@ -219,7 +219,7 @@ int		CActionMover::ProcessActMsg1( CMover* pMover,  OBJMSG dwMsg, int nParam1, i
 		ClearState();
 		ResetState( OBJSTA_ACTION_ALL );
 		SetState( OBJSTA_ACTION_ALL, OBJSTA_COLLECT );
-		pMover->m_dwFlag |= MVRF_NOACTION;
+		//pMover->m_dwFlag |= MVRF_NOACTION;
 		pMover->SetMotion( MTI_COLLECT, ANILOOP_LOOP, MOP_FIXED );
 		pMover->RemoveInvisible();
 		break;
@@ -975,7 +975,7 @@ int		CActionMover::ProcessActMsg1( CMover* pMover,  OBJMSG dwMsg, int nParam1, i
 			MoverProp *pProp = pMover->GetProp();
 			if( pProp )
 			{
-				/*
+				
 				if( pProp->dwSourceMaterial != NULL_ID || pProp->dwClass == RANK_MATERIAL )	// 자원 몹이면..
 				{
 					if( pProp->dwHoldingTime == NULL_ID )
@@ -995,7 +995,7 @@ int		CActionMover::ProcessActMsg1( CMover* pMover,  OBJMSG dwMsg, int nParam1, i
 					if( pProp->dwSourceMaterial != NULL_ID && pProp->dwClass != RANK_MATERIAL )	// 자원몹이 아닌데 자원값이 있는경우.
 						Error( "OBJMSG_DIE 2 : %s %d", pMover->GetName(), pProp->dwSourceMaterial );
 				}
-				*/
+				
 			}
 		#endif // WorldServer
 		}

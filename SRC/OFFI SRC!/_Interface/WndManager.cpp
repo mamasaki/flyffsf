@@ -2978,8 +2978,8 @@ void CWndMgr::ObjectExecutor( LPSHORTCUT pShortcut )
 		else
 		if( pShortcut->m_dwId == MOT_BASE_COLLECT )
 		{
-//			CObj *pFocus = g_pPlayer->GetWorld()->GetObjFocus();	// ÇöÀç ÀâÈù Å¸°Ù.
-//			g_pPlayer->CMD_SetCollect( pFocus );
+			CObj *pFocus = g_pPlayer->GetWorld()->GetObjFocus();	// ÇöÀç ÀâÈù Å¸°Ù.
+			g_pPlayer->CMD_SetCollect( pFocus );
 		}
 		else
 		if( pShortcut->m_dwId == MOT_BASE_ESCAPE )

@@ -397,9 +397,9 @@ void CMover::Init()
 	m_nQuestKeeping	= 0;			// 길드퀘스트 클락워크 퀘스트와 관련 
 	m_nPartyQuestKeeping	= 0;
 	
-//	m_idCollecter	= NULL_ID;
-//	m_nResource		= 0;
-//	m_nCollectOwnCnt = 0;
+	m_idCollecter	= NULL_ID;
+	m_nResource		= 0;
+	m_nCollectOwnCnt = 0;
 #endif // __WORLDSERVER
 
 #ifdef __CLIENT
@@ -3930,8 +3930,8 @@ void CMover::Process()
 
 		if( IsNPC() )
 		{
-//			if( m_nCollectOwnCnt > 0 )
-//				--m_nCollectOwnCnt;
+			if( m_nCollectOwnCnt > 0 )
+				--m_nCollectOwnCnt;
 
 			if( (m_nCount & 127) == 0 )		// 약 8초만에 한번씩
 			{
