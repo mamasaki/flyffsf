@@ -4,6 +4,7 @@
 	Version="9.00"
 	Name="LoginServer"
 	ProjectGUID="{073CA223-A87D-4CC7-AFBF-8A4D022CA502}"
+	RootNamespace="LoginServer"
 	TargetFrameworkVersion="131072"
 	>
 	<Platforms>
@@ -177,7 +178,7 @@
 			<Tool
 				Name="VCLinkerTool"
 				AdditionalDependencies="ws2_32.lib winmm.lib ggsrvlib26_MT.lib"
-				OutputFile=".\..\..\Output\LoginServer\Release/5.LoginServer.exe"
+				OutputFile=".\..\..\Output\LoginServer\Release/LoginServer.exe"
 				LinkIncremental="1"
 				SuppressStartupBanner="true"
 				AdditionalLibraryDirectories="..\_Network"
