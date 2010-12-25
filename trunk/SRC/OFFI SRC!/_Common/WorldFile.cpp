@@ -588,7 +588,12 @@ BOOL CWorld::ReadRespawn( CScript& s )
 	pInfo->m_dwType	= dwType;
 	if(pInfo->m_dwIndex == 965)
 	{
-		pInfo->m_dwIndex     = dwIndex;
+		pInfo->m_dwIndex     = dwIndex;	//WdMadrigal.rgn 679
+	}
+
+	if(pInfo->m_dwIndex == MI_ERONSCATCHER)
+	{
+		int a = 1;
 	}
 
 #ifdef __S1108_BACK_END_SYSTEM
@@ -621,8 +626,8 @@ BOOL CWorld::ReadRespawn( CScript& s )
 				if( pMoverProp->dwClass == RANK_GUARD && g_eLocal.GetState( EVE_PK ) == FALSE ) 
 					return TRUE;
 			
-			if( pMoverProp->dwClass == RANK_MATERIAL )
-				return TRUE;
+			//if( pMoverProp->dwClass == RANK_MATERIAL )
+			//	return TRUE;
 
 			if( pMoverProp->dwClass != RANK_BOSS )
 			{

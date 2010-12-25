@@ -510,6 +510,12 @@ u_long CRespawner::Spawn( CWorld* pWorld )
 						Error( "CRespawner::Spawn()\t// 0 index\n" );
 						continue;
 					}
+
+					if(pi->m_dwIndex == MI_ERONSCATCHER)
+					{
+						int a = 1;
+					}
+
 					pObj	= CreateObj( D3DDEVICE, pi->m_dwType, pi->m_dwIndex );
 					
 					if( pi->m_dwType == OT_ITEM )
