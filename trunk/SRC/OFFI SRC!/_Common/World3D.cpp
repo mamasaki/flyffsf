@@ -2698,7 +2698,7 @@ CObj* CWorld::PickObject_Fast( RECT rectClient, POINT ptClient, D3DXMATRIX* pmat
 						}
 						else
 						{
-							if( ((CMover*)pObj)->IsDie() )
+							if( ((CMover*)pObj)->IsDie() && ((CMover *)pObj)->GetProp()->dwClass != RANK_MATERIAL )
 								continue;
 #if __VER >= 9	// __PET_0410
 							// 다른 사람이 소환한 펫이면,

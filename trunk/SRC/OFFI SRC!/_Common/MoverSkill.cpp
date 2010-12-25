@@ -3658,7 +3658,7 @@ void	CMover::SendDamageAround( int nDmgType, CMover *pAttacker, int nApplyType, 
 		
 #endif // WORLDSERVER		
 } // SendDamageAround()
-/*
+
 BOOL	CMover::DoCollect( CMover *pTarget )
 {
 	SendActMsg( OBJMSG_STOP );
@@ -3667,7 +3667,7 @@ BOOL	CMover::DoCollect( CMover *pTarget )
 		
 	return bSuccess;
 }
-*/
+
 
 
 // 

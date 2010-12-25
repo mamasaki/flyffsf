@@ -19,7 +19,7 @@ extern	CDPSrvr		g_DPSrvr;
 extern	CWorldMng	g_WorldMng;
 
 
-/*  
+  
 //
 // 자원 채집 시작
 //
@@ -45,24 +45,24 @@ BOOL CUser::DoCollect( CMover *pTarget )
 						bAble = FALSE;		// 못먹음.
 			}
 		}
-//		else
-			// 주인이 사라졌으면 걍 먹을 수 있음.
-//
-//		if( pTarget->m_idCollecter != GetId() )	// 그 주인이 내가 아니고
-//		{
-//			CMover *pCollecter = prj.GetMover( pTarget->m_idCollecter );
-//			if( IsValidObj( pCollecter ) )
-//			{
-//				if( m_idparty && m_idparty != pCollecter->m_idparty )	// 같은 파티원도 아니고
-//				{
-//					if( pTarget->m_nCollectOwnCnt > 0 ) // 아직 시간이 덜 풀렸으면
-//					{
-//						AddDefinedText( TID_COLLECT_ERROROTHER );
-//						return FALSE;				// pTarget은 this가 못 먹는다.
-//					}
-//				}
-//			}
-//		}
+		else
+//			 주인이 사라졌으면 걍 먹을 수 있음.
+
+		if( pTarget->m_idCollecter != GetId() )	// 그 주인이 내가 아니고
+		{
+			CMover *pCollecter = prj.GetMover( pTarget->m_idCollecter );
+			if( IsValidObj( pCollecter ) )
+			{
+				if( m_idparty && m_idparty != pCollecter->m_idparty )	// 같은 파티원도 아니고
+				{
+					if( pTarget->m_nCollectOwnCnt > 0 ) // 아직 시간이 덜 풀렸으면
+					{
+						AddDefinedText( TID_COLLECT_ERROROTHER );
+						return FALSE;				// pTarget은 this가 못 먹는다.
+					}
+				}
+			}
+		}
 
 	}
 
@@ -81,7 +81,7 @@ BOOL CUser::DoCollect( CMover *pTarget )
 	if( CMover::DoCollect( pTarget ) == TRUE )
 	{
 		m_idTargetCollect = pTarget->GetId();	// pTarget을 채집중이라는것을 표시함.
-//		pTarget->m_idCollecter = GetId();		// 타겟에다 내꺼라는 표시함.
+		pTarget->m_idCollecter = GetId();		// 타겟에다 내꺼라는 표시함.
 		m_nCollect = 0;
 		m_tmCollect = g_tmCurrent;
 	} else
@@ -89,13 +89,13 @@ BOOL CUser::DoCollect( CMover *pTarget )
 	
 	return TRUE;
 }
-*/
+
 
 #ifdef __XUZHU
 int g_nCC = 0;
 #endif
 
-/*
+
 //
 //
 // this가 pTarget을 채집한다.
@@ -189,7 +189,7 @@ int		CUser::OnActCollecting( void )
 	}
 	return 0;
 }
-*/
+
 
 // tmMaxEscape : 탈출의 쿨타임
 void CUser::AddEscape( DWORD tmMaxEscape )
@@ -228,7 +228,7 @@ void CUser::AddSetTarget( OBJID idTarget )
 //   CUserMng Lux
 //
 // ----------------------------------------------------------------------------------
-/*
+
 void	CUserMng::AddDoCollect( CUser* pUser, OBJID idTarget )
 {
 	CAr ar;
@@ -240,7 +240,7 @@ void	CUserMng::AddDoCollect( CUser* pUser, OBJID idTarget )
 		USERPTR->AddBlock( lpBuf, nBufSize );
 	NEXT_VISIBILITYRANGE( pUser )
 }
-*/
+
 
 void	CUserMng::AddCreateSkillEffect( CMover *pAttacker, OBJID idTarget, DWORD dwSkill, DWORD dwLevel )
 {

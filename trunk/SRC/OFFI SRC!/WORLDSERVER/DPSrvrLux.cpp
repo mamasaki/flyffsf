@@ -97,11 +97,24 @@ void CDPSrvr::OnUseSkill( CAr & ar, DPID dpidCache, DPID dpidUser, LPBYTE lpBuf,
 		}
 	}
 }
-/*
+
 void CDPSrvr::OnDoCollect( CAr & ar, DPID dpidCache, DPID dpidUser, LPBYTE lpBuf, u_long uBufSize )
 {
+	OBJID idTarget;
+
+	CUser* pUser	= g_UserMng.GetUser( dpidCache, dpidUser );
+	if( IsValidObj( pUser ) )
+	{
+		ar >> idTarget;
+		g_UserMng.AddDoCollect( pUser, idTarget );
+
+		
+		CMover *pTarget = prj.GetMover( idTarget );
+		if( IsValidObj( pTarget ) )
+			pUser->DoCollect( pTarget );
+	}	
 }
-*/
+
 // 클라이언트로 부터 받은 에러코드를 로그로 남긴다.
 void CDPSrvr::OnError( CAr & ar, DPID dpidCache, DPID dpidUser, LPBYTE lpBuf, u_long uBufSize)
 {

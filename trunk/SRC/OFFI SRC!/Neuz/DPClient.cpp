@@ -614,8 +614,8 @@ void CDPClient::OnSnapshot( CAr & ar )
 			case SNAPSHOTTYPE_NODISGUISE:		OnNoDisguise( objid, ar );	break;	
 			case SNAPSHOTTYPE_SETSTATE:		OnSetState( ar ); break;
 			case SNAPSHOTTYPE_CMDSETSKILLLEVEL:		OnCmdSetSkillLevel( ar ); break;
-//			case SNAPSHOTTYPE_DO_COLLECT:		OnDoCollect( objid, ar ); break;
-//			case SNAPSHOTTYPE_STOP_COLLECT:		OnStopCollect( objid, ar );	break;
+			case SNAPSHOTTYPE_DO_COLLECT:		OnDoCollect( objid, ar ); break;
+			case SNAPSHOTTYPE_STOP_COLLECT:		OnStopCollect( objid, ar );	break;
 			case SNAPSHOTTYPE_ACTIVESKILL:		OnCreateSkillEffect( objid, ar );	break;
 			case SNAPSHOTTYPE_SETSTUN:			OnSetStun( objid, ar );	break;
 			case SNAPSHOTTYPE_SENDACTMSG:		OnSendActMsg( objid, ar );	break;
@@ -14792,7 +14792,7 @@ void CDPClient::SendCommercialElem( DWORD dwItemId, DWORD dwItemId1 )
 	SEND( ar, this, DPID_SERVERPLAYER );
 }
 
-/*
+
 // pObj를 채집할꺼라고 서버로 보냄.
 void	CDPClient::SendDoCollect( CObj *pObj )
 {
@@ -14836,7 +14836,7 @@ void	CDPClient::OnStopCollect( OBJID objid, CAr & ar )
 #endif
 	}
 }
-*/
+
 
 // 액티브 스킬 발동.
 void	CDPClient::OnCreateSkillEffect( OBJID objid, CAr & ar )

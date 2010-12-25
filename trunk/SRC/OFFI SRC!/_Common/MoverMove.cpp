@@ -247,10 +247,10 @@ void CMover::ProcessMoveArrival( CCtrl *pObj )
 			break;
 		//---------------------------------------------
 		case OBJACT_COLLECT:
-//			ClearDestObj();	// 그외는 목표에 도착하면 멈춤.
-//			SendActMsg( OBJMSG_STOP );
-//			SetAngle( GetDegree(pObj->GetPos(), GetPos()) );		// 목표쪽으로 몸을 돌림.
-//			g_DPlay.SendDoCollect( pObj );						// 서버로 보냄.
+			ClearDestObj();	// 그외는 목표에 도착하면 멈춤.
+			SendActMsg( OBJMSG_STOP );
+			SetAngle( GetDegree(pObj->GetPos(), GetPos()) );		// 목표쪽으로 몸을 돌림.
+			g_DPlay.SendDoCollect( pObj );						// 서버로 보냄.
 			break;
 		//---------------------------------------------
 		default:

@@ -2142,7 +2142,7 @@ void	CMover::OnActIALanding( CObj *pIAObj, const D3DXVECTOR3 &vPos )
 
 }
 
-/*
+
 int		CMover::OnActCollecting() 
 { 
 #ifdef __CLIENT
@@ -2165,7 +2165,7 @@ int		CMover::OnActCollecting()
 #endif // Client
 	return 0; 
 }				
-*/
+
 
 // 공격을 막 시작했을때(일반/스킬/완드 등)
 void	CMover::OnAttackStart( CMover *pTarget, OBJMSG dwMsg )

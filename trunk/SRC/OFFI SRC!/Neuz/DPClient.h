@@ -900,10 +900,10 @@ public:
 	void	OnPushPower( OBJID objid, CAr & ar );
 		
 public:
-//	void	SendDoCollect( CObj *pObj );
+	void	SendDoCollect( CObj *pObj );
 private:
-//	void	OnDoCollect( OBJID objid, CAr & ar );
-//	void	OnStopCollect( OBJID objid, CAr & ar );
+	void	OnDoCollect( OBJID objid, CAr & ar );
+	void	OnStopCollect( OBJID objid, CAr & ar );
 
 
 	void	OnTag( OBJID objid, CAr & ar );

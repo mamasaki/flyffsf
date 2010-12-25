@@ -759,9 +759,9 @@ public:
 	BOOL			m_bLastDuelParty;			/// 파티듀얼로 사망?
 	CTime			m_tGuildMember;				/// 길드 탈퇴 시각 
 	BOOL			m_bGuildCombat;				/// 길드 대전 중?
-//	OBJID			m_idCollecter;				/// this의 채집소유자.
-//	int				m_nResource;				/// 자원 보유량. - 몬스터측에서 사용.
-//	int				m_nCollectOwnCnt;			/// > 0 인상황은 this는 m_idCollecter것이다.
+	OBJID			m_idCollecter;				/// this의 채집소유자.
+	int				m_nResource;				/// 자원 보유량. - 몬스터측에서 사용.
+	int				m_nCollectOwnCnt;			/// > 0 인상황은 this는 m_idCollecter것이다.
 	CSfxHitArray	m_sfxHitArray;				/// sfx hit 정보 배열 
 	map< OBJID, queue< SFXHIT_INFO> >	m_mapSFXInfo;		/// sfx 해킹 때문에 ....	
 //	map< OBJID, int>					m_mapSFXCount;		/// sfx가 발사되면 ++ 
@@ -949,7 +949,7 @@ public:
 	virtual	void	Serialize( CAr & ar ); // 시리얼라이즈 ; 네트웍 상태에서 서버와 클라이언트, 클라이언트 서버가 주고받을 패킷 내용 
 	virtual	CModel* LoadModel( LPDIRECT3DDEVICE9 pd3dDevice, DWORD dwType, DWORD dwIndex );
 	virtual void	InitProp( BOOL bInitAI = TRUE );		// 객체를 프로퍼티 내용으로 초기화 	
-//	virtual int		OnActCollecting();				// User만 사용되는 것이므로 CUser가서 찾을것.
+	virtual int		OnActCollecting();				// User만 사용되는 것이므로 CUser가서 찾을것.
 	virtual int		SendDamage( DWORD dwAtkFlag, OBJID idAttacker, int nParam = 0, BOOL bTarget = TRUE ) { return m_pActMover->SendDamage( dwAtkFlag, idAttacker, nParam, bTarget );  }
 	virtual int		SendDamageForce( DWORD dwAtkFlag, OBJID idAttacker, int nParam = 0, BOOL bTarget = TRUE ) { return m_pActMover->SendDamageForce( dwAtkFlag, idAttacker, nParam, bTarget ); }	// 강공격
 
@@ -1333,7 +1333,7 @@ public:
 	void			CMD_SetMoveToPos( const D3DXVECTOR3 &vPos );
 	void			CMD_SetMoveToObj( OBJID idObj );
 	void			CMD_SetUseItem( CCtrl *pCtrl );
-//	void			CMD_SetCollect( CObj *pObj );
+	void			CMD_SetCollect( CObj *pObj );
 	void			OnAfterUseItem( const ItemProp* pItemProp );
 	void			UnequipRide();		
 	void			EquipItem( CItemElem *pItemElem, BOOL bEquip, int nPart );
@@ -1408,7 +1408,7 @@ public:
 	int				GetMovePattern() { return m_nMovePattern; }
 	int				GetMoveEvent() { return m_nMoveEvent; }
 	void			SetMovePattern( int nPattern );		// 이동패턴 설정.
-//	BOOL			DoCollect( CMover *pTarget );
+	BOOL			DoCollect( CMover *pTarget );
 	void			BehaviorActionForceSet();		// 명령이 행동 명령이면 강제 동기하고, 무빙 명령이면 무시한다.
 	void			ActionForceSet( D3DXVECTOR3 &vPos, D3DXVECTOR3 &vDelta, FLOAT fAngle, 
 									DWORD dwState, DWORD dwStateFlag, int nMotion, int nMotionEx, 

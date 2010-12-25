@@ -585,7 +585,7 @@ typedef	struct	_LogItemInfo	// ItemLogæ≤¿”
 	SERIALNUMBER	ItemNo;
 	int		Negudo;
 	int		MaxNegudo;
-//	LPCTSTR ItemName;
+	LPCTSTR ItemName;
 	TCHAR	szItemName[32];
 	DWORD	itemNumber;
 	int		nAbilityOption;

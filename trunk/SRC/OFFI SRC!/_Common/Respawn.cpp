@@ -375,6 +375,8 @@ u_long CRespawner::Spawn( CWorld* pWorld, int nLayer )
 u_long CRespawner::Spawn( CWorld* pWorld )
 #endif	// __LAYER_1021
 {
+	//test for not spawn
+	//return 0;
 #if defined(__CLIENT)
 	return 0;
 #else

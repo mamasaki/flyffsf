@@ -150,9 +150,9 @@ void CUser::Init( DPID dpidCache, DPID dpidUser )
 	memset( &m_playAccount, 0, sizeof(PLAY_ACCOUNT) );
 
 
-//	m_idTargetCollect = NULL_ID;	
-//	m_nCollect = 0;					
-//	m_tmCollect = 0;
+	m_idTargetCollect = NULL_ID;	
+	m_nCollect = 0;					
+	m_tmCollect = 0;
 	m_idChatting = 0;
 	memset( m_pWall, 0, sizeof(m_pWall) );
 	m_dwLeavePenatyTime = 0;
@@ -3084,9 +3084,9 @@ void	CUser::ProcessCollecting( void )
 			itemElem.SetSerialNumber();
 			if( CreateItem( &itemElem ) == TRUE )
 			{
-//				ItemProp* pItemProp		= itemElem.GetProp();
-//				if( pItemProp )
-//					AddDefinedText( TID_GAME_REAPITEM, "\"%s\"", pItemProp->szName );
+				ItemProp* pItemProp		= itemElem.GetProp();
+				if( pItemProp )
+					AddDefinedText( TID_GAME_REAPITEM, "\"%s\"", pItemProp->szName );
 				AddRestartCollecting( dwItemId );
 				// log
 				LogItemInfo	log;
@@ -3104,6 +3104,7 @@ void	CUser::ProcessCollecting( void )
 	else
 	{
 		// 2. 채집 대기 상태
+		StopCollecting();
 	}
 }
 
