@@ -113,18 +113,11 @@ BOOL CWndIndirectTalk::OnChildNotify( UINT message, UINT nID, LRESULT* pLResult 
 
 
 
-void CWndCoupleTalk::OnDraw( C2DRender* p2DRender ) 
-{ 
-	/*CWorld* pWorld = g_WorldMng();
-	CMover* pMover = (CMover*)pWorld->GetObjFocus();
-	CWndEdit* pWndEdit = (CWndEdit*)GetDlgItem( WIDC_EDIT1 );
-	TCHAR szNum[ 32 ];
-	if( pMover && pMover->GetType() == OT_MOVER )
-		itoa( pMover->GetId(), szNum, 10 );
-	else
-		itoa( 0, szNum, 10 );
-	pWndEdit->SetString( szNum );*/
-	return;
+CWndCoupleTalk::CWndCoupleTalk()
+{
+}
+CWndCoupleTalk::~CWndCoupleTalk()
+{
 }
 
 BOOL CWndCoupleTalk::Initialize( CWndBase* pWndParent, DWORD /*dwWndId*/ ) 
@@ -173,3 +166,32 @@ BOOL CWndCoupleTalk::OnChildNotify( UINT message, UINT nID, LRESULT* pLResult )
 } 
 
 
+void CWndCoupleTalk::OnInitialUpdate() 
+{ 
+	CWndNeuz::OnInitialUpdate(); 
+	// 여기에 코딩하세요
+	CWndEdit* pWndEdit = (CWndEdit*)GetDlgItem( WIDC_EDIT2);
+	pWndEdit->AddWndStyle( EBS_AUTOVSCROLL );
+
+	// 윈도를 중앙으로 옮기는 부분.
+	CRect rectRoot = m_pWndRoot->GetLayoutRect();
+	CRect rectWindow = GetWindowRect();
+	CPoint point( rectRoot.right - rectWindow.Width(), 110 );
+	Move( point );
+	MoveParentCenter();
+} 
+
+BOOL CWndCoupleTalk::OnCommand( UINT nID, DWORD dwMessage, CWndBase* pWndBase ) 
+{ 
+	return CWndNeuz::OnCommand( nID, dwMessage, pWndBase ); 
+} 
+void CWndCoupleTalk::OnSize( UINT nType, int cx, int cy ) \
+{ 
+	CWndNeuz::OnSize( nType, cx, cy ); 
+} 
+void CWndCoupleTalk::OnLButtonUp( UINT nFlags, CPoint point ) 
+{ 
+} 
+void CWndCoupleTalk::OnLButtonDown( UINT nFlags, CPoint point ) 
+{ 
+} 

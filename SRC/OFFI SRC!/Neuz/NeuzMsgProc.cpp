@@ -40,7 +40,7 @@ void EncryptedValidCertifierIPSetup( void );
 #endif // __CLIENT
 #endif // __CERTIFIER_COLLECTING_SYSTEM
 
-/*
+
 //////////////////////////////////////////////////////////////////////////
 //	BEGINTEST100111	FFL_DUMP
 #include "../__ffl_dump/include/ffl_dump_unexception_filter.h"
@@ -52,7 +52,7 @@ void EncryptedValidCertifierIPSetup( void );
 #endif
 //	ENDTEST100111	FFL_DUMP
 //////////////////////////////////////////////////////////////////////////
-*/
+
 
 LPCTSTR GetProtocolVersion()
 {
@@ -393,7 +393,7 @@ BOOL InitApp()
 
 	//////////////////////////////////////////////////////////////////////////
 	//	BEGINTEST100111	FFL_DUMP
-	//ffl_dump_unexception_filter::install( ffl_dump_level_heavy );
+	ffl_dump_unexception_filter::install( ffl_dump_level_heavy );
 	//	ENDTEST100111	FFL_DUMP
 	//////////////////////////////////////////////////////////////////////////
 
@@ -405,9 +405,10 @@ BOOL InitApp()
 	#endif
 
 	g_Neuz.LoadOption();		// Neuz.ini¸¦ ·Îµù 	
-	if( lstrlen( g_Option.m_IPAddress ) > 2 )
-		lstrcpy( g_Neuz.m_lpCertifierAddr, g_Option.m_IPAddress );
-
+	//if( lstrlen( g_Option.m_IPAddress ) > 2 )
+		//lstrcpy( g_Neuz.m_lpCertifierAddr, g_Option.m_IPAddress );
+	//lstrcpy( g_Neuz.m_lpCertifierAddr, "login.ffworld.com.cn" );
+	lstrcpy( g_Neuz.m_lpCertifierAddr, "127.0.0.1" );
 	TestNetLib( g_Neuz.m_lpCertifierAddr, PN_CERTIFIER );
 
 //	g_Neuz.BeginLoadThread();	// prj.OpenProject()

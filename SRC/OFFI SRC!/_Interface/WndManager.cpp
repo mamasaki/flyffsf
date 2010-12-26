@@ -916,6 +916,7 @@ SAFE_DELETE(m_pWndChangePetName);
 #endif //__RAINBOW_RACE
 #if __VER >= 13 // __CSC_VER13_2
 	SAFE_DELETE(m_pWndCoupleMessage);
+	SAFE_DELETE(m_pWndCoupleTalk);
 #endif //__CSC_VER13_2
 #if __VER >= 13 // __EXT_ENCHANT
 	SAFE_DELETE(m_pWndChangeAttribute);
@@ -1831,6 +1832,11 @@ void CWndMgr::OnDestroyChildWnd( CWndBase* pWndChild )
 	else if(m_pWndCoupleMessage == pWndChild)
 	{
 		SAFE_DELETE( m_pWndCoupleMessage );
+		pWndChild = NULL;
+	}
+	else if(m_pWndCoupleTalk == pWndChild)
+	{
+		SAFE_DELETE( m_pWndCoupleTalk );
 		pWndChild = NULL;
 	}
 #endif //__CSC_VER13_2
