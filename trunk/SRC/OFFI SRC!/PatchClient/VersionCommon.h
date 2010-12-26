@@ -214,10 +214,10 @@
 		#define __COUNTRY CNTRY_USA
 		#define	__VER 15
 		const int PATCH_VERSION = 10;
-		#define WEB_FIRST_PAGE  "http://www.tritiumflyff.com/news/"
-		#define SERVER_ROOT     "Secret/RELEASE"
-		#define PATCHSEVER_URL  "patch.tritiumflyff.com"
-		#define HOME_LINK       "http://www.tritiumflyff.com"
+		#define WEB_FIRST_PAGE  "http://www.ffworld.com.cn/news/a/youxixinwen/"
+		#define SERVER_ROOT     "patch"
+		#define PATCHSEVER_URL  "update.ffworld.com.cn"
+		#define HOME_LINK       "http://www.ffworld.com.cn/"
 		#define VERSION_NAME	""
 	#elif defined(__LANG_ENG_USATEST)
 		#define __COUNTRY CNTRY_USA

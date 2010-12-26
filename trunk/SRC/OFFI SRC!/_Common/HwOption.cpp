@@ -932,12 +932,12 @@ int COption::Load( LPCTSTR szFileName )
 			m_dwChatFilterEtc = scan.GetNumber();
 #endif //__Y_CHAT_SYSTEM_8
 		}
-		else
+		/*else
 		if( scan.Token == _T( "ip" ) )
 		{
 			scan.GetTokenEx();
 			strcpy( m_IPAddress, scan.Token );
-		}
+		}*/
 #ifdef __YENV
 		else
 		if( scan.Token == _T( "SpecBumpEffect" ) )
@@ -1125,7 +1125,7 @@ int	COption::Save( LPCTSTR szFileName )
 		_ftprintf(fp, _T( "SpecBumpEffect %d\n" ), m_bSpecBump );	
 #endif //__YENV
 
-	_ftprintf(fp, _T( "ip \"%s\"\n" ), m_IPAddress);
+	//_ftprintf(fp, _T( "ip \"%s\"\n" ), m_IPAddress);
 	_ftprintf(fp, _T( "DamageRender %d\n" ), m_bDamageRender );
 	_ftprintf(fp, _T( "BuffTimeRender %d\n" ), m_bVisibleBuffTimeRender );
 	_ftprintf(fp, _T( "MouseSpeed %d\n" ), m_MouseSpeed );

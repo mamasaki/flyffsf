@@ -23101,10 +23101,10 @@ BOOL CWndCoupleMessage::OnChildNotify( UINT message, UINT nID, LRESULT* pLResult
 						else
 						{
 							
-									
+							/*		
 							if(g_WndMng.m_pWndCoupleTalk)
 								SAFE_DELETE(g_WndMng.m_pWndCoupleTalk);
-
+							*/
 							g_WndMng.m_pWndCoupleTalk = new CWndCoupleTalk;
 							if(g_WndMng.m_pWndCoupleTalk)
 							{

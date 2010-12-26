@@ -73,7 +73,8 @@ bool CPatchManager::IsSameFile( FILE_INFO& info )
 	if( bOK )
 	{							
 		if( info.nFileSize == attribute.nFileSizeLow )	//  ∆ƒ¿œ ≈©±‚ ∞∞∞Ì
-		{					
+		{	
+			return true; //»•µÙ ±º‰µƒ≈–∂œ
 			// GMT¥‹¿ß∑Œ ∫Ò±≥«—¥Ÿ.
 			SYSTEMTIME	stServer, stClient;
 			FileTimeToSystemTime( &info.ft, &stServer );
@@ -164,9 +165,11 @@ MAKEPATCHLIST_RESULT CPatchManager::MakePatchList( int nVersion )
 					nHour = 0;
 				if( cbFlag == 'p' )
 					nHour += 12;
-				
-				sprintf( szFile, "%s\\%s", szDir, szBuffer + 39 );
-				szFile[ strlen(szFile) - 1 ] = 0;					// line feed ¡¶∞≈ 
+				int a;
+				if(!strcmp( szTokens[3], "Itm_EveFlowerpot"))
+					a=1;
+				sprintf( szFile, "%s\\%s", szDir, &szTokens[3] );
+				szFile[ strlen(szFile) ] = 0;					// line feed ¡¶∞≈ 
 
 				sysTime.wYear   = (WORD)nYY;
 				sysTime.wMonth  = (WORD)nMM;
@@ -176,7 +179,7 @@ MAKEPATCHLIST_RESULT CPatchManager::MakePatchList( int nVersion )
 				sysTime.wSecond = 0;
 				sysTime.wMilliseconds = 0;
 
-				EnqueueFILE( szFile, false, atoi(szTokens[2]), &sysTime );
+ 				EnqueueFILE( szFile, false, atoi(szTokens[2]), &sysTime );
 			}
 		}
 	}
@@ -198,7 +201,7 @@ void CPatchManager::EnqueueFILE( LPCTSTR szFile, bool bDir, int nSize, SYSTEMTIM
 	info.nFileSize = nSize;
 	sprintf( info.szPath, "%s%s", m_szCurrentDirectory, szFile ); 
 	char szServerPath[MAX_PATH];
-	sprintf( szServerPath, "%s%s.gz", s_cdn, szFile );
+	sprintf( szServerPath, "%s%s", s_cdn, szFile );
 	CString str = szServerPath;
 	str.Replace( '\\', '/' );
 	strcpy( info.szServerPath, str );
