@@ -110,6 +110,7 @@ MAKEPATCHLIST_RESULT CPatchManager::MakePatchList( int nVersion )
 
 	SYSTEMTIME	sysTime;
 	char	szTokens[4][256];
+	
 	char	szBuffer[256], szDir[256], szFile[256];
 	char	szRoot[256] = {0, };
 	char	cbFlag;
@@ -118,6 +119,7 @@ MAKEPATCHLIST_RESULT CPatchManager::MakePatchList( int nVersion )
 
 	while( 1 )
 	{
+		ZeroMemory(szTokens,sizeof(szTokens));
 		if( fgets( szBuffer, 127, fp ) == NULL)
 			break;
 
@@ -156,7 +158,31 @@ MAKEPATCHLIST_RESULT CPatchManager::MakePatchList( int nVersion )
 		}
 		else if( szBuffer[4] == '-' )
 		{
-			sscanf( szBuffer, "%s %s %s %s", szTokens[0], szTokens[1], szTokens[2], szTokens[3] );
+			sscanf( szBuffer, "%s %s %s %s", szTokens[0], szTokens[1], szTokens[2],szTokens[3]);
+			/*
+			sscanf( szBuffer, "%s %s %s", szTokens[0], szTokens[1], szTokens[2]);
+			*/
+			CString stBuffer(szBuffer);
+			int at = stBuffer.Find(szTokens[0]);
+			stBuffer.Delete(0,at);
+			at = stBuffer.Find(' ');
+			stBuffer.Delete(0,at);
+			while(stBuffer.Left(1) == ' ')
+				stBuffer.Delete(0);
+			at = stBuffer.Find(szTokens[1]);
+			stBuffer.Delete(0,at);
+			at = stBuffer.Find(' ');
+			stBuffer.Delete(0,at);
+			while(stBuffer.Left(1) == ' ')
+				stBuffer.Delete(0);
+			at = stBuffer.Find(szTokens[2]);
+			stBuffer.Delete(0,at);
+			at = stBuffer.Find(' ');
+			stBuffer.Delete(0,at);
+			while(stBuffer.Left(1) == ' ')
+				stBuffer.Delete(0);
+			memcpy(szTokens[3],stBuffer,stBuffer.GetLength()-1);
+			
 			if( strcmp( szTokens[2], "<DIR>") )
 			{
 				sscanf( szTokens[0], "%d-%d-%d", &nYY, &nMM, &nDD );
@@ -166,7 +192,7 @@ MAKEPATCHLIST_RESULT CPatchManager::MakePatchList( int nVersion )
 				if( cbFlag == 'p' )
 					nHour += 12;
 				int a;
-				if(!strcmp( szTokens[3], "Itm_EveFlowerpot"))
+				if(!strcmp( szTokens[3], "itm_fCloMaid Suit.ddspper.dds"))
 					a=1;
 				sprintf( szFile, "%s\\%s", szDir, &szTokens[3] );
 				szFile[ strlen(szFile) ] = 0;					// line feed Á¦°Å 
