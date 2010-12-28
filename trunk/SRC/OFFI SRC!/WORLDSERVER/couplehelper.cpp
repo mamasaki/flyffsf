@@ -10,7 +10,9 @@
 #include "definetext.h"
 #include "lord.h"
 #include "defineobj.h"
+#include "DPCoreClient.h"
 extern	CUserMng	g_UserMng;
+extern	CDPCoreClient		g_DPCoreClient;
 
 #if __VER >= 13 // __HONORABLE_TITLE			// ´ÞÀÎ
 	#include "honor.h"
@@ -80,6 +82,9 @@ void CCoupleHelper::OnPropose( CUser* pUser, const char* szPlayer )
 	pUser->AddGold(-3000000);
 	m_pdpClient->SendPropose( pUser->m_idPlayer, pTarget->m_idPlayer );
 	m_Propose[pUser->m_idPlayer] = stPropose;
+	CString szString;
+	szString.Format("%s Ïò %s ¸æ°×£º%s",pUser->GetName(),name,stPropose);
+	g_DPCoreClient.SendSystem( szString );
 }
 
 void CCoupleHelper::PlayProposeAnimation( CUser* pProposer, CUser* pTarget )
