@@ -409,6 +409,8 @@ BOOL InitApp()
 		//lstrcpy( g_Neuz.m_lpCertifierAddr, g_Option.m_IPAddress );
 	//lstrcpy( g_Neuz.m_lpCertifierAddr, "login.ffworld.com.cn" );
 	lstrcpy( g_Neuz.m_lpCertifierAddr, "127.0.0.1" );
+	//lstrcpy( g_Neuz.m_lpCertifierAddr, "61.147.110.196" );
+	
 	TestNetLib( g_Neuz.m_lpCertifierAddr, PN_CERTIFIER );
 
 //	g_Neuz.BeginLoadThread();	// prj.OpenProject()

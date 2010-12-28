@@ -808,6 +808,7 @@ void CDPClient::OnSnapshot( CAr & ar )
 			case SNAPSHOTTYPE_DECOUPLE_RESULT:	OnDecoupleResult( ar );	break;
 #if __VER >= 13 // __COUPLE_1202
 			case SNAPSHOTTYPE_ADD_COUPLE_EXPERIENCE:	OnAddCoupleExperience( ar );	break;
+			case SNAPSHOTTYPE_COUPLE_INFO:	OnCoupleInfo( ar );	break;
 #endif	// __COUPLE_1202
 #endif	// __COUPLE_1117
 
@@ -19253,5 +19254,23 @@ void CDPClient::SendGuildHouseTenderJoin( OBJID objGHId, int nTenderPerin, int n
 	SEND( ar, this, DPID_SERVERPLAYER );
 }
 #endif // __GUILD_HOUSE_MIDDLE
+
+void   CDPClient::OnCoupleInfo( CAr & ar )
+{
+	DWORD id;
+	ar>>id;
+	BYTE byType;
+	ar>>byType;
+	if(byType == 1)
+	{
+		char name[MAX_PLAYER]={0,};
+		ar.ReadString(name,MAX_PLAYER);
+		CPlayerDataCenter::GetInstance()->AddCoupleInfo(id,name);
+	}
+	else
+	{
+		CPlayerDataCenter::GetInstance()->DelCoupleInfo(id);
+	}
+}
 
 CDPClient	g_DPlay;

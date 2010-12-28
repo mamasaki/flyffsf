@@ -1035,6 +1035,8 @@ public:
 #if __VER >= 15 // __GUILD_HOUSE
 	BOOL	HasUserSameWorldnLayer( CUser* pUserSrc );
 #endif // __GUILD_HOUSE
+	//ÇéÂÂÐÅÏ¢
+	void SandCoupleInfo( CCtrl* pCtrl,BYTE byType, const char* szCouple);
 
 };
 
