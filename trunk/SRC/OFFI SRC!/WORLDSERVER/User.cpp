@@ -4268,6 +4268,23 @@ void CUserMng::AddEventMessage( CCtrl* pCtrl, const TCHAR* szChat, int nFlag, DW
 	NEXT_VISIBILITYRANGE( pCtrl )
 }
 
+void CUserMng::SandCoupleInfo( CCtrl* pCtrl,BYTE byType, const char* szCouple)
+{
+	CAr ar;
+	
+	ar << GETID( pCtrl ) << SNAPSHOTTYPE_COUPLE_INFO;
+	ar<<pCtrl->GetId();
+	ar<<byType;
+	if(byType == 1)
+		ar.WriteString( szCouple );
+
+	GETBLOCK( ar, lpBuf, nBufSize );
+	
+	FOR_VISIBILITYRANGE( pCtrl )
+	USERPTR->AddBlock( lpBuf, nBufSize );
+	NEXT_VISIBILITYRANGE( pCtrl )
+}
+
 void	CUserMng::AddDlgEmoticon( CCtrl* pCtrl, int nIdx )
 {
 	CHAR szString[32] = "!";

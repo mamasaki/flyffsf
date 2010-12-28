@@ -60,10 +60,17 @@ public:
 	void	ReplacePlayerString( u_long idPlayer, char* pszPlayer, char* pszOld );
 	u_long	GetPlayerId( char* pszPlayer );
 	int		size( void )	{	return m_mapPlayerData.size();	}
-
+#ifdef __CLIENT
+	void	AddCoupleInfo(u_long id,const char* name);
+	void	DelCoupleInfo(u_long id);
+	bool	GetCoupleInfo(u_long id,CString& name);
+#endif	// __CLIENT
 private:
 	map<u_long, PlayerData*>	m_mapPlayerData;
 	map<string, u_long>	m_mapPlayerStringToId;
+#ifdef __CLIENT
+	map<u_long, CString>	m_mapCoupleInfo;
+#endif	// __CLIENT
 public:
 	CMclCritSec		m_Access;
 };

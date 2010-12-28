@@ -12,7 +12,7 @@ extern	CPartyMng	g_PartyMng;
 #include "eveschool.h"
 #include "defineskill.h"
 #include "commonctrl.h"
-
+#include "playerdata.h"
 extern CGuildCombat g_GuildCombatMng;
 
 
@@ -1227,8 +1227,8 @@ void CMover::RenderName( LPDIRECT3DDEVICE9 pd3dDevice, CD3DFont* pFont, DWORD dw
 	if( g_Option.m_nOtherPlayerName == FALSE && !IsActiveMover() && IsPlayer() )
 		return;
 
-	char szName[ 256 ];
-	strcpy( szName, m_szName );
+	char szName[ 256 ]={0,};
+	//strcpy( szName, m_szName );
 
 	BOOL  bOtherColor = FALSE;
 	DWORD dwNewColor;
@@ -1263,9 +1263,44 @@ void CMover::RenderName( LPDIRECT3DDEVICE9 pd3dDevice, CD3DFont* pFont, DWORD dw
 			strName = "[";
 			strName += strFameName;
 			strName += "] ";
-			strName += m_szName;
+			//strName += m_szName;
 			strcpy( szName, (LPCTSTR)strName );
-		}		
+		}	
+		/*
+		if(g_pPlayer->GetId() == GetId())
+		{
+			CString strName;
+			strName = szName;
+			CCouple* pCouple = CCoupleHelper::Instance()->GetCouple();
+			if(pCouple != NULL)
+			{
+				u_long id = pCouple->GetPartner(m_idPlayer);
+				const char* name = CPlayerDataCenter::GetInstance()->GetPlayerString( id );
+				if(name != NULL)
+				{
+					strName += name;
+					strName += "的恋人 ";
+					strcpy( szName, (LPCTSTR)strName );
+				}
+			}
+		}
+		else
+		{
+			CString name;
+			if(CPlayerDataCenter::GetInstance()->GetCoupleInfo(m_idPlayer,name ))
+			{
+				CString strName;
+				strName = szName;
+				strName += name;
+				strName += "的恋人 ";
+				strcpy( szName, (LPCTSTR)strName );
+			}
+		}
+		*/
+		CString a;
+		a = szName;
+		a += m_szName;
+		strcpy( szName, (LPCTSTR)a );
 
 		// GM / Admin tag
 		if(m_dwAuthorization >= AUTH_GAMEMASTER)

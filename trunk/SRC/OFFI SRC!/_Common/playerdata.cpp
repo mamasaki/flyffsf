@@ -217,3 +217,21 @@ void CPlayerDataCenter::ReplacePlayerString( u_long idPlayer, char* pszPlayer, c
 	}
 }
 #endif	// __SYS_PLAYER_DATA
+#ifdef __CLIENT
+void	CPlayerDataCenter::AddCoupleInfo(u_long id,const char* name)
+{
+	m_mapCoupleInfo[id] = name;
+}
+void	CPlayerDataCenter::DelCoupleInfo(u_long id)
+{
+	m_mapCoupleInfo.erase(id);
+}
+
+bool	CPlayerDataCenter::GetCoupleInfo(u_long id,CString& name)
+{
+	if(m_mapCoupleInfo.find(id) == m_mapCoupleInfo.end())
+		return false;
+	name = m_mapCoupleInfo[id];
+	return true;
+}
+#endif	// __CLIENT

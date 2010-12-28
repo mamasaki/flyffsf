@@ -193,6 +193,7 @@ void CCoupleHelper::OnCoupleResult( CAr & ar )
 #if __VER >= 13 // __HONORABLE_TITLE			// 달인
 			pProposer->SetHonorAdd(	HS_COUPLE_COUNT,HI_COUNT_CHECK );
 #endif	// __HONORABLE_TITLE
+			g_UserMng.SandCoupleInfo(pProposer,1, pszTarget);
 		}
 		if( IsValidObj( pTarget ) )
 		{
@@ -200,6 +201,7 @@ void CCoupleHelper::OnCoupleResult( CAr & ar )
 #if __VER >= 13 // __HONORABLE_TITLE			// 달인
 			pTarget->SetHonorAdd(HS_COUPLE_COUNT,HI_COUNT_CHECK );
 #endif	// __HONORABLE_TITLE			// 달인
+			g_UserMng.SandCoupleInfo(pTarget,1, pszProposer);
 		}
 	}
 	else
@@ -239,6 +241,7 @@ void CCoupleHelper::OnDecoupleResult( CAr & ar )
 		if( IsValidObj( pUser ) )
 		{
 			pUser->AddDecoupleResult();
+			g_UserMng.SandCoupleInfo(pUser,0, NULL);
 #if __VER >= 13 // __HONORABLE_TITLE			// 달인
 			int nIdx = CTitleManager::Instance()->GetIdx(HS_COUPLE_LV,HI_COUNT_CHECK);
 			if( nIdx >= 0)
@@ -254,6 +257,7 @@ void CCoupleHelper::OnDecoupleResult( CAr & ar )
 		if( IsValidObj( pPartner ) )
 		{
 			pPartner->AddDecoupleResult();
+			g_UserMng.SandCoupleInfo(pPartner,0, NULL);
 #if __VER >= 13 // __HONORABLE_TITLE			// 달인
 			int nIdx = CTitleManager::Instance()->GetIdx(HS_COUPLE_LV,HI_COUNT_CHECK);
 			if( nIdx >= 0)
