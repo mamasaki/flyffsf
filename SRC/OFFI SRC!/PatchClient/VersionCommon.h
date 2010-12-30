@@ -213,7 +213,7 @@
 	#elif defined(__LANG_ENG_USA)
 		#define __COUNTRY CNTRY_USA
 		#define	__VER 15
-		const int PATCH_VERSION = 10;
+		const int PATCH_VERSION = 11;
 		#define WEB_FIRST_PAGE  "http://www.ffworld.com.cn/news/a/youxixinwen/"
 		#define SERVER_ROOT     "patch"
 		#define PATCHSEVER_URL  "update.ffworld.com.cn"
