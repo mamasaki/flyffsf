@@ -1238,6 +1238,7 @@ public:
 	void    OnDisguise( OBJID objid, CAr & ar );
 	void    OnNoDisguise( OBJID objid, CAr & ar );
 	void    OnCoupleInfo( CAr & ar );
+	void    SendCoupleInfoReq( u_long id );
 private:
 	BOOL	m_bEventTextColor;
 };

@@ -1836,7 +1836,7 @@ void CWndMgr::OnDestroyChildWnd( CWndBase* pWndChild )
 	}
 	else if(m_pWndCoupleTalk == pWndChild)
 	{
-		SAFE_DELETE( m_pWndCoupleTalk );
+		//SAFE_DELETE( m_pWndCoupleTalk );
 		pWndChild = NULL;
 	}
 #endif //__CSC_VER13_2
