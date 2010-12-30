@@ -139,11 +139,11 @@ void Update()
 		dwFileAttributes &= ~FILE_ATTRIBUTE_READONLY;
 		SetFileAttributes( "NewFlyff.exe", dwFileAttributes );
 	}
-	dwFileAttributes	= GetFileAttributes( "Flyff.exe" );
+	dwFileAttributes	= GetFileAttributes( "FFworld_Launcher.exe" );
 	if( 0xFFFFFFFF != dwFileAttributes )
 	{
 		dwFileAttributes &= ~FILE_ATTRIBUTE_READONLY;
-		SetFileAttributes( "Flyff.exe", dwFileAttributes );
+		SetFileAttributes( "FFworld_Launcher.exe", dwFileAttributes );
 	}
 
 	// 새로 받은 패치클라이언트가 있는가
@@ -158,16 +158,16 @@ void Update()
 	CloseHandle( hNewFile );
 
 	// 기존 패치클라이언트는 삭제
-	if( FALSE == DeleteFile( "Flyff.exe" ) )
+	if( FALSE == DeleteFile( "FFworld_Launcher.exe" ) )
 	{
 		ErrorMsg();
-		MessageBox( hWndMain, "Flyff.exe", "에러", MB_OK );
+		MessageBox( hWndMain, "FFworld_Launcher.exe", "에러", MB_OK );
 		PostQuitMessage( 0 );
 		return;
 	}
 
 	// 새로 받은 패치클라이언트의 파일명 변경
-	if( 0 != rename( "NewFlyff.exe", "Flyff.exe" ) )
+	if( 0 != rename( "NewFlyff.exe", "FFworld_Launcher.exe" ) )
 	{
 		ErrorMsg();
 		//MessageBox( hWndMain, "파일을 변경할 수 없습니다", "에러", MB_OK );
@@ -181,7 +181,7 @@ void Update()
 	// 패치 클라이언트 재 실행
 //	if( FALSE == CreateProcess( NULL, "Flyff.exe 1", NULL, NULL, FALSE, 0, NULL, NULL, &si, &pi ) )
 	CString strCmd;
-	strCmd.Format("Flyff.exe %s", g_strCmdLine);
+	strCmd.Format("FFworld_Launcher.exe %s", g_strCmdLine);
 
 //	AfxMessageBox( strCmd );
 
