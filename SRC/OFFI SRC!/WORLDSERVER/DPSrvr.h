@@ -431,6 +431,8 @@ private:
 	void	OnRefuse( CAr & ar, DPID dpidCache, DPID dpidUser, LPBYTE, u_long );
 	void	OnCouple( CAr & ar, DPID dpidCache, DPID dpidUser, LPBYTE, u_long );
 	void	OnDecouple( CAr & ar, DPID dpidCache, DPID dpidUser, LPBYTE, u_long );
+	void	OnCoupleInfo( CAr & ar, DPID dpidCache, DPID dpidUser, LPBYTE, u_long );
+	
 #endif	// __COUPLE_1117
 #ifdef __MAP_SECURITY
 	void	OnMapKey( CAr & ar, DPID dpidCache, DPID dpidUser, LPBYTE, u_long );

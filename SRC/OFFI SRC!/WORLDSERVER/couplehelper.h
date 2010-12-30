@@ -26,6 +26,8 @@ public:
 	void	OnDecoupleResult( CAr & ar );
 	void	Serialize( CAr & ar )	{	ASSERT( m_pMgr );	m_pMgr->Serialize( ar );	}
 	CCouple* GetCouple( u_long idPlayer )	{	ASSERT( m_pMgr );	return m_pMgr->GetCouple( idPlayer );	}
+	void	OnCoupleInfo( CUser* pUser,CAr & ar );
+	
 #if __VER >= 13 // __COUPLE_1202
 	void	OnAddCoupleExperience( CAr & ar );
 #endif	// __COUPLE_1202

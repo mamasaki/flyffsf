@@ -1045,7 +1045,6 @@ void CDPClient::OnAddObj( OBJID objid, CAr & ar )
 
 	dwObjType	= 0;
 	ar >> (BYTE &)dwObjType >> dwObjIndex;
-
 	//gmpbigsun(100421) test: dwObjIndex가 우체통이면 패킷 Serialize후 return!!!
 #ifdef __BS_NO_CREATION_POST
 	if( MI_POSTBOX == dwObjIndex  )
@@ -1109,6 +1108,7 @@ void CDPClient::OnAddObj( OBJID objid, CAr & ar )
 					pd.data.nSex	= pPlayer->GetSex();
 					lstrcpy( pd.szPlayer, pPlayer->GetName() );
 					CPlayerDataCenter::GetInstance()->AddPlayerData( ( (CMover*)pObj )->m_idPlayer, pd );
+					SendCoupleInfoReq( ( (CMover*)pObj )->m_idPlayer );
 #else	// __SYS_PLAYER_DATA
 					if( NULL == prj.GetPlayerString( pPlayer->m_idPlayer ) )
 						prj.SetPlayerID( pPlayer->m_idPlayer, pPlayer->GetName() );
@@ -1193,6 +1193,7 @@ void CDPClient::OnAddObj( OBJID objid, CAr & ar )
 				pd.data.nSex	= pPlayer->GetSex();
 				lstrcpy( pd.szPlayer, pPlayer->GetName() );
 				CPlayerDataCenter::GetInstance()->AddPlayerData( ( (CMover*)pObj )->m_idPlayer, pd );
+				SendCoupleInfoReq( ( (CMover*)pObj )->m_idPlayer );
 #else	// __SYS_PLAYER_DATA
 				if( NULL == prj.GetPlayerString( pPlayer->m_idPlayer ) )
 					prj.SetPlayerID( pPlayer->m_idPlayer, pPlayer->GetName() );
@@ -19257,7 +19258,7 @@ void CDPClient::SendGuildHouseTenderJoin( OBJID objGHId, int nTenderPerin, int n
 
 void   CDPClient::OnCoupleInfo( CAr & ar )
 {
-	DWORD id;
+	u_long id;
 	ar>>id;
 	BYTE byType;
 	ar>>byType;
@@ -19273,4 +19274,10 @@ void   CDPClient::OnCoupleInfo( CAr & ar )
 	}
 }
 
+void   CDPClient::SendCoupleInfoReq( u_long id )
+{
+	BEFORESENDSOLE( ar, PACKETTYPE_COUPLE_INFO, DPID_UNKNOWN );
+	ar << id;
+	SEND( ar, this, DPID_SERVERPLAYER );
+}
 CDPClient	g_DPlay;

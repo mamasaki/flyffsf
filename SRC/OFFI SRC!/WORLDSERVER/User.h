@@ -685,6 +685,7 @@ public:
 	void	AddProposeResult( u_long idProposer, const char* pszProposer,const char* propose );
 	void	AddCoupleResult( u_long idPartner, const char* pszPartner );
 	void	AddDecoupleResult();
+	void	SandCoupleInfo( CCtrl* pCtrl,BYTE byType, const char* szCouple);
 #if __VER >= 13 // __COUPLE_1202
 	void	ProcessCouple();
 	void	ActiveCoupleBuff( int nLevel );

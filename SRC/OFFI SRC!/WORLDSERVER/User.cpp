@@ -13,7 +13,7 @@
 #include "ticket.h"
 #endif	// __SYS_TICKET
 #endif
-
+#include "CampusHelper.h"
 #if __VER >= 11 // __SYS_PLAYER_DATA
 #include "playerdata.h"
 #endif	// __SYS_PLAYER_DATA
@@ -663,12 +663,12 @@ void CUser::AddAddObj( CCtrl * pCtrl )
 	{
 		return;
 	}
-	//	mulcom	END100430
 
 	m_Snapshot.cb++;
 	m_Snapshot.ar << pCtrl->GetId() << SNAPSHOTTYPE_ADD_OBJ << (BYTE)pCtrl->GetType() << pCtrl->GetIndex();
 	CObj::SetMethod( pCtrl == this ? METHOD_NONE : METHOD_EXCLUDE_ITEM );
 	pCtrl->Serialize( m_Snapshot.ar );
+	
 }
 
 void CUser::AddText( LPCSTR lpsz )
@@ -3726,6 +3726,19 @@ void CUser::AddCouple()
 	}
 }
 
+void CUser::SandCoupleInfo( CCtrl* pCtrl,BYTE byType, const char* szCouple)
+{
+	if( IsDelete() )	return;
+
+	m_Snapshot.cb++;
+	m_Snapshot.ar << GetId();
+	m_Snapshot.ar << SNAPSHOTTYPE_COUPLE_INFO;
+	m_Snapshot.ar << ((CMover*)pCtrl)->m_idPlayer;
+	m_Snapshot.ar<<byType;
+	if(byType == 1)
+		m_Snapshot.ar.WriteString( szCouple );
+}
+
 void CUser::AddProposeResult( u_long idProposer, const char* pszProposer,const char* propose )
 {
 	if( IsDelete() )	return;
@@ -4273,7 +4286,7 @@ void CUserMng::SandCoupleInfo( CCtrl* pCtrl,BYTE byType, const char* szCouple)
 	CAr ar;
 	
 	ar << GETID( pCtrl ) << SNAPSHOTTYPE_COUPLE_INFO;
-	ar<<pCtrl->GetId();
+	ar<<((CMover*)pCtrl)->m_idPlayer;
 	ar<<byType;
 	if(byType == 1)
 		ar.WriteString( szCouple );

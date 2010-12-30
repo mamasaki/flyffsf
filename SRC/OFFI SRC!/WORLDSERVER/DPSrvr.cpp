@@ -506,6 +506,7 @@ CDPSrvr::CDPSrvr()
 	ON_MSG( PACKETTYPE_REFUSE, &CDPSrvr::OnRefuse );
 	ON_MSG( PACKETTYPE_COUPLE,&CDPSrvr:: OnCouple );
 	ON_MSG( PACKETTYPE_DECOUPLE, &CDPSrvr::OnDecouple );
+	ON_MSG( PACKETTYPE_COUPLE_INFO, &CDPSrvr::OnCoupleInfo );
 #endif	// __COUPLE_1117
 #ifdef __MAP_SECURITY
 	ON_MSG( PACKETTYPE_MAP_KEY, &CDPSrvr::OnMapKey );
@@ -12069,6 +12070,13 @@ void CDPSrvr::OnDecouple( CAr & ar, DPID dpidCache, DPID dpidUser, LPBYTE, u_lon
 	CUser* pUser	=	g_UserMng.GetUser( dpidCache, dpidUser );
 	if( IsValidObj( pUser ) ) 
 		CCoupleHelper::Instance()->OnDecouple( pUser );
+}
+
+void CDPSrvr::OnCoupleInfo( CAr & ar, DPID dpidCache, DPID dpidUser, LPBYTE, u_long )
+{
+	CUser* pUser	=	g_UserMng.GetUser( dpidCache, dpidUser );
+	if( IsValidObj( pUser ) ) 
+		CCoupleHelper::Instance()->OnCoupleInfo( pUser,ar );
 }
 #endif	// __COUPLE_1117
 

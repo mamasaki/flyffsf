@@ -1266,7 +1266,7 @@ void CMover::RenderName( LPDIRECT3DDEVICE9 pd3dDevice, CD3DFont* pFont, DWORD dw
 			//strName += m_szName;
 			strcpy( szName, (LPCTSTR)strName );
 		}	
-		/*
+		
 		if(g_pPlayer->GetId() == GetId())
 		{
 			CString strName;
@@ -1296,7 +1296,7 @@ void CMover::RenderName( LPDIRECT3DDEVICE9 pd3dDevice, CD3DFont* pFont, DWORD dw
 				strcpy( szName, (LPCTSTR)strName );
 			}
 		}
-		*/
+		
 		CString a;
 		a = szName;
 		a += m_szName;
@@ -1355,6 +1355,8 @@ void CMover::RenderName( LPDIRECT3DDEVICE9 pd3dDevice, CD3DFont* pFont, DWORD dw
 #endif // __VER >= 8 // __S8_PK
 #endif
 	}
+	else
+		strcpy( szName, m_szName );
 
 	// 월드 좌표를 스크린 좌표로 프로젝션 한다.
 	D3DXVECTOR3 vOut, vPos, vPosHeight;

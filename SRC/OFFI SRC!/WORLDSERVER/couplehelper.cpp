@@ -223,6 +223,26 @@ void CCoupleHelper::OnDecouple( CUser* pUser )
 	m_pdpClient->SendDecouple( pUser->m_idPlayer );
 }
 
+void  CCoupleHelper::OnCoupleInfo( CUser* pUser,CAr & ar )
+{
+	u_long id ;
+	ar>>id;
+	CUser* pReq	= static_cast<CUser*>( prj.GetUserByID(id ) );
+	CCouple* pCouple	= m_pMgr->GetCouple( pReq->m_idPlayer );
+	if( !pCouple )
+	{
+		pUser->SandCoupleInfo(pReq,0,NULL);
+		return;
+	}
+	CUser* pPartner	= static_cast<CUser*>( prj.GetUserByID( pCouple->GetPartner(id ) ) );
+	if(!pPartner)
+	{
+		pUser->SandCoupleInfo(pReq,0,NULL);
+		return;
+	}
+	pUser->SandCoupleInfo(pReq,1,pPartner->GetName());
+}
+
 void CCoupleHelper::OnDecoupleResult( CAr & ar )
 {
 	u_long idPlayer;
