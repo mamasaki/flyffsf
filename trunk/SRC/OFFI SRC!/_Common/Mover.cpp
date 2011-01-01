@@ -1538,9 +1538,9 @@ void CMover::InitProp( BOOL bInitAI )
 	if( m_bPlayer == FALSE && pProp->dwFlying == 1 )	// 비행형 몬스터인가?
 		m_dwTypeFlag |= OBJTYPE_FLYING;
 
-//#ifdef __WORLDSERVER
-//	m_nResource = pProp->dwMaterialAmount;		// 자원량.
-//#endif
+#ifdef __WORLDSERVER
+	m_nResource = pProp->dwMaterialAmount;		// 자원량.
+#endif
 
 	if( IsPlayer() )
 	{

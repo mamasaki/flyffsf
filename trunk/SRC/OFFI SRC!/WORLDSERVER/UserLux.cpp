@@ -118,6 +118,8 @@ int		CUser::OnActCollecting( void )
 		if( pHandProp->dwItemKind3 != IK3_COLLECTER )		// 채집중 도구를 없애면 채집 취소.
 			return TRUE;
 		
+		pHandProp->dwLoadingTime = 20;//syj
+
 		m_nCollect += (int)pHandProp->dwLoadingTime;				// 아이템의 채집능력에 따라 채집량을 누적.
 		pTarget->m_nResource -= (int)pHandProp->dwLoadingTime;		// 채집한 만큼 타겟의 리소스에서 뺌.
 		if( pTarget->m_nResource < 0 )
@@ -149,7 +151,8 @@ int		CUser::OnActCollecting( void )
 			} else
 				Error( "CUser::OnActCollecting : %s가 dwSourceMaterial이 -1", pTarget->GetName() );
 
-			FLOAT fResRatio = (float)pTarget->m_nResource / pTarget->GetProp()->dwMaterialAmount;		// 몇퍼센트 남았는지 ...
+			FLOAT fResRatio = (float)pTarget->m_nResource / pTarget->GetProp()->dwMaterialAmount;		// 몇퍼센트 남았는지 ...			
+			
 			FLOAT fScale = pTarget->m_pModel->m_pModelElem->m_fScale;		// mdlDyna에 있던 scale값이 100%
 			if( fResRatio > 1.0f )
 			{
