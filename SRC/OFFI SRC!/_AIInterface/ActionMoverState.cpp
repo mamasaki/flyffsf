@@ -538,7 +538,7 @@ if(!pMover->IsPlayer())
 		if( !pMover->IsPlayer() ) 
 		{
 			m_nDeadCnt--;
-			/*
+			
 			if( pMover->IsResourceMonster() )		// 자원이 있는 몬스터냐
 			{				
 				if( pMover->m_nResource == 0 )		// 자원이 다 떨어졌냐
@@ -548,7 +548,7 @@ if(!pMover->IsPlayer())
 					m_nDeadCnt = 0;			// 자원이 다 떨어졌으면 이제 없어져야줴~
 				}
 			}
-			*/
+			
 			if( m_nDeadCnt <= 0 )
 			{
 				SetState( OBJSTA_DMG_ALL, OBJSTA_DISAPPEAR );	// 사라지는 상태로 전환
