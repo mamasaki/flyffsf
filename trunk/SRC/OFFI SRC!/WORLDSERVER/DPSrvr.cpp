@@ -5487,6 +5487,15 @@ void CDPSrvr::OnDoUseItemTarget( CAr & ar, DPID dpidCache, DPID dpidUser, LPBYTE
 			return;
 		}
 		BOOL	b	= FALSE;
+		ItemProp* pItemProp2 = pTarget->GetProp();
+		int nCost = 0;;
+		if(pItemProp2->dwItemKind1 == IK1_WEAPON)
+			nCost = 50000;
+		else
+			nCost = 100000;
+		if(pUser->GetGold() < nCost)
+			return ;
+		pUser->AddGold(-nCost);
 		switch( pMaterial->m_dwItemId ) 
 		{
 			case II_SYS_SYS_QUE_PETRESURRECTION02_S:

@@ -1664,7 +1664,21 @@ BOOL CWndInventory::Process()
 					{
 #if __VER >= 11 // __SYS_COLLECTING
 						if( pItemElem->IsCollector( TRUE ) || pItemElem->GetProp()->dwItemKind2 == IK2_JEWELRY )
+						{
+							int nAbilityOption = 0;
+							ItemProp *pItemProp2 = pItemMaterialElem->GetProp();
+							if(pItemProp2->dwItemKind3 == IK3_ELECARD)
+								nAbilityOption = pItemElem->m_nResistAbilityOption;
+							else
+								nAbilityOption = pItemElem->m_nAbilityOption;
+							DWORD dwCost = prj.GetEnchantCost(nAbilityOption);
+							if(g_pPlayer->GetGold() < dwCost)
+							{
+								g_WndMng.PutString( "对不起，您的游戏币不足。", NULL, prj.GetTextColor( TID_GAME_NOTCOUPLETARGET ) );
+								return false;
+							}
 							g_DPlay.SendEnchant( pItemElem->m_dwObjId, m_pUpgradeMaterialItem->m_dwObjId );
+						}
 #if __VER < 12 // __CSC_VER12_4
 						else
 							g_DPlay.SendUltimateRemoveGem( pItemElem->m_dwObjId, m_pUpgradeMaterialItem->m_dwObjId );
@@ -1674,7 +1688,21 @@ BOOL CWndInventory::Process()
 #endif	// __SYS_COLLECTING
 					}
 					else
+					{
+						int nAbilityOption = 0;
+						ItemProp *pItemProp2 = pItemMaterialElem->GetProp();
+						if(pItemProp2->dwItemKind3 == IK3_ELECARD)
+							nAbilityOption = pItemElem->m_nResistAbilityOption;
+						else
+							nAbilityOption = pItemElem->m_nAbilityOption;
+						DWORD dwCost = prj.GetEnchantCost(nAbilityOption);
+						if(g_pPlayer->GetGold() < dwCost)
+						{
+							g_WndMng.PutString( "对不起，您的游戏币不足。", NULL, prj.GetTextColor( TID_GAME_NOTCOUPLETARGET ) );
+							return false;
+						}
 						g_DPlay.SendEnchant( pItemElem->m_dwObjId, m_pUpgradeMaterialItem->m_dwObjId );
+					}
 #else
 					g_DPlay.SendEnchant( pItemElem->m_dwObjId, m_pUpgradeMaterialItem->m_dwObjId );
 #endif //__CSC_VER9_1
@@ -1692,6 +1720,17 @@ BOOL CWndInventory::Process()
 #if __VER >= 11
 				else if( IsNeedTarget( pItemMaterialElem->GetProp() ) )
 				{
+					ItemProp* pItemProp2 = pItemElem->GetProp();
+					int nCost = 0;
+					if(pItemProp2->dwItemKind1 == IK1_WEAPON)
+						nCost = 50000;
+					else
+						nCost = 100000;
+					if(g_pPlayer->GetGold() <nCost)
+					{
+						g_WndMng.PutString( "对不起，您的游戏币不足。", NULL, prj.GetTextColor( TID_GAME_NOTCOUPLETARGET ) );
+						return false;
+					}
 					g_DPlay.SendDoUseItemTarget( m_pUpgradeMaterialItem->m_dwObjId, pItemElem->m_dwObjId );
 				}
 #endif	// __VER
@@ -13437,8 +13476,20 @@ void CWndInventory::RunUpgrade( CItemBase* pItem )
 #if __VER >= 11
 		else if( IsNeedTarget( pItemProp ) )
 		{
-			m_pUpgradeItem	= pItem;
-			m_dwEnchantWaitTime		= g_tmCurrent + SEC(4);
+			g_WndMng.m_pWndNew = new CWndNew;
+			if(g_WndMng.m_pWndNew)
+			{
+				g_WndMng.m_pWndNew->Initialize(this);
+				g_WndMng.m_pWndNew->SetItem(pItem);
+				ItemProp* pItemProp2 = pItem->GetProp();
+				CString strTitle;
+				if(pItemProp2->dwItemKind1 == IK1_WEAPON)
+					strTitle.Format("本次唤醒需要消耗50,000游戏币，确定开始唤醒吗？");
+				else
+					strTitle.Format("本次唤醒需要消耗100,000游戏币，确定开始唤醒吗？");
+				g_WndMng.m_pWndNew->m_pStatic->SetTitle(strTitle);
+
+			}
 			return;
 		}
 #endif	// __VER
@@ -13451,8 +13502,22 @@ void CWndInventory::RunUpgrade( CItemBase* pItem )
 #if __VER >= 11 // __SYS_COLLECTING
 				if( ( static_cast<CItemElem*>( pItem ) )->IsCollector( TRUE ) || pItem->GetProp()->dwItemKind2 == IK2_JEWELRY )
 				{
-					m_pUpgradeItem = pItem;
-					m_dwEnchantWaitTime = g_tmCurrent + SEC(4);
+					g_WndMng.m_pWndNew = new CWndNew;
+					if(g_WndMng.m_pWndNew)
+					{
+						g_WndMng.m_pWndNew->Initialize(this);
+						g_WndMng.m_pWndNew->SetItem(pItem);
+						ItemProp *pItemProp2 = m_pUpgradeMaterialItem->GetProp();
+						int nAbilityOption = 0;
+						if(pItemProp2->dwItemKind3 == IK3_ELECARD)
+							nAbilityOption = ( static_cast<CItemElem*>( pItem ) )->m_nResistAbilityOption;
+						else
+							nAbilityOption = ( static_cast<CItemElem*>( pItem ) )->m_nAbilityOption;
+						DWORD dwCost = prj.GetEnchantCost(nAbilityOption);
+						CString strTitle;
+						strTitle.Format("本次精炼需要消耗%u游戏币，确定开始精炼吗？",dwCost);
+						g_WndMng.m_pWndNew->m_pStatic->SetTitle(strTitle);
+					}
 					return;
 				}
 #endif	// __SYS_COLLECTING
@@ -13522,8 +13587,23 @@ void CWndInventory::RunUpgrade( CItemBase* pItem )
 		}
 #endif // __CSC_VER9_1 
 		// 牢镁飘啊 登绰 酒捞袍 - 规绢备 殿殿
-		m_pUpgradeItem = pItem;
-		m_dwEnchantWaitTime = g_tmCurrent + SEC(4);
+		//加入提示框
+		g_WndMng.m_pWndNew = new CWndNew;
+		if(g_WndMng.m_pWndNew)
+		{
+			g_WndMng.m_pWndNew->Initialize(this);
+			g_WndMng.m_pWndNew->SetItem(pItem);
+			ItemProp *pItemProp2 = m_pUpgradeMaterialItem->GetProp();
+			int nAbilityOption = 0;
+			if(pItemProp2->dwItemKind3 == IK3_ELECARD)
+				nAbilityOption = ( static_cast<CItemElem*>( pItem ) )->m_nResistAbilityOption;
+			else
+				nAbilityOption = ( static_cast<CItemElem*>( pItem ) )->m_nAbilityOption;
+			DWORD dwCost = prj.GetEnchantCost(nAbilityOption);
+			CString strTitle;
+			strTitle.Format("本次精炼需要消耗%u游戏币，确定开始精炼吗？",dwCost);
+			g_WndMng.m_pWndNew->m_pStatic->SetTitle(strTitle);
+		}
 	}
 }
 
