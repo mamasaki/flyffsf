@@ -2160,6 +2160,14 @@
 					>
 				</File>
 				<File
+					RelativePath="..\_Interface\WndNew.cpp"
+					>
+				</File>
+				<File
+					RelativePath="..\_Interface\WndNew.h"
+					>
+				</File>
+				<File
 					RelativePath="..\_Interface\WndQuest.cpp"
 					>
 					<FileConfiguration

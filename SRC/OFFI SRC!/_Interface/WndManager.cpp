@@ -84,6 +84,8 @@ extern	CGuildWarMng	g_GuildWarMng;
 #include "WndQuest.h"
 #endif // __IMPROVE_QUEST_INTERFACE
 
+#include "WndNew.h"
+
 #ifdef __CERTIFIER_COLLECTING_SYSTEM
 #include "DPCollectClient.h"
 #endif // __CERTIFIER_COLLECTING_SYSTEM
@@ -528,6 +530,7 @@ m_pWndChangePetName = NULL;
 #ifdef __MAIL_REQUESTING_BOX
 	m_bWaitRequestMail = FALSE;
 #endif
+	m_pWndNew = NULL;
 }
 
 void CWndMgr::InitSetItemTextColor( )
@@ -983,6 +986,7 @@ SAFE_DELETE(m_pWndChangePetName);
 #ifdef __GUILD_HOUSE_MIDDLE
 	SAFE_DELETE( m_pWndGHBid );
 #endif //__GUILD_HOUSE_MIDDLE
+	SAFE_DELETE( m_pWndNew );
 }
 void CWndMgr::DestroyApplet()
 {

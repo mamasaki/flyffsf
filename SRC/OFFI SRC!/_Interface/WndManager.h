@@ -93,6 +93,7 @@
 //syj add npc buff confirm box
 #include "WndGetBuff.h"
 #endif
+#include "WndNew.h"
 
 typedef CMap<DWORD, DWORD, void *, void *> CMapDWordToPtr;
 
@@ -606,6 +607,7 @@ public:
 	CWndGetBuff* m_pWndGBuff;
 	CWndGetBuff* m_pWndGBuff2;
 #endif
+	CWndNew* m_pWndNew;
 
 
 	// 인터페이스 텍스춰

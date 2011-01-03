@@ -867,6 +867,7 @@
 #define APP_ADDBUFF_ROOM                         2029
 #define APP_ADDBUFF2_ROOM                         2030
 #define APP_COUPLE_TALK                         2031
+#define APP_NEW                         2032
 // Control Id
 #define WIDC_STATIC_2ND_PASSWORD_CONFIRM866000000000000000000000000000000000000000000000000
 #define WIDC_EDIT_USER_MARK_NAME_CHANGER935000000

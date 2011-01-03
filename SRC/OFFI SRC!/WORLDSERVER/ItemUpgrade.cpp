@@ -745,7 +745,12 @@ void	CItemUpgrade::RefineAccessory( CUser* pUser, CItemElem* pItemMain, CItemEle
 		pUser->AddDefinedText( TID_GAME_ACCESSORY_MAX_AAO );
 		return;
 	}
-
+	int nCost =  prj.GetEnchantCost(pItemMain->GetAbilityOption()) ;
+	if(pUser->GetGold() <nCost)
+	{
+		return ;
+	}
+	pUser->AddGold(0-nCost);
 	// log
 	LogItemInfo aLogItem;
 	aLogItem.SendName	= pUser->GetName();
@@ -990,7 +995,12 @@ void	CItemUpgrade::EnchantGeneral( CUser* pUser, CItemElem* pItemMain, CItemElem
 		pUser->AddDefinedText( TID_UPGRADE_MAXOVER );			
 		return;
 	}
-
+	int nCost = prj.GetEnchantCost(pItemMain->GetAbilityOption());
+	if(pUser->GetGold() < nCost )
+	{
+		return ;
+	}
+	pUser->AddGold(0-nCost);
 	// 1000단위의 성공 퍼센트 
 	int nPercent = GetGeneralEnchantProb( *pAbilityOption );
 
@@ -1158,6 +1168,13 @@ void	CItemUpgrade::EnchantAttribute( CUser* pUser, CItemElem* pItemMain, CItemEl
 		pUser->AddDefinedText( TID_UPGRADE_MAXOVER );			
 		return;
 	}
+	int nCost = prj.GetEnchantCost(pItemMain->m_nResistAbilityOption);
+	if(pUser->GetGold() < nCost )
+	{
+		return ;
+	}
+	pUser->AddGold(0-nCost);
+
 	// 10000단위의 성공 퍼센트 
 	int nPercent = GetAttributeEnchantProb( *pAbilityOption );
 

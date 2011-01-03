@@ -3700,7 +3700,10 @@ BOOL CProject::SortDropItem( void )
 	return TRUE;
 }
 #endif	// __WORLDSERVER
-
+DWORD CProject::GetEnchantCost(int nAbilityOption)
+{
+	return 10000*(nAbilityOption+1);
+}
 
 #ifdef __WORLDSERVER
 CGiftboxMan::CGiftboxMan()

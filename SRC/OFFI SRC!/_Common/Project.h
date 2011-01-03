@@ -887,6 +887,7 @@ class CSfx;
 class CItem;
 class CMover;
 class CShip;
+class CItemBase;
 #ifdef __WORLDSERVER
 class CUser;
 #endif
@@ -1223,6 +1224,8 @@ public:
 	BOOL LoadPropMapComboBoxData( const CString& strFileName );
 #endif // __CLIENT
 #endif // __IMPROVE_MAP_SYSTEM
+	//计算精练花费
+	static DWORD GetEnchantCost(int nAbilityOption);
 };
 
 #if __VER >= 8 // __S8_PK
