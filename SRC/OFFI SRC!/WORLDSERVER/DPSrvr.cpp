@@ -11653,7 +11653,7 @@ BOOL CDPSrvr::DoUseItemTarget_GenRandomOption(
 											  const char* szOperation, const char* szReceive )
 {
 	int nRandomOptionKind	= g_xRandomOptionProperty->GetRandomOptionKind( pTarget );
-	if( nRandomOptionKind != nKind || pTarget->IsFlag( CItemElem::expired ) )
+	if( /*nRandomOptionKind != nKind ||*/ pTarget->IsFlag( CItemElem::expired ) )
 	{
 		pUser->AddDefinedText( nMismatchKind );
 		return FALSE;
