@@ -1724,10 +1724,10 @@ BOOL CWndInventory::Process()
 					{
 						ItemProp* pItemProp2 = pItemElem->GetProp();
 						int nCost = 0;
-						if(pItemProp2->dwItemKind1 == IK1_WEAPON)
-							nCost = 50000;
-						else
+						if(pItemProp2->dwItemKind2 == IK2_CLOTH || pItemProp2->dwItemKind2 == IK2_CLOTHETC)
 							nCost = 100000;
+						else
+							nCost = 50000;
 						if(g_pPlayer->GetGold() <nCost)
 						{
 							g_WndMng.PutString( "对不起，您的游戏币不足。", NULL, prj.GetTextColor( TID_GAME_NOTCOUPLETARGET ) );
@@ -13492,10 +13492,10 @@ void CWndInventory::RunUpgrade( CItemBase* pItem )
 				g_WndMng.m_pWndNew->SetItem(pItem);
 				ItemProp* pItemProp2 = pItem->GetProp();
 				CString strTitle;
-				if(pItemProp2->dwItemKind1 == IK1_WEAPON)
-					strTitle.Format("本次唤醒需要消耗50,000游戏币，确定开始唤醒吗？");
+				if(pItemProp2->dwItemKind2 == IK2_CLOTH || pItemProp2->dwItemKind2 == IK2_CLOTHETC )
+					strTitle.Format("本次唤醒需要消耗100,000游戏币，确定开始吗？");
 				else
-					strTitle.Format("本次唤醒需要消耗100,000游戏币，确定开始唤醒吗？");
+					strTitle.Format("本次唤醒需要消耗50,000游戏币，确定开始吗？");
 				g_WndMng.m_pWndNew->m_pStatic->SetTitle(strTitle);
 
 			}
@@ -13524,7 +13524,7 @@ void CWndInventory::RunUpgrade( CItemBase* pItem )
 							nAbilityOption = ( static_cast<CItemElem*>( pItem ) )->m_nAbilityOption;
 						DWORD dwCost = prj.GetEnchantCost(nAbilityOption);
 						CString strTitle;
-						strTitle.Format("本次精炼需要消耗%u游戏币，确定开始精炼吗？",dwCost);
+						strTitle.Format("本次精炼需要消耗%u游戏币，确定开始吗？",dwCost);
 						g_WndMng.m_pWndNew->m_pStatic->SetTitle(strTitle);
 					}
 					return;
