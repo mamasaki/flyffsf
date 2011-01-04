@@ -384,8 +384,8 @@ void CWndDuelResult::OnInitialUpdate()
 	if( m_bDuelWin == FALSE )
 		strTemp.Format( _T( prj.GetText(TID_DIAG_DUELRESULT_LOSE) ), m_szSrc ); // 메시지 바꾸려면 이걸 바꾸시오
 	else
-		strTemp.Format( _T( prj.GetText(TID_DIAG_DUELRESULT_WIN) ), m_szSrc ); // 메시지 바꾸려면 이걸 바꾸시오
-	
+		//strTemp.Format( _T( prj.GetText(TID_DIAG_DUELRESULT_WIN) ), m_szSrc ); // 메시지 바꾸려면 이걸 바꾸시오
+		strTemp.Format( "宅%spvp써監，삿돤價적", m_szSrc );
 	pWndText->SetString( strTemp );
 
 	// 윈도를 중앙으로 옮기는 부분.

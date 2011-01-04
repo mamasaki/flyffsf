@@ -6601,7 +6601,7 @@ void CWndWorld::ShowMoverMenu( CMover* pTarget )
 			}
 
 
-/*#if __VER >= 8     // 8차 듀얼존에 관계없이 PVP가능하게함   Neuz, World
+//#if __VER >= 8     // 8차 듀얼존에 관계없이 PVP가능하게함   Neuz, World
 			if( !g_pPlayer->IsBaseJob() && pTarget->IsDie() == FALSE )	// 레벨이 15이상일때만 메뉴가 나타남.
 			{
 				BOOL bInsert = TRUE;
@@ -6615,7 +6615,7 @@ void CWndWorld::ShowMoverMenu( CMover* pTarget )
 					m_wndMenuMover.AppendMenu( 0,  MMI_DUEL, prj.GetText( TID_MMI_DUEL ) );
 				}
 			}
-#else	// __VER >= 8  */
+//#else	// __VER >= 8  
 			if( g_eLocal.GetState( EVE_18 ) == 1 )
 			{
 				if( pTarget->IsDie() == FALSE )	// 레벨이 15이상일때만 메뉴가 나타남.
