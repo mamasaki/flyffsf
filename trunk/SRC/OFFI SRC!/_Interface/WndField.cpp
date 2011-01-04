@@ -1720,16 +1720,19 @@ BOOL CWndInventory::Process()
 #if __VER >= 11
 				else if( IsNeedTarget( pItemMaterialElem->GetProp() ) )
 				{
-					ItemProp* pItemProp2 = pItemElem->GetProp();
-					int nCost = 0;
-					if(pItemProp2->dwItemKind1 == IK1_WEAPON)
-						nCost = 50000;
-					else
-						nCost = 100000;
-					if(g_pPlayer->GetGold() <nCost)
+					if(II_SYS_SYS_SCR_AWAKECANCEL != pItemMaterialElem->m_dwItemId)
 					{
-						g_WndMng.PutString( "对不起，您的游戏币不足。", NULL, prj.GetTextColor( TID_GAME_NOTCOUPLETARGET ) );
-						return false;
+						ItemProp* pItemProp2 = pItemElem->GetProp();
+						int nCost = 0;
+						if(pItemProp2->dwItemKind1 == IK1_WEAPON)
+							nCost = 50000;
+						else
+							nCost = 100000;
+						if(g_pPlayer->GetGold() <nCost)
+						{
+							g_WndMng.PutString( "对不起，您的游戏币不足。", NULL, prj.GetTextColor( TID_GAME_NOTCOUPLETARGET ) );
+							return false;
+						}
 					}
 					g_DPlay.SendDoUseItemTarget( m_pUpgradeMaterialItem->m_dwObjId, pItemElem->m_dwObjId );
 				}
@@ -13476,6 +13479,12 @@ void CWndInventory::RunUpgrade( CItemBase* pItem )
 #if __VER >= 11
 		else if( IsNeedTarget( pItemProp ) )
 		{
+			if(II_SYS_SYS_SCR_AWAKECANCEL == pItemProp->dwID )
+			{
+				m_pUpgradeItem = pItem;
+				m_dwEnchantWaitTime = g_tmCurrent + SEC(4);
+				return;
+			}
 			g_WndMng.m_pWndNew = new CWndNew;
 			if(g_WndMng.m_pWndNew)
 			{
