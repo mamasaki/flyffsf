@@ -5491,10 +5491,10 @@ void CDPSrvr::OnDoUseItemTarget( CAr & ar, DPID dpidCache, DPID dpidUser, LPBYTE
 		{
 			ItemProp* pItemProp2 = pTarget->GetProp();
 			int nCost = 0;;
-			if(pItemProp2->dwItemKind1 == IK1_WEAPON)
-				nCost = 50000;
-			else
+			if(pItemProp2->dwItemKind2 == IK2_CLOTH || pItemProp2->dwItemKind2 == IK2_CLOTHETC)
 				nCost = 100000;
+			else
+				nCost = 50000;
 			if(pUser->GetGold() < nCost)
 				return ;
 			pUser->AddGold(-nCost);
