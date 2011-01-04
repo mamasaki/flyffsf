@@ -228,6 +228,8 @@ void  CCoupleHelper::OnCoupleInfo( CUser* pUser,CAr & ar )
 	u_long id ;
 	ar>>id;
 	CUser* pReq	= static_cast<CUser*>( prj.GetUserByID(id ) );
+	if(!pReq)
+		return;
 	CCouple* pCouple	= m_pMgr->GetCouple( pReq->m_idPlayer );
 	if( !pCouple )
 	{
