@@ -5487,7 +5487,8 @@ void CDPSrvr::OnDoUseItemTarget( CAr & ar, DPID dpidCache, DPID dpidUser, LPBYTE
 			return;
 		}
 		BOOL	b	= FALSE;
-		if(II_SYS_SYS_SCR_AWAKECANCEL != pMaterial->m_dwItemId)
+		
+		if(	II_SYS_SYS_SCR_AWAKE != pMaterial->m_dwItemId && II_SYS_SYS_SCR_BLESSEDNESS != pMaterial->m_dwItemId)
 		{
 			ItemProp* pItemProp2 = pTarget->GetProp();
 			int nCost = 0;;

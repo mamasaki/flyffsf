@@ -1720,7 +1720,7 @@ BOOL CWndInventory::Process()
 #if __VER >= 11
 				else if( IsNeedTarget( pItemMaterialElem->GetProp() ) )
 				{
-					if(II_SYS_SYS_SCR_AWAKECANCEL != pItemMaterialElem->m_dwItemId)
+					if(	II_SYS_SYS_SCR_AWAKE != pItemMaterialElem->m_dwItemId && II_SYS_SYS_SCR_BLESSEDNESS != pItemMaterialElem->m_dwItemId)
 					{
 						ItemProp* pItemProp2 = pItemElem->GetProp();
 						int nCost = 0;
@@ -13479,7 +13479,7 @@ void CWndInventory::RunUpgrade( CItemBase* pItem )
 #if __VER >= 11
 		else if( IsNeedTarget( pItemProp ) )
 		{
-			if(II_SYS_SYS_SCR_AWAKECANCEL == pItemProp->dwID )
+			if(II_SYS_SYS_SCR_AWAKE != pItemProp->dwID && II_SYS_SYS_SCR_BLESSEDNESS != pItemProp->dwID )
 			{
 				m_pUpgradeItem = pItem;
 				m_dwEnchantWaitTime = g_tmCurrent + SEC(4);
