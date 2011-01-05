@@ -11584,10 +11584,10 @@ void CDPSrvr::OnTeleportToHeavenTower( CAr & ar, DPID dpidCache, DPID dpidUser, 
 	CUser* pUser	=	g_UserMng.GetUser( dpidCache, dpidUser );
 	if( !IsValidObj( pUser ) )
 		return;
-
+/*
 	if( !CNpcChecker::GetInstance()->IsCloseNpc( MMI_HEAVEN_TOWER, pUser->GetWorld(), pUser->GetPos() ) )
 		return;
-    	
+*/    	
 	int nFloor;
 	ar >> nFloor;
 
@@ -11599,19 +11599,19 @@ void CDPSrvr::OnTeleportToHeavenTower( CAr & ar, DPID dpidCache, DPID dpidUser, 
 	switch( nFloor )
 	{
 		case 1 :	// 1類
-			nCost = 10000;	dwWorldId = WI_WORLD_HEAVEN01; vPos = D3DXVECTOR3( 253, 102, 78 ); fAngle = 183.0f;
+			nCost = 600000;	dwWorldId = WI_WORLD_HEAVEN01; vPos = D3DXVECTOR3( 253, 102, 78 ); fAngle = 183.0f;
 			break;
 		case 2 :	// 2類
-			nCost = 30000;	dwWorldId = WI_WORLD_HEAVEN02; vPos = D3DXVECTOR3( 251, 102, 95 ); fAngle = 183.0f;
+			nCost = 800000;	dwWorldId = WI_WORLD_HEAVEN02; vPos = D3DXVECTOR3( 251, 102, 95 ); fAngle = 183.0f;
 			break;
 		case 3 :	// 3類
-			nCost = 50000;	dwWorldId = WI_WORLD_HEAVEN03; vPos = D3DXVECTOR3( 264, 102, 227 ); fAngle = 183.0f;
+			nCost = 1000000;	dwWorldId = WI_WORLD_HEAVEN03; vPos = D3DXVECTOR3( 264, 102, 227 ); fAngle = 183.0f;
 			break;
 		case 4 :	// 4類
-			nCost = 70000;	dwWorldId = WI_WORLD_HEAVEN04; vPos = D3DXVECTOR3( 253, 102, 86 ); fAngle = 174.0f;
+			nCost = 100000;	dwWorldId = WI_WORLD_HEAVEN04; vPos = D3DXVECTOR3( 253, 102, 86 ); fAngle = 174.0f;
 			break;
 		case 5 :	// 5類
-			nCost = 100000;	dwWorldId = WI_WORLD_HEAVEN05; vPos = D3DXVECTOR3( 218, 102, 101); fAngle = 176.0f;
+			nCost = 200000;	dwWorldId = WI_WORLD_HEAVEN05; vPos = D3DXVECTOR3( 218, 102, 101); fAngle = 176.0f;
 			break;
 
 		default :
