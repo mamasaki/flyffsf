@@ -313,7 +313,10 @@
 
 #define MMI_NPC_BUFF3			175 // MMI를 추가시킬 일이 있다면 이 수치를 상승시켜야 한다.
 #define MMI_NPC_BUFF2				176
-#define MAX_MOVER_MENU			    177
+#define MMI_CHUANSONG1				177
+#define MMI_CHUANSONG2				178
+#define MMI_CHUANSONG3				179
+#define MAX_MOVER_MENU			    180
 
 
 #define MGI_APPELL_UP		0	// 호칭 업

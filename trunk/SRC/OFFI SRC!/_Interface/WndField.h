@@ -2196,6 +2196,31 @@ public:
 	
 	void InitText();
 	void InitWnd();
+	virtual void InitList();
+};
+
+class CChuansong1 : public CWndHeavenTower
+{
+public:
+	virtual BOOL Initialize( CWndBase* pWndParent = NULL,DWORD dwWndId = 0 ) ;
+	virtual BOOL OnChildNotify( UINT message, UINT nID, LRESULT* pLResult );
+	virtual void InitList();
+};
+
+class CChuansong2 : public CWndHeavenTower
+{
+public:
+	virtual BOOL Initialize( CWndBase* pWndParent = NULL,DWORD dwWndId = 0 ) ;
+	virtual BOOL OnChildNotify( UINT message, UINT nID, LRESULT* pLResult );
+	virtual void InitList();
+};
+
+class CChuansong3 : public CWndHeavenTower
+{
+public:
+	virtual BOOL Initialize( CWndBase* pWndParent = NULL,DWORD dwWndId = 0 ) ;
+	virtual BOOL OnChildNotify( UINT message, UINT nID, LRESULT* pLResult );
+	virtual void InitList();
 };
 
 class CWndHeavenTowerEntranceConfirm : public CWndMessageBox

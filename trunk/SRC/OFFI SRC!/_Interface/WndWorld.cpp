@@ -5126,7 +5126,50 @@ BOOL CWndWorld::OnCommand( UINT nID, DWORD dwMessage, CWndBase* pWndBase )
 				g_WndMng.m_pWndHeavenTower = new CWndHeavenTower;
 				g_WndMng.m_pWndHeavenTower->Initialize();
 			}
+			break;	
+			case MMI_CHUANSONG1:
+			{
+				CWndBase* pWndBaseBuf = g_WndMng.GetWndBase( APP_CHUANSONG1 );
+				if( pWndBaseBuf )
+				{
+					g_WndMng.PutString( prj.GetText(TID_GAME_WND_OVERLAPED), NULL, prj.GetTextColor(TID_GAME_WND_OVERLAPED) );
+					break;
+				}
+
+				SAFE_DELETE( g_WndMng.m_pWndHeavenTower );
+				g_WndMng.m_pWndHeavenTower = new CChuansong1;
+				g_WndMng.m_pWndHeavenTower->Initialize();
+			}
 			break;
+			case MMI_CHUANSONG2:
+			{
+				CWndBase* pWndBaseBuf = g_WndMng.GetWndBase( APP_CHUANSONG2 );
+				if( pWndBaseBuf )
+				{
+					g_WndMng.PutString( prj.GetText(TID_GAME_WND_OVERLAPED), NULL, prj.GetTextColor(TID_GAME_WND_OVERLAPED) );
+					break;
+				}
+
+				SAFE_DELETE( g_WndMng.m_pWndHeavenTower );
+				g_WndMng.m_pWndHeavenTower = new CChuansong2;
+				g_WndMng.m_pWndHeavenTower->Initialize();
+			}
+			break;
+			case MMI_CHUANSONG3:
+			{
+				CWndBase* pWndBaseBuf = g_WndMng.GetWndBase( APP_CHUANSONG3 );
+				if( pWndBaseBuf )
+				{
+					g_WndMng.PutString( prj.GetText(TID_GAME_WND_OVERLAPED), NULL, prj.GetTextColor(TID_GAME_WND_OVERLAPED) );
+					break;
+				}
+
+				SAFE_DELETE( g_WndMng.m_pWndHeavenTower );
+				g_WndMng.m_pWndHeavenTower = new CChuansong3;
+				g_WndMng.m_pWndHeavenTower->Initialize();
+			}
+			break;
+
 #endif //__HEAVEN_TOWER
 #ifdef __NPC_BUFF
 			case MMI_NPC_BUFF3:
@@ -8324,6 +8367,21 @@ BOOL CWndWorld::Process()
 #endif //__TRADESYS
 #if __VER >= 12 // __HEAVEN_TOWER
 			pWndBase	= g_WndMng.GetWndBase( APP_HEAVEN_TOWER );
+			if( pWndBase )
+			{
+				pWndBase->Destroy();
+			}
+			pWndBase	= g_WndMng.GetWndBase( APP_CHUANSONG1 );
+			if( pWndBase )
+			{
+				pWndBase->Destroy();
+			}
+			pWndBase	= g_WndMng.GetWndBase( APP_CHUANSONG2 );
+			if( pWndBase )
+			{
+				pWndBase->Destroy();
+			}
+			pWndBase	= g_WndMng.GetWndBase( APP_CHUANSONG3 );
 			if( pWndBase )
 			{
 				pWndBase->Destroy();

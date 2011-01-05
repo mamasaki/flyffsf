@@ -21692,30 +21692,7 @@ void CWndHeavenTower::OnDraw( C2DRender* p2DRender )
 
 void CWndHeavenTower::InitText()
 {
-	m_nDescList.push_back(TID_TOOLTIP_HEAVENTOWER);
-
-	m_nVecList.push_back(TID_GAME_HEAVETOWER_FLOOR01);
-	m_nVecList.push_back(TID_GAME_HEAVETOWER_FLOOR02);
-	m_nVecList.push_back(TID_GAME_HEAVETOWER_FLOOR03);
-	m_nVecList.push_back(TID_GAME_HEAVETOWER_FLOOR04);
-	m_nVecList.push_back(TID_GAME_HEAVETOWER_FLOOR05);
-	m_nVecList.push_back(TID_GAME_HEAVETOWER_FLOOR06);
-	m_nVecList.push_back(TID_GAME_HEAVETOWER_FLOOR07);
-
-	m_nMsgList.push_back(TID_GAME_HEAVETOWER_FLOOR01_MSG);
-	m_nMsgList.push_back(TID_GAME_HEAVETOWER_FLOOR02_MSG);
-	m_nMsgList.push_back(TID_GAME_HEAVETOWER_FLOOR03_MSG);
-	m_nMsgList.push_back(TID_GAME_HEAVETOWER_FLOOR04_MSG);
-	m_nMsgList.push_back(TID_GAME_HEAVETOWER_FLOOR05_MSG);
-	m_nMsgList.push_back(TID_GAME_HEAVETOWER_FLOOR06_MSG);
-
-	m_nCost.push_back(10000);
-	m_nCost.push_back(30000);
-	m_nCost.push_back(50000);
-	m_nCost.push_back(70000);
-	m_nCost.push_back(100000);
-
-	m_nListCount = m_nVecList.size();
+	InitList();
 
 	//Set List
 	CWndListBox* pWndList = (CWndListBox*)GetDlgItem( WIDC_LISTBOX1 );
@@ -21743,6 +21720,34 @@ void CWndHeavenTower::InitText()
 	m_nCurrentPage = 0;
 	pText->m_string.AddParsingString( prj.GetText(m_nDescList[m_nCurrentPage]) );
 	pText->ResetString();
+}
+
+void CWndHeavenTower::InitList()
+{
+	m_nDescList.push_back(TID_TOOLTIP_HEAVENTOWER);
+
+	m_nVecList.push_back(TID_GAME_HEAVETOWER_FLOOR01);
+	m_nVecList.push_back(TID_GAME_HEAVETOWER_FLOOR02);
+	m_nVecList.push_back(TID_GAME_HEAVETOWER_FLOOR03);
+	//m_nVecList.push_back(TID_GAME_HEAVETOWER_FLOOR04);
+	//m_nVecList.push_back(TID_GAME_HEAVETOWER_FLOOR05);
+	//m_nVecList.push_back(TID_GAME_HEAVETOWER_FLOOR06);
+	m_nVecList.push_back(TID_GAME_HEAVETOWER_FLOOR07);
+
+	m_nMsgList.push_back(TID_GAME_HEAVETOWER_FLOOR01_MSG);
+	m_nMsgList.push_back(TID_GAME_HEAVETOWER_FLOOR02_MSG);
+	//m_nMsgList.push_back(TID_GAME_HEAVETOWER_FLOOR03_MSG);
+	//m_nMsgList.push_back(TID_GAME_HEAVETOWER_FLOOR04_MSG);
+	//m_nMsgList.push_back(TID_GAME_HEAVETOWER_FLOOR05_MSG);
+	m_nMsgList.push_back(TID_GAME_HEAVETOWER_FLOOR06_MSG);
+
+	m_nCost.push_back(100000);
+	m_nCost.push_back(200000);
+	//m_nCost.push_back(50000);
+	//m_nCost.push_back(70000);
+	//m_nCost.push_back(100000);
+
+	m_nListCount = m_nVecList.size();
 }
 
 void CWndHeavenTower::OnInitialUpdate()
@@ -21795,7 +21800,7 @@ BOOL CWndHeavenTower::OnChildNotify( UINT message, UINT nID, LRESULT* pLResult )
 			{
 				m_nChoiceNum = nCurSel;
 
-				if(m_nChoiceNum == 6)
+				if(m_nChoiceNum == 3)
 				{
 					Destroy();
 					break;
@@ -21807,15 +21812,15 @@ BOOL CWndHeavenTower::OnChildNotify( UINT message, UINT nID, LRESULT* pLResult )
 				{
 					g_WndMng.OpenCustomBox( "", pWndEntranceConfirm, this );
 					
-					if(m_nChoiceNum != 5)
+					if(m_nChoiceNum != 2)
 					{
 						strMsg.Format( prj.GetText(m_nMsgList[m_nChoiceNum]), m_nCost[m_nChoiceNum] );
-						pWndEntranceConfirm->SetValue( strMsg, m_nChoiceNum+1 );
+						pWndEntranceConfirm->SetValue( strMsg, m_nChoiceNum+4 );
 					}
 					else
 					{
 						strMsg.Format( prj.GetText(m_nMsgList[m_nChoiceNum]) );
-						pWndEntranceConfirm->SetValue( strMsg, m_nChoiceNum+1 );
+						pWndEntranceConfirm->SetValue( strMsg, m_nChoiceNum+4 );
 					}
 
 				}
@@ -21878,6 +21883,261 @@ void CWndHeavenTower::InitWnd()
 	rect.right += 80;
 	pWndText->SetWndRect(rect);
 }
+
+BOOL CChuansong1::Initialize( CWndBase* pWndParent, DWORD /*dwWndId*/ ) 
+{ 
+	// Daisy에서 설정한 리소스로 윈도를 연다.
+	return CWndNeuz::InitDialog( g_Neuz.GetSafeHwnd(), APP_CHUANSONG1, 0, CPoint( 0, 0 ), pWndParent );
+}
+
+void CChuansong1::InitList()
+{
+	m_nDescList.push_back(TID_CHUANSONG1);
+
+	m_nVecList.push_back(TID_CHUANSONG1_FLOOR);
+	//m_nVecList.push_back(TID_GAME_HEAVETOWER_FLOOR02);
+	//m_nVecList.push_back(TID_GAME_HEAVETOWER_FLOOR03);
+	//m_nVecList.push_back(TID_GAME_HEAVETOWER_FLOOR04);
+	//m_nVecList.push_back(TID_GAME_HEAVETOWER_FLOOR05);
+	//m_nVecList.push_back(TID_GAME_HEAVETOWER_FLOOR06);
+	//m_nVecList.push_back(TID_GAME_HEAVETOWER_FLOOR07);
+
+	m_nMsgList.push_back(TID_CHUANSONG1_FLOOR_MSG);
+	//m_nMsgList.push_back(TID_GAME_HEAVETOWER_FLOOR02_MSG);
+	//m_nMsgList.push_back(TID_GAME_HEAVETOWER_FLOOR03_MSG);
+	//m_nMsgList.push_back(TID_GAME_HEAVETOWER_FLOOR04_MSG);
+	//m_nMsgList.push_back(TID_GAME_HEAVETOWER_FLOOR05_MSG);
+	//m_nMsgList.push_back(TID_GAME_HEAVETOWER_FLOOR06_MSG);
+
+	m_nCost.push_back(600000);
+	//m_nCost.push_back(200000);
+	//m_nCost.push_back(50000);
+	//m_nCost.push_back(70000);
+	//m_nCost.push_back(100000);
+
+	m_nListCount = m_nVecList.size();
+}
+
+
+BOOL CChuansong1::OnChildNotify( UINT message, UINT nID, LRESULT* pLResult ) 
+{ 
+	switch(nID) 
+	{
+		case WIDC_BUTTON1:
+			//Text Page Down
+			if(m_nCurrentPage < m_nDescCount - 1)
+			{
+				m_nCurrentPage++;
+				CWndText* pText = (CWndText*)GetDlgItem(WIDC_TEXT1);
+				pText->m_string.SetString(prj.GetText(m_nDescList[m_nCurrentPage]));
+				
+				if(m_nCurrentPage == m_nDescCount - 1)
+				{
+					CWndButton* pButton = (CWndButton*)GetDlgItem(WIDC_BUTTON1);
+					pButton->SetVisible(FALSE);
+					pButton->EnableWindow(FALSE);
+				}
+			}
+			break;
+		case WIDC_LISTBOX1:
+			CWndListBox* pWndListBox = (CWndListBox*)GetDlgItem( WIDC_LISTBOX1 );
+			int nCurSel = pWndListBox->GetCurSel();
+			if( nCurSel != -1 )
+			{
+				m_nChoiceNum = nCurSel;
+
+				if(m_nChoiceNum != 0)
+				{
+					Destroy();
+					break;
+				}
+
+				CString strMsg;
+				CWndHeavenTowerEntranceConfirm* pWndEntranceConfirm = new CWndHeavenTowerEntranceConfirm;
+				if( pWndEntranceConfirm )
+				{
+					g_WndMng.OpenCustomBox( "", pWndEntranceConfirm, this );
+					
+					strMsg.Format( prj.GetText(m_nMsgList[m_nChoiceNum]), m_nCost[m_nChoiceNum] );
+					pWndEntranceConfirm->SetValue( strMsg, 1 );
+
+				}
+			}
+			break;
+	}
+
+	return CWndNeuz::OnChildNotify( message, nID, pLResult ); 
+} 
+
+BOOL CChuansong2::Initialize( CWndBase* pWndParent, DWORD /*dwWndId*/ ) 
+{ 
+	// Daisy에서 설정한 리소스로 윈도를 연다.
+	return CWndNeuz::InitDialog( g_Neuz.GetSafeHwnd(), APP_CHUANSONG2, 0, CPoint( 0, 0 ), pWndParent );
+}
+
+void CChuansong2::InitList()
+{
+	m_nDescList.push_back(TID_CHUANSONG2);
+
+	m_nVecList.push_back(TID_CHUANSONG2_FLOOR);
+	//m_nVecList.push_back(TID_GAME_HEAVETOWER_FLOOR02);
+	//m_nVecList.push_back(TID_GAME_HEAVETOWER_FLOOR03);
+	//m_nVecList.push_back(TID_GAME_HEAVETOWER_FLOOR04);
+	//m_nVecList.push_back(TID_GAME_HEAVETOWER_FLOOR05);
+	//m_nVecList.push_back(TID_GAME_HEAVETOWER_FLOOR06);
+	//m_nVecList.push_back(TID_GAME_HEAVETOWER_FLOOR07);
+
+	m_nMsgList.push_back(TID_CHUANSONG2_FLOOR_MSG);
+	//m_nMsgList.push_back(TID_GAME_HEAVETOWER_FLOOR02_MSG);
+	//m_nMsgList.push_back(TID_GAME_HEAVETOWER_FLOOR03_MSG);
+	//m_nMsgList.push_back(TID_GAME_HEAVETOWER_FLOOR04_MSG);
+	//m_nMsgList.push_back(TID_GAME_HEAVETOWER_FLOOR05_MSG);
+	//m_nMsgList.push_back(TID_GAME_HEAVETOWER_FLOOR06_MSG);
+
+	m_nCost.push_back(800000);
+	//m_nCost.push_back(200000);
+	//m_nCost.push_back(50000);
+	//m_nCost.push_back(70000);
+	//m_nCost.push_back(100000);
+
+	m_nListCount = m_nVecList.size();
+}
+
+
+BOOL CChuansong2::OnChildNotify( UINT message, UINT nID, LRESULT* pLResult ) 
+{ 
+	switch(nID) 
+	{
+		case WIDC_BUTTON1:
+			//Text Page Down
+			if(m_nCurrentPage < m_nDescCount - 1)
+			{
+				m_nCurrentPage++;
+				CWndText* pText = (CWndText*)GetDlgItem(WIDC_TEXT1);
+				pText->m_string.SetString(prj.GetText(m_nDescList[m_nCurrentPage]));
+				
+				if(m_nCurrentPage == m_nDescCount - 1)
+				{
+					CWndButton* pButton = (CWndButton*)GetDlgItem(WIDC_BUTTON1);
+					pButton->SetVisible(FALSE);
+					pButton->EnableWindow(FALSE);
+				}
+			}
+			break;
+		case WIDC_LISTBOX1:
+			CWndListBox* pWndListBox = (CWndListBox*)GetDlgItem( WIDC_LISTBOX1 );
+			int nCurSel = pWndListBox->GetCurSel();
+			if( nCurSel != -1 )
+			{
+				m_nChoiceNum = nCurSel;
+
+				if(m_nChoiceNum != 0)
+				{
+					Destroy();
+					break;
+				}
+
+				CString strMsg;
+				CWndHeavenTowerEntranceConfirm* pWndEntranceConfirm = new CWndHeavenTowerEntranceConfirm;
+				if( pWndEntranceConfirm )
+				{
+					g_WndMng.OpenCustomBox( "", pWndEntranceConfirm, this );
+					
+					strMsg.Format( prj.GetText(m_nMsgList[m_nChoiceNum]), m_nCost[m_nChoiceNum] );
+					pWndEntranceConfirm->SetValue( strMsg, 2 );
+
+				}
+			}
+			break;
+	}
+
+	return CWndNeuz::OnChildNotify( message, nID, pLResult ); 
+} 
+
+BOOL CChuansong3::Initialize( CWndBase* pWndParent, DWORD /*dwWndId*/ ) 
+{ 
+	// Daisy에서 설정한 리소스로 윈도를 연다.
+	return CWndNeuz::InitDialog( g_Neuz.GetSafeHwnd(), APP_CHUANSONG3, 0, CPoint( 0, 0 ), pWndParent );
+}
+
+void CChuansong3::InitList()
+{
+	m_nDescList.push_back(TID_CHUANSONG3);
+
+	m_nVecList.push_back(TID_CHUANSONG3_FLOOR);
+	//m_nVecList.push_back(TID_GAME_HEAVETOWER_FLOOR02);
+	//m_nVecList.push_back(TID_GAME_HEAVETOWER_FLOOR03);
+	//m_nVecList.push_back(TID_GAME_HEAVETOWER_FLOOR04);
+	//m_nVecList.push_back(TID_GAME_HEAVETOWER_FLOOR05);
+	//m_nVecList.push_back(TID_GAME_HEAVETOWER_FLOOR06);
+	//m_nVecList.push_back(TID_GAME_HEAVETOWER_FLOOR07);
+
+	m_nMsgList.push_back(TID_CHUANSONG3_FLOOR_MSG);
+	//m_nMsgList.push_back(TID_GAME_HEAVETOWER_FLOOR02_MSG);
+	//m_nMsgList.push_back(TID_GAME_HEAVETOWER_FLOOR03_MSG);
+	//m_nMsgList.push_back(TID_GAME_HEAVETOWER_FLOOR04_MSG);
+	//m_nMsgList.push_back(TID_GAME_HEAVETOWER_FLOOR05_MSG);
+	//m_nMsgList.push_back(TID_GAME_HEAVETOWER_FLOOR06_MSG);
+
+	m_nCost.push_back(1000000);
+	//m_nCost.push_back(200000);
+	//m_nCost.push_back(50000);
+	//m_nCost.push_back(70000);
+	//m_nCost.push_back(100000);
+
+	m_nListCount = m_nVecList.size();
+}
+
+
+BOOL CChuansong3::OnChildNotify( UINT message, UINT nID, LRESULT* pLResult ) 
+{ 
+	switch(nID) 
+	{
+		case WIDC_BUTTON1:
+			//Text Page Down
+			if(m_nCurrentPage < m_nDescCount - 1)
+			{
+				m_nCurrentPage++;
+				CWndText* pText = (CWndText*)GetDlgItem(WIDC_TEXT1);
+				pText->m_string.SetString(prj.GetText(m_nDescList[m_nCurrentPage]));
+				
+				if(m_nCurrentPage == m_nDescCount - 1)
+				{
+					CWndButton* pButton = (CWndButton*)GetDlgItem(WIDC_BUTTON1);
+					pButton->SetVisible(FALSE);
+					pButton->EnableWindow(FALSE);
+				}
+			}
+			break;
+		case WIDC_LISTBOX1:
+			CWndListBox* pWndListBox = (CWndListBox*)GetDlgItem( WIDC_LISTBOX1 );
+			int nCurSel = pWndListBox->GetCurSel();
+			if( nCurSel != -1 )
+			{
+				m_nChoiceNum = nCurSel;
+
+				if(m_nChoiceNum != 0)
+				{
+					Destroy();
+					break;
+				}
+
+				CString strMsg;
+				CWndHeavenTowerEntranceConfirm* pWndEntranceConfirm = new CWndHeavenTowerEntranceConfirm;
+				if( pWndEntranceConfirm )
+				{
+					g_WndMng.OpenCustomBox( "", pWndEntranceConfirm, this );
+					
+					strMsg.Format( prj.GetText(m_nMsgList[m_nChoiceNum]), m_nCost[m_nChoiceNum] );
+					pWndEntranceConfirm->SetValue( strMsg, 3 );
+
+				}
+			}
+			break;
+	}
+
+	return CWndNeuz::OnChildNotify( message, nID, pLResult ); 
+} 
 
 //////////////////////////////////////////////////////////////////////////
 // CWndHeavenTowerEntranceConfirm Class
