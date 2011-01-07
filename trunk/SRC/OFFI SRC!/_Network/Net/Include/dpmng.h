@@ -172,7 +172,7 @@ inline BOOL CDPMng::Send( LPVOID lpData, DWORD dwDataSize, DPID dpidTo )
 	if( !m_pDPSock )
 		return FALSE;
 	char * pTemp = (char *)lpData + sizeof(DWORD);
-	if(*((DWORD *)pTemp) != PACKETTYPE_PING && *((DWORD *)lpData) != PACKETTYPE_PING)
+	if(*((DWORD *)pTemp) != PACKETTYPE_PING && *((DWORD *)lpData) != PACKETTYPE_PING && *((DWORD *)pTemp) != 0xffffff01)
 	{
 		int a = 1;
 	}
