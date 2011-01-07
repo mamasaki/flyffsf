@@ -365,7 +365,7 @@ void CDPClient::OnSnapshot( CAr & ar )
 #ifdef __TRAFIC_1218
 		m_traficLog.Add( (BYTE)( hdr ) );
 #endif	// __TRAFIC_1218
-//		TRACE( "hdr = %04x, cb = %d\n", hdr, cb );
+		OUTPUTDEBUGSTRING( "hdr = %04x, cb = %d\n", hdr, cb );
 		g_hdr = (BYTE)( hdr );
 
 		switch( hdr )
@@ -4075,6 +4075,7 @@ void CDPClient::OnCreateSfxAllow( OBJID objid, CAr & ar )
 void CDPClient::OnDefinedText( CAr & ar )
 {
 	TCHAR lpString[1024], argv[32][256], *pargv[32];
+	ZeroMemory(pargv, sizeof(pargv));
 	int argc	= 0;
 
 	DWORD dwText;
@@ -4112,6 +4113,8 @@ void CDPClient::OnDefinedText( CAr & ar )
 	}
 
 	CString string;
+	if( dwText == 0xbf7) //fix crash when gain exp box
+		return;
 	string.FormatV( prj.GetText( dwText ), (va_list) pargv );
 
 #if __VER >= 8 //__Y_CHAT_SYSTEM_8
