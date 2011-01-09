@@ -1463,7 +1463,7 @@ void CDPClient::OnChat( OBJID objid, CAr & ar )
 			if( pMover->IsMode(GCWAR_RENDER_SKIP_MODE) )
 				return;
 		}
-		if( strlen( szBuf ) && ( szBuf[ 0 ] == '/' || szBuf[ 0 ] == '!' ) )
+		if( strlen( szBuf ) && ( szBuf[ 0 ] == '/' || szBuf[ 0 ] == '!' || szBuf[ 0 ] == '#' ) )
 			g_DialogMsg.AddMessage( pMover, szBuf );
 		else
 		{

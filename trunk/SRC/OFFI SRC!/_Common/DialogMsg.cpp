@@ -839,20 +839,24 @@ void CDialogMsg::AddMessage( CObj* pObj, LPCTSTR lpszMessage, DWORD RGB, int nKi
 			}
 		}
 */
-		if( scanner.Token == "/" )
+		if( lpszMessage[0] == 0x23 )
 		{			
-			CString strstr = lpszMessage;
-			scanner.GetToken();
-			for( int j=0; j < MAX_EMOTICON_NUM; j++ )
-			{
-				CString strstr2 = "/";
-				strstr2+=m_EmiticonCmd[ j ].m_szCommand;
-				if( strstr.GetLength() > 0 && strstr == strstr2 )
-				{
-					AddEmoticonUser( pObj, m_EmiticonCmd[ j ].m_dwIndex );
-					return;
-				}
-			}
+			//CString strstr = lpszMessage;
+			//scanner.GetToken();
+			//for( int j=0; j < MAX_EMOTICON_NUM; j++ )
+			//{
+			//	CString strstr2 = "#";
+			//	strstr2+=m_EmiticonCmd[ j ].m_szCommand;
+			//	if( strstr.GetLength() > 0 && strstr == strstr2 )
+			//	{
+			//		AddEmoticonUser( pObj, m_EmiticonCmd[ j ].m_dwIndex );
+			//		return;
+			//	}
+			//}
+			//char* Index = ++lpszMessage;
+			int nEmoticonIdx = atoi(++lpszMessage);
+			AddEmoticonUser( pObj, nEmoticonIdx );
+			return;
 		}		
 		else
 		if( scanner.Token == "!" )
