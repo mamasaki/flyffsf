@@ -2020,6 +2020,8 @@ BOOL CWndEdit::GetResultString()
 BOOL CWndEdit::GetCompString(LONG flag)
 {
     int len = g_imeMgr.GetCompositon(NULL, 0);
+	if(len <= 0)
+		return FALSE;
     LPSTR str = (LPSTR)_alloca(len);
     BYTE* attr = (BYTE*)_alloca(len);
 
