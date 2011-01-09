@@ -1232,7 +1232,7 @@ void CMover::RenderName( LPDIRECT3DDEVICE9 pd3dDevice, CD3DFont* pFont, DWORD dw
 
 	BOOL  bOtherColor = FALSE;
 	DWORD dwNewColor;
-
+	CString strCoupleName;
 	if( IsPlayer() )
 	{
 		if( GetWorld()->GetID() == WI_WORLD_GUILDWAR && g_pPlayer->GetGuild() && GetGuild() )
@@ -1267,10 +1267,9 @@ void CMover::RenderName( LPDIRECT3DDEVICE9 pd3dDevice, CD3DFont* pFont, DWORD dw
 			strcpy( szName, (LPCTSTR)strName );
 		}	
 		
+		
 		if(g_pPlayer->GetId() == GetId())
-		{
-			CString strName;
-			strName = szName;
+		{		
 			CCouple* pCouple = CCoupleHelper::Instance()->GetCouple();
 			if(pCouple != NULL)
 			{
@@ -1278,9 +1277,8 @@ void CMover::RenderName( LPDIRECT3DDEVICE9 pd3dDevice, CD3DFont* pFont, DWORD dw
 				const char* name = CPlayerDataCenter::GetInstance()->GetPlayerString( id );
 				if(name != NULL)
 				{
-					strName += name;
-					strName += "돨졔훙 ";
-					strcpy( szName, (LPCTSTR)strName );
+					strCoupleName += name;
+					strCoupleName += "돨졔훙";
 				}
 			}
 		}
@@ -1289,11 +1287,8 @@ void CMover::RenderName( LPDIRECT3DDEVICE9 pd3dDevice, CD3DFont* pFont, DWORD dw
 			CString name;
 			if(CPlayerDataCenter::GetInstance()->GetCoupleInfo(m_idPlayer,name ))
 			{
-				CString strName;
-				strName = szName;
-				strName += name;
-				strName += "돨졔훙 ";
-				strcpy( szName, (LPCTSTR)strName );
+				strCoupleName += name;
+				strCoupleName += "돨졔훙";
 			}
 		}
 		
@@ -1443,6 +1438,7 @@ void CMover::RenderName( LPDIRECT3DDEVICE9 pd3dDevice, CD3DFont* pFont, DWORD dw
 			dwColor = dwNewColor;
 		
 		pFont->DrawText( (FLOAT)( point.x ), (FLOAT)( point.y ), dwColor, szName );
+		
 
 		if( IsMode( EVENT_OLDBOY_MODE ) )
 		{
@@ -1605,7 +1601,7 @@ void CMover::RenderName( LPDIRECT3DDEVICE9 pd3dDevice, CD3DFont* pFont, DWORD dw
 		point.y = (LONG)( vOut.y );
 		MakeEven( point.x );	
 		point.x -= pFont->GetTextExtent( pGuild->m_szGuild ).cx / 2;
-		point.y -= 32;
+		point.y -= 34;
 		point.x -= 3;
 
 #if __VER < 8 // __S8_PK
@@ -1616,7 +1612,7 @@ void CMover::RenderName( LPDIRECT3DDEVICE9 pd3dDevice, CD3DFont* pFont, DWORD dw
 
 		CWndWorld* pWndWorld = (CWndWorld*)g_WndMng.GetWndBase( APP_WORLD );				
 		// 길드마스터면 길드명을 노란색으로 출력
-		dwColor = 0xFFFFFFFF;
+		dwColor = D3DCOLOR_XRGB( 94,154,147 );
 		if( pGuild->IsMaster(m_idPlayer))
 			dwColor = 0xFFFFFF99;
 		else
@@ -1751,6 +1747,23 @@ void CMover::RenderName( LPDIRECT3DDEVICE9 pd3dDevice, CD3DFont* pFont, DWORD dw
 		}
 #endif // CLIENT
 	}
+	if(!strCoupleName.IsEmpty())
+	{
+		point.x = (LONG)( vOut.x );
+		point.y = (LONG)( vOut.y );
+		MakeEven( point.x );	
+		point.x -= pFont->GetTextExtent( strCoupleName ).cx / 2;
+		
+		point.x -= 3;
+		if( pGuild && bSkip == FALSE)
+		{
+			point.y -= 48;
+		}
+		else
+			point.y -= 32;
+		pFont->DrawText( (FLOAT)( point.x ), (FLOAT)( point.y ), D3DCOLOR_XRGB( 160,30, 160 ), strCoupleName );
+	}
+
 }
 
 // 전투교전중인 상태 표시
@@ -1830,6 +1843,17 @@ void CMover::RenderHP(LPDIRECT3DDEVICE9 pd3dDevice)
 		&GetWorld()->m_pCamera->m_matView, &matWorld);
 	
 	vOut.y -= 34;
+	CGuild* pGuild = GetGuild();	
+
+	BOOL bSkip = FALSE;
+	// 운영자이고 변신중이면 길드명과 로고를 안그린다.
+	if( IsAuthHigher( AUTH_GAMEMASTER ) == TRUE )
+	{
+		if( HasBuffByIk3(IK3_TEXT_DISGUISE) )
+			bSkip = TRUE;
+	}
+	if(pGuild && bSkip == FALSE)
+		vOut.y -= 16;
 	int nGaugeWidth = 80;
 	CPoint point( (int)( vOut.x - nGaugeWidth / 2 ), (int)( vOut.y - 3 ) );
 	CRect rect( point.x - 2, point.y - 2, point.x + nGaugeWidth + 2, point.y + 5 + 2);

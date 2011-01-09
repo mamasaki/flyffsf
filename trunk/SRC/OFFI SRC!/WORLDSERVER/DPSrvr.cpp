@@ -11104,11 +11104,13 @@ void	CDPSrvr::OnAwakening( CAr & ar, DPID dpidCache, DPID dpidUser, LPBYTE lpBuf
 				pUser->AddDefinedText( TID_GAME_INVALID_TARGET_ITEM );
 				return;
 			}
+			/*
 			if( g_xRandomOptionProperty->GetRandomOptionSize( pItem->GetRandomOptItemId() ) > 0 )
 			{
 				pUser->AddDefinedText( TID_GAME_AWAKE_OR_BLESSEDNESS01 );
 				return;
 			}
+			*/
 			g_xRandomOptionProperty->InitializeRandomOption( pItem->GetRandomOptItemIdPtr() );
 			g_xRandomOptionProperty->GenRandomOption( pItem->GetRandomOptItemIdPtr(), nRandomOptionKind, pItem->GetProp()->dwParts );
 			pUser->UpdateItemEx( (BYTE)( pItem->m_dwObjId ), UI_RANDOMOPTITEMID, pItem->GetRandomOptItemId() );
@@ -11663,9 +11665,10 @@ BOOL CDPSrvr::DoUseItemTarget_GenRandomOption(
 	if( 
 #if __VER >= 12 // __J12_0
 		// 여신의 축복과 먹펫 각성은 각성 취소 없이 덮어 쓸 수 있게 한다
-		nKind != CRandomOptionProperty::eBlessing && nKind != CRandomOptionProperty::eEatPet &&
+		nKind != CRandomOptionProperty::eBlessing && nKind != CRandomOptionProperty::eEatPet 
 #endif	// __J12_0
-		g_xRandomOptionProperty->GetRandomOptionSize( pTarget->GetRandomOptItemId() ) > 0
+		&& g_xRandomOptionProperty->GetRandomOptionSize( pTarget->GetRandomOptItemId() ) > 0
+		&& nKind != CRandomOptionProperty::eAwakening
 	)
 	{
 		pUser->AddDefinedText( nHasOption );

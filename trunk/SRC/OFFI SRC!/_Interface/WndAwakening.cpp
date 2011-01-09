@@ -179,6 +179,7 @@ BOOL CWndAwakening::OnDropIcon( LPSHORTCUT pShortcut, CPoint point )
 		g_WndMng.OpenMessageBox( prj.GetText( TID_GAME_INVALID_TARGET_ITEM ) );
 		return FALSE;
 	}
+	/*
 	if( g_xRandomOptionProperty->GetRandomOptionSize( pTempElem->GetRandomOptItemId() ) > 0 )
 	{
 		// 이미 각성된 아이템입니다.
@@ -186,7 +187,7 @@ BOOL CWndAwakening::OnDropIcon( LPSHORTCUT pShortcut, CPoint point )
 		g_WndMng.OpenMessageBox( prj.GetText( TID_GAME_AWAKE_OR_BLESSEDNESS01 ) );
 		return FALSE;
 	}
-	
+	*/
 	if(pTempElem != NULL)
 	{
 		if(m_pItemElem) m_pItemElem->SetExtra(0);
