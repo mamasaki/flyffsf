@@ -868,6 +868,9 @@
 #define APP_ADDBUFF2_ROOM                         2030
 #define APP_COUPLE_TALK                         2031
 #define APP_NEW                         2032
+#define APP_CHUANSONG1                         2033
+#define APP_CHUANSONG2                         2034
+#define APP_CHUANSONG3                         2035
 // Control Id
 #define WIDC_STATIC_2ND_PASSWORD_CONFIRM866000000000000000000000000000000000000000000000000
 #define WIDC_EDIT_USER_MARK_NAME_CHANGER935000000
