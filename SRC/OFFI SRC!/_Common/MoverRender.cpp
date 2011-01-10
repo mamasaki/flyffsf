@@ -1021,8 +1021,19 @@ void CMover::RenderTurboGauge( LPDIRECT3DDEVICE9 pd3dDevice, DWORD nColor, int n
 		&GetWorld()->m_pCamera->m_matView, &matWorld);
 	
 //	vOut.y -= 40;
+	CGuild* pGuild = GetGuild();	
+
+	BOOL bSkip = FALSE;
+	// 운영자이고 변신중이면 길드명과 로고를 안그린다.
+	if( IsAuthHigher( AUTH_GAMEMASTER ) == TRUE )
+	{
+		if( HasBuffByIk3(IK3_TEXT_DISGUISE) )
+			bSkip = TRUE;
+	}
+	if(pGuild && bSkip == FALSE)
+		vOut.y -= 16;
 	
-	CPoint point( (LONG)( vOut.x - 80 / 2 ), (LONG)( vOut.y - 40 - 3 ) );		// 게이지 width 100
+	CPoint point( (LONG)( vOut.x - 80 / 2 ), (LONG)( vOut.y - 45 - 3 ) );		// 게이지 width 100
 	CPoint p = CPoint( point.x - 2, point.y - 2 );
 
 	MakeEven( p.x );
