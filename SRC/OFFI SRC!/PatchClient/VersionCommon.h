@@ -214,9 +214,9 @@
 		#define __COUNTRY CNTRY_USA
 		#define	__VER 15
 		const int PATCH_VERSION = 11;
-		#define WEB_FIRST_PAGE  "http://www.ffworld.com.cn/news/a/youxixinwen/"
+		#define WEB_FIRST_PAGE  "http://www.ffworld.com.cn/shell/shell.html"
 		#define SERVER_ROOT     "patch"
-		#define PATCHSEVER_URL  "update.ffworld.com.cn"
+		#define PATCHSEVER_URL  "download.ffworld.com.cn"
 		#define HOME_LINK       "http://www.ffworld.com.cn/"
 		#define VERSION_NAME	""
 	#elif defined(__LANG_ENG_USATEST)

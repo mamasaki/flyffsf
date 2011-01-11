@@ -141,8 +141,8 @@ BOOL CWndCoupleTalk::OnChildNotify( UINT message, UINT nID, LRESULT* pLResult )
 			{
 				CWndEdit* pWndEdit2 = (CWndEdit*)GetDlgItem( WIDC_EDIT2 );
 				CString stPropose( pWndEdit2->m_string);
-				if(stPropose.GetLength()>48)
-					g_WndMng.PutString( "对不起，告白内容不能超过24个中文字符。", NULL, prj.GetTextColor( TID_GAME_NOTCOUPLETARGET ) );
+				if(stPropose.GetLength()>30)
+					g_WndMng.PutString( "对不起，告白内容不能超过15个中文字符。", NULL, prj.GetTextColor( TID_GAME_NOTCOUPLETARGET ) );
 				else
 				{
 					//添加发送消息
