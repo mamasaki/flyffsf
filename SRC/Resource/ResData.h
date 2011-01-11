@@ -821,6 +821,7 @@
 #define APP_INFO_EVENT                                                  1031
 #define APP_INFO_VERSION                                                1032
 #define APP_INFO_SCHEDULE                                               1033
+#define APP_INFO_VIP	                                                1034
 #define APP_HELPER_HELP                                                 1040
 #define APP_HELPER_TIP                                                  1041
 #define APP_HELPER_FAQ                                                  1042
@@ -1599,5 +1600,10 @@
 #define WIDC_BTN_TELEPORTER             1332
 #define WIDC_BTN_UPKEEP                 1333
 #define WIDC_STATIC611                  1336
-
+#define WIDC_USE_0						1337
+#define WIDC_USE_1						1338
+#define WIDC_USE_2						1339
+#define WIDC_USE_3						1340
+#define WIDC_USE_4						1341
+#define WIDC_USE_5						1342
 #endif
