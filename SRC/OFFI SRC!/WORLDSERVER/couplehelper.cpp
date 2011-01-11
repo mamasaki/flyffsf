@@ -204,7 +204,7 @@ void CCoupleHelper::OnCoupleResult( CAr & ar )
 			g_UserMng.SandCoupleInfo(pTarget,1, pszProposer);
 		}
 		CString szString;
-		szString.Format("玩家 %s 与玩家 %s 结为了情侣，大家祝福他们！",pProposer->GetName(),pTargetr->GetName());
+		szString.Format("玩家 %s 与玩家 %s 结为了情侣，大家祝福他们！",pProposer->GetName(),pTarget->GetName());
 		g_DPCoreClient.SendSystem( szString );
 	}
 	else
