@@ -57,7 +57,7 @@
 	 Step. 3 - map에 Add하기. 마지막 필드의 툴팁 세팅은 Resource\textClient.inc를 참고. 
 */
    
-
+#include "WndVIP.h"
 
 
 DECLAREAPPLET( AppMain_WndNavigator    , new CWndNavigator   );
@@ -88,6 +88,7 @@ DECLAREAPPLET( AppMain_WndOptWindow    , new CWndOptWindow   );
 DECLAREAPPLET( AppMain_WndOptMyInfo    , new CWndOptMyInfo   );
 DECLAREAPPLET( AppMain_WndOption       , new CWndTotalOption );
 DECLAREAPPLET( AppMain_WndInfoNotice   , new CWndInfoNotice  );
+DECLAREAPPLET( AppMain_WndVIP		   , new CWndVIP  );
 DECLAREAPPLET( AppMain_WndHelpHelp     , new CWndHelp        );
 DECLAREAPPLET( AppMain_WndHelpTip      , new CWndHelpTip     );
 DECLAREAPPLET( AppMain_WndHelpFAQ      , new CWndHelpFAQ     );
@@ -234,6 +235,7 @@ void CWndMgr::AddAllApplet()
 	AddAppletFunc( AppMain_WndOption	   , APP_OPTIONEX				 , _T( "WndOption" )	   , _T( "Icon_Applet.dds" )	   , GETTEXT( TID_APP_OPTION				),	0  );			
 
 	AddAppletFunc( AppMain_WndInfoNotice   , APP_INFO_NOTICE             , _T( "WndInfoNotice" )   , _T( "Icon_Applet.dds" )       , GETTEXT( TID_TIP_INFO_NOTICE           ),  0  );
+	AddAppletFunc( AppMain_WndVIP   , APP_INFO_VIP             , _T( "WndVIP" )   , _T( "Icon_Applet.dds" )       , GETTEXT( TID_TIP_INFO_NOTICE           ),  'V'  );
 	AddAppletFunc( AppMain_WndHelpHelp     , APP_HELPER_HELP             , _T( "WndHelpHelp" )     , _T( "Icon_HelperHelp.dds" )   , GETTEXT( TID_TIP_HELPER_HELP           ),  0  );
 	AddAppletFunc( AppMain_WndHelpTip      , APP_HELPER_TIP              , _T( "WndHelpTip" )      , _T( "Icon_HelperTip.dds" )    , GETTEXT( TID_TIP_HELPER_TIP            ),  0  );
 	AddAppletFunc( AppMain_WndHelpFAQ      , APP_HELPER_FAQ              , _T( "WndHelpFAQ" )      , _T( "Icon_HelperFAQ.dds" )    , GETTEXT( TID_TIP_HELPER_FAQ            ),  0  );
