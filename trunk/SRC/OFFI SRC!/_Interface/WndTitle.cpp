@@ -2734,9 +2734,9 @@ DWORD IsValidPlayerName( CString& strName )
 	strName.TrimRight();
 
 	LPCTSTR lpszString = strName;
-	if( strName.IsEmpty() )
+	if( strName.IsEmpty() || strName.Find(" ") != -1 )
 		return TID_DIAG_0031;			// "이름을 입력하십시오."
-
+	
 #ifdef __RULE_0615
 	// "이름은 한글 2자 이상, 8자 이하로 입력하십시오."
 	// "이름은 영문 4자 이상, 16자 이하로 입력하십시오."
