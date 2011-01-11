@@ -112,7 +112,7 @@
 			/>
 			<Tool
 				Name="VCPostBuildEventTool"
-				CommandLine="copy .\..\..\Output\Neuz\NoGameguard\Neuz.exe D:\Client\client\Neuz.exe "
+				CommandLine=""
 			/>
 		</Configuration>
 		<Configuration
