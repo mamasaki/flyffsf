@@ -112,6 +112,7 @@
 			/>
 			<Tool
 				Name="VCPostBuildEventTool"
+				CommandLine="copy .\..\..\Output\Neuz\NoGameguard\Neuz.exe D:\Client\client\Neuz.exe "
 			/>
 		</Configuration>
 		<Configuration
@@ -6301,6 +6302,18 @@
 						</File>
 						<File
 							RelativePath="..\_Interface\WndPiercing.h"
+							>
+						</File>
+					</Filter>
+					<Filter
+						Name="VIP"
+						>
+						<File
+							RelativePath="..\_Interface\WndVIP.cpp"
+							>
+						</File>
+						<File
+							RelativePath="..\_Interface\WndVIP.h"
 							>
 						</File>
 					</Filter>
