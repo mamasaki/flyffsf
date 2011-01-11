@@ -124,7 +124,7 @@ CNeuzApp::CNeuzApp()
 	m_dwCreationWidth  = FULLSCREEN_WIDTH;
 	m_dwCreationHeight = FULLSCREEN_HEIGHT - GetSystemMetrics( SM_CYMENU );
 
-	m_strWindowTitle  = _T( "FLYFF" );
+	m_strWindowTitle  = _T( "飞飞世界-有你有我 http://ffworld.com.cn" );
 	g_pD3dApp = this;
 
 	m_bLButtonDown = FALSE;

@@ -377,7 +377,7 @@ void CBetaPatchClientDlg::OnButtonStart()
 void CBetaPatchClientDlg::OnButtonRegister()
 {
 #if defined(__LANG_ENG_USA) || defined(__LANG_ENG_USATEST)
-	::ShellExecute(NULL, "open", "http://www.tritiumflyff.com/?page=register", NULL, ".", SW_SHOWNORMAL);
+	::ShellExecute(NULL, "open", "http://user.ffworld.com.cn/register.htm", NULL, ".", SW_SHOWNORMAL);
 #elif defined(__LANG_GER)
 	::ShellExecute(NULL, "open", "http://de.gpotato.eu/Account/AccReg.aspx", NULL, ".", SW_SHOWNORMAL);
 #elif defined(__LANG_FRA)
@@ -658,7 +658,7 @@ void CBetaPatchClientDlg::NewPatchClient()
 void CBetaPatchClientDlg::SetPatchVersionString( int nVersion )
 {
 	char szBuffer[256];
-	sprintf( szBuffer, "Tritium FlyFF %.1f %s", nVersion/10.0f, VERSION_NAME );
+	sprintf( szBuffer, "∑…∑… ¿ΩÁ %.1f %s", nVersion/10.0f, VERSION_NAME );
 	m_Static_MasqueradeVersion.SetText( szBuffer );
 }
 

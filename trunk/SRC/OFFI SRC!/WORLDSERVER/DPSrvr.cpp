@@ -11181,6 +11181,16 @@ void	CDPSrvr::OnNPCBuff( CAr & ar, DPID dpidCache, DPID dpidUser, LPBYTE lpBuf, 
 							pUser->AddDefinedText( TID_GAME_NPCBUFF_FAILED, "\"%s\"", pSkillProp->szName );
 							continue;
 						}
+
+						if(pSkillProp->dwID == SI_GEN_ADDEXP_LV02 && pUser->HasBuff(BUFF_SKILL, SI_GEN_ADDEXP_LV01))
+						{
+							pUser->RemoveBuff( BUFF_SKILL, SI_GEN_ADDEXP_LV01);
+						}
+
+						if( pSkillProp->dwID == SI_GEN_ADDDROP_LV02 && pUser->HasBuff(BUFF_SKILL, SI_GEN_ADDDROP_LV01) )
+						{
+							pUser->RemoveBuff( BUFF_SKILL, SI_GEN_ADDDROP_LV01);
+						}
 						
 						AddSkillProp* pAddSkillProp = prj.GetAddSkillProp( pSkillProp->dwSubDefine + vecNPCBuff[i].dwSkillLV - 1 );
 						if( pAddSkillProp )

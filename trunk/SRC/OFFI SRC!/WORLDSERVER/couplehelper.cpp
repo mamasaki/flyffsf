@@ -83,7 +83,7 @@ void CCoupleHelper::OnPropose( CUser* pUser, const char* szPlayer )
 	m_pdpClient->SendPropose( pUser->m_idPlayer, pTarget->m_idPlayer );
 	m_Propose[pUser->m_idPlayer] = stPropose;
 	CString szString;
-	szString.Format("%s 向 %s 告白：%s",pUser->GetName(),name,stPropose);
+	szString.Format("玩家 %s 向玩家 %s 发起了告白：%s",pUser->GetName(),name,stPropose);
 	g_DPCoreClient.SendSystem( szString );
 }
 
@@ -203,6 +203,9 @@ void CCoupleHelper::OnCoupleResult( CAr & ar )
 #endif	// __HONORABLE_TITLE			// 崔牢
 			g_UserMng.SandCoupleInfo(pTarget,1, pszProposer);
 		}
+		CString szString;
+		szString.Format("玩家 %s 与玩家 %s 结为了情侣，大家祝福他们！",pProposer->GetName(),pTargetr->GetName());
+		g_DPCoreClient.SendSystem( szString );
 	}
 	else
 	{
