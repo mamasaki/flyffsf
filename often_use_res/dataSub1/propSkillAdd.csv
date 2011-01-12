@@ -2311,7 +2311,7 @@ SA_EVE_ACCURACY_LV02,SI_GEN_EVE_ACCURACY,2,=,=,=,=,=,=,=,=,=,DST_ADJ_HITRATE,=,1
 SA_EVE_ACCURACY_LV03,SI_GEN_EVE_ACCURACY,3,=,=,=,=,=,=,=,=,=,DST_ADJ_HITRATE,=,20,=,=,=,=,=,=,=,=,=,=,=,=,=,=,=,=,3600000,=,1,1,600
 SA_EVE_ACCURACY_LV04,SI_GEN_EVE_ACCURACY,4,=,=,=,=,=,=,=,=,=,DST_ADJ_HITRATE,=,25,=,=,=,=,=,=,=,=,=,=,=,=,=,=,=,=,3600000,=,1,1,600
 SA_EVE_ACCURACY_LV05,SI_GEN_EVE_ACCURACY,5,=,=,=,=,=,=,=,=,=,DST_ADJ_HITRATE,=,30,=,=,=,=,=,=,=,=,=,=,=,=,=,=,=,=,3600000,=,1,1,600
-SA_EVE_ADDEXP_LV01,SI_GEN_ADDEXP_LV01,1,=,=,=,=,=,=,=,=,=,DST_STA,=,=,=,=,=,=,=,=,=,=,=,=,=,=,=,=,=,=,3600000,=,1,1,600
+SA_EVE_ADDEXP_LV01,SI_GEN_ADDEXP_LV01,1,=,=,=,=,=,=,=,=,=,DST_ADJ_HITRATE,=,=,=,=,=,=,=,=,=,=,=,=,=,=,=,=,=,=,3600000,=,1,1,600
 SA_EVE_ADDEXP_LV02,SI_GEN_ADDEXP_LV02,1,=,=,=,=,=,=,=,=,=,DST_ADJ_HITRATE,=,=,=,=,=,=,=,=,=,=,=,=,=,=,=,=,=,=,3600000,=,1,1,600
 SA_EVE_ADDDROP_LV01,SI_GEN_ADDDROP_LV01,1,=,=,=,=,=,=,=,=,=,DST_ADJ_HITRATE,=,=,=,=,=,=,=,=,=,=,=,=,=,=,=,=,=,=,3600000,=,1,1,600
 SA_EVE_ADDDROP_LV02,SI_GEN_ADDDROP_LV02,1,=,=,=,=,=,=,=,=,=,DST_ADJ_HITRATE,=,=,=,=,=,=,=,=,=,=,=,=,=,=,=,=,=,=,3600000,=,1,1,600
