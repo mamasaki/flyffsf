@@ -131,6 +131,25 @@ void CWndMessageBox::OnKeyUp(UINT nChar, UINT nRepCnt, UINT nFlags)
 {
 	if( nChar == VK_RETURN )
 	{
+		if( _tcscmp( m_wndText.m_string, _T( prj.GetText(TID_DIAG_0035) ) ) == 0 )
+		{
+			STARTUPINFO si = { 0, };
+			PROCESS_INFORMATION pi;
+			CString strCmd;
+			strCmd.Format("FFworld_Launcher.exe");
+
+		//	AfxMessageBox( strCmd );
+
+			if( FALSE == CreateProcess( NULL, strCmd.GetBuffer(0), NULL, NULL, FALSE, 0, NULL, NULL, &si, &pi ) )
+			{
+				//MessageBox( hWndMain, "Masquerade.exe 실행 못함", "에러", MB_OK );
+				ErrorMsg();
+				PostQuitMessage( 0 );
+				return ;
+			}
+			::PostMessage( g_Neuz.GetSafeHwnd(), WM_CLOSE, TRUE, 0 );
+		}
+
 		CWndLogin *pWndLogin = (CWndLogin *)g_WndMng.GetWndBase( APP_LOGIN );
 		if( pWndLogin )
 		{
@@ -157,7 +176,23 @@ BOOL CWndMessageBox::OnChildNotify( UINT message, UINT nID, LRESULT* pLResult )
 		case IDRETRY:    
 		case IDYES:
 			if( _tcscmp( m_wndText.m_string, _T( prj.GetText(TID_DIAG_0035) ) ) == 0 )
+			{
+				STARTUPINFO si = { 0, };
+				PROCESS_INFORMATION pi;
+				CString strCmd;
+				strCmd.Format("FFworld_Launcher.exe");
+
+			//	AfxMessageBox( strCmd );
+
+				if( FALSE == CreateProcess( NULL, strCmd.GetBuffer(0), NULL, NULL, FALSE, 0, NULL, NULL, &si, &pi ) )
+				{
+					//MessageBox( hWndMain, "Masquerade.exe 실행 못함", "에러", MB_OK );
+					ErrorMsg();
+					PostQuitMessage( 0 );
+					return false;
+				}
 				::PostMessage( g_Neuz.GetSafeHwnd(), WM_CLOSE, TRUE, 0 );
+			}
 			Destroy(); 
 			break;
 	}
@@ -207,7 +242,7 @@ BOOL CWndMessageBox::Create( LPCTSTR lpszMessage, UINT nType, const RECT& rect, 
 
 void CWndMessageBox::OnEnter( UINT nChar )
 {
-	if( IsDisable() )
+	if( !IsDisable() )
 		Destroy(); 
 }
 
