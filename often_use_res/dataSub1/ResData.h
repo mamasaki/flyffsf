@@ -821,6 +821,7 @@
 #define APP_INFO_EVENT                                                  1031
 #define APP_INFO_VERSION                                                1032
 #define APP_INFO_SCHEDULE                                               1033
+#define APP_INFO_VIP							                        1034
 #define APP_HELPER_HELP                                                 1040
 #define APP_HELPER_TIP                                                  1041
 #define APP_HELPER_FAQ                                                  1042
