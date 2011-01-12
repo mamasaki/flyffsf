@@ -316,7 +316,19 @@
 #define MMI_CHUANSONG1				177
 #define MMI_CHUANSONG2				178
 #define MMI_CHUANSONG3				179
-#define MAX_MOVER_MENU			    180
+#define	MMI_EXCHANGE_ZHAOHUANSHOU			180 // 무기 카드 교환
+#define	MMI_EXCHANGE_SHIQUCHONG			181 // 무기 카드 교환
+#define	MMI_EXCHANGE_FEIXINGQI			182 // 무기 카드 교환
+#define	MMI_EXCHANGE_PIFENG			183 // 무기 카드 교환
+#define	MMI_EXCHANGE_YANJING			184 // 무기 카드 교환
+#define	MMI_EXCHANGE_ZHUANGBEIGAIZAO			185 // 무기 카드 교환
+#define	MMI_EXCHANGE_JUTUAN			186 // 무기 카드 교환
+#define	MMI_EXCHANGE_ZAWU			187 // 무기 카드 교환
+#define	MMI_EXCHANGE_YANHUO			188 // 무기 카드 교환
+#define	MMI_EXCHANGE_QIQIU			189 // 무기 카드 교환
+#define	MMI_EXCHANGE_JINGLIAN			190 // 무기 카드 교환
+#define	MMI_EXCHANGE_XIAOHAOPIN			191 // 무기 카드 교환
+#define MAX_MOVER_MENU			    192
 
 
 #define MGI_APPELL_UP		0	// 호칭 업
