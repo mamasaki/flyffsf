@@ -152,7 +152,7 @@ void InitGlobalVars( HINSTANCE hInstance )
 		g_Neuz.m_bStartFullscreen = FALSE;	
 
 #if defined(__INTERNALSERVER ) || defined(__TESTSERVER)
-	strcpy( g_szProtocolVersion, "20110111" );
+	strcpy( g_szProtocolVersion, "20110113" );
 #endif
 
 	if( ::GetLanguage() == LANG_KOR )
@@ -407,8 +407,8 @@ BOOL InitApp()
 	g_Neuz.LoadOption();		// Neuz.ini¸¦ ·Îµù 	
 	//if( lstrlen( g_Option.m_IPAddress ) > 2 )
 		//lstrcpy( g_Neuz.m_lpCertifierAddr, g_Option.m_IPAddress );
-	//lstrcpy( g_Neuz.m_lpCertifierAddr, "login.ffworld.com.cn" );
-	lstrcpy( g_Neuz.m_lpCertifierAddr, "127.0.0.1" );
+	lstrcpy( g_Neuz.m_lpCertifierAddr, "login.ffworld.com.cn" );
+	//lstrcpy( g_Neuz.m_lpCertifierAddr, "127.0.0.1" );
 	//lstrcpy( g_Neuz.m_lpCertifierAddr, "61.147.110.196" );
 	
 	TestNetLib( g_Neuz.m_lpCertifierAddr, PN_CERTIFIER );

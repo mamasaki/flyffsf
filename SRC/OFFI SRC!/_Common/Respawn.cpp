@@ -451,7 +451,8 @@ u_long CRespawner::Spawn( CWorld* pWorld )
 			pi->m_cbTime--;									// 리스폰 타이머 시간 감소 
 			if( pi->m_cbTime < 0 )							// 0 이면 리스폰 시작
 			{
-				short nTime = (short)( ( pi->m_uTime * xRandom( 50, 150 ) ) / 100 );
+				//short nTime = (short)( ( pi->m_uTime * xRandom( 50, 150 ) ) / 100 );
+				short nTime = (short) pi->m_uTime;
 			#ifdef __S1108_BACK_END_SYSTEM
 				cb = 0;
 				if( pi->m_nGMIndex != 0 )
