@@ -2881,8 +2881,8 @@ void CNpcScript::Say( DWORD szMsg )
 	LPCTSTR lpszMsg = GetDialogText( szMsg );
 
 	Functions* pTable = m_pInfo->GetFunctions();
-	//pTable->Say( m_pInfo, lpszMsg );
-	pTable->Say( m_pInfo, "欢迎来到飞飞世界" );
+	pTable->Say( m_pInfo, lpszMsg );
+	//pTable->Say( m_pInfo, "欢迎来到飞飞世界" );
 }
 
 void CNpcScript::SayName(int nId,int nNameId,DWORD lpszStr,...)
@@ -2905,8 +2905,8 @@ void CNpcScript::Speak(int nId,DWORD szStr)
 	LPCTSTR lpszMsg = GetDialogText( szStr );
 
 	Functions* pTable = m_pInfo->GetFunctions();
-	//pTable->Speak( m_pInfo, nId, lpszMsg );
-	pTable->Speak( m_pInfo, nId, "欢迎来到飞飞世界" );
+	pTable->Speak( m_pInfo, nId, lpszMsg );
+	//pTable->Speak( m_pInfo, nId, "欢迎来到飞飞世界" );
 }
 
 void CNpcScript::SpeakName(int nId,int nNameId,DWORD szStr)

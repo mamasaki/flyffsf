@@ -1863,7 +1863,7 @@ BEGIN
     IDS_SUBLANG             "0"
     IDS_ENCRYPTPWD          "1"
     IDS_FAKEFULLMODE        "1"
-    IDS_MSGVER              "20070712"
+    IDS_MSGVER              "20110113"
     IDS_CACHE_PORT          "5400"
     IDS_SHOUTLIMIT_SECOND   "5000"
     IDS_SHOUTLIMIT_COUNT    "5"
