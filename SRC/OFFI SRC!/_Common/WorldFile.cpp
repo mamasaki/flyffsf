@@ -302,6 +302,10 @@ BOOL CWorld::LoadObject()
 	CString strLandName = m_szFileName;
 	CString strLandTemp;
 	strLandName.Delete( strLandName.GetLength() - 4, 4 );
+	if(strLandName.Compare("WdMadrigal") == 0)
+	{
+		strLandName.Compare("WdMadrigal");
+	}
 	strLandTemp.Format( "%s%s.dyo", m_szFilePath, strLandName );
 	CResFile file;
 

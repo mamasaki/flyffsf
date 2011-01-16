@@ -7969,6 +7969,12 @@ BOOL CWndWorld::OnDropIcon( LPSHORTCUT pShortcut, CPoint point )
 				}
 				else
 				{
+#if 1
+					SAFE_DELETE( g_WndMng.m_pWndInvenRemoveItem );
+					g_WndMng.m_pWndInvenRemoveItem = new CWndInvenRemoveItem;
+					g_WndMng.m_pWndInvenRemoveItem->Initialize( &g_WndMng, APP_INVEN_REMOVE_ITEM );
+					g_WndMng.m_pWndInvenRemoveItem->InitItem( pItemElem );
+#else
 					if( pItemElem->m_nItemNum == 1 )	// 갯수가 하나라면 그냥 떨군다.
 					{
 						g_WndMng.m_pWndDropConfirm = new CWndDropConfirm;
@@ -7996,6 +8002,7 @@ BOOL CWndWorld::OnDropIcon( LPSHORTCUT pShortcut, CPoint point )
 							pWndStatic->SetTitle( prj.GetText(TID_GAME_DROPITEMREMOVE2) );
 						}
 					}
+#endif
 				}
 				
 				return TRUE;

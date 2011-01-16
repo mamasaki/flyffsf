@@ -475,7 +475,6 @@ void CDialogMsg::Render( C2DRender* p2DRender )
 				nIndex = 0;
 
 				int i;
-				
 
 				if( lpCustomText->m_nKind == CHAT_SHOUT )
 				{
@@ -623,7 +622,7 @@ g_ShoutChat:
 				
 				lpCustomText->m_string.SetAlpha( nAlpha );
 //				p2DRender->TextOut_EditString( point.x, point.y, lpCustomText->m_string, 0, 0, 0 );
-				p2DRender->TextOut_EditString( (int)( x ), (int)( y ), lpCustomText->m_string, 0, 0, 0 );
+				p2DRender->TextOut_EditString2( (int)( x ), (int)( y ), lpCustomText->m_string, 0, 0, 0 );
 			}
 			}
 		}
@@ -839,26 +838,6 @@ void CDialogMsg::AddMessage( CObj* pObj, LPCTSTR lpszMessage, DWORD RGB, int nKi
 			}
 		}
 */
-		if( lpszMessage[0] == 0x23 )
-		{			
-			//CString strstr = lpszMessage;
-			//scanner.GetToken();
-			//for( int j=0; j < MAX_EMOTICON_NUM; j++ )
-			//{
-			//	CString strstr2 = "#";
-			//	strstr2+=m_EmiticonCmd[ j ].m_szCommand;
-			//	if( strstr.GetLength() > 0 && strstr == strstr2 )
-			//	{
-			//		AddEmoticonUser( pObj, m_EmiticonCmd[ j ].m_dwIndex );
-			//		return;
-			//	}
-			//}
-			//char* Index = ++lpszMessage;
-			int nEmoticonIdx = atoi(++lpszMessage);
-			AddEmoticonUser( pObj, nEmoticonIdx );
-			return;
-		}		
-		else
 		if( scanner.Token == "!" )
 		{
 			int nEmoticonIdx = scanner.GetNumber();

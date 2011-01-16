@@ -170,6 +170,8 @@ public:
 	DWORD GetTextColor() { return m_dwTextColor; }
 #ifdef __CLIENT
 	void TextOut_EditString( int x,int y, CEditString& strEditString, int nPos = 0, int nLines = 0, int nLineSpace = 0 );
+	void TextOut_EditString2( int x,int y, CEditString& strEditString, int nPos = 0, int nLines = 0, int nLineSpace = 0 );
+	bool DrawTextMotion(std::string& MotionCmd, CPoint pt, CPoint pt2);
 #endif
 	void TextOut( int x,int y, LPCTSTR pszString, DWORD dwColor = 0xffffffff, DWORD dwShadowColor = 0x00000000 );
 	void TextOut( int x,int y, int nValue, DWORD dwColor = 0xffffffff, DWORD dwShadowColor = 0x00000000 );
@@ -252,6 +254,226 @@ public:
 	
 	//CSize ComputeSize( CSize size );
 };
+//class CTextureMotion
+//{
+//public:
+//	DWORD m_dwNumber;
+//	CSize m_size;
+//	LPDIRECT3DTEXTURE9 m_pTexture;
+//	CTexture* m_ap2DTexture;
+//
+//	BOOL LoadScript( LPDIRECT3DDEVICE9 pd3dDevice, LPCTSTR pszFileName )
+//	{
+//		CScanner scanner;
+//		if( scanner.Load( pszFileName ) == FALSE )
+//		{
+//			Error( "%s not found", pszFileName );
+//			return FALSE;
+//		}
+//
+//		DWORD dwCount = 0;
+//		CTexture* pTexture;
+//		BOOL bMultiLang = FALSE;
+//
+//		do {
+//			scanner.GetToken();
+//			if(scanner.Token == "number")
+//			{	
+//				m_dwNumber = scanner.GetNumber();
+//				m_ap2DTexture = new CTexture[ m_dwNumber ];
+//			}
+//			else
+//				if( scanner.Token == "MULTI_LANGUAGE" )
+//				{
+//					bMultiLang = TRUE;
+//				}
+//				else
+//					if(scanner.Token == "texture")
+//					{	
+//						scanner.GetToken();	
+//
+//						TCHAR strFileName[MAX_PATH]; 
+//						strcpy(strFileName,scanner.token);	
+//						D3DCOLOR d3dKeyColor = scanner.GetHex();
+//						// 여기서 텍스춰 생성 (Create the texture using D3DX)
+//						D3DXIMAGE_INFO imageInfo;
+//
+//						if( bMultiLang )
+//						{
+//							LoadTextureFromRes( pd3dDevice, MakePath( "Theme\\", ::GetLanguage(), strFileName ), 
+//								D3DX_DEFAULT, D3DX_DEFAULT, D3DX_DEFAULT, 0, D3DFMT_UNKNOWN, //D3DFMT_A4R4G4B4, 
+//								D3DPOOL_MANAGED, D3DX_FILTER_TRIANGLE|D3DX_FILTER_MIRROR, 
+//								D3DX_FILTER_TRIANGLE|D3DX_FILTER_MIRROR, d3dKeyColor, &imageInfo, NULL, &m_pTexture );
+//						}
+//						else
+//						{
+//							LoadTextureFromRes( pd3dDevice, strFileName, 
+//								D3DX_DEFAULT, D3DX_DEFAULT, D3DX_DEFAULT, 0, D3DFMT_UNKNOWN, //D3DFMT_A4R4G4B4, 
+//								D3DPOOL_MANAGED, D3DX_FILTER_TRIANGLE|D3DX_FILTER_MIRROR, 
+//								D3DX_FILTER_TRIANGLE|D3DX_FILTER_MIRROR, d3dKeyColor, &imageInfo, NULL, &m_pTexture );
+//						}
+//
+//						m_size.cx = imageInfo.Width;
+//						m_size.cy = imageInfo.Height;
+//					}
+//					else
+//						if(scanner.Token == "data") // 좌표와 사이즈 
+//						{	
+//							if( dwCount >= m_dwNumber )
+//							{
+//							}
+//							pTexture = &m_ap2DTexture[ dwCount++ ];
+//							pTexture->m_size.cx = scanner.GetNumber();	
+//							pTexture->m_size.cy = scanner.GetNumber();	
+//							pTexture->m_fuLT = (FLOAT)scanner.GetNumber() / m_size.cx;
+//							pTexture->m_fvLT = (FLOAT)scanner.GetNumber() / m_size.cy;
+//							pTexture->m_fuRT = (FLOAT)scanner.GetNumber() / m_size.cx;
+//							pTexture->m_fvRT = (FLOAT)scanner.GetNumber() / m_size.cy;
+//							pTexture->m_fuLB = (FLOAT)scanner.GetNumber() / m_size.cx;
+//							pTexture->m_fvLB = (FLOAT)scanner.GetNumber() / m_size.cy;
+//							pTexture->m_fuRB = (FLOAT)scanner.GetNumber() / m_size.cx;
+//							pTexture->m_fvRB = (FLOAT)scanner.GetNumber() / m_size.cy;
+//							pTexture->m_pTexture = m_pTexture;
+//						}
+//						else
+//							if( scanner.Token == "pos" ) // 좌표
+//							{	
+//								if( dwCount >= m_dwNumber )
+//								{
+//								}
+//								pTexture = &m_ap2DTexture[ dwCount++ ];
+//								pTexture->m_size.cx = scanner.GetNumber();	
+//								pTexture->m_size.cy = scanner.GetNumber();	
+//								int x = scanner.GetNumber();
+//								int y = scanner.GetNumber();
+//								scanner.GetToken();
+//								if( scanner.Token == "h" ) 
+//								{
+//									pTexture->m_fuRT = (FLOAT) x / m_size.cx;
+//									pTexture->m_fvRT = (FLOAT) y / m_size.cy;
+//									pTexture->m_fuLT = (FLOAT) ( (FLOAT)x + pTexture->m_size.cx - 0 ) / (FLOAT)m_size.cx;
+//									pTexture->m_fvLT = (FLOAT) y / m_size.cy;
+//									pTexture->m_fuRB = (FLOAT) x / m_size.cx;
+//									pTexture->m_fvRB = (FLOAT) ( (FLOAT)y + pTexture->m_size.cy - 0 ) / (FLOAT)m_size.cy;
+//									pTexture->m_fuLB = (FLOAT) ( (FLOAT)x + pTexture->m_size.cx - 0 ) / (FLOAT)m_size.cx;
+//									pTexture->m_fvLB = (FLOAT) ( (FLOAT)y + pTexture->m_size.cy - 0 ) / (FLOAT)m_size.cy;
+//								}
+//								else
+//									if( scanner.Token == "v" ) 
+//									{
+//										pTexture->m_fuLB = (FLOAT) x / m_size.cx;
+//										pTexture->m_fvLB = (FLOAT) y / m_size.cy;
+//										pTexture->m_fuRB = (FLOAT) ( (FLOAT)x + pTexture->m_size.cx - 0 ) / (FLOAT)m_size.cx;
+//										pTexture->m_fvRB = (FLOAT) y / m_size.cy;
+//										pTexture->m_fuLT = (FLOAT) x / m_size.cx;
+//										pTexture->m_fvLT = (FLOAT) ( (FLOAT)y + pTexture->m_size.cy - 0 ) / (FLOAT)m_size.cy;
+//										pTexture->m_fuRT = (FLOAT) ( (FLOAT)x + pTexture->m_size.cx - 0 ) / (FLOAT)m_size.cx;
+//										pTexture->m_fvRT = (FLOAT) ( (FLOAT)y + pTexture->m_size.cy - 0 ) / (FLOAT)m_size.cy;
+//									}
+//									else
+//										if( scanner.Token == "hv" )	
+//										{
+//											pTexture->m_fuRB = (FLOAT) x / m_size.cx;
+//											pTexture->m_fvRB = (FLOAT) y / m_size.cy;
+//											pTexture->m_fuLB = (FLOAT) ( (FLOAT)x + pTexture->m_size.cx - 0 ) / (FLOAT)m_size.cx;
+//											pTexture->m_fvLB = (FLOAT) y / m_size.cy;
+//											pTexture->m_fuRT = (FLOAT) x / m_size.cx;
+//											pTexture->m_fvRT = (FLOAT) ( (FLOAT)y + pTexture->m_size.cy - 0 ) / (FLOAT)m_size.cy;
+//											pTexture->m_fuLT = (FLOAT) ( (FLOAT)x + pTexture->m_size.cx - 0 ) / (FLOAT)m_size.cx;
+//											pTexture->m_fvLT = (FLOAT) ( (FLOAT)y + pTexture->m_size.cy - 0 ) / (FLOAT)m_size.cy;
+//										}
+//										else
+//										{
+//											pTexture->m_fuLT = (FLOAT) x / m_size.cx;
+//											pTexture->m_fvLT = (FLOAT) y / m_size.cy;
+//											pTexture->m_fuRT = (FLOAT) ( (FLOAT)x + pTexture->m_size.cx - 0 ) / (FLOAT)m_size.cx;
+//											pTexture->m_fvRT = (FLOAT) y / m_size.cy;
+//											pTexture->m_fuLB = (FLOAT) x / m_size.cx;
+//											pTexture->m_fvLB = (FLOAT) ( (FLOAT)y + pTexture->m_size.cy - 0 ) / (FLOAT)m_size.cy;
+//											pTexture->m_fuRB = (FLOAT) ( (FLOAT)x + pTexture->m_size.cx - 0 ) / (FLOAT)m_size.cx;
+//											pTexture->m_fvRB = (FLOAT) ( (FLOAT)y + pTexture->m_size.cy - 0 ) / (FLOAT)m_size.cy;
+//										}
+//										pTexture->m_pTexture = m_pTexture;
+//							}
+//							else
+//								if(scanner.Token == "datauv") // uv 상태로 입력 
+//								{	
+//									if( dwCount >= m_dwNumber )
+//									{   
+//									}
+//									pTexture = &m_ap2DTexture[ dwCount++ ];
+//									pTexture->m_size.cx = scanner.GetNumber();	
+//									pTexture->m_size.cy = scanner.GetNumber();	
+//									pTexture->m_fuLT = scanner.GetFloat();
+//									pTexture->m_fvLT = scanner.GetFloat();
+//									pTexture->m_fuRT = scanner.GetFloat();
+//									pTexture->m_fvRT = scanner.GetFloat();
+//									pTexture->m_fuLB = scanner.GetFloat();
+//									pTexture->m_fvLB = scanner.GetFloat();
+//									pTexture->m_fuRB = scanner.GetFloat();
+//									pTexture->m_fvRB = scanner.GetFloat();
+//									pTexture->m_pTexture = m_pTexture;
+//								}
+//								else
+//									if(scanner.Token == "serialize")
+//									{	
+//										if( dwCount >= m_dwNumber )
+//										{
+//											Error( "%s 에러, 할당 :%d, 실제갯수 : %d", pszFileName, m_dwNumber, dwCount );
+//											return FALSE;
+//										}
+//										int nCnt = 0;
+//										int nFrame = scanner.GetNumber();	
+//										SIZE size;
+//										size.cx = scanner.GetNumber();	
+//										size.cy = scanner.GetNumber();	
+//										POINT start;
+//										start.x = scanner.GetNumber();	
+//										start.y = scanner.GetNumber();	
+//										POINT center;
+//										center.x = scanner.GetNumber();	
+//										center.y = scanner.GetNumber();	
+//
+//										int i; for( i = start.y; i < m_size.cy; i += size.cy )
+//										{
+//											int j; for(  j = start.x; j < m_size.cx; j += size.cx, nCnt++ )
+//											{
+//												if( nCnt < nFrame )
+//												{
+//
+//													if( dwCount >= m_dwNumber )
+//													{
+//														Error( "%s 에러, 할당 :%d, 실제갯수 : %d", pszFileName, m_dwNumber, dwCount );
+//														return FALSE;
+//													}
+//
+//													pTexture = &m_ap2DTexture[ dwCount ];
+//													dwCount++;
+//
+//													pTexture->m_size = size;	
+//													pTexture->m_ptCenter = center;
+//													int x = j;
+//													int y = i;
+//													pTexture->m_fuLT = (FLOAT) x / m_size.cx;
+//													pTexture->m_fvLT = (FLOAT) y / m_size.cy;
+//													pTexture->m_fuRT = (FLOAT) ( (FLOAT)x + pTexture->m_size.cx - 0 ) / (FLOAT)m_size.cx;
+//													pTexture->m_fvRT = (FLOAT) y / m_size.cy;
+//													pTexture->m_fuLB = (FLOAT) x / m_size.cx;
+//													pTexture->m_fvLB = (FLOAT) ( (FLOAT)y + pTexture->m_size.cy - 0 ) / (FLOAT)m_size.cy;
+//													pTexture->m_fuRB = (FLOAT) ( (FLOAT)x + pTexture->m_size.cx - 0 ) / (FLOAT)m_size.cx;
+//													pTexture->m_fvRB = (FLOAT) ( (FLOAT)y + pTexture->m_size.cy - 0 ) / (FLOAT)m_size.cy;
+//													pTexture->m_pTexture = m_pTexture;
+//												}
+//											}
+//										}
+//									}
+//		} while(scanner.tok!=FINISHED);
+//		return TRUE;
+//	}
+//
+//
+//};
+
 class CTexturePack
 {
 public:

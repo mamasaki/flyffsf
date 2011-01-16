@@ -487,8 +487,124 @@ BOOL C2DRender::RenderLine( CPoint pt1, CPoint pt2, DWORD dwColor1, DWORD dwColo
 	m_pd3dDevice->DrawPrimitive( D3DPT_LINELIST, 0, 1);
 	return TRUE;
 }
-
 void C2DRender::TextOut_EditString( int x,int y, CEditString& strEditString, int nPos, int nLines, int nLineSpace )
+{
+	SIZE size = m_pFont->GetTextExtent( strEditString );
+	size.cy = m_pFont->GetMaxHeight() * strEditString.GetLineCount();
+	CRect rect( x + m_ptOrigin.x, y + m_ptOrigin.y, x + m_ptOrigin.x + size.cx, y + m_ptOrigin.y + size.cy );
+	if( m_clipRect.RectLapRect( rect ) )
+	{
+		TCHAR strHan[3];
+		int nLength	 = strEditString.GetLength();
+		DWORD dwCurOffset;
+		x += m_ptOrigin.x;
+		y += m_ptOrigin.y;
+		int nBegin = x;
+		m_pFont->DrawText( (FLOAT)( x ), (FLOAT)( y ), 0, strEditString, nPos, nLines, nLineSpace );
+		if( nLines == 0 )
+			nLines = strEditString.GetLineCount();
+		int nMax = nPos + nLines;
+		if( nMax > (int)( strEditString.GetLineCount() ) )
+			nMax = strEditString.GetLineCount();
+
+		//nLines = nLength;
+		//int i; for( i = nPos; i < nPos + nLength; i++ )
+		int i; for( i = nPos; i < nMax; i++ )
+		{
+			CString string = strEditString.GetLine( i );
+			DWORD dwOffset = strEditString.GetLineOffset( i );
+			strHan[0] = 0;
+			dwCurOffset = 0;
+			const char* begin = string;
+			const char* end = begin + string.GetLength();
+			const char* iter = begin;
+
+			while(*iter && iter < end) 
+			{ 
+				DWORD dwColor = strEditString.m_adwColor[ dwOffset + iter-begin ];
+				DWORD dwStyle = strEditString.m_abyStyle[ dwOffset + iter-begin ];
+				WORD wCodePage = strEditString.m_awCodePage[ dwOffset + iter-begin ];
+
+				const char* next = CharNextEx(iter, wCodePage );
+
+				char temp[16];
+				memcpy(temp, iter, next-iter);
+				temp[next-iter] = 0;
+
+				SIZE size;
+				m_pFont->GetTextExtent( temp, &size, wCodePage );
+
+				iter = next;
+
+				if( *temp == 10 )		//gmpbigsun(100414) : pass a character 'ENTER'
+					continue;
+
+				// 블럭 잡은 스트링. 반전 출력 
+				if( dwStyle & ESSTY_BLOCK )
+				{
+					DWORD dwBkgr = dwColor;
+					dwColor = ~dwColor | 0xff000000; 
+					RenderFillRect( CRect( x - m_ptOrigin.x, y - m_ptOrigin.y, x + size.cx - m_ptOrigin.x, y + size.cy - m_ptOrigin.y ), 0xff000000 );
+					m_pFont->DrawText( (FLOAT)( x ), (FLOAT)( y ), dwColor, temp, 0, wCodePage );
+				}
+				if( dwStyle & ESSTY_SHADOW )
+				{
+					m_pFont->DrawText( (FLOAT)( x+2 ), (FLOAT)( y+1 ), 0xffcfcfcf, temp, 0, wCodePage );
+					m_pFont->DrawText( (FLOAT)( x+1 ), (FLOAT)( y ), dwColor, temp, 0, wCodePage );
+				}
+
+				if( dwStyle & ESSTY_BOLD )
+				{
+					if( ::GetLanguage() == LANG_THA )
+						m_pFont->DrawText( (FLOAT)( x ), (FLOAT)( y ), 0xff1010ff, temp, 0, wCodePage );
+					else
+						m_pFont->DrawText( (FLOAT)( x+1 ), (FLOAT)( y ), dwColor, temp, 0, wCodePage );
+				}
+
+				if( dwStyle & ESSTY_UNDERLINE )
+					RenderLine( CPoint( x - m_ptOrigin.x, y + size.cy - m_ptOrigin.y - 2 ), CPoint( x + size.cx - m_ptOrigin.x, y + size.cy - m_ptOrigin.y - 2 ), dwColor );
+				if( dwStyle & ESSTY_STRIKETHROUGH )
+					RenderLine( CPoint( x - m_ptOrigin.x, y + ( size.cy / 2 ) - m_ptOrigin.y ), CPoint( x + size.cx - m_ptOrigin.x, y + ( size.cy / 2 ) - m_ptOrigin.y ), dwColor );
+
+				x += size.cx;
+			}
+
+			x = nBegin;
+			y += m_pFont->GetMaxHeight() + nLineSpace;
+		}
+	}
+}
+
+bool C2DRender::DrawTextMotion(std::string& MotionCmd, CPoint pt, CPoint pt2)
+{
+	bool HasTextMotion = false;
+	int index = 0;
+	if(MotionCmd != "")
+	{
+		index = atoi(MotionCmd.c_str());
+		if ((!(0 > index))&&(index < 29))
+		{
+			HasTextMotion = true;
+		}
+	}
+		
+	if (HasTextMotion)
+	{
+		CTexture* pTex = g_DialogMsg.m_texEmoticonUser.GetAt( index );
+		pt += pTex->m_ptCenter;
+		pt -= m_ptOrigin;
+		//pt.x += 6;
+		RenderTexture( pt, pTex, 255, 0.6, 0.5); 
+		HasTextMotion = true;
+		return true;
+	}
+	else
+	{
+		return false;
+	}
+}
+
+void C2DRender::TextOut_EditString2( int x,int y, CEditString& strEditString, int nPos, int nLines, int nLineSpace )
 {
 	SIZE size = m_pFont->GetTextExtent( strEditString );
 	size.cy = m_pFont->GetMaxHeight() * strEditString.GetLineCount();
@@ -539,7 +655,57 @@ void C2DRender::TextOut_EditString( int x,int y, CEditString& strEditString, int
 
 				if( *temp == 10 )		//gmpbigsun(100414) : pass a character 'ENTER'
 					continue;
+				
+				if (*temp == 0x23)
+				{
+					const char * iter2 = iter;
+					
+					std::string tempMotionCode;
+					if (iter2 < end)
+					{
+						if (*iter2 == 0x20)
+						{
+							continue;
+						}
+						tempMotionCode = *iter2;
+					}
+					else
+					{
+						continue;
+					}
 
+					iter2 = CharNextEx(iter2, wCodePage );
+
+					if (iter2 < end)
+					{
+						if (*iter2 == 0x20)
+						{
+							continue;
+						}
+						tempMotionCode += *iter2;
+					}
+					else
+					{
+						continue;
+					}
+					
+					SIZE size;
+					LONG xSum;
+					m_pFont->GetTextExtent( tempMotionCode.c_str(), &size, wCodePage );
+					xSum = size.cx;
+					
+					CPoint pt, pt2;
+					pt.x = x;
+					pt.y = y;
+					pt2.x = xSum;
+					pt2.x = y;
+					if(DrawTextMotion(tempMotionCode, pt, pt2))
+					{
+						iter2 = CharNextEx(iter2, wCodePage );
+						iter = iter2;
+						x += xSum;
+					}
+				}
 				// 블럭 잡은 스트링. 반전 출력 
 				if( dwStyle & ESSTY_BLOCK )
 				{
