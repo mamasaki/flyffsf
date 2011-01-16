@@ -2729,7 +2729,7 @@ void CWndText::OnDraw( C2DRender* p2DRender )
 		}
 		BlockSetStyle(ESSTY_BLOCK);
 		//ptCaret = OffsetToPoint( m_dwOffset, m_szCaret );
-		p2DRender->TextOut_EditString( 0, 0, m_string, nPos, nLines, m_nLineSpace );
+		p2DRender->TextOut_EditString2( 0, 0, m_string, nPos, nLines, m_nLineSpace );
 	}
 	//SetCaretPos( ptCaret );
 	DrawCaret( p2DRender );

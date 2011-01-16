@@ -7218,6 +7218,7 @@ BOOL CWndMgr::PutRegInfo( LPWNDREGINFO lpRegInfo )
 }
 BOOL CWndMgr::SaveRegInfo( LPCTSTR lpszFileName )
 {
+	return true;//lq 20110116
 	CFileIO file;
 	if( file.Open( lpszFileName, "wb" ) == FALSE )
 		return FALSE;
