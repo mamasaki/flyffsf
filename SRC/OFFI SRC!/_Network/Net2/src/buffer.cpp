@@ -174,6 +174,8 @@ CBuffer* CBuffer::Fetch( CBuffer** ppRecvBuffer, DWORD dwBytes, CRC32* pcrc )
 				{
 					pOld	= *ppRecvBuffer;
 					pBuffer	= new CBuffer( uPacketSize );
+					if(pBuffer == NULL)
+						return NULL;
 				}
 				else
 				{
