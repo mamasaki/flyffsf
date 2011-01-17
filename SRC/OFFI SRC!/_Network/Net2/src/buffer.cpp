@@ -340,6 +340,8 @@ CBuffer2* CBuffer2::Fetch( CBuffer2** ppRecvBuffer, DWORD dwBytes, CRC32* pcrc )
 				{
 					pOld	= *ppRecvBuffer;
 					pBuffer	= new CBuffer2( uPacketSize );
+					if(pBuffer == NULL)
+						return NULL;
 				}
 				else
 				{
