@@ -378,7 +378,7 @@ void CDbManager::Join( CQuery* qry, CQuery* qry1, CQuery* qrylog, LPDB_OVERLAPPE
 	pMover->Lock();
 	// 캐릭터가 캐시에 없거나 새로고침이 설정되어 있으면
 	// 모든 정보를 복사한다
-	pMover->Copy( &mover, !bExists || bRefresh );
+	pMover->Copy( &mover, true );
 	// 캐릭터에 은행을 복사한다
 	for( int j = 0 ; j < 3 ; j++ )
 		pMover->m_Bank[j].Copy( pCache->m_Bank[j] );
