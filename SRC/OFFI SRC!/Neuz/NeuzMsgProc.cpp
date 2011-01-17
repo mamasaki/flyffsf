@@ -391,12 +391,6 @@ BOOL InitApp()
 	LPCTSTR szCPU = GetCPUInfo();
 
 
-	//////////////////////////////////////////////////////////////////////////
-	//	BEGINTEST100111	FFL_DUMP
-	ffl_dump_unexception_filter::install( ffl_dump_level_heavy );
-	//	ENDTEST100111	FFL_DUMP
-	//////////////////////////////////////////////////////////////////////////
-
 	#ifndef _DEBUG
 	{
 		InitEH();
@@ -430,6 +424,11 @@ void SkipPatch()
 
 int APIENTRY WinMain( HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine, int nCmdShow )
 {
+	//////////////////////////////////////////////////////////////////////////
+	//	BEGINTEST100111	FFL_DUMP
+	ffl_dump_unexception_filter::install( ffl_dump_level_heavy );
+	//	ENDTEST100111	FFL_DUMP
+	//////////////////////////////////////////////////////////////////////////
 #ifdef __LINK_PORTAL
 	g_bBuddyFlag = TRUE;
 #endif //__LINK_PORTAL
