@@ -116,6 +116,11 @@ void CBuffer::MessageHandler( CDPMng<CBuffer>* pDPMng, DPID dpidFrom )
 
 CBuffer* CBuffer::Fetch( CBuffer** ppRecvBuffer, DWORD dwBytes, CRC32* pcrc )
 {
+	if(!IsHeader( (BYTE)(*(*ppRecvBuffer)->m_pHead) ) || dwBytes< 5)
+	{
+		WSASetLastError( ERROR_BAD_NET_NAME );
+		return NULL;
+	}
 	crc( pcrc );	// m_pcrc
 
 	m_pTail		+= dwBytes;
