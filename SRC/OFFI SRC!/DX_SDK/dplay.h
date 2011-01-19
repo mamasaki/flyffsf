@@ -1521,13 +1521,13 @@ DECLARE_INTERFACE_( IDirectPlay4, IDirectPlay3 )
  * Use DPMSG_CREATEPLAYERORGROUP.  Check dwPlayerType to see if it
  * is a player or a group.
  */
-#define DPSYS_CREATEPLAYERORGROUP   0x0003  
+#define DPSYS_CREATEPLAYERORGROUP   0x8953  
 
 /*
  * A player has been deleted from the session
  * Use DPMSG_DESTROYPLAYERORGROUP
  */
-#define DPSYS_DESTROYPLAYERORGROUP  0x0005  
+#define DPSYS_DESTROYPLAYERORGROUP  0x8954  
 
 /*
  * A player has been added to a group
