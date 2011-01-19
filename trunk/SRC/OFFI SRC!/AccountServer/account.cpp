@@ -349,6 +349,11 @@ void CAccountMng::RemoveConnection( DWORD dpid1 )
 		while( i1 != m_adpidToPAccount[nIndex].end() )
 		{
 			pAccount	= i1->second;
+			if(pAccount == NULL)
+			{
+				++i1;
+				continue;
+			}
 			map<DWORD, CAccount*>::iterator	i2	= i1;
 			++i1;
 			m_adpidToPAccount[nIndex].erase( i2 );
