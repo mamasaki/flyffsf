@@ -19,13 +19,20 @@ inline DWORD	xRand( void )
 
 inline DWORD xRandom( DWORD num )
 {
+	if(num <= 0)
+		return 0;
 	return  xRand() % num;
 }
 
 DWORD		xRandom( DWORD min, DWORD max );	// min에서 max까지  
 float		xRandomF( float num );
 void		xSRand( DWORD seed );
-inline int	random( int nNum ) { return rand() % nNum; }
+inline int	random( int nNum ) 
+{
+	if(nNum <= 0)
+		return 0;
+	return rand() % nNum; 
+}
 
 /////////////////////////////////////////////////////////////////////////////
 // PATH
