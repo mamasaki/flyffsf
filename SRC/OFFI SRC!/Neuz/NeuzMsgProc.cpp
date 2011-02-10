@@ -496,6 +496,7 @@ int APIENTRY WinMain( HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdL
 	if( lstrcmp( g_Neuz.m_lpCertifierAddr, "204.2.134.13" ) == 0 )
 		WEB_ADDRESS_DEFAULT	= "http://test.billing.es.gpotato.com/charge/FlyffItemList.asp";
 	//	mulcom	END100318	칠레 테스트 서버 아이템샵 URL 변경
+	WEB_ADDRESS_DEFAULT	= "http://www.ffworld.com.cn";
 
 
 #ifdef __CERTIFIER_COLLECTING_SYSTEM

@@ -40,6 +40,11 @@ CWndWebBox::~CWndWebBox()
 }
 BOOL CWndWebBox::Initialize( CWndBase* pWndParent, DWORD nType )
 {
+	//фа╠нилЁг
+	/*m_rectOldBackup = CWndTaskBar::m_pWndRoot->m_rectLayout;
+		Destroy();
+		return FALSE;*/
+
 	if(g_WndMng.GetWndBase( APP_TRADE )) 
 	{
 		m_rectOldBackup = CWndTaskBar::m_pWndRoot->m_rectLayout;

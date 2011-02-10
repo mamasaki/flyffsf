@@ -725,7 +725,7 @@ void	CMotion :: AnimateBone( D3DXMATRIX *pmUpdateBone, CMotion *pMotionOld, floa
 		
 			// 쿼터니온 보간된 회전키값을 회전행렬로 만듦
 //for underflow crash
-#if 0
+#if 1
 			if(fabs(qSlerp.x) < 0.000001f)
 				qSlerp.x = qSlerp.x > 0 ? 0.000001f : -0.000001f;
 			if(fabs(qSlerp.y) < 0.000001f)
@@ -779,7 +779,7 @@ void	CMotion :: AnimateBone( D3DXMATRIX *pmUpdateBone, CMotion *pMotionOld, floa
 			
 				// 쿼터니온 보간된 회전키값을 회전행렬로 만듦
 //for underflow crash
-#if 0
+#if 1
 				if(fabs(qSlerp.x) < 0.000001f)
 					qSlerp.x = qSlerp.x > 0 ? 0.000001f : -0.000001f;
 				if(fabs(qSlerp.y) < 0.000001f)
