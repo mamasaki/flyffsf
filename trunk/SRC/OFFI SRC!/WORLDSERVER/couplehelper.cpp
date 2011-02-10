@@ -239,13 +239,20 @@ void  CCoupleHelper::OnCoupleInfo( CUser* pUser,CAr & ar )
 		pUser->SandCoupleInfo(pReq,0,NULL);
 		return;
 	}
+	
 	CUser* pPartner	= static_cast<CUser*>( prj.GetUserByID( pCouple->GetPartner(id ) ) );
 	if(!pPartner)
 	{
-		pUser->SandCoupleInfo(pReq,0,NULL);
 		return;
 	}
 	pUser->SandCoupleInfo(pReq,1,pPartner->GetName());
+	//ÇéÂÂbug
+	//PlayerData* pPlayerData = CPlayerDataCenter::GetInstance()->GetPlayerData( pCouple->GetPartner(id ) );
+	//if(!pPlayerData)
+	//{
+	//	return;
+	//}
+	//pUser->SandCoupleInfo(pReq,1,pPlayerData->szPlayer);
 }
 
 void CCoupleHelper::OnDecoupleResult( CAr & ar )
